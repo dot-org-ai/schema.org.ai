@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/WallaForm
+$context: https://schema.org.ai
+$type: Technology
+name: Walla Form
+description: Form platform for business automation
+url: https://wallaform.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Walla Form
+  url: https://wallaform.com
+zapierSlug: walla-form
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Walla Form
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Response.created
+- ChooseProject.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const wallaform = {
+  $type: 'Technology',
+  name: 'Walla Form',
+  url: 'https://wallaform.com'
+}
+
+await $.Technology.create(wallaform)
+```
+
+## Resources
+
+- [Walla Form](https://wallaform.com)
+- [Zapier Integration](https://zapier.com/apps/walla-form/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

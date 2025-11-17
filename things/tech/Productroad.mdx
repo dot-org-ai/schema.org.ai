@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Productroad
+$context: https://schema.org.ai
+$type: Technology
+name: Productroad
+description: Business platform for business automation
+url: https://productroad.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Productroad
+  url: https://productroad.com
+zapierSlug: productroad
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Productroad
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Post.created
+- PostStatus.unknown
+- Upvote.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const productroad = {
+  $type: 'Technology',
+  name: 'Productroad',
+  url: 'https://productroad.com'
+}
+
+await $.Technology.create(productroad)
+```
+
+## Resources
+
+- [Productroad](https://productroad.com)
+- [Zapier Integration](https://zapier.com/apps/productroad/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

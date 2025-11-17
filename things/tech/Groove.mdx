@@ -1,0 +1,82 @@
+---
+$id: https://tech.org.ai/Groove
+$context: https://schema.org.ai
+$type: Technology
+name: Groove
+description: Business platform for business automation
+url: https://groove.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Groove
+  url: https://groove.com
+zapierSlug: groove
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Groove
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.unknown
+- Ticket.unknown
+- Note.unknown
+- TicketClosed.unknown
+- TicketAssigned.unknown
+- TicketPriority.unknown
+- TicketTagged.unknown
+- AgentReplied.unknown
+- TicketState.unknown
+- TicketMoved.unknown
+- CustomerReplied.unknown
+- TicketOpened.unknown
+- AgentInvited.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const groove = {
+  $type: 'Technology',
+  name: 'Groove',
+  url: 'https://groove.com'
+}
+
+await $.Technology.create(groove)
+```
+
+## Resources
+
+- [Groove](https://groove.com)
+- [Zapier Integration](https://zapier.com/apps/groove/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

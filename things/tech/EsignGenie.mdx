@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/EsignGenie
+$context: https://schema.org.ai
+$type: Technology
+name: Esign Genie
+description: Document Management platform for business automation
+url: https://esigngenie.com
+applicationCategory: Document Management Software
+provider:
+  $type: Organization
+  name: Esign Genie
+  url: https://esigngenie.com
+zapierSlug: esign-genie
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Esign Genie
+
+Document Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Document.unknown
+- DocumentSigned.unknown
+- DocumentViewed.unknown
+- DocumentExecuted.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const esigngenie = {
+  $type: 'Technology',
+  name: 'Esign Genie',
+  url: 'https://esigngenie.com'
+}
+
+await $.Technology.create(esigngenie)
+```
+
+## Resources
+
+- [Esign Genie](https://esigngenie.com)
+- [Zapier Integration](https://zapier.com/apps/esign-genie/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

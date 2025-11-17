@@ -1,0 +1,85 @@
+---
+$id: https://tech.org.ai/ModernMaidIo
+$context: https://schema.org.ai
+$type: Technology
+name: Modern Maid Io
+description: Business platform for business automation
+url: https://modernmaidio.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Modern Maid Io
+  url: https://modernmaidio.com
+zapierSlug: modern-maid-io
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Modern Maid Io
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Customer.unknown
+- Job.unknown
+- Job.created
+- Quote.created
+- Quote.unknown
+- TimeOff.created
+- QuoteAccepted.unknown
+- PaidJob.unknown
+- Tech.created
+- Tech.unknown
+- QuoteRejected.unknown
+- JobCancelation.unknown
+- QuoteExpired.unknown
+- SubscriptionCancelation.unknown
+- JobAssignment.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const modernmaidio = {
+  $type: 'Technology',
+  name: 'Modern Maid Io',
+  url: 'https://modernmaidio.com'
+}
+
+await $.Technology.create(modernmaidio)
+```
+
+## Resources
+
+- [Modern Maid Io](https://modernmaidio.com)
+- [Zapier Integration](https://zapier.com/apps/modern-maid-io/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

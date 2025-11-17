@@ -1,0 +1,82 @@
+---
+$id: https://tech.org.ai/Vome
+$context: https://schema.org.ai
+$type: Technology
+name: Vome
+description: Business platform for business automation
+url: https://vome.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Vome
+  url: https://vome.com
+zapierSlug: vome
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Vome
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormSubmission.created
+- Reservation.created
+- Reservation.update
+- Reservation.delete
+- Profile.created
+- Profile.unknown
+- Profile.update
+- Profile.delete
+- Form.delete
+- Form.update
+- SequenceAssigned.created
+- Sequence.update
+- Sequence.delete
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const vome = {
+  $type: 'Technology',
+  name: 'Vome',
+  url: 'https://vome.com'
+}
+
+await $.Technology.create(vome)
+```
+
+## Resources
+
+- [Vome](https://vome.com)
+- [Zapier Integration](https://zapier.com/apps/vome/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

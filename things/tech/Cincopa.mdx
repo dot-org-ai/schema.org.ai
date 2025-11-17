@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Cincopa
+$context: https://schema.org.ai
+$type: Technology
+name: Cincopa
+description: Business platform for business automation
+url: https://cincopa.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Cincopa
+  url: https://cincopa.com
+zapierSlug: cincopa
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Cincopa
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Asset.created
+- Gallery.created
+- AssetSynced.unknown
+- UploadedAsset.created
+- GallerySynced.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const cincopa = {
+  $type: 'Technology',
+  name: 'Cincopa',
+  url: 'https://cincopa.com'
+}
+
+await $.Technology.create(cincopa)
+```
+
+## Resources
+
+- [Cincopa](https://cincopa.com)
+- [Zapier Integration](https://zapier.com/apps/cincopa/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

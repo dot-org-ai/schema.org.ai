@@ -1,0 +1,86 @@
+---
+$id: https://tech.org.ai/Loginradius
+$context: https://schema.org.ai
+$type: Technology
+name: Loginradius
+description: Communication platform for business automation
+url: https://loginradius.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Loginradius
+  url: https://loginradius.com
+zapierSlug: loginradius
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Loginradius
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Email.created
+- Registration.created
+- Account.unknown
+- Profile.unknown
+- PhoneNumber.unknown
+- PasswordReset.unknown
+- EmailVerified.unknown
+- Login.unknown
+- RolesAssigned.unknown
+- AccountBlocked.unknown
+- PasswordChanged.unknown
+- AccountLinked.unknown
+- PasswordSet.unknown
+- UserNameSet.unknown
+- RolesUnassigned.unknown
+- AccountUnlinked.unknown
+- Phone.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const loginradius = {
+  $type: 'Technology',
+  name: 'Loginradius',
+  url: 'https://loginradius.com'
+}
+
+await $.Technology.create(loginradius)
+```
+
+## Resources
+
+- [Loginradius](https://loginradius.com)
+- [Zapier Integration](https://zapier.com/apps/loginradius/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

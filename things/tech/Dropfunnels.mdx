@@ -1,0 +1,80 @@
+---
+$id: https://tech.org.ai/Dropfunnels
+$context: https://schema.org.ai
+$type: Technology
+name: Dropfunnels
+description: Business platform for business automation
+url: https://dropfunnels.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Dropfunnels
+  url: https://dropfunnels.com
+zapierSlug: dropfunnels
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Dropfunnels
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Order.created
+- Appointment.unknown
+- Course.unknown
+- SubscriptionOrder.created
+- CourseMember.created
+- CourseMember.unknown
+- CourseLesson.unknown
+- CourseModule.unknown
+- CourseUnit.unknown
+- QuizResult.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const dropfunnels = {
+  $type: 'Technology',
+  name: 'Dropfunnels',
+  url: 'https://dropfunnels.com'
+}
+
+await $.Technology.create(dropfunnels)
+```
+
+## Resources
+
+- [Dropfunnels](https://dropfunnels.com)
+- [Zapier Integration](https://zapier.com/apps/dropfunnels/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

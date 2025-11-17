@@ -1,0 +1,87 @@
+---
+$id: https://tech.org.ai/Acrual
+$context: https://schema.org.ai
+$type: Technology
+name: Acrual
+description: Accounting platform for business automation
+url: https://acrual.com
+applicationCategory: Accounting Software
+provider:
+  $type: Organization
+  name: Acrual
+  url: https://acrual.com
+zapierSlug: acrual
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Acrual
+
+Accounting platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Invoice.created
+- Invoice.update
+- Client.created
+- Client.update
+- Job.created
+- Job.update
+- Quote.created
+- Quote.update
+- TimeEntry.created
+- Employee.created
+- Employee.update
+- PurchaseOrder.created
+- Supplier.created
+- Supplier.update
+- Time.update
+- Purchase.update
+- Variation.created
+- Variation.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const acrual = {
+  $type: 'Technology',
+  name: 'Acrual',
+  url: 'https://acrual.com'
+}
+
+await $.Technology.create(acrual)
+```
+
+## Resources
+
+- [Acrual](https://acrual.com)
+- [Zapier Integration](https://zapier.com/apps/acrual/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

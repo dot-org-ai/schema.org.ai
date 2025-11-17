@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/CaptisaForms
+$context: https://schema.org.ai
+$type: Technology
+name: Captisa Forms
+description: Form platform for business automation
+url: https://captisaforms.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Captisa Forms
+  url: https://captisaforms.com
+zapierSlug: captisa-forms
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Captisa Forms
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Entry.created
+- Entry.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const captisaforms = {
+  $type: 'Technology',
+  name: 'Captisa Forms',
+  url: 'https://captisaforms.com'
+}
+
+await $.Technology.create(captisaforms)
+```
+
+## Resources
+
+- [Captisa Forms](https://captisaforms.com)
+- [Zapier Integration](https://zapier.com/apps/captisa-forms/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

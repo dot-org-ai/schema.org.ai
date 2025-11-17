@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/V7Go
+$context: https://schema.org.ai
+$type: Technology
+name: V7 Go
+description: Business platform for business automation
+url: https://v7go.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: V7 Go
+  url: https://v7go.com
+zapierSlug: v7-go
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# V7 Go
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Entity.created
+- CompleteEntity.unknown
+- CompleteField.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const v7go = {
+  $type: 'Technology',
+  name: 'V7 Go',
+  url: 'https://v7go.com'
+}
+
+await $.Technology.create(v7go)
+```
+
+## Resources
+
+- [V7 Go](https://v7go.com)
+- [Zapier Integration](https://zapier.com/apps/v7-go/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

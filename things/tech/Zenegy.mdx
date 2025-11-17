@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Zenegy
+$context: https://schema.org.ai
+$type: Technology
+name: Zenegy
+description: Business platform for business automation
+url: https://zenegy.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Zenegy
+  url: https://zenegy.com
+zapierSlug: zenegy
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zenegy
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Employee.created
+- Absence.created
+- Payroll.created
+- Mileage.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zenegy = {
+  $type: 'Technology',
+  name: 'Zenegy',
+  url: 'https://zenegy.com'
+}
+
+await $.Technology.create(zenegy)
+```
+
+## Resources
+
+- [Zenegy](https://zenegy.com)
+- [Zapier Integration](https://zapier.com/apps/zenegy/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

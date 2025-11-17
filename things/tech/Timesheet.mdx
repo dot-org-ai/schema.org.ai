@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Timesheet
+$context: https://schema.org.ai
+$type: Technology
+name: Timesheet
+description: Project Management platform for business automation
+url: https://timesheet.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Timesheet
+  url: https://timesheet.com
+zapierSlug: timesheet
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Timesheet
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Project.created
+- Tag.created
+- Team.created
+- Rate.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const timesheet = {
+  $type: 'Technology',
+  name: 'Timesheet',
+  url: 'https://timesheet.com'
+}
+
+await $.Technology.create(timesheet)
+```
+
+## Resources
+
+- [Timesheet](https://timesheet.com)
+- [Zapier Integration](https://zapier.com/apps/timesheet/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

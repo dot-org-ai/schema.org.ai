@@ -1,0 +1,87 @@
+---
+$id: https://tech.org.ai/Guru
+$context: https://schema.org.ai
+$type: Technology
+name: Guru
+description: Business platform for business automation
+url: https://guru.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Guru
+  url: https://guru.com
+zapierSlug: guru
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Guru
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- User.unknown
+- Tag.created
+- Group.created
+- Folder.created
+- Card.unknown
+- Board.created
+- Collection.created
+- Announcement.unknown
+- CardUnverified.unknown
+- CardComment.unknown
+- CardFavorited.unknown
+- CardLink.unknown
+- CardUnfavorited.unknown
+- CardVerified.unknown
+- CardViewed.unknown
+- CollectionTrust.unknown
+- TeamCard.unknown
+- CardContent.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const guru = {
+  $type: 'Technology',
+  name: 'Guru',
+  url: 'https://guru.com'
+}
+
+await $.Technology.create(guru)
+```
+
+## Resources
+
+- [Guru](https://guru.com)
+- [Zapier Integration](https://zapier.com/apps/guru/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/A2zEvents
+$context: https://schema.org.ai
+$type: Technology
+name: A2z Events
+description: Business platform for business automation
+url: https://a2zevents.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: A2z Events
+  url: https://a2zevents.com
+zapierSlug: a2z-events
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# A2z Events
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Participant.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const a2zevents = {
+  $type: 'Technology',
+  name: 'A2z Events',
+  url: 'https://a2zevents.com'
+}
+
+await $.Technology.create(a2zevents)
+```
+
+## Resources
+
+- [A2z Events](https://a2zevents.com)
+- [Zapier Integration](https://zapier.com/apps/a2z-events/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

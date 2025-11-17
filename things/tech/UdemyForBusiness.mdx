@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/UdemyForBusiness
+$context: https://schema.org.ai
+$type: Technology
+name: Udemy For Business
+description: Business platform for business automation
+url: https://udemyforbusiness.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Udemy For Business
+  url: https://udemyforbusiness.com
+zapierSlug: udemy-for-business
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Udemy For Business
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Enrollment.created
+- Completion.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const udemyforbusiness = {
+  $type: 'Technology',
+  name: 'Udemy For Business',
+  url: 'https://udemyforbusiness.com'
+}
+
+await $.Technology.create(udemyforbusiness)
+```
+
+## Resources
+
+- [Udemy For Business](https://udemyforbusiness.com)
+- [Zapier Integration](https://zapier.com/apps/udemy-for-business/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

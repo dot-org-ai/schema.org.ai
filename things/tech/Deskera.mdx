@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Deskera
+$context: https://schema.org.ai
+$type: Technology
+name: Deskera
+description: Business platform for business automation
+url: https://deskera.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Deskera
+  url: https://deskera.com
+zapierSlug: deskera
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Deskera
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Product.created
+- CRMContact.created
+- CRMDeal.created
+- CRM+Contact.created
+- CRM+Deal.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const deskera = {
+  $type: 'Technology',
+  name: 'Deskera',
+  url: 'https://deskera.com'
+}
+
+await $.Technology.create(deskera)
+```
+
+## Resources
+
+- [Deskera](https://deskera.com)
+- [Zapier Integration](https://zapier.com/apps/deskera/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

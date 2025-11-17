@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Geniusreferrals
+$context: https://schema.org.ai
+$type: Technology
+name: Geniusreferrals
+description: Business platform for business automation
+url: https://geniusreferrals.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Geniusreferrals
+  url: https://geniusreferrals.com
+zapierSlug: geniusreferrals
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Geniusreferrals
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Member.created
+- Account.created
+- Referral.created
+- Advocate.created
+- Bonus.created
+- PayoutRequest.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const geniusreferrals = {
+  $type: 'Technology',
+  name: 'Geniusreferrals',
+  url: 'https://geniusreferrals.com'
+}
+
+await $.Technology.create(geniusreferrals)
+```
+
+## Resources
+
+- [Geniusreferrals](https://geniusreferrals.com)
+- [Zapier Integration](https://zapier.com/apps/geniusreferrals/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

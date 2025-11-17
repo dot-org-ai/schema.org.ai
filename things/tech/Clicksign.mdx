@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Clicksign
+$context: https://schema.org.ai
+$type: Technology
+name: Clicksign
+description: Business platform for business automation
+url: https://clicksign.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Clicksign
+  url: https://clicksign.com
+zapierSlug: clicksign
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Clicksign
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- TriggersEvent.triggered
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const clicksign = {
+  $type: 'Technology',
+  name: 'Clicksign',
+  url: 'https://clicksign.com'
+}
+
+await $.Technology.create(clicksign)
+```
+
+## Resources
+
+- [Clicksign](https://clicksign.com)
+- [Zapier Integration](https://zapier.com/apps/clicksign/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Toggl
+$context: https://schema.org.ai
+$type: Technology
+name: Toggl
+description: Project Management platform for business automation
+url: https://toggl.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Toggl
+  url: https://toggl.com
+zapierSlug: toggl
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Toggl
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Project.created
+- Client.created
+- Tag.created
+- TimeEntry.created
+- Workspace.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const toggl = {
+  $type: 'Technology',
+  name: 'Toggl',
+  url: 'https://toggl.com'
+}
+
+await $.Technology.create(toggl)
+```
+
+## Resources
+
+- [Toggl](https://toggl.com)
+- [Zapier Integration](https://zapier.com/apps/toggl/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

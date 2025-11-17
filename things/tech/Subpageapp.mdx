@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/Subpageapp
+$context: https://schema.org.ai
+$type: Technology
+name: Subpageapp
+description: Business platform for business automation
+url: https://subpageapp.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Subpageapp
+  url: https://subpageapp.com
+zapierSlug: subpageapp
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Subpageapp
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Subscriber.created
+- Changelog.created
+- CareerJob.created
+- BlogArticle.created
+- BlogLead.created
+- CareerApplicant.created
+- HelpcenterArticle.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const subpageapp = {
+  $type: 'Technology',
+  name: 'Subpageapp',
+  url: 'https://subpageapp.com'
+}
+
+await $.Technology.create(subpageapp)
+```
+
+## Resources
+
+- [Subpageapp](https://subpageapp.com)
+- [Zapier Integration](https://zapier.com/apps/subpageapp/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

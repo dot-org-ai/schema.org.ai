@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Click2close
+$context: https://schema.org.ai
+$type: Technology
+name: Click2close
+description: Business platform for business automation
+url: https://click2close.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Click2close
+  url: https://click2close.com
+zapierSlug: click2close
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Click2close
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Customer.unknown
+- Order.unknown
+- Subscription.unknown
+- Survey.unknown
+- TransactionApproved.unknown
+- TransactionDeclined.unknown
+- RefundApplied.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const click2close = {
+  $type: 'Technology',
+  name: 'Click2close',
+  url: 'https://click2close.com'
+}
+
+await $.Technology.create(click2close)
+```
+
+## Resources
+
+- [Click2close](https://click2close.com)
+- [Zapier Integration](https://zapier.com/apps/click2close/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

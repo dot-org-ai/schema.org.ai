@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Messagemedia
+$context: https://schema.org.ai
+$type: Technology
+name: Messagemedia
+description: Business platform for business automation
+url: https://messagemedia.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Messagemedia
+  url: https://messagemedia.com
+zapierSlug: messagemedia
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Messagemedia
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- InboundMessage.created
+- MessageDelivered.unknown
+- RCSRead.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const messagemedia = {
+  $type: 'Technology',
+  name: 'Messagemedia',
+  url: 'https://messagemedia.com'
+}
+
+await $.Technology.create(messagemedia)
+```
+
+## Resources
+
+- [Messagemedia](https://messagemedia.com)
+- [Zapier Integration](https://zapier.com/apps/messagemedia/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

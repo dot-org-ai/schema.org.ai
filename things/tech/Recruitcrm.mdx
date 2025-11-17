@@ -1,0 +1,104 @@
+---
+$id: https://tech.org.ai/Recruitcrm
+$context: https://schema.org.ai
+$type: Technology
+name: Recruitcrm
+description: CRM platform for business automation
+url: https://recruitcrm.com
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: Recruitcrm
+  url: https://recruitcrm.com
+zapierSlug: recruitcrm
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Recruitcrm
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Task.unknown
+- Job.unknown
+- Record.unknown
+- Company.unknown
+- Deal.unknown
+- Note.unknown
+- Meeting.unknown
+- Candidate.unknown
+- JobStatus.unknown
+- DealStage.unknown
+- FileUploaded.unknown
+- CandidateApplied.unknown
+- CallLog.unknown
+- ContactOpted.unknown
+- CandidateAssigned.unknown
+- CandidateProfile.unknown
+- Hotlist.unknown
+- CandidateOpted.unknown
+- ContactEnrolled.unknown
+- CandidateHiring.unknown
+- ClientFeedback.unknown
+- CandidateEnrolled.unknown
+- CandidateUnenrolled.unknown
+- ContactUnenrolled.unknown
+- CandidateUnassigned.unknown
+- PitchStage.unknown
+- CandidatePitched.unknown
+- TargetAchived.unknown
+- ContactOfflimit.unknown
+- ContactAvailable.unknown
+- CompanyOfflimit.unknown
+- CompanyAvailable.unknown
+- CandidateOfflimit.unknown
+- CandidateAvailable.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const recruitcrm = {
+  $type: 'Technology',
+  name: 'Recruitcrm',
+  url: 'https://recruitcrm.com'
+}
+
+await $.Technology.create(recruitcrm)
+```
+
+## Resources
+
+- [Recruitcrm](https://recruitcrm.com)
+- [Zapier Integration](https://zapier.com/apps/recruitcrm/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

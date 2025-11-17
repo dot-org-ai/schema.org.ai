@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/SparkgridDa106579
+$context: https://schema.org.ai
+$type: Technology
+name: Sparkgrid Da106579
+description: Business platform for business automation
+url: https://sparkgridda106579.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Sparkgrid Da106579
+  url: https://sparkgridda106579.com
+zapierSlug: sparkgrid-da106579
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Sparkgrid Da106579
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- User.created
+- Invoice.created
+- Event.created
+- Payment.created
+- Booking.created
+- Subscription.created
+- TicketPurchase.created
+- LeadsForm.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const sparkgridda106579 = {
+  $type: 'Technology',
+  name: 'Sparkgrid Da106579',
+  url: 'https://sparkgridda106579.com'
+}
+
+await $.Technology.create(sparkgridda106579)
+```
+
+## Resources
+
+- [Sparkgrid Da106579](https://sparkgridda106579.com)
+- [Zapier Integration](https://zapier.com/apps/sparkgrid-da106579/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

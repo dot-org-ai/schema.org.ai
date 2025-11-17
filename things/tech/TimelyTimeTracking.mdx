@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/TimelyTimeTracking
+$context: https://schema.org.ai
+$type: Technology
+name: Timely Time Tracking
+description: Project Management platform for business automation
+url: https://timelytimetracking.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Timely Time Tracking
+  url: https://timelytimetracking.com
+zapierSlug: timely-time-tracking
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Timely Time Tracking
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Project.created
+- Client.created
+- Tag.created
+- TimeEntry.created
+- Workspace.created
+- And/Or.created
+- AllTag.list
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const timelytimetracking = {
+  $type: 'Technology',
+  name: 'Timely Time Tracking',
+  url: 'https://timelytimetracking.com'
+}
+
+await $.Technology.create(timelytimetracking)
+```
+
+## Resources
+
+- [Timely Time Tracking](https://timelytimetracking.com)
+- [Zapier Integration](https://zapier.com/apps/timely-time-tracking/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

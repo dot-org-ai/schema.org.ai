@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Shoutout
+$context: https://schema.org.ai
+$type: Technology
+name: Shoutout
+description: Communication platform for business automation
+url: https://shoutout.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Shoutout
+  url: https://shoutout.com
+zapierSlug: shoutout
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Shoutout
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Video.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const shoutout = {
+  $type: 'Technology',
+  name: 'Shoutout',
+  url: 'https://shoutout.com'
+}
+
+await $.Technology.create(shoutout)
+```
+
+## Resources
+
+- [Shoutout](https://shoutout.com)
+- [Zapier Integration](https://zapier.com/apps/shoutout/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

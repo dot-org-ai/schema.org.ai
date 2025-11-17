@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Myrealpage
+$context: https://schema.org.ai
+$type: Technology
+name: Myrealpage
+description: Business platform for business automation
+url: https://myrealpage.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Myrealpage
+  url: https://myrealpage.com
+zapierSlug: myrealpage
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Myrealpage
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- CustomForm.unknown
+- ListingInquiry.created
+- MarketInsight.created
+- PotentialLead.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const myrealpage = {
+  $type: 'Technology',
+  name: 'Myrealpage',
+  url: 'https://myrealpage.com'
+}
+
+await $.Technology.create(myrealpage)
+```
+
+## Resources
+
+- [Myrealpage](https://myrealpage.com)
+- [Zapier Integration](https://zapier.com/apps/myrealpage/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,79 @@
+---
+$id: https://tech.org.ai/ZendeskSell
+$context: https://schema.org.ai
+$type: Technology
+name: Zendesk Sell
+description: CRM platform for business automation
+url: https://zendesk.com/sell
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: Zendesk
+  url: https://zendesk.com/sell
+zapierSlug: zendesk-sell
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zendesk Sell
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Contact.update
+- Lead.created
+- Lead.update
+- Task.created
+- Product.created
+- Note.created
+- Deal.created
+- Deal.update
+- DealEnters.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zendesksell = {
+  $type: 'Technology',
+  name: 'Zendesk Sell',
+  url: 'https://zendesk.com/sell'
+}
+
+await $.Technology.create(zendesksell)
+```
+
+## Resources
+
+- [Zendesk Sell](https://zendesk.com/sell)
+- [Zapier Integration](https://zapier.com/apps/zendesk-sell/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

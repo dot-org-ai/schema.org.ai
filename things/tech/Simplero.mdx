@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Simplero
+$context: https://schema.org.ai
+$type: Technology
+name: Simplero
+description: Business platform for business automation
+url: https://simplero.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Simplero
+  url: https://simplero.com
+zapierSlug: simplero
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Simplero
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Tag.unknown
+- Subscription.created
+- Subscription.delete
+- Purchase.created
+- Purchase.delete
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const simplero = {
+  $type: 'Technology',
+  name: 'Simplero',
+  url: 'https://simplero.com'
+}
+
+await $.Technology.create(simplero)
+```
+
+## Resources
+
+- [Simplero](https://simplero.com)
+- [Zapier Integration](https://zapier.com/apps/simplero/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

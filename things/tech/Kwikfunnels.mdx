@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Kwikfunnels
+$context: https://schema.org.ai
+$type: Technology
+name: Kwikfunnels
+description: Business platform for business automation
+url: https://kwikfunnels.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Kwikfunnels
+  url: https://kwikfunnels.com
+zapierSlug: kwikfunnels
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Kwikfunnels
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Orders.created
+- SqueezeEmail.created
+- AbandoncartEmail.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const kwikfunnels = {
+  $type: 'Technology',
+  name: 'Kwikfunnels',
+  url: 'https://kwikfunnels.com'
+}
+
+await $.Technology.create(kwikfunnels)
+```
+
+## Resources
+
+- [Kwikfunnels](https://kwikfunnels.com)
+- [Zapier Integration](https://zapier.com/apps/kwikfunnels/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

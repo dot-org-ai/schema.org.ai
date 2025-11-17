@@ -1,0 +1,82 @@
+---
+$id: https://tech.org.ai/ZaharaDa83354
+$context: https://schema.org.ai
+$type: Technology
+name: Zahara Da83354
+description: Project Management platform for business automation
+url: https://zaharada83354.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Zahara Da83354
+  url: https://zaharada83354.com
+zapierSlug: zahara-da83354
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zahara Da83354
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Project.created
+- Invoice.created
+- PurchaseOrder.created
+- Supplier.created
+- DocumentApproved.created
+- NominalCode.created
+- TaxCode.created
+- CostCode.created
+- SupplierAmended.unknown
+- PurchaseRequsition.created
+- InvoiceSet.created
+- ApprovalComment.created
+- InvoicePDF.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zaharada83354 = {
+  $type: 'Technology',
+  name: 'Zahara Da83354',
+  url: 'https://zaharada83354.com'
+}
+
+await $.Technology.create(zaharada83354)
+```
+
+## Resources
+
+- [Zahara Da83354](https://zaharada83354.com)
+- [Zapier Integration](https://zapier.com/apps/zahara-da83354/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

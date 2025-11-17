@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/CreativeCloudLibraries
+$context: https://schema.org.ai
+$type: Technology
+name: Creative Cloud Libraries
+description: Business platform for business automation
+url: https://creativecloudlibraries.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Creative Cloud Libraries
+  url: https://creativecloudlibraries.com
+zapierSlug: creative-cloud-libraries
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Creative Cloud Libraries
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Collaborator.created
+- Element.created
+- Library.created
+- ExistingElement.unknown
+- ExistingLibrary.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const creativecloudlibraries = {
+  $type: 'Technology',
+  name: 'Creative Cloud Libraries',
+  url: 'https://creativecloudlibraries.com'
+}
+
+await $.Technology.create(creativecloudlibraries)
+```
+
+## Resources
+
+- [Creative Cloud Libraries](https://creativecloudlibraries.com)
+- [Zapier Integration](https://zapier.com/apps/creative-cloud-libraries/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

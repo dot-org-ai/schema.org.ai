@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Lunacalai
+$context: https://schema.org.ai
+$type: Technology
+name: Lunacalai
+description: Business platform for business automation
+url: https://lunacalai.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Lunacalai
+  url: https://lunacalai.com
+zapierSlug: lunacalai
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Lunacalai
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Booking.unknown
+- BookingRescheduled.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const lunacalai = {
+  $type: 'Technology',
+  name: 'Lunacalai',
+  url: 'https://lunacalai.com'
+}
+
+await $.Technology.create(lunacalai)
+```
+
+## Resources
+
+- [Lunacalai](https://lunacalai.com)
+- [Zapier Integration](https://zapier.com/apps/lunacalai/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

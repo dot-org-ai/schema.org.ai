@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/TheReceptionist
+$context: https://schema.org.ai
+$type: Technology
+name: The Receptionist
+description: Business platform for business automation
+url: https://thereceptionist.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: The Receptionist
+  url: https://thereceptionist.com
+zapierSlug: the-receptionist
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# The Receptionist
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Visit:Check-Out.unknown
+- Visit:Check-In.unknown
+- Visit:.unknown
+- Visit:Pre-Registration.unknown
+- Visit:Queued.unknown
+- Visit:Assigned.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const thereceptionist = {
+  $type: 'Technology',
+  name: 'The Receptionist',
+  url: 'https://thereceptionist.com'
+}
+
+await $.Technology.create(thereceptionist)
+```
+
+## Resources
+
+- [The Receptionist](https://thereceptionist.com)
+- [Zapier Integration](https://zapier.com/apps/the-receptionist/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Octonius
+$context: https://schema.org.ai
+$type: Technology
+name: Octonius
+description: Project Management platform for business automation
+url: https://octonius.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Octonius
+  url: https://octonius.com
+zapierSlug: octonius
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Octonius
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const octonius = {
+  $type: 'Technology',
+  name: 'Octonius',
+  url: 'https://octonius.com'
+}
+
+await $.Technology.create(octonius)
+```
+
+## Resources
+
+- [Octonius](https://octonius.com)
+- [Zapier Integration](https://zapier.com/apps/octonius/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

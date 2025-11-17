@@ -1,0 +1,79 @@
+---
+$id: https://tech.org.ai/Attentive
+$context: https://schema.org.ai
+$type: Technology
+name: Attentive
+description: Communication platform for business automation
+url: https://attentive.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Attentive
+  url: https://attentive.com
+zapierSlug: attentive
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Attentive
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Email.unknown
+- SMS.unknown
+- EmailOpened.unknown
+- SMSMessage.unknown
+- EmailUnsubscribed.unknown
+- EmailSubscribed.unknown
+- CustomAttribute.unknown
+- SMSSubscribed.unknown
+- SMSUnsubscribed.unknown
+- EmailMessage.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const attentive = {
+  $type: 'Technology',
+  name: 'Attentive',
+  url: 'https://attentive.com'
+}
+
+await $.Technology.create(attentive)
+```
+
+## Resources
+
+- [Attentive](https://attentive.com)
+- [Zapier Integration](https://zapier.com/apps/attentive/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

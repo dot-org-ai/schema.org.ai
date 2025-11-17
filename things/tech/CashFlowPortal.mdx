@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/CashFlowPortal
+$context: https://schema.org.ai
+$type: Technology
+name: Cash Flow Portal
+description: Business platform for business automation
+url: https://cashflowportal.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Cash Flow Portal
+  url: https://cashflowportal.com
+zapierSlug: cash-flow-portal
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Cash Flow Portal
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.create
+- Investment.unknown
+- InvestmentFund.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const cashflowportal = {
+  $type: 'Technology',
+  name: 'Cash Flow Portal',
+  url: 'https://cashflowportal.com'
+}
+
+await $.Technology.create(cashflowportal)
+```
+
+## Resources
+
+- [Cash Flow Portal](https://cashflowportal.com)
+- [Zapier Integration](https://zapier.com/apps/cash-flow-portal/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

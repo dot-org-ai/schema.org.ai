@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Ignition
+$context: https://schema.org.ai
+$type: Technology
+name: Ignition
+description: Business platform for business automation
+url: https://ignition.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Ignition
+  url: https://ignition.com
+zapierSlug: ignition
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Ignition
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Proposal.unknown
+- ProposalAccepted.unknown
+- ProposalSaved.unknown
+- ProposalRevoked.unknown
+- ServiceAccepted.unknown
+- ClassicProposal.unknown
+- ProposalMoved.unknown
+- ProposalMarked.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const ignition = {
+  $type: 'Technology',
+  name: 'Ignition',
+  url: 'https://ignition.com'
+}
+
+await $.Technology.create(ignition)
+```
+
+## Resources
+
+- [Ignition](https://ignition.com)
+- [Zapier Integration](https://zapier.com/apps/ignition/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

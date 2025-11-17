@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Helium10Portals
+$context: https://schema.org.ai
+$type: Technology
+name: Helium10 Portals
+description: Business platform for business automation
+url: https://helium10portals.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Helium10 Portals
+  url: https://helium10portals.com
+zapierSlug: helium10-portals
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Helium10 Portals
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const helium10portals = {
+  $type: 'Technology',
+  name: 'Helium10 Portals',
+  url: 'https://helium10portals.com'
+}
+
+await $.Technology.create(helium10portals)
+```
+
+## Resources
+
+- [Helium10 Portals](https://helium10portals.com)
+- [Zapier Integration](https://zapier.com/apps/helium10-portals/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,102 @@
+---
+$id: https://tech.org.ai/Busybusy
+$context: https://schema.org.ai
+$type: Technology
+name: Busybusy
+description: Project Management platform for business automation
+url: https://busybusy.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Busybusy
+  url: https://busybusy.com
+zapierSlug: busybusy
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Busybusy
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Project.unknown
+- Document.unknown
+- Employee.unknown
+- TimeOff.unknown
+- TimeEntry.unknown
+- DailySign.unknown
+- CostCode.unknown
+- BulletinPost.unknown
+- SafetyIncidents:.unknown
+- SafetyObservations:.unknown
+- SafetyTrainings:.unknown
+- ProgressEntry.unknown
+- Photos.unknown
+- BreakEntry.unknown
+- ScheduleItem.unknown
+- EmployeeGroup.unknown
+- Equipment.unknown
+- ProjectGroup.unknown
+- DailyProject.unknown
+- CustomDaily.unknown
+- Photo:.unknown
+- SafetyInspections:.unknown
+- FlaggedDaily.unknown
+- EquipmentHour.unknown
+- PhotoVerification.unknown
+- FlaggedCustom.unknown
+- LocationFlag.unknown
+- Diem.unknown
+- RecurringSchedule.unknown
+- BudgetHours.unknown
+- BudgetCost.unknown
+- BudgetProgress.unknown
+- GPS.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const busybusy = {
+  $type: 'Technology',
+  name: 'Busybusy',
+  url: 'https://busybusy.com'
+}
+
+await $.Technology.create(busybusy)
+```
+
+## Resources
+
+- [Busybusy](https://busybusy.com)
+- [Zapier Integration](https://zapier.com/apps/busybusy/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/FollowUpBoss
+$context: https://schema.org.ai
+$type: Technology
+name: Follow Up Boss
+description: Business platform for business automation
+url: https://followupboss.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Follow Up Boss
+  url: https://followupboss.com
+zapierSlug: follow-up-boss
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Follow Up Boss
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Tag.unknown
+- Deal.created
+- Appointment.created
+- DealStage.unknown
+- PersonStage.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const followupboss = {
+  $type: 'Technology',
+  name: 'Follow Up Boss',
+  url: 'https://followupboss.com'
+}
+
+await $.Technology.create(followupboss)
+```
+
+## Resources
+
+- [Follow Up Boss](https://followupboss.com)
+- [Zapier Integration](https://zapier.com/apps/follow-up-boss/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

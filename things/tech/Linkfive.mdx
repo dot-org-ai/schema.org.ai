@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Linkfive
+$context: https://schema.org.ai
+$type: Technology
+name: Linkfive
+description: Business platform for business automation
+url: https://linkfive.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Linkfive
+  url: https://linkfive.com
+zapierSlug: linkfive
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Linkfive
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- OneTime.unknown
+- SubscriptionNotifications.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const linkfive = {
+  $type: 'Technology',
+  name: 'Linkfive',
+  url: 'https://linkfive.com'
+}
+
+await $.Technology.create(linkfive)
+```
+
+## Resources
+
+- [Linkfive](https://linkfive.com)
+- [Zapier Integration](https://zapier.com/apps/linkfive/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

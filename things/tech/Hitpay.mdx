@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Hitpay
+$context: https://schema.org.ai
+$type: Technology
+name: Hitpay
+description: Business platform for business automation
+url: https://hitpay.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Hitpay
+  url: https://hitpay.com
+zapierSlug: hitpay
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Hitpay
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.unknown
+- Invoice.unknown
+- Charge.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const hitpay = {
+  $type: 'Technology',
+  name: 'Hitpay',
+  url: 'https://hitpay.com'
+}
+
+await $.Technology.create(hitpay)
+```
+
+## Resources
+
+- [Hitpay](https://hitpay.com)
+- [Zapier Integration](https://zapier.com/apps/hitpay/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

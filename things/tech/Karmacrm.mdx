@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Karmacrm
+$context: https://schema.org.ai
+$type: Technology
+name: Karmacrm
+description: CRM platform for business automation
+url: https://karmacrm.com
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: Karmacrm
+  url: https://karmacrm.com
+zapierSlug: karmacrm
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Karmacrm
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Contact.update
+- Task.created
+- Company.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const karmacrm = {
+  $type: 'Technology',
+  name: 'Karmacrm',
+  url: 'https://karmacrm.com'
+}
+
+await $.Technology.create(karmacrm)
+```
+
+## Resources
+
+- [Karmacrm](https://karmacrm.com)
+- [Zapier Integration](https://zapier.com/apps/karmacrm/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

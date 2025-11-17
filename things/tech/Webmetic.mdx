@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Webmetic
+$context: https://schema.org.ai
+$type: Technology
+name: Webmetic
+description: Business platform for business automation
+url: https://webmetic.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Webmetic
+  url: https://webmetic.com
+zapierSlug: webmetic
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Webmetic
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Visit.created
+- IntensiveVisit.unknown
+- ReturningVisit.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const webmetic = {
+  $type: 'Technology',
+  name: 'Webmetic',
+  url: 'https://webmetic.com'
+}
+
+await $.Technology.create(webmetic)
+```
+
+## Resources
+
+- [Webmetic](https://webmetic.com)
+- [Zapier Integration](https://zapier.com/apps/webmetic/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

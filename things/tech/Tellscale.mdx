@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Tellscale
+$context: https://schema.org.ai
+$type: Technology
+name: Tellscale
+description: Business platform for business automation
+url: https://tellscale.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Tellscale
+  url: https://tellscale.com
+zapierSlug: tellscale
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Tellscale
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Promotor.unknown
+- Recommendation.unknown
+- RecommendationGift.unknown
+- PromotorActivity.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const tellscale = {
+  $type: 'Technology',
+  name: 'Tellscale',
+  url: 'https://tellscale.com'
+}
+
+await $.Technology.create(tellscale)
+```
+
+## Resources
+
+- [Tellscale](https://tellscale.com)
+- [Zapier Integration](https://zapier.com/apps/tellscale/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

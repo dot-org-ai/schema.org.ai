@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/LaunchCart
+$context: https://schema.org.ai
+$type: Technology
+name: Launch Cart
+description: Business platform for business automation
+url: https://launchcart.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Launch Cart
+  url: https://launchcart.com
+zapierSlug: launch-cart
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Launch Cart
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- NewsletterSubscription.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const launchcart = {
+  $type: 'Technology',
+  name: 'Launch Cart',
+  url: 'https://launchcart.com'
+}
+
+await $.Technology.create(launchcart)
+```
+
+## Resources
+
+- [Launch Cart](https://launchcart.com)
+- [Zapier Integration](https://zapier.com/apps/launch-cart/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Quantive
+$context: https://schema.org.ai
+$type: Technology
+name: Quantive
+description: Project Management platform for business automation
+url: https://quantive.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Quantive
+  url: https://quantive.com
+zapierSlug: quantive
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Quantive
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Objective.created
+- KeyResult.created
+- Assignees.list
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const quantive = {
+  $type: 'Technology',
+  name: 'Quantive',
+  url: 'https://quantive.com'
+}
+
+await $.Technology.create(quantive)
+```
+
+## Resources
+
+- [Quantive](https://quantive.com)
+- [Zapier Integration](https://zapier.com/apps/quantive/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

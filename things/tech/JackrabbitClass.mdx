@@ -1,0 +1,82 @@
+---
+$id: https://tech.org.ai/JackrabbitClass
+$context: https://schema.org.ai
+$type: Technology
+name: Jackrabbit Class
+description: Business platform for business automation
+url: https://jackrabbitclass.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Jackrabbit Class
+  url: https://jackrabbitclass.com
+zapierSlug: jackrabbit-class
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Jackrabbit Class
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Lead.unknown
+- Student.unknown
+- Class.unknown
+- Staff.unknown
+- StudentEnrolled.unknown
+- Absence.unknown
+- Family.unknown
+- StudentDropped.unknown
+- StudentInactive.unknown
+- Makeup.unknown
+- Substitution.unknown
+- EnrollmentType.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const jackrabbitclass = {
+  $type: 'Technology',
+  name: 'Jackrabbit Class',
+  url: 'https://jackrabbitclass.com'
+}
+
+await $.Technology.create(jackrabbitclass)
+```
+
+## Resources
+
+- [Jackrabbit Class](https://jackrabbitclass.com)
+- [Zapier Integration](https://zapier.com/apps/jackrabbit-class/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

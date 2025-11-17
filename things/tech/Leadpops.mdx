@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Leadpops
+$context: https://schema.org.ai
+$type: Technology
+name: Leadpops
+description: Business platform for business automation
+url: https://leadpops.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Leadpops
+  url: https://leadpops.com
+zapierSlug: leadpops
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Leadpops
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const leadpops = {
+  $type: 'Technology',
+  name: 'Leadpops',
+  url: 'https://leadpops.com'
+}
+
+await $.Technology.create(leadpops)
+```
+
+## Resources
+
+- [Leadpops](https://leadpops.com)
+- [Zapier Integration](https://zapier.com/apps/leadpops/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

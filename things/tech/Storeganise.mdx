@@ -1,0 +1,78 @@
+---
+$id: https://tech.org.ai/Storeganise
+$context: https://schema.org.ai
+$type: Technology
+name: Storeganise
+description: Business platform for business automation
+url: https://storeganise.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Storeganise
+  url: https://storeganise.com
+zapierSlug: storeganise
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Storeganise
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- User.created
+- User.update
+- Invoice.created
+- Invoice.update
+- PaidInvoice.unknown
+- JobUnit.unknown
+- UnitRental.unknown
+- UnitStatus.unknown
+- UnitReserved.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const storeganise = {
+  $type: 'Technology',
+  name: 'Storeganise',
+  url: 'https://storeganise.com'
+}
+
+await $.Technology.create(storeganise)
+```
+
+## Resources
+
+- [Storeganise](https://storeganise.com)
+- [Zapier Integration](https://zapier.com/apps/storeganise/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

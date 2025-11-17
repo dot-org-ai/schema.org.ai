@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/AttenduCa217914
+$context: https://schema.org.ai
+$type: Technology
+name: Attendu Ca217914
+description: Business platform for business automation
+url: https://attenduca217914.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Attendu Ca217914
+  url: https://attenduca217914.com
+zapierSlug: attendu-ca217914
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Attendu Ca217914
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Guest.created
+- Guest.update
+- Guest.delete
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const attenduca217914 = {
+  $type: 'Technology',
+  name: 'Attendu Ca217914',
+  url: 'https://attenduca217914.com'
+}
+
+await $.Technology.create(attenduca217914)
+```
+
+## Resources
+
+- [Attendu Ca217914](https://attenduca217914.com)
+- [Zapier Integration](https://zapier.com/apps/attendu-ca217914/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

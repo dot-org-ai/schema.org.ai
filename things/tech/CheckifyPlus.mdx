@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/CheckifyPlus
+$context: https://schema.org.ai
+$type: Technology
+name: Checkify Plus
+description: Business platform for business automation
+url: https://checkifyplus.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Checkify Plus
+  url: https://checkifyplus.com
+zapierSlug: checkify-plus
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Checkify Plus
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.unknown
+- CheckoutInitiated.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const checkifyplus = {
+  $type: 'Technology',
+  name: 'Checkify Plus',
+  url: 'https://checkifyplus.com'
+}
+
+await $.Technology.create(checkifyplus)
+```
+
+## Resources
+
+- [Checkify Plus](https://checkifyplus.com)
+- [Zapier Integration](https://zapier.com/apps/checkify-plus/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

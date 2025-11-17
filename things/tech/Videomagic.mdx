@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Videomagic
+$context: https://schema.org.ai
+$type: Technology
+name: Videomagic
+description: Communication platform for business automation
+url: https://videomagic.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Videomagic
+  url: https://videomagic.com
+zapierSlug: videomagic
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Videomagic
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- VideoReady.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const videomagic = {
+  $type: 'Technology',
+  name: 'Videomagic',
+  url: 'https://videomagic.com'
+}
+
+await $.Technology.create(videomagic)
+```
+
+## Resources
+
+- [Videomagic](https://videomagic.com)
+- [Zapier Integration](https://zapier.com/apps/videomagic/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Safeter
+$context: https://schema.org.ai
+$type: Technology
+name: Safeter
+description: Business platform for business automation
+url: https://safeter.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Safeter
+  url: https://safeter.com
+zapierSlug: safeter
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Safeter
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Booking.created
+- EmployeeStatus.get
+- GroupSchedule.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const safeter = {
+  $type: 'Technology',
+  name: 'Safeter',
+  url: 'https://safeter.com'
+}
+
+await $.Technology.create(safeter)
+```
+
+## Resources
+
+- [Safeter](https://safeter.com)
+- [Zapier Integration](https://zapier.com/apps/safeter/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

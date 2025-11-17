@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Peach
+$context: https://schema.org.ai
+$type: Technology
+name: Peach
+description: Business platform for business automation
+url: https://peach.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Peach
+  url: https://peach.com
+zapierSlug: peach
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Peach
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- AppResponse.created
+- AppLaunched.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const peach = {
+  $type: 'Technology',
+  name: 'Peach',
+  url: 'https://peach.com'
+}
+
+await $.Technology.create(peach)
+```
+
+## Resources
+
+- [Peach](https://peach.com)
+- [Zapier Integration](https://zapier.com/apps/peach/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

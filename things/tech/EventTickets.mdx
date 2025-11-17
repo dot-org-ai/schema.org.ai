@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/EventTickets
+$context: https://schema.org.ai
+$type: Technology
+name: Event Tickets
+description: Business platform for business automation
+url: https://eventtickets.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Event Tickets
+  url: https://eventtickets.com
+zapierSlug: event-tickets
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Event Tickets
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- Check.unknown
+- Attendees.unknown
+- Attendees.update
+- RefundedOrders.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const eventtickets = {
+  $type: 'Technology',
+  name: 'Event Tickets',
+  url: 'https://eventtickets.com'
+}
+
+await $.Technology.create(eventtickets)
+```
+
+## Resources
+
+- [Event Tickets](https://eventtickets.com)
+- [Zapier Integration](https://zapier.com/apps/event-tickets/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

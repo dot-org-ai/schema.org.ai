@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Memomeister
+$context: https://schema.org.ai
+$type: Technology
+name: Memomeister
+description: Business platform for business automation
+url: https://memomeister.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Memomeister
+  url: https://memomeister.com
+zapierSlug: memomeister
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Memomeister
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Folder.created
+- Memo.created
+- FolderInside.created
+- MemoInside.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const memomeister = {
+  $type: 'Technology',
+  name: 'Memomeister',
+  url: 'https://memomeister.com'
+}
+
+await $.Technology.create(memomeister)
+```
+
+## Resources
+
+- [Memomeister](https://memomeister.com)
+- [Zapier Integration](https://zapier.com/apps/memomeister/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/On2air
+$context: https://schema.org.ai
+$type: Technology
+name: On2air
+description: Business platform for business automation
+url: https://on2air.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: On2air
+  url: https://on2air.com
+zapierSlug: on2air
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# On2air
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- PerformOn2Air.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const on2air = {
+  $type: 'Technology',
+  name: 'On2air',
+  url: 'https://on2air.com'
+}
+
+await $.Technology.create(on2air)
+```
+
+## Resources
+
+- [On2air](https://on2air.com)
+- [Zapier Integration](https://zapier.com/apps/on2air/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

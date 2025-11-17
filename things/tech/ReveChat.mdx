@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/ReveChat
+$context: https://schema.org.ai
+$type: Technology
+name: Reve Chat
+description: Communication platform for business automation
+url: https://revechat.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Reve Chat
+  url: https://revechat.com
+zapierSlug: reve-chat
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Reve Chat
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Chat.created
+- EndChat.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const revechat = {
+  $type: 'Technology',
+  name: 'Reve Chat',
+  url: 'https://revechat.com'
+}
+
+await $.Technology.create(revechat)
+```
+
+## Resources
+
+- [Reve Chat](https://revechat.com)
+- [Zapier Integration](https://zapier.com/apps/reve-chat/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

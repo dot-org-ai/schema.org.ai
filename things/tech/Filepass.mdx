@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Filepass
+$context: https://schema.org.ai
+$type: Technology
+name: Filepass
+description: Business platform for business automation
+url: https://filepass.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Filepass
+  url: https://filepass.com
+zapierSlug: filepass
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Filepass
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Comment.created
+- Payment.created
+- File.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const filepass = {
+  $type: 'Technology',
+  name: 'Filepass',
+  url: 'https://filepass.com'
+}
+
+await $.Technology.create(filepass)
+```
+
+## Resources
+
+- [Filepass](https://filepass.com)
+- [Zapier Integration](https://zapier.com/apps/filepass/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

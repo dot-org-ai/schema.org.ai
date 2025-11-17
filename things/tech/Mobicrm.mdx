@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Mobicrm
+$context: https://schema.org.ai
+$type: Technology
+name: Mobicrm
+description: CRM platform for business automation
+url: https://mobicrm.com
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: Mobicrm
+  url: https://mobicrm.com
+zapierSlug: mobicrm
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Mobicrm
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Account.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const mobicrm = {
+  $type: 'Technology',
+  name: 'Mobicrm',
+  url: 'https://mobicrm.com'
+}
+
+await $.Technology.create(mobicrm)
+```
+
+## Resources
+
+- [Mobicrm](https://mobicrm.com)
+- [Zapier Integration](https://zapier.com/apps/mobicrm/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

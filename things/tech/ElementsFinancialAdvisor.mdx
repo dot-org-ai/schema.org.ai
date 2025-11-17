@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/ElementsFinancialAdvisor
+$context: https://schema.org.ai
+$type: Technology
+name: Elements Financial Advisor
+description: Business platform for business automation
+url: https://elementsfinancialadvisor.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Elements Financial Advisor
+  url: https://elementsfinancialadvisor.com
+zapierSlug: elements-financial-advisor
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Elements Financial Advisor
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Prospect.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const elementsfinancialadvisor = {
+  $type: 'Technology',
+  name: 'Elements Financial Advisor',
+  url: 'https://elementsfinancialadvisor.com'
+}
+
+await $.Technology.create(elementsfinancialadvisor)
+```
+
+## Resources
+
+- [Elements Financial Advisor](https://elementsfinancialadvisor.com)
+- [Zapier Integration](https://zapier.com/apps/elements-financial-advisor/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

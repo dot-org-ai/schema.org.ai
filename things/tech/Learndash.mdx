@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/Learndash
+$context: https://schema.org.ai
+$type: Technology
+name: Learndash
+description: Business platform for business automation
+url: https://learndash.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Learndash
+  url: https://learndash.com
+zapierSlug: learndash
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Learndash
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Course.unknown
+- Lesson.unknown
+- Group.unknown
+- Topic.unknown
+- Enrolled.unknown
+- QuizTaken.unknown
+- EssaySubmitted.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const learndash = {
+  $type: 'Technology',
+  name: 'Learndash',
+  url: 'https://learndash.com'
+}
+
+await $.Technology.create(learndash)
+```
+
+## Resources
+
+- [Learndash](https://learndash.com)
+- [Zapier Integration](https://zapier.com/apps/learndash/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

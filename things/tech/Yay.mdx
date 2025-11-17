@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Yay
+$context: https://schema.org.ai
+$type: Technology
+name: Yay
+description: Business platform for business automation
+url: https://yay.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Yay
+  url: https://yay.com
+zapierSlug: yay
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Yay
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Call.created
+- CallEnded.unknown
+- CallAnswered.unknown
+- VoicemailNotify.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const yay = {
+  $type: 'Technology',
+  name: 'Yay',
+  url: 'https://yay.com'
+}
+
+await $.Technology.create(yay)
+```
+
+## Resources
+
+- [Yay](https://yay.com)
+- [Zapier Integration](https://zapier.com/apps/yay/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

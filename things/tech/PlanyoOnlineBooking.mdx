@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/PlanyoOnlineBooking
+$context: https://schema.org.ai
+$type: Technology
+name: Planyo Online Booking
+description: Payment Processing platform for business automation
+url: https://planyoonlinebooking.com
+applicationCategory: Payment Processing Software
+provider:
+  $type: Organization
+  name: Planyo Online Booking
+  url: https://planyoonlinebooking.com
+zapierSlug: planyo-online-booking
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Planyo Online Booking
+
+Payment Processing platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Payment.created
+- Reservation.created
+- Reservation.update
+- Before.unknown
+- Automatic.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const planyoonlinebooking = {
+  $type: 'Technology',
+  name: 'Planyo Online Booking',
+  url: 'https://planyoonlinebooking.com'
+}
+
+await $.Technology.create(planyoonlinebooking)
+```
+
+## Resources
+
+- [Planyo Online Booking](https://planyoonlinebooking.com)
+- [Zapier Integration](https://zapier.com/apps/planyo-online-booking/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

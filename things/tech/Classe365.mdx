@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Classe365
+$context: https://schema.org.ai
+$type: Technology
+name: Classe365
+description: Business platform for business automation
+url: https://classe365.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Classe365
+  url: https://classe365.com
+zapierSlug: classe365
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Classe365
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormSubmission.unknown
+- CourseEnrollment.created
+- Section.created
+- Parent.created
+- Class.created
+- Student/UpdateStudent.created
+- Teacher.created
+- Subject.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const classe365 = {
+  $type: 'Technology',
+  name: 'Classe365',
+  url: 'https://classe365.com'
+}
+
+await $.Technology.create(classe365)
+```
+
+## Resources
+
+- [Classe365](https://classe365.com)
+- [Zapier Integration](https://zapier.com/apps/classe365/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

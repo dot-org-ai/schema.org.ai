@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Checkfront
+$context: https://schema.org.ai
+$type: Technology
+name: Checkfront
+description: Business platform for business automation
+url: https://checkfront.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Checkfront
+  url: https://checkfront.com
+zapierSlug: checkfront
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Checkfront
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Booking.created
+- Item.created
+- BookingChange.unknown
+- ItemChange.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const checkfront = {
+  $type: 'Technology',
+  name: 'Checkfront',
+  url: 'https://checkfront.com'
+}
+
+await $.Technology.create(checkfront)
+```
+
+## Resources
+
+- [Checkfront](https://checkfront.com)
+- [Zapier Integration](https://zapier.com/apps/checkfront/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

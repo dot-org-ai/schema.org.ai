@@ -1,0 +1,81 @@
+---
+$id: https://tech.org.ai/Taiga
+$context: https://schema.org.ai
+$type: Technology
+name: Taiga
+description: Business platform for business automation
+url: https://taiga.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Taiga
+  url: https://taiga.com
+zapierSlug: taiga
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Taiga
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- 1.1
+- 1.2Changed
+- 1.3
+- 1.2
+- 2.1
+- 2.2Changed
+- 2.3
+- 2.2
+- 3.1
+- 3.2Changed
+- 3.3
+- 3.2
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const taiga = {
+  $type: 'Technology',
+  name: 'Taiga',
+  url: 'https://taiga.com'
+}
+
+await $.Technology.create(taiga)
+```
+
+## Resources
+
+- [Taiga](https://taiga.com)
+- [Zapier Integration](https://zapier.com/apps/taiga/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

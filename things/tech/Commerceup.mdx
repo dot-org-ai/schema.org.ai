@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Commerceup
+$context: https://schema.org.ai
+$type: Technology
+name: Commerceup
+description: E-commerce platform for business automation
+url: https://commerceup.com
+applicationCategory: E-commerce Software
+provider:
+  $type: Organization
+  name: Commerceup
+  url: https://commerceup.com
+zapierSlug: commerceup
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Commerceup
+
+E-commerce platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Order.unknown
+- PriceChange.unknown
+- QuantityChange.unknown
+- BulkProduct.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const commerceup = {
+  $type: 'Technology',
+  name: 'Commerceup',
+  url: 'https://commerceup.com'
+}
+
+await $.Technology.create(commerceup)
+```
+
+## Resources
+
+- [Commerceup](https://commerceup.com)
+- [Zapier Integration](https://zapier.com/apps/commerceup/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

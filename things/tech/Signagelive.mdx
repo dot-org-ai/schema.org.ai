@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Signagelive
+$context: https://schema.org.ai
+$type: Technology
+name: Signagelive
+description: Business platform for business automation
+url: https://signagelive.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Signagelive
+  url: https://signagelive.com
+zapierSlug: signagelive
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Signagelive
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Proof.created
+- WebhookNotification.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const signagelive = {
+  $type: 'Technology',
+  name: 'Signagelive',
+  url: 'https://signagelive.com'
+}
+
+await $.Technology.create(signagelive)
+```
+
+## Resources
+
+- [Signagelive](https://signagelive.com)
+- [Zapier Integration](https://zapier.com/apps/signagelive/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

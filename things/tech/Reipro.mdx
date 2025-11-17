@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Reipro
+$context: https://schema.org.ai
+$type: Technology
+name: Reipro
+description: Business platform for business automation
+url: https://reipro.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Reipro
+  url: https://reipro.com
+zapierSlug: reipro
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Reipro
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Property.created
+- Buyer.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const reipro = {
+  $type: 'Technology',
+  name: 'Reipro',
+  url: 'https://reipro.com'
+}
+
+await $.Technology.create(reipro)
+```
+
+## Resources
+
+- [Reipro](https://reipro.com)
+- [Zapier Integration](https://zapier.com/apps/reipro/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

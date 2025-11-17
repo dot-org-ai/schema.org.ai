@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Videnly
+$context: https://schema.org.ai
+$type: Technology
+name: Videnly
+description: Project Management platform for business automation
+url: https://videnly.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Videnly
+  url: https://videnly.com
+zapierSlug: videnly
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Videnly
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Project.created
+- Video.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const videnly = {
+  $type: 'Technology',
+  name: 'Videnly',
+  url: 'https://videnly.com'
+}
+
+await $.Technology.create(videnly)
+```
+
+## Resources
+
+- [Videnly](https://videnly.com)
+- [Zapier Integration](https://zapier.com/apps/videnly/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

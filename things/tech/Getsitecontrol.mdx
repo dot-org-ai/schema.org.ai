@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Getsitecontrol
+$context: https://schema.org.ai
+$type: Technology
+name: Getsitecontrol
+description: Business platform for business automation
+url: https://getsitecontrol.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Getsitecontrol
+  url: https://getsitecontrol.com
+zapierSlug: getsitecontrol
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Getsitecontrol
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Submission.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const getsitecontrol = {
+  $type: 'Technology',
+  name: 'Getsitecontrol',
+  url: 'https://getsitecontrol.com'
+}
+
+await $.Technology.create(getsitecontrol)
+```
+
+## Resources
+
+- [Getsitecontrol](https://getsitecontrol.com)
+- [Zapier Integration](https://zapier.com/apps/getsitecontrol/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

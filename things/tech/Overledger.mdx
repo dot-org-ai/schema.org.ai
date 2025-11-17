@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Overledger
+$context: https://schema.org.ai
+$type: Technology
+name: Overledger
+description: Business platform for business automation
+url: https://overledger.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Overledger
+  url: https://overledger.com
+zapierSlug: overledger
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Overledger
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- ContractEvent.created
+- AccountEvent.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const overledger = {
+  $type: 'Technology',
+  name: 'Overledger',
+  url: 'https://overledger.com'
+}
+
+await $.Technology.create(overledger)
+```
+
+## Resources
+
+- [Overledger](https://overledger.com)
+- [Zapier Integration](https://zapier.com/apps/overledger/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Vifugo
+$context: https://schema.org.ai
+$type: Technology
+name: Vifugo
+description: Business platform for business automation
+url: https://vifugo.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Vifugo
+  url: https://vifugo.com
+zapierSlug: vifugo
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Vifugo
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Registration.created
+- Video.watch
+- CallbackRequest.unknown
+- ConfirmedDouble.unknown
+- UnsubscribedE-Mail-Address.unsubscribe
+- MissedVideo.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const vifugo = {
+  $type: 'Technology',
+  name: 'Vifugo',
+  url: 'https://vifugo.com'
+}
+
+await $.Technology.create(vifugo)
+```
+
+## Resources
+
+- [Vifugo](https://vifugo.com)
+- [Zapier Integration](https://zapier.com/apps/vifugo/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

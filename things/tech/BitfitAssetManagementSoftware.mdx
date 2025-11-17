@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/BitfitAssetManagementSoftware
+$context: https://schema.org.ai
+$type: Technology
+name: Bitfit Asset Management Software
+description: Business platform for business automation
+url: https://bitfitassetmanagementsoftware.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Bitfit Asset Management Software
+  url: https://bitfitassetmanagementsoftware.com
+zapierSlug: bitfit-asset-management-software
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Bitfit Asset Management Software
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Record.created
+- Record.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const bitfitassetmanagementsoftware = {
+  $type: 'Technology',
+  name: 'Bitfit Asset Management Software',
+  url: 'https://bitfitassetmanagementsoftware.com'
+}
+
+await $.Technology.create(bitfitassetmanagementsoftware)
+```
+
+## Resources
+
+- [Bitfit Asset Management Software](https://bitfitassetmanagementsoftware.com)
+- [Zapier Integration](https://zapier.com/apps/bitfit-asset-management-software/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

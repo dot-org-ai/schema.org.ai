@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Stencil
+$context: https://schema.org.ai
+$type: Technology
+name: Stencil
+description: Business platform for business automation
+url: https://stencil.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Stencil
+  url: https://stencil.com
+zapierSlug: stencil
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Stencil
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Image.created
+- PDF.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const stencil = {
+  $type: 'Technology',
+  name: 'Stencil',
+  url: 'https://stencil.com'
+}
+
+await $.Technology.create(stencil)
+```
+
+## Resources
+
+- [Stencil](https://stencil.com)
+- [Zapier Integration](https://zapier.com/apps/stencil/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

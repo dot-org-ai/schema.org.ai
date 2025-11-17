@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/BookLikeABoss
+$context: https://schema.org.ai
+$type: Technology
+name: Book Like A Boss
+description: Business platform for business automation
+url: https://booklikeaboss.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Book Like A Boss
+  url: https://booklikeaboss.com
+zapierSlug: book-like-a-boss
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Book Like A Boss
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Booking.unknown
+- Booking.created
+- RescheduledBooking.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const booklikeaboss = {
+  $type: 'Technology',
+  name: 'Book Like A Boss',
+  url: 'https://booklikeaboss.com'
+}
+
+await $.Technology.create(booklikeaboss)
+```
+
+## Resources
+
+- [Book Like A Boss](https://booklikeaboss.com)
+- [Zapier Integration](https://zapier.com/apps/book-like-a-boss/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

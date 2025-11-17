@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Sendmode
+$context: https://schema.org.ai
+$type: Technology
+name: Sendmode
+description: Business platform for business automation
+url: https://sendmode.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Sendmode
+  url: https://sendmode.com
+zapierSlug: sendmode
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Sendmode
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- IncomingSMS.unknown
+- DeliveryReport.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const sendmode = {
+  $type: 'Technology',
+  name: 'Sendmode',
+  url: 'https://sendmode.com'
+}
+
+await $.Technology.create(sendmode)
+```
+
+## Resources
+
+- [Sendmode](https://sendmode.com)
+- [Zapier Integration](https://zapier.com/apps/sendmode/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

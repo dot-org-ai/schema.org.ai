@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Dailybot
+$context: https://schema.org.ai
+$type: Technology
+name: Dailybot
+description: Business platform for business automation
+url: https://dailybot.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Dailybot
+  url: https://dailybot.com
+zapierSlug: dailybot
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Dailybot
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormResponse.created
+- Workflow.unknown
+- FormRecord.unknown
+- Check-InResponse.created
+- KudosGiven.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const dailybot = {
+  $type: 'Technology',
+  name: 'Dailybot',
+  url: 'https://dailybot.com'
+}
+
+await $.Technology.create(dailybot)
+```
+
+## Resources
+
+- [Dailybot](https://dailybot.com)
+- [Zapier Integration](https://zapier.com/apps/dailybot/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

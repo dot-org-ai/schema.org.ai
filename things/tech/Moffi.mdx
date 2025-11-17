@@ -1,0 +1,78 @@
+---
+$id: https://tech.org.ai/Moffi
+$context: https://schema.org.ai
+$type: Technology
+name: Moffi
+description: Business platform for business automation
+url: https://moffi.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Moffi
+  url: https://moffi.com
+zapierSlug: moffi
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Moffi
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- User.created
+- User.unknown
+- Invoice.created
+- Booking.unknown
+- Booking.created
+- Quotation.created
+- Absence.created
+- BookingEnded.unknown
+- HomeOffice.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const moffi = {
+  $type: 'Technology',
+  name: 'Moffi',
+  url: 'https://moffi.com'
+}
+
+await $.Technology.create(moffi)
+```
+
+## Resources
+
+- [Moffi](https://moffi.com)
+- [Zapier Integration](https://zapier.com/apps/moffi/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

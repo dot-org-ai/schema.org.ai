@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/PerfexCRMCa79740
+$context: https://schema.org.ai
+$type: Technology
+name: Perfex CRM Ca79740
+description: CRM platform for business automation
+url: https://perfexcrmca79740.com
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: Perfex CRM Ca79740
+  url: https://perfexcrmca79740.com
+zapierSlug: perfex-crm-ca79740
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Perfex CRM Ca79740
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Staff.unknown
+- Country.unknown
+- Source.unknown
+- Statuses.unknown
+- Languages.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const perfexcrmca79740 = {
+  $type: 'Technology',
+  name: 'Perfex CRM Ca79740',
+  url: 'https://perfexcrmca79740.com'
+}
+
+await $.Technology.create(perfexcrmca79740)
+```
+
+## Resources
+
+- [Perfex CRM Ca79740](https://perfexcrmca79740.com)
+- [Zapier Integration](https://zapier.com/apps/perfex-crm-ca79740/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

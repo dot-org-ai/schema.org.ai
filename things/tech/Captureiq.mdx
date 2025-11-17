@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Captureiq
+$context: https://schema.org.ai
+$type: Technology
+name: Captureiq
+description: Business platform for business automation
+url: https://captureiq.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Captureiq
+  url: https://captureiq.com
+zapierSlug: captureiq
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Captureiq
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormSubmission.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const captureiq = {
+  $type: 'Technology',
+  name: 'Captureiq',
+  url: 'https://captureiq.com'
+}
+
+await $.Technology.create(captureiq)
+```
+
+## Resources
+
+- [Captureiq](https://captureiq.com)
+- [Zapier Integration](https://zapier.com/apps/captureiq/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

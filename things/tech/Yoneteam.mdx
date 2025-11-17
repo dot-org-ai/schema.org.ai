@@ -1,0 +1,86 @@
+---
+$id: https://tech.org.ai/Yoneteam
+$context: https://schema.org.ai
+$type: Technology
+name: Yoneteam
+description: Business platform for business automation
+url: https://yoneteam.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Yoneteam
+  url: https://yoneteam.com
+zapierSlug: yoneteam
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Yoneteam
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- Project.created
+- Project.unknown
+- Invoice.created
+- Company.created
+- Company.unknown
+- Supplier.created
+- Supplier.unknown
+- PaymentMethod.unknown
+- PaymentMethod.created
+- OrderApproved.unknown
+- Material.unknown
+- Material.created
+- MaterialUnit.created
+- MaterialUnit.unknown
+- MaterialType.created
+- MaterialType.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const yoneteam = {
+  $type: 'Technology',
+  name: 'Yoneteam',
+  url: 'https://yoneteam.com'
+}
+
+await $.Technology.create(yoneteam)
+```
+
+## Resources
+
+- [Yoneteam](https://yoneteam.com)
+- [Zapier Integration](https://zapier.com/apps/yoneteam/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

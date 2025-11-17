@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/RunMyAccounts
+$context: https://schema.org.ai
+$type: Technology
+name: Run My Accounts
+description: Business platform for business automation
+url: https://runmyaccounts.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Run My Accounts
+  url: https://runmyaccounts.com
+zapierSlug: run-my-accounts
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Run My Accounts
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customers.created
+- Payments.created
+- Invoices.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const runmyaccounts = {
+  $type: 'Technology',
+  name: 'Run My Accounts',
+  url: 'https://runmyaccounts.com'
+}
+
+await $.Technology.create(runmyaccounts)
+```
+
+## Resources
+
+- [Run My Accounts](https://runmyaccounts.com)
+- [Zapier Integration](https://zapier.com/apps/run-my-accounts/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

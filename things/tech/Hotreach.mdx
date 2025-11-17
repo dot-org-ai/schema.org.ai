@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Hotreach
+$context: https://schema.org.ai
+$type: Technology
+name: Hotreach
+description: Business platform for business automation
+url: https://hotreach.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Hotreach
+  url: https://hotreach.com
+zapierSlug: hotreach
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Hotreach
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- LeadFinalized.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const hotreach = {
+  $type: 'Technology',
+  name: 'Hotreach',
+  url: 'https://hotreach.com'
+}
+
+await $.Technology.create(hotreach)
+```
+
+## Resources
+
+- [Hotreach](https://hotreach.com)
+- [Zapier Integration](https://zapier.com/apps/hotreach/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

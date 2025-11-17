@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/MirabelsMarketingManager
+$context: https://schema.org.ai
+$type: Technology
+name: Mirabels Marketing Manager
+description: Marketing platform for business automation
+url: https://mirabelsmarketingmanager.com
+applicationCategory: Marketing Software
+provider:
+  $type: Organization
+  name: Mirabels Marketing Manager
+  url: https://mirabelsmarketingmanager.com
+zapierSlug: mirabels-marketing-manager
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Mirabels Marketing Manager
+
+Marketing platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const mirabelsmarketingmanager = {
+  $type: 'Technology',
+  name: 'Mirabels Marketing Manager',
+  url: 'https://mirabelsmarketingmanager.com'
+}
+
+await $.Technology.create(mirabelsmarketingmanager)
+```
+
+## Resources
+
+- [Mirabels Marketing Manager](https://mirabelsmarketingmanager.com)
+- [Zapier Integration](https://zapier.com/apps/mirabels-marketing-manager/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

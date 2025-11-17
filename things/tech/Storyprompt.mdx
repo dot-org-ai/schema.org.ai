@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Storyprompt
+$context: https://schema.org.ai
+$type: Technology
+name: Storyprompt
+description: Business platform for business automation
+url: https://storyprompt.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Storyprompt
+  url: https://storyprompt.com
+zapierSlug: storyprompt
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Storyprompt
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Response.created
+- ContactEmail.created
+- Prompt.created
+- MemberJoined.created
+- VideoProduced.created
+- SpaceActivity.created
+- ContactDetails.created
+- ContactPhone.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const storyprompt = {
+  $type: 'Technology',
+  name: 'Storyprompt',
+  url: 'https://storyprompt.com'
+}
+
+await $.Technology.create(storyprompt)
+```
+
+## Resources
+
+- [Storyprompt](https://storyprompt.com)
+- [Zapier Integration](https://zapier.com/apps/storyprompt/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

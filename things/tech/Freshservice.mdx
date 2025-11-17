@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Freshservice
+$context: https://schema.org.ai
+$type: Technology
+name: Freshservice
+description: Business platform for business automation
+url: https://freshservice.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Freshservice
+  url: https://freshservice.com
+zapierSlug: freshservice
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Freshservice
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- User.created
+- User.update
+- Ticket.created
+- Ticket.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const freshservice = {
+  $type: 'Technology',
+  name: 'Freshservice',
+  url: 'https://freshservice.com'
+}
+
+await $.Technology.create(freshservice)
+```
+
+## Resources
+
+- [Freshservice](https://freshservice.com)
+- [Zapier Integration](https://zapier.com/apps/freshservice/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

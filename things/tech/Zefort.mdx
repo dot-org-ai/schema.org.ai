@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Zefort
+$context: https://schema.org.ai
+$type: Technology
+name: Zefort
+description: Business platform for business automation
+url: https://zefort.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Zefort
+  url: https://zefort.com
+zapierSlug: zefort
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zefort
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contract.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zefort = {
+  $type: 'Technology',
+  name: 'Zefort',
+  url: 'https://zefort.com'
+}
+
+await $.Technology.create(zefort)
+```
+
+## Resources
+
+- [Zefort](https://zefort.com)
+- [Zapier Integration](https://zapier.com/apps/zefort/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

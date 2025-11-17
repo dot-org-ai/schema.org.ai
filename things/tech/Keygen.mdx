@@ -1,0 +1,80 @@
+---
+$id: https://tech.org.ai/Keygen
+$context: https://schema.org.ai
+$type: Technology
+name: Keygen
+description: Business platform for business automation
+url: https://keygen.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Keygen
+  url: https://keygen.com
+zapierSlug: keygen
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Keygen
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Event.created
+- User.unknown
+- Release.unknown
+- License.unknown
+- PasswordReset.unknown
+- LicenseExpired.unknown
+- LicenseExpiring.unknown
+- LicenseRenewed.unknown
+- MachineActivated.unknown
+- MachineDeactivated.unknown
+- LicenseUsed.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const keygen = {
+  $type: 'Technology',
+  name: 'Keygen',
+  url: 'https://keygen.com'
+}
+
+await $.Technology.create(keygen)
+```
+
+## Resources
+
+- [Keygen](https://keygen.com)
+- [Zapier Integration](https://zapier.com/apps/keygen/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

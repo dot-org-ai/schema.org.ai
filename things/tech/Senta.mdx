@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Senta
+$context: https://schema.org.ai
+$type: Technology
+name: Senta
+description: Business platform for business automation
+url: https://senta.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Senta
+  url: https://senta.com
+zapierSlug: senta
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Senta
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Client.created
+- Client.unknown
+- Job.unknown
+- JobBecomes.unknown
+- TimeRecord.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const senta = {
+  $type: 'Technology',
+  name: 'Senta',
+  url: 'https://senta.com'
+}
+
+await $.Technology.create(senta)
+```
+
+## Resources
+
+- [Senta](https://senta.com)
+- [Zapier Integration](https://zapier.com/apps/senta/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

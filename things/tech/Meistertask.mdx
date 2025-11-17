@@ -1,0 +1,79 @@
+---
+$id: https://tech.org.ai/Meistertask
+$context: https://schema.org.ai
+$type: Technology
+name: Meistertask
+description: Project Management platform for business automation
+url: https://meistertask.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Meistertask
+  url: https://meistertask.com
+zapierSlug: meistertask
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Meistertask
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Task.unknown
+- Project.created
+- Comment.created
+- Person.created
+- Attachment.created
+- Label.created
+- Section.created
+- ChecklistItem.created
+- TaskLabel.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const meistertask = {
+  $type: 'Technology',
+  name: 'Meistertask',
+  url: 'https://meistertask.com'
+}
+
+await $.Technology.create(meistertask)
+```
+
+## Resources
+
+- [Meistertask](https://meistertask.com)
+- [Zapier Integration](https://zapier.com/apps/meistertask/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

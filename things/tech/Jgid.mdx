@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Jgid
+$context: https://schema.org.ai
+$type: Technology
+name: Jgid
+description: Business platform for business automation
+url: https://jgid.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Jgid
+  url: https://jgid.com
+zapierSlug: jgid
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Jgid
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- CRM:Client.unknown
+- CRM:Contact.unknown
+- CRM:Location.unknown
+- Workflow:Job.unknown
+- Workflow:Quote.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const jgid = {
+  $type: 'Technology',
+  name: 'Jgid',
+  url: 'https://jgid.com'
+}
+
+await $.Technology.create(jgid)
+```
+
+## Resources
+
+- [Jgid](https://jgid.com)
+- [Zapier Integration](https://zapier.com/apps/jgid/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

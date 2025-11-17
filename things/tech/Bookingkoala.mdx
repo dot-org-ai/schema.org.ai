@@ -1,0 +1,84 @@
+---
+$id: https://tech.org.ai/Bookingkoala
+$context: https://schema.org.ai
+$type: Technology
+name: Bookingkoala
+description: Business platform for business automation
+url: https://bookingkoala.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Bookingkoala
+  url: https://bookingkoala.com
+zapierSlug: bookingkoala
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Bookingkoala
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Customer.unknown
+- Invoice.created
+- Invoice.update
+- Booking.unknown
+- Booking.created
+- Quote.created
+- Rating.created
+- Provider.created
+- Provider.unknown
+- BookingCharge.unknown
+- BookingCharged.unknown
+- BookingCard.unknown
+- ProviderPayout.unknown
+- ChargeInvoice.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const bookingkoala = {
+  $type: 'Technology',
+  name: 'Bookingkoala',
+  url: 'https://bookingkoala.com'
+}
+
+await $.Technology.create(bookingkoala)
+```
+
+## Resources
+
+- [Bookingkoala](https://bookingkoala.com)
+- [Zapier Integration](https://zapier.com/apps/bookingkoala/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

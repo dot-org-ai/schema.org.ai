@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Neetodesk
+$context: https://schema.org.ai
+$type: Technology
+name: Neetodesk
+description: Business platform for business automation
+url: https://neetodesk.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Neetodesk
+  url: https://neetodesk.com
+zapierSlug: neetodesk
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Neetodesk
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Comment.created
+- Ticket.created
+- Ticket.update
+- ClosedTicket.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const neetodesk = {
+  $type: 'Technology',
+  name: 'Neetodesk',
+  url: 'https://neetodesk.com'
+}
+
+await $.Technology.create(neetodesk)
+```
+
+## Resources
+
+- [Neetodesk](https://neetodesk.com)
+- [Zapier Integration](https://zapier.com/apps/neetodesk/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/Wavo
+$context: https://schema.org.ai
+$type: Technology
+name: Wavo
+description: Business platform for business automation
+url: https://wavo.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Wavo
+  url: https://wavo.com
+zapierSlug: wavo
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Wavo
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- ContactUnsubscribed.unknown
+- EmailOpened.unknown
+- ContactReplied.unknown
+- ContactNeutral.unknown
+- CampaignComplete.unknown
+- ContactPositive.unknown
+- ContactNegative.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const wavo = {
+  $type: 'Technology',
+  name: 'Wavo',
+  url: 'https://wavo.com'
+}
+
+await $.Technology.create(wavo)
+```
+
+## Resources
+
+- [Wavo](https://wavo.com)
+- [Zapier Integration](https://zapier.com/apps/wavo/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

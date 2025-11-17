@@ -1,0 +1,79 @@
+---
+$id: https://tech.org.ai/Loyalzoo
+$context: https://schema.org.ai
+$type: Technology
+name: Loyalzoo
+description: Business platform for business automation
+url: https://loyalzoo.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Loyalzoo
+  url: https://loyalzoo.com
+zapierSlug: loyalzoo
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Loyalzoo
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Customer.unknown
+- Membership.unknown
+- Charge.created
+- RewardRedeemed.unknown
+- MembershipEnded.unknown
+- PointsGiven.unknown
+- Checkin.unknown
+- RewardGiven.unknown
+- CounterEvent.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const loyalzoo = {
+  $type: 'Technology',
+  name: 'Loyalzoo',
+  url: 'https://loyalzoo.com'
+}
+
+await $.Technology.create(loyalzoo)
+```
+
+## Resources
+
+- [Loyalzoo](https://loyalzoo.com)
+- [Zapier Integration](https://zapier.com/apps/loyalzoo/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

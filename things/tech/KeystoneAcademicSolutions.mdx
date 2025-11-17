@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/KeystoneAcademicSolutions
+$context: https://schema.org.ai
+$type: Technology
+name: Keystone Academic Solutions
+description: Business platform for business automation
+url: https://keystoneacademicsolutions.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Keystone Academic Solutions
+  url: https://keystoneacademicsolutions.com
+zapierSlug: keystone-academic-solutions
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Keystone Academic Solutions
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const keystoneacademicsolutions = {
+  $type: 'Technology',
+  name: 'Keystone Academic Solutions',
+  url: 'https://keystoneacademicsolutions.com'
+}
+
+await $.Technology.create(keystoneacademicsolutions)
+```
+
+## Resources
+
+- [Keystone Academic Solutions](https://keystoneacademicsolutions.com)
+- [Zapier Integration](https://zapier.com/apps/keystone-academic-solutions/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/PenniCart
+$context: https://schema.org.ai
+$type: Technology
+name: Penni Cart
+description: Business platform for business automation
+url: https://pennicart.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Penni Cart
+  url: https://pennicart.com
+zapierSlug: penni-cart
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Penni Cart
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Product.unknown
+- Transaction.created
+- Subscription.created
+- Subscription.update
+- AbandonedCart.unknown
+- CancelSubscription.unknown
+- FailedTransaction.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const pennicart = {
+  $type: 'Technology',
+  name: 'Penni Cart',
+  url: 'https://pennicart.com'
+}
+
+await $.Technology.create(pennicart)
+```
+
+## Resources
+
+- [Penni Cart](https://pennicart.com)
+- [Zapier Integration](https://zapier.com/apps/penni-cart/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

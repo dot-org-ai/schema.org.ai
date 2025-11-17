@@ -1,0 +1,123 @@
+---
+$id: https://tech.org.ai/Geocapture
+$context: https://schema.org.ai
+$type: Technology
+name: Geocapture
+description: Business platform for business automation
+url: https://geocapture.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Geocapture
+  url: https://geocapture.com
+zapierSlug: geocapture
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Geocapture
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Events.unknown
+- Vehicle.unknown
+- Orders.unknown
+- Bill.unknown
+- Projects.unknown
+- Locations.unknown
+- Employees.unknown
+- WageGroup.unknown
+- AlarmEvent.created
+- FormData.created
+- FormData.unknown
+- EmployeeEvent.created
+- ProjectEvent.created
+- VehicleEvent.created
+- Approvals.unknown
+- ApprovalRules.unknown
+- Beacons.unknown
+- ContainerInquiries.unknown
+- Containers.unknown
+- ContainerTypes.unknown
+- CostBookings.unknown
+- FormDefinition.unknown
+- Departments.unknown
+- Tours.unknown
+- Qualifications.unknown
+- EmployeeAbsences.unknown
+- EmployeeAbsence.unknown
+- EmployeeAccounting.unknown
+- EmployeeStamps.unknown
+- EmployeeTime.unknown
+- Files.unknown
+- MaintenanceLogs.unknown
+- Maintenances.unknown
+- MaintenanceTypes.unknown
+- OrderCategories.unknown
+- ProjectAssignments.unknown
+- ProjectCategories.unknown
+- ProjectTimes.unknown
+- SalaryTypes.unknown
+- ToolCategories.unknown
+- ToolCost.unknown
+- ToolManufacturers.unknown
+- Tools.unknown
+- VehicleCategories.unknown
+- TrackerCost.unknown
+- VehicleCounters.unknown
+- VehicleManufacturers.unknown
+- VehicleHealths.unknown
+- VehicleProfiles.unknown
+- TrackPoints.unknown
+- WageGroups.unknown
+- WebhookApplications.unknown
+- Webhooks.unknown
+- FileEvent.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const geocapture = {
+  $type: 'Technology',
+  name: 'Geocapture',
+  url: 'https://geocapture.com'
+}
+
+await $.Technology.create(geocapture)
+```
+
+## Resources
+
+- [Geocapture](https://geocapture.com)
+- [Zapier Integration](https://zapier.com/apps/geocapture/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

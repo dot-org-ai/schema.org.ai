@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/ZohoSign
+$context: https://schema.org.ai
+$type: Technology
+name: Zoho Sign
+description: Document Management platform for business automation
+url: https://zohosign.com
+applicationCategory: Document Management Software
+provider:
+  $type: Organization
+  name: Zoho Sign
+  url: https://zohosign.com
+zapierSlug: zoho-sign
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zoho Sign
+
+Document Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Document.unknown
+- DocumentSigned.unknown
+- DocumentExpired.unknown
+- DocumentDeclined.unknown
+- DocumentRecalled.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zohosign = {
+  $type: 'Technology',
+  name: 'Zoho Sign',
+  url: 'https://zohosign.com'
+}
+
+await $.Technology.create(zohosign)
+```
+
+## Resources
+
+- [Zoho Sign](https://zohosign.com)
+- [Zapier Integration](https://zapier.com/apps/zoho-sign/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,108 @@
+---
+$id: https://tech.org.ai/Moco
+$context: https://schema.org.ai
+$type: Technology
+name: Moco
+description: Business platform for business automation
+url: https://moco.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Moco
+  url: https://moco.com
+zapierSlug: moco
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Moco
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Lead.update
+- Task.created
+- Project.created
+- Project.unknown
+- Project.update
+- User.created
+- User.update
+- Invoice.created
+- Invoice.update
+- Client.created
+- Contact.update
+- Comment.created
+- Company.created
+- Company.update
+- Expense.created
+- Expense.update
+- TimeEntry.created
+- Purchase.created
+- Purchase.update
+- Time.update
+- Offer.created
+- Offer.update
+- ContactPerson.created
+- InvoiceStatus.created
+- RecurredExpense.created
+- UnarchivedProject.unknown
+- ProjectBudget.created
+- ProjectAssignment.created
+- SalesActivity.created
+- IncomingPayment.created
+- HolidayRequest.created
+- ExportedInvoice.created
+- PlanningEntry.created
+- Planning.update
+- Presence.created
+- Presence.update
+- ApprovedHoliday.unknown
+- OutgoingPayment.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const moco = {
+  $type: 'Technology',
+  name: 'Moco',
+  url: 'https://moco.com'
+}
+
+await $.Technology.create(moco)
+```
+
+## Resources
+
+- [Moco](https://moco.com)
+- [Zapier Integration](https://zapier.com/apps/moco/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

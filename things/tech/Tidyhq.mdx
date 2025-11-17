@@ -1,0 +1,84 @@
+---
+$id: https://tech.org.ai/Tidyhq
+$context: https://schema.org.ai
+$type: Technology
+name: Tidyhq
+description: Business platform for business automation
+url: https://tidyhq.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Tidyhq
+  url: https://tidyhq.com
+zapierSlug: tidyhq
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Tidyhq
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Event.unknown
+- Subscription.unknown
+- Membership.unknown
+- EventTicket.unknown
+- SubscriptionExpired.unknown
+- FinanceOrder.unknown
+- ContactDeactivated.unknown
+- ContactActivated.unknown
+- ContactMerged.unknown
+- SubscriptionContinued.unknown
+- MembershipActivated.unknown
+- MembershipPartiated.unknown
+- MembershipExpired.unknown
+- EventActivated.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const tidyhq = {
+  $type: 'Technology',
+  name: 'Tidyhq',
+  url: 'https://tidyhq.com'
+}
+
+await $.Technology.create(tidyhq)
+```
+
+## Resources
+
+- [Tidyhq](https://tidyhq.com)
+- [Zapier Integration](https://zapier.com/apps/tidyhq/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

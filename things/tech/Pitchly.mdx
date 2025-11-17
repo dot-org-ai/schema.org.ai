@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Pitchly
+$context: https://schema.org.ai
+$type: Technology
+name: Pitchly
+description: Business platform for business automation
+url: https://pitchly.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Pitchly
+  url: https://pitchly.com
+zapierSlug: pitchly
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Pitchly
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Record.created
+- Record.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const pitchly = {
+  $type: 'Technology',
+  name: 'Pitchly',
+  url: 'https://pitchly.com'
+}
+
+await $.Technology.create(pitchly)
+```
+
+## Resources
+
+- [Pitchly](https://pitchly.com)
+- [Zapier Integration](https://zapier.com/apps/pitchly/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

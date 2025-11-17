@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Layerise
+$context: https://schema.org.ai
+$type: Technology
+name: Layerise
+description: Business platform for business automation
+url: https://layerise.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Layerise
+  url: https://layerise.com
+zapierSlug: layerise
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Layerise
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.unknown
+- CustomerProduct.unknown
+- CustomerRegistration.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const layerise = {
+  $type: 'Technology',
+  name: 'Layerise',
+  url: 'https://layerise.com'
+}
+
+await $.Technology.create(layerise)
+```
+
+## Resources
+
+- [Layerise](https://layerise.com)
+- [Zapier Integration](https://zapier.com/apps/layerise/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

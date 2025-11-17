@@ -1,0 +1,83 @@
+---
+$id: https://tech.org.ai/Wuro
+$context: https://schema.org.ai
+$type: Technology
+name: Wuro
+description: Business platform for business automation
+url: https://wuro.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Wuro
+  url: https://wuro.com
+zapierSlug: wuro
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Wuro
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Invoice.created
+- Product.created
+- Product.unknown
+- Note.created
+- Activity.created
+- Activity.unknown
+- Quote.created
+- Purchase.created
+- InvoiceStatus.unknown
+- Receipt.created
+- QuoteStatus.unknown
+- Basket.created
+- Basket.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const wuro = {
+  $type: 'Technology',
+  name: 'Wuro',
+  url: 'https://wuro.com'
+}
+
+await $.Technology.create(wuro)
+```
+
+## Resources
+
+- [Wuro](https://wuro.com)
+- [Zapier Integration](https://zapier.com/apps/wuro/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

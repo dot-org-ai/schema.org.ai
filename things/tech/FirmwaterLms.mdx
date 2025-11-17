@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/FirmwaterLms
+$context: https://schema.org.ai
+$type: Technology
+name: Firmwater Lms
+description: Business platform for business automation
+url: https://firmwaterlms.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Firmwater Lms
+  url: https://firmwaterlms.com
+zapierSlug: firmwater-lms
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Firmwater Lms
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Course.unknown
+- LearningPath.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const firmwaterlms = {
+  $type: 'Technology',
+  name: 'Firmwater Lms',
+  url: 'https://firmwaterlms.com'
+}
+
+await $.Technology.create(firmwaterlms)
+```
+
+## Resources
+
+- [Firmwater Lms](https://firmwaterlms.com)
+- [Zapier Integration](https://zapier.com/apps/firmwater-lms/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

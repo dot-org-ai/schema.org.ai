@@ -1,0 +1,94 @@
+---
+$id: https://tech.org.ai/Hubspot
+$context: https://schema.org.ai
+$type: Technology
+name: Hubspot
+description: CRM platform for business automation
+url: https://hubspot.com
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: HubSpot
+  url: https://hubspot.com
+zapierSlug: hubspot
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Hubspot
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Product.created
+- Company.created
+- FormSubmission.created
+- Ticket.created
+- Deal.created
+- Deal.update
+- CustomObject.created
+- ContactRecently.unknown
+- ContactProperty.created
+- EmailEvent.created
+- Engagement.created
+- CalendarTask.created
+- SocialMedia.created
+- DealProperty.created
+- DealProperty.unknown
+- TicketProperty.created
+- CompanyRecently.unknown
+- CRMObject.unknown
+- COSBlog.created
+- EmailSubscriptions.unknown
+- CompanyProperty.created
+- Line_item.created
+- Line_itemRecently.unknown
+- ProductRecently.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const hubspot = {
+  $type: 'Technology',
+  name: 'Hubspot',
+  url: 'https://hubspot.com'
+}
+
+await $.Technology.create(hubspot)
+```
+
+## Resources
+
+- [Hubspot](https://hubspot.com)
+- [Zapier Integration](https://zapier.com/apps/hubspot/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

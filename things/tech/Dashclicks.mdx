@@ -1,0 +1,82 @@
+---
+$id: https://tech.org.ai/Dashclicks
+$context: https://schema.org.ai
+$type: Technology
+name: Dashclicks
+description: Business platform for business automation
+url: https://dashclicks.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Dashclicks
+  url: https://dashclicks.com
+zapierSlug: dashclicks
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Dashclicks
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Deal.created
+- Person.created
+- Person.unknown
+- Review.created
+- Purchase.created
+- DealStage.unknown
+- DealStatus.unknown
+- Business.created
+- Business.unknown
+- Optin.created
+- InstasiteBuilt.created
+- InstareportBuilt.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const dashclicks = {
+  $type: 'Technology',
+  name: 'Dashclicks',
+  url: 'https://dashclicks.com'
+}
+
+await $.Technology.create(dashclicks)
+```
+
+## Resources
+
+- [Dashclicks](https://dashclicks.com)
+- [Zapier Integration](https://zapier.com/apps/dashclicks/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

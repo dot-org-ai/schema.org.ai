@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Protiv
+$context: https://schema.org.ai
+$type: Technology
+name: Protiv
+description: Business platform for business automation
+url: https://protiv.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Protiv
+  url: https://protiv.com
+zapierSlug: protiv
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Protiv
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- ProPayDetails.unknown
+- ProPayDetails.update
+- Job.get
+- ProPay.delete
+- BonusDetails.unknown
+- BonusDetails.update
+- BonusStatement.delete
+- Bonuses.delete
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const protiv = {
+  $type: 'Technology',
+  name: 'Protiv',
+  url: 'https://protiv.com'
+}
+
+await $.Technology.create(protiv)
+```
+
+## Resources
+
+- [Protiv](https://protiv.com)
+- [Zapier Integration](https://zapier.com/apps/protiv/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

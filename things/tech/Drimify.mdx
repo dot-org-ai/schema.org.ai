@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Drimify
+$context: https://schema.org.ai
+$type: Technology
+name: Drimify
+description: Business platform for business automation
+url: https://drimify.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Drimify
+  url: https://drimify.com
+zapierSlug: drimify
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Drimify
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- CollectYour.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const drimify = {
+  $type: 'Technology',
+  name: 'Drimify',
+  url: 'https://drimify.com'
+}
+
+await $.Technology.create(drimify)
+```
+
+## Resources
+
+- [Drimify](https://drimify.com)
+- [Zapier Integration](https://zapier.com/apps/drimify/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

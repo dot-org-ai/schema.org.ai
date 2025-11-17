@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/ZohoWriter
+$context: https://schema.org.ai
+$type: Technology
+name: Zoho Writer
+description: Document Management platform for business automation
+url: https://zohowriter.com
+applicationCategory: Document Management Software
+provider:
+  $type: Organization
+  name: Zoho Writer
+  url: https://zohowriter.com
+zapierSlug: zoho-writer
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zoho Writer
+
+Document Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Document.unknown
+- Document.created
+- DocumentMoved.created
+- FavouriteDocument.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zohowriter = {
+  $type: 'Technology',
+  name: 'Zoho Writer',
+  url: 'https://zohowriter.com'
+}
+
+await $.Technology.create(zohowriter)
+```
+
+## Resources
+
+- [Zoho Writer](https://zohowriter.com)
+- [Zapier Integration](https://zapier.com/apps/zoho-writer/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

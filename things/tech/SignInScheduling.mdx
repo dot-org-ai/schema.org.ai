@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/SignInScheduling
+$context: https://schema.org.ai
+$type: Technology
+name: Sign In Scheduling
+description: Business platform for business automation
+url: https://signinscheduling.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Sign In Scheduling
+  url: https://signinscheduling.com
+zapierSlug: sign-in-scheduling
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Sign In Scheduling
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Message.created
+- Appointment.created
+- Cancellation.created
+- AppointmentChanged.unknown
+- TimeBefore/After.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const signinscheduling = {
+  $type: 'Technology',
+  name: 'Sign In Scheduling',
+  url: 'https://signinscheduling.com'
+}
+
+await $.Technology.create(signinscheduling)
+```
+
+## Resources
+
+- [Sign In Scheduling](https://signinscheduling.com)
+- [Zapier Integration](https://zapier.com/apps/sign-in-scheduling/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

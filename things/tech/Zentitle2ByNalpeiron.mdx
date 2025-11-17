@@ -1,0 +1,82 @@
+---
+$id: https://tech.org.ai/Zentitle2ByNalpeiron
+$context: https://schema.org.ai
+$type: Technology
+name: Zentitle2 By Nalpeiron
+description: Business platform for business automation
+url: https://zentitle2byNalpeiron.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Zentitle2 By Nalpeiron
+  url: https://zentitle2byNalpeiron.com
+zapierSlug: zentitle2-by-Nalpeiron
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zentitle2 By Nalpeiron
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.unknown
+- EntitlementMaintenance.unknown
+- EntitlementGroup.unknown
+- Entitlement.unknown
+- EntitlementSeat.unknown
+- EntitlementActivated.unknown
+- EntitlementRenewed.unknown
+- EntitlementUsage.unknown
+- EntitlementProvision.unknown
+- EntitlementExpired.unknown
+- EntitlementExpires30days.unknown
+- EntitlementExpires7days.unknown
+- EntitlementExpires1day.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zentitle2byNalpeiron = {
+  $type: 'Technology',
+  name: 'Zentitle2 By Nalpeiron',
+  url: 'https://zentitle2byNalpeiron.com'
+}
+
+await $.Technology.create(zentitle2byNalpeiron)
+```
+
+## Resources
+
+- [Zentitle2 By Nalpeiron](https://zentitle2byNalpeiron.com)
+- [Zapier Integration](https://zapier.com/apps/zentitle2-by-Nalpeiron/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

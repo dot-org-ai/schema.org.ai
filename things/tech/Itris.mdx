@@ -1,0 +1,79 @@
+---
+$id: https://tech.org.ai/Itris
+$context: https://schema.org.ai
+$type: Technology
+name: Itris
+description: Business platform for business automation
+url: https://itris.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Itris
+  url: https://itris.com
+zapierSlug: itris
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Itris
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Company.created
+- Job.created
+- Applicant.created
+- Placement.created
+- CompanyCustom.unknown
+- ContactCustom.unknown
+- ApplicantCustom.unknown
+- JobCustom.unknown
+- PlacementCustom.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const itris = {
+  $type: 'Technology',
+  name: 'Itris',
+  url: 'https://itris.com'
+}
+
+await $.Technology.create(itris)
+```
+
+## Resources
+
+- [Itris](https://itris.com)
+- [Zapier Integration](https://zapier.com/apps/itris/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

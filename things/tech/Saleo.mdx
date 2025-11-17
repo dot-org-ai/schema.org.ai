@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Saleo
+$context: https://schema.org.ai
+$type: Technology
+name: Saleo
+description: Business platform for business automation
+url: https://saleo.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Saleo
+  url: https://saleo.com
+zapierSlug: saleo
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Saleo
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- CaptureLead.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const saleo = {
+  $type: 'Technology',
+  name: 'Saleo',
+  url: 'https://saleo.com'
+}
+
+await $.Technology.create(saleo)
+```
+
+## Resources
+
+- [Saleo](https://saleo.com)
+- [Zapier Integration](https://zapier.com/apps/saleo/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

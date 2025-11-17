@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/BlanketApp
+$context: https://schema.org.ai
+$type: Technology
+name: Blanket App
+description: Project Management platform for business automation
+url: https://blanketapp.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Blanket App
+  url: https://blanketapp.com
+zapierSlug: blanket-app
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Blanket App
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Task.update
+- Action.update
+- ActionPlan.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const blanketapp = {
+  $type: 'Technology',
+  name: 'Blanket App',
+  url: 'https://blanketapp.com'
+}
+
+await $.Technology.create(blanketapp)
+```
+
+## Resources
+
+- [Blanket App](https://blanketapp.com)
+- [Zapier Integration](https://zapier.com/apps/blanket-app/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

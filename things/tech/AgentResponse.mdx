@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/AgentResponse
+$context: https://schema.org.ai
+$type: Technology
+name: Agent Response
+description: Form platform for business automation
+url: https://agentresponse.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Agent Response
+  url: https://agentresponse.com
+zapierSlug: agent-response
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Agent Response
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Form.unknown
+- PortalEntry.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const agentresponse = {
+  $type: 'Technology',
+  name: 'Agent Response',
+  url: 'https://agentresponse.com'
+}
+
+await $.Technology.create(agentresponse)
+```
+
+## Resources
+
+- [Agent Response](https://agentresponse.com)
+- [Zapier Integration](https://zapier.com/apps/agent-response/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Eventzilla
+$context: https://schema.org.ai
+$type: Technology
+name: Eventzilla
+description: Business platform for business automation
+url: https://eventzilla.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Eventzilla
+  url: https://eventzilla.com
+zapierSlug: eventzilla
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Eventzilla
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Registration.created
+- Registration.update
+- AttendeeCheck-In.unknown
+- LiveEvent.created
+- WaitlistGuest.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const eventzilla = {
+  $type: 'Technology',
+  name: 'Eventzilla',
+  url: 'https://eventzilla.com'
+}
+
+await $.Technology.create(eventzilla)
+```
+
+## Resources
+
+- [Eventzilla](https://eventzilla.com)
+- [Zapier Integration](https://zapier.com/apps/eventzilla/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

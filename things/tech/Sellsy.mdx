@@ -1,0 +1,78 @@
+---
+$id: https://tech.org.ai/Sellsy
+$context: https://schema.org.ai
+$type: Technology
+name: Sellsy
+description: Business platform for business automation
+url: https://sellsy.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Sellsy
+  url: https://sellsy.com
+zapierSlug: sellsy
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Sellsy
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Contact.update
+- Task.created
+- Task.update
+- Task.delete
+- Company.created
+- Company.update
+- Opportunity.created
+- Opportunity.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const sellsy = {
+  $type: 'Technology',
+  name: 'Sellsy',
+  url: 'https://sellsy.com'
+}
+
+await $.Technology.create(sellsy)
+```
+
+## Resources
+
+- [Sellsy](https://sellsy.com)
+- [Zapier Integration](https://zapier.com/apps/sellsy/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

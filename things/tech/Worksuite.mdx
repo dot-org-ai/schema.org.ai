@@ -1,0 +1,78 @@
+---
+$id: https://tech.org.ai/Worksuite
+$context: https://schema.org.ai
+$type: Technology
+name: Worksuite
+description: Project Management platform for business automation
+url: https://worksuite.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Worksuite
+  url: https://worksuite.com
+zapierSlug: worksuite
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Worksuite
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Task.unknown
+- Payment.created
+- TaskStatus.unknown
+- Partner.unknown
+- Partner.created
+- PaymentStatus.unknown
+- PartnerStatus.unknown
+- PartnerAvailability.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const worksuite = {
+  $type: 'Technology',
+  name: 'Worksuite',
+  url: 'https://worksuite.com'
+}
+
+await $.Technology.create(worksuite)
+```
+
+## Resources
+
+- [Worksuite](https://worksuite.com)
+- [Zapier Integration](https://zapier.com/apps/worksuite/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/FormData
+$context: https://schema.org.ai
+$type: Technology
+name: Form Data
+description: Form platform for business automation
+url: https://formdata.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Form Data
+  url: https://formdata.com
+zapierSlug: form-data
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Form Data
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormSubmitted.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const formdata = {
+  $type: 'Technology',
+  name: 'Form Data',
+  url: 'https://formdata.com'
+}
+
+await $.Technology.create(formdata)
+```
+
+## Resources
+
+- [Form Data](https://formdata.com)
+- [Zapier Integration](https://zapier.com/apps/form-data/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

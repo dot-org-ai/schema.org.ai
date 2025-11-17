@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Coreform
+$context: https://schema.org.ai
+$type: Technology
+name: Coreform
+description: Form platform for business automation
+url: https://coreform.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Coreform
+  url: https://coreform.com
+zapierSlug: coreform
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Coreform
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const coreform = {
+  $type: 'Technology',
+  name: 'Coreform',
+  url: 'https://coreform.com'
+}
+
+await $.Technology.create(coreform)
+```
+
+## Resources
+
+- [Coreform](https://coreform.com)
+- [Zapier Integration](https://zapier.com/apps/coreform/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

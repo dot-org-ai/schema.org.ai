@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Dunaroo
+$context: https://schema.org.ai
+$type: Technology
+name: Dunaroo
+description: Business platform for business automation
+url: https://dunaroo.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Dunaroo
+  url: https://dunaroo.com
+zapierSlug: dunaroo
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Dunaroo
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Contact.update
+- Task.unknown
+- Client.created
+- Client.update
+- Project.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const dunaroo = {
+  $type: 'Technology',
+  name: 'Dunaroo',
+  url: 'https://dunaroo.com'
+}
+
+await $.Technology.create(dunaroo)
+```
+
+## Resources
+
+- [Dunaroo](https://dunaroo.com)
+- [Zapier Integration](https://zapier.com/apps/dunaroo/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

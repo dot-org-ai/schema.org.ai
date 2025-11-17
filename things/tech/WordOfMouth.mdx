@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/WordOfMouth
+$context: https://schema.org.ai
+$type: Technology
+name: Word Of Mouth
+description: Business platform for business automation
+url: https://wordofmouth.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Word Of Mouth
+  url: https://wordofmouth.com
+zapierSlug: word-of-mouth
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Word Of Mouth
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Review.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const wordofmouth = {
+  $type: 'Technology',
+  name: 'Word Of Mouth',
+  url: 'https://wordofmouth.com'
+}
+
+await $.Technology.create(wordofmouth)
+```
+
+## Resources
+
+- [Word Of Mouth](https://wordofmouth.com)
+- [Zapier Integration](https://zapier.com/apps/word-of-mouth/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

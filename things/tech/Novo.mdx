@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Novo
+$context: https://schema.org.ai
+$type: Technology
+name: Novo
+description: Business platform for business automation
+url: https://novo.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Novo
+  url: https://novo.com
+zapierSlug: novo
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Novo
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Transaction.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const novo = {
+  $type: 'Technology',
+  name: 'Novo',
+  url: 'https://novo.com'
+}
+
+await $.Technology.create(novo)
+```
+
+## Resources
+
+- [Novo](https://novo.com)
+- [Zapier Integration](https://zapier.com/apps/novo/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

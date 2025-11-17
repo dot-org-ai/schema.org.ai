@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Realvuu
+$context: https://schema.org.ai
+$type: Technology
+name: Realvuu
+description: Business platform for business automation
+url: https://realvuu.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Realvuu
+  url: https://realvuu.com
+zapierSlug: realvuu
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Realvuu
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const realvuu = {
+  $type: 'Technology',
+  name: 'Realvuu',
+  url: 'https://realvuu.com'
+}
+
+await $.Technology.create(realvuu)
+```
+
+## Resources
+
+- [Realvuu](https://realvuu.com)
+- [Zapier Integration](https://zapier.com/apps/realvuu/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,78 @@
+---
+$id: https://tech.org.ai/TheValueBuilderSystemtmCa180
+$context: https://schema.org.ai
+$type: Technology
+name: The Value Builder Systemtm Ca180
+description: Business platform for business automation
+url: https://thevaluebuildersystemtmca180.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: The Value Builder Systemtm Ca180
+  url: https://thevaluebuildersystemtmca180.com
+zapierSlug: the-value-builder-systemtm-ca180
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# The Value Builder Systemtm Ca180
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Contact.update
+- Contact.unsubscribe
+- Email.unknown
+- ActivityFeed.created
+- Open/ClickContact.unknown
+- EngagementProgram.unknown
+- OpenedEmail.unknown
+- ClickedEmail.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const thevaluebuildersystemtmca180 = {
+  $type: 'Technology',
+  name: 'The Value Builder Systemtm Ca180',
+  url: 'https://thevaluebuildersystemtmca180.com'
+}
+
+await $.Technology.create(thevaluebuildersystemtmca180)
+```
+
+## Resources
+
+- [The Value Builder Systemtm Ca180](https://thevaluebuildersystemtmca180.com)
+- [Zapier Integration](https://zapier.com/apps/the-value-builder-systemtm-ca180/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

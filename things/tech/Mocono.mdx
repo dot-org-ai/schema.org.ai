@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Mocono
+$context: https://schema.org.ai
+$type: Technology
+name: Mocono
+description: Business platform for business automation
+url: https://mocono.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Mocono
+  url: https://mocono.com
+zapierSlug: mocono
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Mocono
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Subscription.unknown
+- SubscriptionActivated.unknown
+- FreeRegistration.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const mocono = {
+  $type: 'Technology',
+  name: 'Mocono',
+  url: 'https://mocono.com'
+}
+
+await $.Technology.create(mocono)
+```
+
+## Resources
+
+- [Mocono](https://mocono.com)
+- [Zapier Integration](https://zapier.com/apps/mocono/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Humanitix
+$context: https://schema.org.ai
+$type: Technology
+name: Humanitix
+description: Business platform for business automation
+url: https://humanitix.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Humanitix
+  url: https://humanitix.com
+zapierSlug: humanitix
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Humanitix
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Order.created
+- Event.created
+- Attendee.created
+- AttendeeCheck-In.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const humanitix = {
+  $type: 'Technology',
+  name: 'Humanitix',
+  url: 'https://humanitix.com'
+}
+
+await $.Technology.create(humanitix)
+```
+
+## Resources
+
+- [Humanitix](https://humanitix.com)
+- [Zapier Integration](https://zapier.com/apps/humanitix/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

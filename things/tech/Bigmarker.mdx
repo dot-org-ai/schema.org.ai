@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Bigmarker
+$context: https://schema.org.ai
+$type: Technology
+name: Bigmarker
+description: Business platform for business automation
+url: https://bigmarker.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Bigmarker
+  url: https://bigmarker.com
+zapierSlug: bigmarker
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Bigmarker
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- WebinarRegistration.created
+- Conference.unknown
+- ChannelWebinar.created
+- RegistrationAttendees.unknown
+- ChannelWide.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const bigmarker = {
+  $type: 'Technology',
+  name: 'Bigmarker',
+  url: 'https://bigmarker.com'
+}
+
+await $.Technology.create(bigmarker)
+```
+
+## Resources
+
+- [Bigmarker](https://bigmarker.com)
+- [Zapier Integration](https://zapier.com/apps/bigmarker/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

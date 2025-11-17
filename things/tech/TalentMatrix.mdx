@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/TalentMatrix
+$context: https://schema.org.ai
+$type: Technology
+name: Talent Matrix
+description: Business platform for business automation
+url: https://talentmatrix.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Talent Matrix
+  url: https://talentmatrix.com
+zapierSlug: talent-matrix
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Talent Matrix
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- LeadEnrichment.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const talentmatrix = {
+  $type: 'Technology',
+  name: 'Talent Matrix',
+  url: 'https://talentmatrix.com'
+}
+
+await $.Technology.create(talentmatrix)
+```
+
+## Resources
+
+- [Talent Matrix](https://talentmatrix.com)
+- [Zapier Integration](https://zapier.com/apps/talent-matrix/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

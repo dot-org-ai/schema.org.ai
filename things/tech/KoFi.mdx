@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/KoFi
+$context: https://schema.org.ai
+$type: Technology
+name: Ko Fi
+description: Payment Processing platform for business automation
+url: https://kofi.com
+applicationCategory: Payment Processing Software
+provider:
+  $type: Organization
+  name: Ko Fi
+  url: https://kofi.com
+zapierSlug: ko-fi
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Ko Fi
+
+Payment Processing platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Payment.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const kofi = {
+  $type: 'Technology',
+  name: 'Ko Fi',
+  url: 'https://kofi.com'
+}
+
+await $.Technology.create(kofi)
+```
+
+## Resources
+
+- [Ko Fi](https://kofi.com)
+- [Zapier Integration](https://zapier.com/apps/ko-fi/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

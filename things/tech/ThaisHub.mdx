@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/ThaisHub
+$context: https://schema.org.ai
+$type: Technology
+name: Thais Hub
+description: Business platform for business automation
+url: https://thaishub.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Thais Hub
+  url: https://thaishub.com
+zapierSlug: thais-hub
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Thais Hub
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Booking.created
+- Notification.created
+- ServiceBooking.created
+- InvoivedPurchase.created
+- RestoBooking.created
+- ServiceType.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const thaishub = {
+  $type: 'Technology',
+  name: 'Thais Hub',
+  url: 'https://thaishub.com'
+}
+
+await $.Technology.create(thaishub)
+```
+
+## Resources
+
+- [Thais Hub](https://thaishub.com)
+- [Zapier Integration](https://zapier.com/apps/thais-hub/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

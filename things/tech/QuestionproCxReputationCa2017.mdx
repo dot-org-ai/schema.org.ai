@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/QuestionproCxReputationCa2017
+$context: https://schema.org.ai
+$type: Technology
+name: Questionpro Cx Reputation Ca2017
+description: Business platform for business automation
+url: https://questionprocxreputationca2017.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Questionpro Cx Reputation Ca2017
+  url: https://questionprocxreputationca2017.com
+zapierSlug: questionpro-cx-reputation-ca2017
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Questionpro Cx Reputation Ca2017
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- NegativeReview.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const questionprocxreputationca2017 = {
+  $type: 'Technology',
+  name: 'Questionpro Cx Reputation Ca2017',
+  url: 'https://questionprocxreputationca2017.com'
+}
+
+await $.Technology.create(questionprocxreputationca2017)
+```
+
+## Resources
+
+- [Questionpro Cx Reputation Ca2017](https://questionprocxreputationca2017.com)
+- [Zapier Integration](https://zapier.com/apps/questionpro-cx-reputation-ca2017/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

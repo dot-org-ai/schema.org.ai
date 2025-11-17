@@ -1,0 +1,81 @@
+---
+$id: https://tech.org.ai/Repsly
+$context: https://schema.org.ai
+$type: Technology
+name: Repsly
+description: Business platform for business automation
+url: https://repsly.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Repsly
+  url: https://repsly.com
+zapierSlug: repsly
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Repsly
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- Client.created
+- Item.created
+- Form.created
+- Schedule.created
+- Audit.created
+- VisitEnd.created
+- WorkdayStart.created
+- WorkdayEnd.created
+- VisitStart.created
+- ClientStatus.created
+- MissedSchedule.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const repsly = {
+  $type: 'Technology',
+  name: 'Repsly',
+  url: 'https://repsly.com'
+}
+
+await $.Technology.create(repsly)
+```
+
+## Resources
+
+- [Repsly](https://repsly.com)
+- [Zapier Integration](https://zapier.com/apps/repsly/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

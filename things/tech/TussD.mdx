@@ -1,0 +1,87 @@
+---
+$id: https://tech.org.ai/TussD
+$context: https://schema.org.ai
+$type: Technology
+name: Tuss D
+description: Project Management platform for business automation
+url: https://tussd.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Tuss D
+  url: https://tussd.com
+zapierSlug: tuss-d
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Tuss D
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Task.unknown
+- User.created
+- Feedback.created
+- Goal.created
+- Attendance.created
+- Leave.unknown
+- Workspace.unknown
+- TaskChanged.unknown
+- TaskConfirmed.unknown
+- Diagnose.created
+- InfoBase.created
+- Rule.created
+- RuleForms.unknown
+- Algorithm.created
+- AlgorithmCollected.unknown
+- InfoSpace.unknown
+- AlgorithmInfoBase.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const tussd = {
+  $type: 'Technology',
+  name: 'Tuss D',
+  url: 'https://tussd.com'
+}
+
+await $.Technology.create(tussd)
+```
+
+## Resources
+
+- [Tuss D](https://tussd.com)
+- [Zapier Integration](https://zapier.com/apps/tuss-d/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

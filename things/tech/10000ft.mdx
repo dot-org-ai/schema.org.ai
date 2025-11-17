@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/10000ft
+$context: https://schema.org.ai
+$type: Technology
+name: 10000ft
+description: Project Management platform for business automation
+url: https://10000ft.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: 10000ft
+  url: https://10000ft.com
+zapierSlug: 10000ft
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# 10000ft
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Project.created
+- Project.unknown
+- User.created
+- User.unknown
+- TimeEntry.created
+- TimeEntry.unknown
+- Assignment.unknown
+- Assignment.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const 10000ft = {
+  $type: 'Technology',
+  name: '10000ft',
+  url: 'https://10000ft.com'
+}
+
+await $.Technology.create(10000ft)
+```
+
+## Resources
+
+- [10000ft](https://10000ft.com)
+- [Zapier Integration](https://zapier.com/apps/10000ft/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

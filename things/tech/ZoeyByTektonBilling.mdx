@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/ZoeyByTektonBilling
+$context: https://schema.org.ai
+$type: Technology
+name: Zoey By Tekton Billing
+description: Business platform for business automation
+url: https://zoeybytektonbilling.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Zoey By Tekton Billing
+  url: https://zoeybytektonbilling.com
+zapierSlug: zoey-by-tekton-billing
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zoey By Tekton Billing
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Account.update
+- Service.update
+- Services.update
+- Cost.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zoeybytektonbilling = {
+  $type: 'Technology',
+  name: 'Zoey By Tekton Billing',
+  url: 'https://zoeybytektonbilling.com'
+}
+
+await $.Technology.create(zoeybytektonbilling)
+```
+
+## Resources
+
+- [Zoey By Tekton Billing](https://zoeybytektonbilling.com)
+- [Zapier Integration](https://zapier.com/apps/zoey-by-tekton-billing/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

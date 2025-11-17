@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Myphoner
+$context: https://schema.org.ai
+$type: Technology
+name: Myphoner
+description: Business platform for business automation
+url: https://myphoner.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Myphoner
+  url: https://myphoner.com
+zapierSlug: myphoner
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Myphoner
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.unknown
+- LostLead.unknown
+- CallBack.unknown
+- Winner.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const myphoner = {
+  $type: 'Technology',
+  name: 'Myphoner',
+  url: 'https://myphoner.com'
+}
+
+await $.Technology.create(myphoner)
+```
+
+## Resources
+
+- [Myphoner](https://myphoner.com)
+- [Zapier Integration](https://zapier.com/apps/myphoner/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

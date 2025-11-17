@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Convergehub
+$context: https://schema.org.ai
+$type: Technology
+name: Convergehub
+description: Business platform for business automation
+url: https://convergehub.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Convergehub
+  url: https://convergehub.com
+zapierSlug: convergehub
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Convergehub
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Lead.created
+- Invoice.created
+- Event.created
+- Account.created
+- ModuleEntry.created
+- Quotes.created
+- Target.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const convergehub = {
+  $type: 'Technology',
+  name: 'Convergehub',
+  url: 'https://convergehub.com'
+}
+
+await $.Technology.create(convergehub)
+```
+
+## Resources
+
+- [Convergehub](https://convergehub.com)
+- [Zapier Integration](https://zapier.com/apps/convergehub/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

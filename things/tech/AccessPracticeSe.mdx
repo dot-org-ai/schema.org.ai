@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/AccessPracticeSe
+$context: https://schema.org.ai
+$type: Technology
+name: Access Practice Se
+description: Project Management platform for business automation
+url: https://accesspracticese.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Access Practice Se
+  url: https://accesspracticese.com
+zapierSlug: access-practice-se
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Access Practice Se
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.unknown
+- TaskAssigned.unknown
+- ContactCreated/Updated.unknown
+- ClientCreated/Updated.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const accesspracticese = {
+  $type: 'Technology',
+  name: 'Access Practice Se',
+  url: 'https://accesspracticese.com'
+}
+
+await $.Technology.create(accesspracticese)
+```
+
+## Resources
+
+- [Access Practice Se](https://accesspracticese.com)
+- [Zapier Integration](https://zapier.com/apps/access-practice-se/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

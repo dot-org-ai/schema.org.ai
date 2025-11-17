@@ -1,0 +1,81 @@
+---
+$id: https://tech.org.ai/TactfulUcx
+$context: https://schema.org.ai
+$type: Technology
+name: Tactful Ucx
+description: Business platform for business automation
+url: https://tactfulucx.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Tactful Ucx
+  url: https://tactfulucx.com
+zapierSlug: tactful-ucx
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Tactful Ucx
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Customer.created
+- Customer.update
+- Order.created
+- Order.update
+- Comment.created
+- Product.created
+- Product.update
+- Ticket.created
+- Ticket.update
+- Category.created
+- Category.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const tactfulucx = {
+  $type: 'Technology',
+  name: 'Tactful Ucx',
+  url: 'https://tactfulucx.com'
+}
+
+await $.Technology.create(tactfulucx)
+```
+
+## Resources
+
+- [Tactful Ucx](https://tactfulucx.com)
+- [Zapier Integration](https://zapier.com/apps/tactful-ucx/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

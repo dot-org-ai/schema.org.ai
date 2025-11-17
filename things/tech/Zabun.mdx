@@ -1,0 +1,86 @@
+---
+$id: https://tech.org.ai/Zabun
+$context: https://schema.org.ai
+$type: Technology
+name: Zabun
+description: Business platform for business automation
+url: https://zabun.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Zabun
+  url: https://zabun.com
+zapierSlug: zabun
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Zabun
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Contact.update
+- Contact.delete
+- Task.created
+- Account.created
+- Account.update
+- Account.delete
+- Request.created
+- Request.update
+- Request.delete
+- Property.created
+- Property.delete
+- FullProperty.unknown
+- PollContact.unknown
+- PollProperty.unknown
+- PollTask.unknown
+- PropertyTransaction.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const zabun = {
+  $type: 'Technology',
+  name: 'Zabun',
+  url: 'https://zabun.com'
+}
+
+await $.Technology.create(zabun)
+```
+
+## Resources
+
+- [Zabun](https://zabun.com)
+- [Zapier Integration](https://zapier.com/apps/zabun/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

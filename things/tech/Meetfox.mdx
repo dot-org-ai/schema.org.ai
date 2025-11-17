@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Meetfox
+$context: https://schema.org.ai
+$type: Technology
+name: Meetfox
+description: Communication platform for business automation
+url: https://meetfox.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Meetfox
+  url: https://meetfox.com
+zapierSlug: meetfox
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Meetfox
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Meeting.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const meetfox = {
+  $type: 'Technology',
+  name: 'Meetfox',
+  url: 'https://meetfox.com'
+}
+
+await $.Technology.create(meetfox)
+```
+
+## Resources
+
+- [Meetfox](https://meetfox.com)
+- [Zapier Integration](https://zapier.com/apps/meetfox/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

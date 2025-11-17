@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Hivelight
+$context: https://schema.org.ai
+$type: Technology
+name: Hivelight
+description: Project Management platform for business automation
+url: https://hivelight.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Hivelight
+  url: https://hivelight.com
+zapierSlug: hivelight
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Hivelight
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.unknown
+- TaskStatus.unknown
+- Matter.unknown
+- Milestone.unknown
+- MilestoneStatus.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const hivelight = {
+  $type: 'Technology',
+  name: 'Hivelight',
+  url: 'https://hivelight.com'
+}
+
+await $.Technology.create(hivelight)
+```
+
+## Resources
+
+- [Hivelight](https://hivelight.com)
+- [Zapier Integration](https://zapier.com/apps/hivelight/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

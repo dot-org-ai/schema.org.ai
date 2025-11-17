@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/MoceanAPI
+$context: https://schema.org.ai
+$type: Technology
+name: Mocean API
+description: Business platform for business automation
+url: https://moceanapi.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Mocean API
+  url: https://moceanapi.com
+zapierSlug: mocean-api
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Mocean API
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Balance.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const moceanapi = {
+  $type: 'Technology',
+  name: 'Mocean API',
+  url: 'https://moceanapi.com'
+}
+
+await $.Technology.create(moceanapi)
+```
+
+## Resources
+
+- [Mocean API](https://moceanapi.com)
+- [Zapier Integration](https://zapier.com/apps/mocean-api/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

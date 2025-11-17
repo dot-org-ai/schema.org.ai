@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/HearmeCxmPlatform
+$context: https://schema.org.ai
+$type: Technology
+name: Hearme Cxm Platform
+description: Form platform for business automation
+url: https://hearmecxmplatform.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Hearme Cxm Platform
+  url: https://hearmecxmplatform.com
+zapierSlug: hearme-cxm-platform
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Hearme Cxm Platform
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Feedback.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const hearmecxmplatform = {
+  $type: 'Technology',
+  name: 'Hearme Cxm Platform',
+  url: 'https://hearmecxmplatform.com'
+}
+
+await $.Technology.create(hearmecxmplatform)
+```
+
+## Resources
+
+- [Hearme Cxm Platform](https://hearmecxmplatform.com)
+- [Zapier Integration](https://zapier.com/apps/hearme-cxm-platform/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

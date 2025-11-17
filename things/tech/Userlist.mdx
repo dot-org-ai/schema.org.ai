@@ -1,0 +1,84 @@
+---
+$id: https://tech.org.ai/Userlist
+$context: https://schema.org.ai
+$type: Technology
+name: Userlist
+description: Business platform for business automation
+url: https://userlist.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Userlist
+  url: https://userlist.com
+zapierSlug: userlist
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Userlist
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- User.created
+- User.update
+- Company.created
+- Company.update
+- UserJoined.unknown
+- UserLeft.unknown
+- Relationship.created
+- Relationship.update
+- UserSubmitted.unknown
+- UserSubscribed.unknown
+- UserUnsubscribed.unknown
+- CustomUser.created
+- CustomCompany.created
+- CompanyJoined.unknown
+- CompanyLeft.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const userlist = {
+  $type: 'Technology',
+  name: 'Userlist',
+  url: 'https://userlist.com'
+}
+
+await $.Technology.create(userlist)
+```
+
+## Resources
+
+- [Userlist](https://userlist.com)
+- [Zapier Integration](https://zapier.com/apps/userlist/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

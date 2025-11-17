@@ -1,0 +1,80 @@
+---
+$id: https://tech.org.ai/Taptiq
+$context: https://schema.org.ai
+$type: Technology
+name: Taptiq
+description: Business platform for business automation
+url: https://taptiq.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Taptiq
+  url: https://taptiq.com
+zapierSlug: taptiq
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Taptiq
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- User:.unknown
+- Content:Inappropriate.unknown
+- User:Approval.unknown
+- User:Account.unknown
+- Event:.unknown
+- Event:Revoke.unknown
+- Marketplace:Buy.unknown
+- User:Profile.unknown
+- Discussions:.unknown
+- Catalog:.unknown
+- User:Status.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const taptiq = {
+  $type: 'Technology',
+  name: 'Taptiq',
+  url: 'https://taptiq.com'
+}
+
+await $.Technology.create(taptiq)
+```
+
+## Resources
+
+- [Taptiq](https://taptiq.com)
+- [Zapier Integration](https://zapier.com/apps/taptiq/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

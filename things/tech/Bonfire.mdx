@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Bonfire
+$context: https://schema.org.ai
+$type: Technology
+name: Bonfire
+description: Business platform for business automation
+url: https://bonfire.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Bonfire
+  url: https://bonfire.com
+zapierSlug: bonfire
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Bonfire
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Subscriber.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const bonfire = {
+  $type: 'Technology',
+  name: 'Bonfire',
+  url: 'https://bonfire.com'
+}
+
+await $.Technology.create(bonfire)
+```
+
+## Resources
+
+- [Bonfire](https://bonfire.com)
+- [Zapier Integration](https://zapier.com/apps/bonfire/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

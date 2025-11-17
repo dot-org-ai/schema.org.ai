@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Lmn
+$context: https://schema.org.ai
+$type: Technology
+name: Lmn
+description: Business platform for business automation
+url: https://lmn.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Lmn
+  url: https://lmn.com
+zapierSlug: lmn
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Lmn
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Estimate.unknown
+- Task/Note.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const lmn = {
+  $type: 'Technology',
+  name: 'Lmn',
+  url: 'https://lmn.com'
+}
+
+await $.Technology.create(lmn)
+```
+
+## Resources
+
+- [Lmn](https://lmn.com)
+- [Zapier Integration](https://zapier.com/apps/lmn/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

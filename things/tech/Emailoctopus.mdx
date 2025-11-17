@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Emailoctopus
+$context: https://schema.org.ai
+$type: Technology
+name: Emailoctopus
+description: Communication platform for business automation
+url: https://emailoctopus.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Emailoctopus
+  url: https://emailoctopus.com
+zapierSlug: emailoctopus
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Emailoctopus
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- EmailOpened.unknown
+- EmailClicked.unknown
+- EmailBounced.unknown
+- ContactUnsubscribes.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const emailoctopus = {
+  $type: 'Technology',
+  name: 'Emailoctopus',
+  url: 'https://emailoctopus.com'
+}
+
+await $.Technology.create(emailoctopus)
+```
+
+## Resources
+
+- [Emailoctopus](https://emailoctopus.com)
+- [Zapier Integration](https://zapier.com/apps/emailoctopus/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

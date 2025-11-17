@@ -1,0 +1,80 @@
+---
+$id: https://tech.org.ai/Pipeliner
+$context: https://schema.org.ai
+$type: Technology
+name: Pipeliner
+description: Business platform for business automation
+url: https://pipeliner.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Pipeliner
+  url: https://pipeliner.com
+zapierSlug: pipeliner
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Pipeliner
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Lead.created
+- Lead.unknown
+- Task.created
+- Note.created
+- Opportunity.created
+- Opportunity.unknown
+- Appointment.created
+- Account.created
+- MovedOpportunity.unknown
+- FeedMessage.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const pipeliner = {
+  $type: 'Technology',
+  name: 'Pipeliner',
+  url: 'https://pipeliner.com'
+}
+
+await $.Technology.create(pipeliner)
+```
+
+## Resources
+
+- [Pipeliner](https://pipeliner.com)
+- [Zapier Integration](https://zapier.com/apps/pipeliner/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Dotsimple
+$context: https://schema.org.ai
+$type: Technology
+name: Dotsimple
+description: Business platform for business automation
+url: https://dotsimple.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Dotsimple
+  url: https://dotsimple.com
+zapierSlug: dotsimple
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Dotsimple
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Post.created
+- Tag.created
+- FileUploaded.created
+- AccountConnected.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const dotsimple = {
+  $type: 'Technology',
+  name: 'Dotsimple',
+  url: 'https://dotsimple.com'
+}
+
+await $.Technology.create(dotsimple)
+```
+
+## Resources
+
+- [Dotsimple](https://dotsimple.com)
+- [Zapier Integration](https://zapier.com/apps/dotsimple/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

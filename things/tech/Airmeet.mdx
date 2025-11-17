@@ -1,0 +1,95 @@
+---
+$id: https://tech.org.ai/Airmeet
+$context: https://schema.org.ai
+$type: Technology
+name: Airmeet
+description: Business platform for business automation
+url: https://airmeet.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Airmeet
+  url: https://airmeet.com
+zapierSlug: airmeet
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Airmeet
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Registrant.unknown
+- AttendeeRegistered.unknown
+- EventAttendance.unknown
+- AttendeeJoined.unknown
+- Airmeet.created
+- AirmeetStart.unknown
+- AirmeetFinish.unknown
+- AirmeetReminder.unknown
+- SessionAttendance.unknown
+- Sessions.get
+- EventPolls.unknown
+- EventQuestions.unknown
+- BoothAttendance.unknown
+- AirmeetTracks.get
+- AirmeetBooths.get
+- AirmeetCustom.get
+- AirmeetSession.unknown
+- AttendeeClicked.unknown
+- AttendeeEntered.unknown
+- AttendeeEngagement.unknown
+- AttendeeLeaderboard.unknown
+- AttendeeStage.unknown
+- AttendeeOpened.unknown
+- AttendeeRegistration.unknown
+- AttendeeReplay.unknown
+- AttendeeSession.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const airmeet = {
+  $type: 'Technology',
+  name: 'Airmeet',
+  url: 'https://airmeet.com'
+}
+
+await $.Technology.create(airmeet)
+```
+
+## Resources
+
+- [Airmeet](https://airmeet.com)
+- [Zapier Integration](https://zapier.com/apps/airmeet/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

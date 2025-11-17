@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Scoreceobeta
+$context: https://schema.org.ai
+$type: Technology
+name: Scoreceobeta
+description: Business platform for business automation
+url: https://scoreceobeta.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Scoreceobeta
+  url: https://scoreceobeta.com
+zapierSlug: scoreceobeta
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Scoreceobeta
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.update
+- Lead.add
+- Affiliate.update
+- Affiliate.add
+- Consumer.add
+- Consumer.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const scoreceobeta = {
+  $type: 'Technology',
+  name: 'Scoreceobeta',
+  url: 'https://scoreceobeta.com'
+}
+
+await $.Technology.create(scoreceobeta)
+```
+
+## Resources
+
+- [Scoreceobeta](https://scoreceobeta.com)
+- [Zapier Integration](https://zapier.com/apps/scoreceobeta/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

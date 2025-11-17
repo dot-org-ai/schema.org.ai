@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Beyonk
+$context: https://schema.org.ai
+$type: Technology
+name: Beyonk
+description: Business platform for business automation
+url: https://beyonk.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Beyonk
+  url: https://beyonk.com
+zapierSlug: beyonk
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Beyonk
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Purchase.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const beyonk = {
+  $type: 'Technology',
+  name: 'Beyonk',
+  url: 'https://beyonk.com'
+}
+
+await $.Technology.create(beyonk)
+```
+
+## Resources
+
+- [Beyonk](https://beyonk.com)
+- [Zapier Integration](https://zapier.com/apps/beyonk/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

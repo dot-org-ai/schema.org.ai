@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Web4realty
+$context: https://schema.org.ai
+$type: Technology
+name: Web4realty
+description: Business platform for business automation
+url: https://web4realty.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Web4realty
+  url: https://web4realty.com
+zapierSlug: web4realty
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Web4realty
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormSubmission.created
+- Saved.created
+- UserSignup.created
+- ContactInquiry.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const web4realty = {
+  $type: 'Technology',
+  name: 'Web4realty',
+  url: 'https://web4realty.com'
+}
+
+await $.Technology.create(web4realty)
+```
+
+## Resources
+
+- [Web4realty](https://web4realty.com)
+- [Zapier Integration](https://zapier.com/apps/web4realty/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

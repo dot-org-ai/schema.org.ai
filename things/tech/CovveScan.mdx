@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/CovveScan
+$context: https://schema.org.ai
+$type: Technology
+name: Covve Scan
+description: Business platform for business automation
+url: https://covvescan.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Covve Scan
+  url: https://covvescan.com
+zapierSlug: covve-scan
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Covve Scan
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- ScannedCard.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const covvescan = {
+  $type: 'Technology',
+  name: 'Covve Scan',
+  url: 'https://covvescan.com'
+}
+
+await $.Technology.create(covvescan)
+```
+
+## Resources
+
+- [Covve Scan](https://covvescan.com)
+- [Zapier Integration](https://zapier.com/apps/covve-scan/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Truereview
+$context: https://schema.org.ai
+$type: Technology
+name: Truereview
+description: Business platform for business automation
+url: https://truereview.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Truereview
+  url: https://truereview.com
+zapierSlug: truereview
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Truereview
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- DripCampaign.unknown
+- ContactType.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const truereview = {
+  $type: 'Technology',
+  name: 'Truereview',
+  url: 'https://truereview.com'
+}
+
+await $.Technology.create(truereview)
+```
+
+## Resources
+
+- [Truereview](https://truereview.com)
+- [Zapier Integration](https://zapier.com/apps/truereview/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

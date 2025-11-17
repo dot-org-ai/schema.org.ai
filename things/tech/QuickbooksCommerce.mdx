@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/QuickbooksCommerce
+$context: https://schema.org.ai
+$type: Technology
+name: Quickbooks Commerce
+description: E-commerce platform for business automation
+url: https://quickbookscommerce.com
+applicationCategory: E-commerce Software
+provider:
+  $type: Organization
+  name: Quickbooks Commerce
+  url: https://quickbookscommerce.com
+zapierSlug: quickbooks-commerce
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Quickbooks Commerce
+
+E-commerce platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Order.created
+- Invoice.created
+- Company.created
+- Address.created
+- OrderFulfilled.unknown
+- Fulfillment.created
+- OrderFinalized.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const quickbookscommerce = {
+  $type: 'Technology',
+  name: 'Quickbooks Commerce',
+  url: 'https://quickbookscommerce.com'
+}
+
+await $.Technology.create(quickbookscommerce)
+```
+
+## Resources
+
+- [Quickbooks Commerce](https://quickbookscommerce.com)
+- [Zapier Integration](https://zapier.com/apps/quickbooks-commerce/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,88 @@
+---
+$id: https://tech.org.ai/NationbuilderNexusDa87254
+$context: https://schema.org.ai
+$type: Technology
+name: Nationbuilder Nexus Da87254
+description: Business platform for business automation
+url: https://nationbuildernexusda87254.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Nationbuilder Nexus Da87254
+  url: https://nationbuildernexusda87254.com
+zapierSlug: nationbuilder-nexus-da87254
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Nationbuilder Nexus Da87254
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Event.unknown
+- Person.created
+- Person.unknown
+- Post.unknown
+- Donation.created
+- Donation.unknown
+- Survey.unknown
+- Calendar.unknown
+- Blog.unknown
+- Sites.list
+- PersonChanged.unknown
+- Empty.unknown
+- PersonDestroyed.unknown
+- CountPeople.unknown
+- DonationChanged.unknown
+- PersonMerged.unknown
+- SurveyResponded.unknown
+- RSVP.unknown
+- PersonContacted.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const nationbuildernexusda87254 = {
+  $type: 'Technology',
+  name: 'Nationbuilder Nexus Da87254',
+  url: 'https://nationbuildernexusda87254.com'
+}
+
+await $.Technology.create(nationbuildernexusda87254)
+```
+
+## Resources
+
+- [Nationbuilder Nexus Da87254](https://nationbuildernexusda87254.com)
+- [Zapier Integration](https://zapier.com/apps/nationbuilder-nexus-da87254/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

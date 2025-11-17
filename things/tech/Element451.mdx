@@ -1,0 +1,89 @@
+---
+$id: https://tech.org.ai/Element451
+$context: https://schema.org.ai
+$type: Technology
+name: Element451
+description: Business platform for business automation
+url: https://element451.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Element451
+  url: https://element451.com
+zapierSlug: element451
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Element451
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Appointment.unknown
+- Application.unknown
+- UserEvent.unknown
+- ApplicationSubmitted.unknown
+- AppointmentScheduled.unknown
+- DocumentUploaded.unknown
+- UserEntered.unknown
+- UserExited.unknown
+- UserLabel.unknown
+- BulkUser.unknown
+- ApplicationPayment.unknown
+- AppointmentAttended.unknown
+- AppointmentNo.unknown
+- DecisionStage.unknown
+- DecisionStatus.unknown
+- DecisionReleased.unknown
+- ApplicationRecommendation.unknown
+- UserBirthday.unknown
+- UserTerritory.unknown
+- DecisionCheck.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const element451 = {
+  $type: 'Technology',
+  name: 'Element451',
+  url: 'https://element451.com'
+}
+
+await $.Technology.create(element451)
+```
+
+## Resources
+
+- [Element451](https://element451.com)
+- [Zapier Integration](https://zapier.com/apps/element451/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

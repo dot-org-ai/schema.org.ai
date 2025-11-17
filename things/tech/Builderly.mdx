@@ -1,0 +1,79 @@
+---
+$id: https://tech.org.ai/Builderly
+$context: https://schema.org.ai
+$type: Technology
+name: Builderly
+description: Business platform for business automation
+url: https://builderly.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Builderly
+  url: https://builderly.com
+zapierSlug: builderly
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Builderly
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Customer.unknown
+- User.unknown
+- UserSubmitted.unknown
+- UserConfirmed.unknown
+- UserSubscribed.unknown
+- Admin.unknown
+- UserMade.unknown
+- UserSigned-Up.unknown
+- UserBooked.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const builderly = {
+  $type: 'Technology',
+  name: 'Builderly',
+  url: 'https://builderly.com'
+}
+
+await $.Technology.create(builderly)
+```
+
+## Resources
+
+- [Builderly](https://builderly.com)
+- [Zapier Integration](https://zapier.com/apps/builderly/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

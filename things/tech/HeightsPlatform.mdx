@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/HeightsPlatform
+$context: https://schema.org.ai
+$type: Technology
+name: Heights Platform
+description: Form platform for business automation
+url: https://heightsplatform.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Heights Platform
+  url: https://heightsplatform.com
+zapierSlug: heights-platform
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Heights Platform
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- Course.unknown
+- Student.created
+- Student.unknown
+- Answer.created
+- ProjectPost.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const heightsplatform = {
+  $type: 'Technology',
+  name: 'Heights Platform',
+  url: 'https://heightsplatform.com'
+}
+
+await $.Technology.create(heightsplatform)
+```
+
+## Resources
+
+- [Heights Platform](https://heightsplatform.com)
+- [Zapier Integration](https://zapier.com/apps/heights-platform/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

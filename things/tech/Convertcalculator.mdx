@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Convertcalculator
+$context: https://schema.org.ai
+$type: Technology
+name: Convertcalculator
+description: Business platform for business automation
+url: https://convertcalculator.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Convertcalculator
+  url: https://convertcalculator.com
+zapierSlug: convertcalculator
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Convertcalculator
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Submission.created
+- Calculator.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const convertcalculator = {
+  $type: 'Technology',
+  name: 'Convertcalculator',
+  url: 'https://convertcalculator.com'
+}
+
+await $.Technology.create(convertcalculator)
+```
+
+## Resources
+
+- [Convertcalculator](https://convertcalculator.com)
+- [Zapier Integration](https://zapier.com/apps/convertcalculator/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

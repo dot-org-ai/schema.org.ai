@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/VetrinaLive
+$context: https://schema.org.ai
+$type: Technology
+name: Vetrina Live
+description: Business platform for business automation
+url: https://vetrinalive.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Vetrina Live
+  url: https://vetrinalive.com
+zapierSlug: vetrina-live
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Vetrina Live
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Order.created
+- Product.created
+- Out.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const vetrinalive = {
+  $type: 'Technology',
+  name: 'Vetrina Live',
+  url: 'https://vetrinalive.com'
+}
+
+await $.Technology.create(vetrinalive)
+```
+
+## Resources
+
+- [Vetrina Live](https://vetrinalive.com)
+- [Zapier Integration](https://zapier.com/apps/vetrina-live/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

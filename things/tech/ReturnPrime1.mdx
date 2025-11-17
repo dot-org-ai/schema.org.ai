@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/ReturnPrime1
+$context: https://schema.org.ai
+$type: Technology
+name: Return Prime 1
+description: Business platform for business automation
+url: https://returnprime1.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Return Prime 1
+  url: https://returnprime1.com
+zapierSlug: return-prime-1
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Return Prime 1
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Request.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const returnprime1 = {
+  $type: 'Technology',
+  name: 'Return Prime 1',
+  url: 'https://returnprime1.com'
+}
+
+await $.Technology.create(returnprime1)
+```
+
+## Resources
+
+- [Return Prime 1](https://returnprime1.com)
+- [Zapier Integration](https://zapier.com/apps/return-prime-1/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

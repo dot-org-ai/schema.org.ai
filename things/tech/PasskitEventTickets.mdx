@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/PasskitEventTickets
+$context: https://schema.org.ai
+$type: Technology
+name: Passkit Event Tickets
+description: Business platform for business automation
+url: https://passkiteventtickets.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Passkit Event Tickets
+  url: https://passkiteventtickets.com
+zapierSlug: passkit-event-tickets
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Passkit Event Tickets
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Ticket.unknown
+- TicketIssued.created
+- TicketInstalled.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const passkiteventtickets = {
+  $type: 'Technology',
+  name: 'Passkit Event Tickets',
+  url: 'https://passkiteventtickets.com'
+}
+
+await $.Technology.create(passkiteventtickets)
+```
+
+## Resources
+
+- [Passkit Event Tickets](https://passkiteventtickets.com)
+- [Zapier Integration](https://zapier.com/apps/passkit-event-tickets/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

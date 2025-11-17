@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Whal3s
+$context: https://schema.org.ai
+$type: Technology
+name: Whal3s
+description: Business platform for business automation
+url: https://whal3s.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Whal3s
+  url: https://whal3s.com
+zapierSlug: whal3s
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Whal3s
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- NFTValidation.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const whal3s = {
+  $type: 'Technology',
+  name: 'Whal3s',
+  url: 'https://whal3s.com'
+}
+
+await $.Technology.create(whal3s)
+```
+
+## Resources
+
+- [Whal3s](https://whal3s.com)
+- [Zapier Integration](https://zapier.com/apps/whal3s/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/TextingBase
+$context: https://schema.org.ai
+$type: Technology
+name: Texting Base
+description: Business platform for business automation
+url: https://textingbase.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Texting Base
+  url: https://textingbase.com
+zapierSlug: texting-base
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Texting Base
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Response.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const textingbase = {
+  $type: 'Technology',
+  name: 'Texting Base',
+  url: 'https://textingbase.com'
+}
+
+await $.Technology.create(textingbase)
+```
+
+## Resources
+
+- [Texting Base](https://textingbase.com)
+- [Zapier Integration](https://zapier.com/apps/texting-base/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

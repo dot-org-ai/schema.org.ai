@@ -1,0 +1,82 @@
+---
+$id: https://tech.org.ai/SpokePhone
+$context: https://schema.org.ai
+$type: Technology
+name: Spoke Phone
+description: Business platform for business automation
+url: https://spokephone.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Spoke Phone
+  url: https://spokephone.com
+zapierSlug: spoke-phone
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Spoke Phone
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Call.unknown
+- FormSubmitted.unknown
+- CallEnded.unknown
+- CallRecording.unknown
+- CallAnswered.unknown
+- ConversationClosed.unknown
+- VoicemailAvailable.unknown
+- CallNot.unknown
+- CallNote.unknown
+- ConversationMessage.unknown
+- ConversationInactive.unknown
+- ContactAssigned.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const spokephone = {
+  $type: 'Technology',
+  name: 'Spoke Phone',
+  url: 'https://spokephone.com'
+}
+
+await $.Technology.create(spokephone)
+```
+
+## Resources
+
+- [Spoke Phone](https://spokephone.com)
+- [Zapier Integration](https://zapier.com/apps/spoke-phone/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

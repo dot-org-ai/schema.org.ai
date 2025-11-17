@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Flexisign
+$context: https://schema.org.ai
+$type: Technology
+name: Flexisign
+description: Document Management platform for business automation
+url: https://flexisign.com
+applicationCategory: Document Management Software
+provider:
+  $type: Organization
+  name: Flexisign
+  url: https://flexisign.com
+zapierSlug: flexisign
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Flexisign
+
+Document Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Document.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const flexisign = {
+  $type: 'Technology',
+  name: 'Flexisign',
+  url: 'https://flexisign.com'
+}
+
+await $.Technology.create(flexisign)
+```
+
+## Resources
+
+- [Flexisign](https://flexisign.com)
+- [Zapier Integration](https://zapier.com/apps/flexisign/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

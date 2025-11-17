@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Renderform
+$context: https://schema.org.ai
+$type: Technology
+name: Renderform
+description: Form platform for business automation
+url: https://renderform.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Renderform
+  url: https://renderform.com
+zapierSlug: renderform
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Renderform
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Render.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const renderform = {
+  $type: 'Technology',
+  name: 'Renderform',
+  url: 'https://renderform.com'
+}
+
+await $.Technology.create(renderform)
+```
+
+## Resources
+
+- [Renderform](https://renderform.com)
+- [Zapier Integration](https://zapier.com/apps/renderform/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

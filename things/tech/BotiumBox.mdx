@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/BotiumBox
+$context: https://schema.org.ai
+$type: Technology
+name: Botium Box
+description: Business platform for business automation
+url: https://botiumbox.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Botium Box
+  url: https://botiumbox.com
+zapierSlug: botium-box
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Botium Box
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- TestResults.unknown
+- TestSession.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const botiumbox = {
+  $type: 'Technology',
+  name: 'Botium Box',
+  url: 'https://botiumbox.com'
+}
+
+await $.Technology.create(botiumbox)
+```
+
+## Resources
+
+- [Botium Box](https://botiumbox.com)
+- [Zapier Integration](https://zapier.com/apps/botium-box/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

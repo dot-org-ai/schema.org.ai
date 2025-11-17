@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Sogolytics
+$context: https://schema.org.ai
+$type: Technology
+name: Sogolytics
+description: Business platform for business automation
+url: https://sogolytics.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Sogolytics
+  url: https://sogolytics.com
+zapierSlug: sogolytics
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Sogolytics
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- SurveyResponse.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const sogolytics = {
+  $type: 'Technology',
+  name: 'Sogolytics',
+  url: 'https://sogolytics.com'
+}
+
+await $.Technology.create(sogolytics)
+```
+
+## Resources
+
+- [Sogolytics](https://sogolytics.com)
+- [Zapier Integration](https://zapier.com/apps/sogolytics/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

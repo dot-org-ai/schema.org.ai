@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Pex
+$context: https://schema.org.ai
+$type: Technology
+name: Pex
+description: Business platform for business automation
+url: https://pex.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Pex
+  url: https://pex.com
+zapierSlug: pex
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Pex
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Purchase.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const pex = {
+  $type: 'Technology',
+  name: 'Pex',
+  url: 'https://pex.com'
+}
+
+await $.Technology.create(pex)
+```
+
+## Resources
+
+- [Pex](https://pex.com)
+- [Zapier Integration](https://zapier.com/apps/pex/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

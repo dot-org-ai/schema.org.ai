@@ -1,0 +1,79 @@
+---
+$id: https://tech.org.ai/PerfexCRM
+$context: https://schema.org.ai
+$type: Technology
+name: Perfex CRM
+description: CRM platform for business automation
+url: https://perfexcrm.com
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: Perfex CRM
+  url: https://perfexcrm.com
+zapierSlug: perfex-crm
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Perfex CRM
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Task.created
+- Customer.created
+- Project.created
+- Invoice.created
+- Payment.created
+- Ticket.created
+- Estimate.created
+- Contract.created
+- Proposal.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const perfexcrm = {
+  $type: 'Technology',
+  name: 'Perfex CRM',
+  url: 'https://perfexcrm.com'
+}
+
+await $.Technology.create(perfexcrm)
+```
+
+## Resources
+
+- [Perfex CRM](https://perfexcrm.com)
+- [Zapier Integration](https://zapier.com/apps/perfex-crm/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,78 @@
+---
+$id: https://tech.org.ai/Prodatakey
+$context: https://schema.org.ai
+$type: Technology
+name: Prodatakey
+description: Business platform for business automation
+url: https://prodatakey.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Prodatakey
+  url: https://prodatakey.com
+zapierSlug: prodatakey
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Prodatakey
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- ForcedAlarm.unknown
+- ProppedAlarm.unknown
+- AccessAllowed.unknown
+- AccessDenied.unknown
+- DeviceClosed.unknown
+- DeviceLocked.unknown
+- DeviceOpened.unknown
+- DeviceUnlocked.unknown
+- REXActivated.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const prodatakey = {
+  $type: 'Technology',
+  name: 'Prodatakey',
+  url: 'https://prodatakey.com'
+}
+
+await $.Technology.create(prodatakey)
+```
+
+## Resources
+
+- [Prodatakey](https://prodatakey.com)
+- [Zapier Integration](https://zapier.com/apps/prodatakey/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

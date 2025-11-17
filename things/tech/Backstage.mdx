@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Backstage
+$context: https://schema.org.ai
+$type: Technology
+name: Backstage
+description: Business platform for business automation
+url: https://backstage.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Backstage
+  url: https://backstage.com
+zapierSlug: backstage
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Backstage
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- Event.created
+- Event.unknown
+- Ticket.created
+- AttendeeCheck-In.unknown
+- EventEnded.unknown
+- EventStart.unknown
+- EventSold.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const backstage = {
+  $type: 'Technology',
+  name: 'Backstage',
+  url: 'https://backstage.com'
+}
+
+await $.Technology.create(backstage)
+```
+
+## Resources
+
+- [Backstage](https://backstage.com)
+- [Zapier Integration](https://zapier.com/apps/backstage/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

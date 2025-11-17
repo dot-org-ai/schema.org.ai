@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/TawkTo
+$context: https://schema.org.ai
+$type: Technology
+name: Tawk To
+description: Business platform for business automation
+url: https://tawkto.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Tawk To
+  url: https://tawkto.com
+zapierSlug: tawk-to
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Tawk To
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Ticket.created
+- Chat.created
+- ChatEnded.unknown
+- ChatTranscript.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const tawkto = {
+  $type: 'Technology',
+  name: 'Tawk To',
+  url: 'https://tawkto.com'
+}
+
+await $.Technology.create(tawkto)
+```
+
+## Resources
+
+- [Tawk To](https://tawkto.com)
+- [Zapier Integration](https://zapier.com/apps/tawk-to/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

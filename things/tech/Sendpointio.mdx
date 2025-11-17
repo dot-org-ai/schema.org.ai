@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Sendpointio
+$context: https://schema.org.ai
+$type: Technology
+name: Sendpointio
+description: Business platform for business automation
+url: https://sendpointio.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Sendpointio
+  url: https://sendpointio.com
+zapierSlug: sendpointio
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Sendpointio
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormSubmission.created
+- AllSubmissions.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const sendpointio = {
+  $type: 'Technology',
+  name: 'Sendpointio',
+  url: 'https://sendpointio.com'
+}
+
+await $.Technology.create(sendpointio)
+```
+
+## Resources
+
+- [Sendpointio](https://sendpointio.com)
+- [Zapier Integration](https://zapier.com/apps/sendpointio/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

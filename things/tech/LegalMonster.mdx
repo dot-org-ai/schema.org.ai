@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/LegalMonster
+$context: https://schema.org.ai
+$type: Technology
+name: Legal Monster
+description: Business platform for business automation
+url: https://legalmonster.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Legal Monster
+  url: https://legalmonster.com
+zapierSlug: legal-monster
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Legal Monster
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- ConsentWithdrawn.unknown
+- Consent.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const legalmonster = {
+  $type: 'Technology',
+  name: 'Legal Monster',
+  url: 'https://legalmonster.com'
+}
+
+await $.Technology.create(legalmonster)
+```
+
+## Resources
+
+- [Legal Monster](https://legalmonster.com)
+- [Zapier Integration](https://zapier.com/apps/legal-monster/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

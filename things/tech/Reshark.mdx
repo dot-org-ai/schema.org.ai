@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Reshark
+$context: https://schema.org.ai
+$type: Technology
+name: Reshark
+description: Business platform for business automation
+url: https://reshark.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Reshark
+  url: https://reshark.com
+zapierSlug: reshark
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Reshark
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const reshark = {
+  $type: 'Technology',
+  name: 'Reshark',
+  url: 'https://reshark.com'
+}
+
+await $.Technology.create(reshark)
+```
+
+## Resources
+
+- [Reshark](https://reshark.com)
+- [Zapier Integration](https://zapier.com/apps/reshark/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Scriberr
+$context: https://schema.org.ai
+$type: Technology
+name: Scriberr
+description: Business platform for business automation
+url: https://scriberr.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Scriberr
+  url: https://scriberr.com
+zapierSlug: scriberr
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Scriberr
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- CopyPerson.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const scriberr = {
+  $type: 'Technology',
+  name: 'Scriberr',
+  url: 'https://scriberr.com'
+}
+
+await $.Technology.create(scriberr)
+```
+
+## Resources
+
+- [Scriberr](https://scriberr.com)
+- [Zapier Integration](https://zapier.com/apps/scriberr/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

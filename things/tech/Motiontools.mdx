@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/Motiontools
+$context: https://schema.org.ai
+$type: Technology
+name: Motiontools
+description: Business platform for business automation
+url: https://motiontools.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Motiontools
+  url: https://motiontools.com
+zapierSlug: motiontools
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Motiontools
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Booking.unknown
+- BookingStatus.unknown
+- Package.unknown
+- BookingStop.unknown
+- PackageStatus.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const motiontools = {
+  $type: 'Technology',
+  name: 'Motiontools',
+  url: 'https://motiontools.com'
+}
+
+await $.Technology.create(motiontools)
+```
+
+## Resources
+
+- [Motiontools](https://motiontools.com)
+- [Zapier Integration](https://zapier.com/apps/motiontools/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

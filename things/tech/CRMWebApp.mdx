@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/CRMWebApp
+$context: https://schema.org.ai
+$type: Technology
+name: CRM Web App
+description: CRM platform for business automation
+url: https://crmwebapp.com
+applicationCategory: CRM Software
+provider:
+  $type: Organization
+  name: CRM Web App
+  url: https://crmwebapp.com
+zapierSlug: crm-web-app
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# CRM Web App
+
+CRM platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Client.created
+- Affiliate.created
+- NotActive.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const crmwebapp = {
+  $type: 'Technology',
+  name: 'CRM Web App',
+  url: 'https://crmwebapp.com'
+}
+
+await $.Technology.create(crmwebapp)
+```
+
+## Resources
+
+- [CRM Web App](https://crmwebapp.com)
+- [Zapier Integration](https://zapier.com/apps/crm-web-app/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

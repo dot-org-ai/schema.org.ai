@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/FeatureUpvote
+$context: https://schema.org.ai
+$type: Technology
+name: Feature Upvote
+description: Business platform for business automation
+url: https://featureupvote.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Feature Upvote
+  url: https://featureupvote.com
+zapierSlug: feature-upvote
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Feature Upvote
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Comment.created
+- Suggestion.created
+- SuggestionChanged.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const featureupvote = {
+  $type: 'Technology',
+  name: 'Feature Upvote',
+  url: 'https://featureupvote.com'
+}
+
+await $.Technology.create(featureupvote)
+```
+
+## Resources
+
+- [Feature Upvote](https://featureupvote.com)
+- [Zapier Integration](https://zapier.com/apps/feature-upvote/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

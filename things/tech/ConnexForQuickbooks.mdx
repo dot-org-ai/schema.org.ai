@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/ConnexForQuickbooks
+$context: https://schema.org.ai
+$type: Technology
+name: Connex For Quickbooks
+description: Business platform for business automation
+url: https://connexforquickbooks.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Connex For Quickbooks
+  url: https://connexforquickbooks.com
+zapierSlug: connex-for-quickbooks
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Connex For Quickbooks
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- Product.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const connexforquickbooks = {
+  $type: 'Technology',
+  name: 'Connex For Quickbooks',
+  url: 'https://connexforquickbooks.com'
+}
+
+await $.Technology.create(connexforquickbooks)
+```
+
+## Resources
+
+- [Connex For Quickbooks](https://connexforquickbooks.com)
+- [Zapier Integration](https://zapier.com/apps/connex-for-quickbooks/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/XperienceByKentico
+$context: https://schema.org.ai
+$type: Technology
+name: Xperience By Kentico
+description: Business platform for business automation
+url: https://xperiencebykentico.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Xperience By Kentico
+  url: https://xperiencebykentico.com
+zapierSlug: xperience-by-kentico
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Xperience By Kentico
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- FormSubmission.created
+- EventLog.created
+- ContentMoves.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const xperiencebykentico = {
+  $type: 'Technology',
+  name: 'Xperience By Kentico',
+  url: 'https://xperiencebykentico.com'
+}
+
+await $.Technology.create(xperiencebykentico)
+```
+
+## Resources
+
+- [Xperience By Kentico](https://xperiencebykentico.com)
+- [Zapier Integration](https://zapier.com/apps/xperience-by-kentico/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

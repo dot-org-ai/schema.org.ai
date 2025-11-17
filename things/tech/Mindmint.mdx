@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Mindmint
+$context: https://schema.org.ai
+$type: Technology
+name: Mindmint
+description: Business platform for business automation
+url: https://mindmint.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Mindmint
+  url: https://mindmint.com
+zapierSlug: mindmint
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Mindmint
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- AllContacts.get
+- SyncContacts.unknown
+- AllAttendees.get
+- SyncAttendees.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const mindmint = {
+  $type: 'Technology',
+  name: 'Mindmint',
+  url: 'https://mindmint.com'
+}
+
+await $.Technology.create(mindmint)
+```
+
+## Resources
+
+- [Mindmint](https://mindmint.com)
+- [Zapier Integration](https://zapier.com/apps/mindmint/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

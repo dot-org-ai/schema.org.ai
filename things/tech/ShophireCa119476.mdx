@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/ShophireCa119476
+$context: https://schema.org.ai
+$type: Technology
+name: Shophire Ca119476
+description: E-commerce platform for business automation
+url: https://shophireca119476.com
+applicationCategory: E-commerce Software
+provider:
+  $type: Organization
+  name: Shophire Ca119476
+  url: https://shophireca119476.com
+zapierSlug: shophire-ca119476
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Shophire Ca119476
+
+E-commerce platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Candidate.update
+- Job.update
+- CandidateApplication.created
+- CandidateComment.created
+- JobOpened.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const shophireca119476 = {
+  $type: 'Technology',
+  name: 'Shophire Ca119476',
+  url: 'https://shophireca119476.com'
+}
+
+await $.Technology.create(shophireca119476)
+```
+
+## Resources
+
+- [Shophire Ca119476](https://shophireca119476.com)
+- [Zapier Integration](https://zapier.com/apps/shophire-ca119476/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

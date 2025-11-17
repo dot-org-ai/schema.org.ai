@@ -1,0 +1,88 @@
+---
+$id: https://tech.org.ai/Github
+$context: https://schema.org.ai
+$type: Technology
+name: Github
+description: Developer Tools platform for business automation
+url: https://github.com
+applicationCategory: Developer Tools
+provider:
+  $type: Organization
+  name: GitHub
+  url: https://github.com
+zapierSlug: github
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Github
+
+Developer Tools platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Issue.created
+- Notification.created
+- Organization.created
+- Mention.created
+- Team.created
+- Milestone.created
+- Label.created
+- Release.created
+- Branch.created
+- Collaborator.created
+- Commit.created
+- CommitComment.created
+- Repository.created
+- ReviewRequest.created
+- Watcher.created
+- RepoEvent.created
+- GlobalEvent.created
+- Gist.created
+- PullRequest.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const github = {
+  $type: 'Technology',
+  name: 'Github',
+  url: 'https://github.com'
+}
+
+await $.Technology.create(github)
+```
+
+## Resources
+
+- [Github](https://github.com)
+- [Zapier Integration](https://zapier.com/apps/github/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

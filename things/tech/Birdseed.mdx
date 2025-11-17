@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/Birdseed
+$context: https://schema.org.ai
+$type: Technology
+name: Birdseed
+description: Communication platform for business automation
+url: https://birdseed.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Birdseed
+  url: https://birdseed.com
+zapierSlug: birdseed
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Birdseed
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Chat.unknown
+- ContactForm.created
+- EmailCapture.created
+- LiveChat.created
+- CallRequest.created
+- ScheduledMeeting.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const birdseed = {
+  $type: 'Technology',
+  name: 'Birdseed',
+  url: 'https://birdseed.com'
+}
+
+await $.Technology.create(birdseed)
+```
+
+## Resources
+
+- [Birdseed](https://birdseed.com)
+- [Zapier Integration](https://zapier.com/apps/birdseed/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

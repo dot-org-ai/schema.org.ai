@@ -1,0 +1,90 @@
+---
+$id: https://tech.org.ai/CommerceLayer
+$context: https://schema.org.ai
+$type: Technology
+name: Commerce Layer
+description: E-commerce platform for business automation
+url: https://commercelayer.com
+applicationCategory: E-commerce Software
+provider:
+  $type: Organization
+  name: Commerce Layer
+  url: https://commercelayer.com
+zapierSlug: commerce-layer
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Commerce Layer
+
+E-commerce platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.created
+- Order.created
+- Attachment.created
+- CustomerEvent.created
+- GiftCard.created
+- StockItem.created
+- Price.created
+- CustomerAddress.created
+- OrderEvent.created
+- SKU.created
+- SKUImport.created
+- PriceImport.created
+- ShippingCategory.created
+- StockLocation.created
+- ShipmentEvent.created
+- ParcelEvent.created
+- CustomerSubscription.created
+- ReturnEvent.created
+- CustomerPassword.created
+- StockTransfer.created
+- RefundEvent.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const commercelayer = {
+  $type: 'Technology',
+  name: 'Commerce Layer',
+  url: 'https://commercelayer.com'
+}
+
+await $.Technology.create(commercelayer)
+```
+
+## Resources
+
+- [Commerce Layer](https://commercelayer.com)
+- [Zapier Integration](https://zapier.com/apps/commerce-layer/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

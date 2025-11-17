@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/Envoy
+$context: https://schema.org.ai
+$type: Technology
+name: Envoy
+description: Business platform for business automation
+url: https://envoy.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Envoy
+  url: https://envoy.com
+zapierSlug: envoy
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Envoy
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- VisitorSign.unknown
+- VisitorSign-In.unknown
+- VisitorInvited.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const envoy = {
+  $type: 'Technology',
+  name: 'Envoy',
+  url: 'https://envoy.com'
+}
+
+await $.Technology.create(envoy)
+```
+
+## Resources
+
+- [Envoy](https://envoy.com)
+- [Zapier Integration](https://zapier.com/apps/envoy/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

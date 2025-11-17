@@ -1,0 +1,72 @@
+---
+$id: https://tech.org.ai/CbInsights
+$context: https://schema.org.ai
+$type: Technology
+name: Cb Insights
+description: Business platform for business automation
+url: https://cbinsights.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Cb Insights
+  url: https://cbinsights.com
+zapierSlug: cb-insights
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Cb Insights
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Organizations.get
+- BusinessRelationships.get
+- Deals.get
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const cbinsights = {
+  $type: 'Technology',
+  name: 'Cb Insights',
+  url: 'https://cbinsights.com'
+}
+
+await $.Technology.create(cbinsights)
+```
+
+## Resources
+
+- [Cb Insights](https://cbinsights.com)
+- [Zapier Integration](https://zapier.com/apps/cb-insights/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

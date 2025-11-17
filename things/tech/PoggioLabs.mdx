@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/PoggioLabs
+$context: https://schema.org.ai
+$type: Technology
+name: Poggio Labs
+description: Business platform for business automation
+url: https://poggiolabs.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Poggio Labs
+  url: https://poggiolabs.com
+zapierSlug: poggio-labs
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Poggio Labs
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Contact.update
+- Note.created
+- Opportunity.created
+- Opportunity.update
+- Account.created
+- Account.update
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const poggiolabs = {
+  $type: 'Technology',
+  name: 'Poggio Labs',
+  url: 'https://poggiolabs.com'
+}
+
+await $.Technology.create(poggiolabs)
+```
+
+## Resources
+
+- [Poggio Labs](https://poggiolabs.com)
+- [Zapier Integration](https://zapier.com/apps/poggio-labs/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

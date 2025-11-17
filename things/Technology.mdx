@@ -1,0 +1,91 @@
+---
+$id: https://schema.org.ai/Technology
+$context: https://schema.org
+$type: Class
+name: Technology
+description: A technology service or platform that can be integrated with business processes. Extends SoftwareApplication with integration-specific properties.
+subClassOf: ["SoftwareApplication"]
+---
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [SoftwareApplication](SoftwareApplication.mdx)
+
+# Technology
+
+A technology service or platform that can be integrated with business processes. Technologies represent external services that businesses connect to via APIs, webhooks, and integrations to automate workflows.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [SoftwareApplication](SoftwareApplication.mdx) > **Technology**
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier service identifier | Technology |
+| `events` | Event[] | Available webhook events | Technology |
+| `actions` | Action[] | Available API actions | Technology |
+| `integrations` | Integration[] | Available integrations | Technology |
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Technology } from 'schema.org.ai'
+
+// Define a technology service
+const service: Technology = {
+  $type: 'Technology',
+  name: 'Google Sheets',
+  description: 'Cloud-based spreadsheet application',
+  url: 'https://sheets.google.com',
+  provider: {
+    $type: 'Organization',
+    name: 'Google',
+    url: 'https://google.com'
+  },
+  applicationCategory: 'Productivity Software',
+  zapierSlug: 'google-sheets'
+}
+
+// Create technology instance
+await $.Technology.create(service)
+
+// Query available technologies
+const technologies = await $.Technology.list({
+  applicationCategory: 'CRM Software'
+})
+
+// Get technology with events and actions
+const crm = await $.Technology.get('salesforce', {
+  include: ['events', 'actions']
+})
+```
+
+## Common Categories
+
+- **CRM Software**: Customer relationship management
+- **Productivity Software**: Collaboration and productivity tools
+- **Communication Software**: Messaging and video conferencing
+- **Accounting Software**: Financial and bookkeeping services
+- **Marketing Software**: Email marketing and automation
+- **E-commerce Software**: Online store and payment processing
+- **Project Management Software**: Task and project tracking
+- **Developer Tools**: APIs and developer services
+- **Analytics Software**: Data analysis and reporting
+- **Storage Software**: File storage and management
+
+## Resources
+
+- [Schema.org SoftwareApplication](https://schema.org/SoftwareApplication)
+- [Technology Integration Patterns](https://tech.org.ai)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

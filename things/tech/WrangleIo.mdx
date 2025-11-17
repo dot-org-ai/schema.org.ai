@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/WrangleIo
+$context: https://schema.org.ai
+$type: Technology
+name: Wrangle Io
+description: Business platform for business automation
+url: https://wrangleio.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Wrangle Io
+  url: https://wrangleio.com
+zapierSlug: wrangle-io
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Wrangle Io
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Ticket.unknown
+- Workflow.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const wrangleio = {
+  $type: 'Technology',
+  name: 'Wrangle Io',
+  url: 'https://wrangleio.com'
+}
+
+await $.Technology.create(wrangleio)
+```
+
+## Resources
+
+- [Wrangle Io](https://wrangleio.com)
+- [Zapier Integration](https://zapier.com/apps/wrangle-io/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

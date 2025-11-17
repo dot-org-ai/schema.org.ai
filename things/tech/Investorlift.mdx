@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/Investorlift
+$context: https://schema.org.ai
+$type: Technology
+name: Investorlift
+description: Business platform for business automation
+url: https://investorlift.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Investorlift
+  url: https://investorlift.com
+zapierSlug: investorlift
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Investorlift
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Lead.created
+- Lead.update
+- Offer.created
+- Inquiry.created
+- OfferAccepted.unknown
+- Buyer.created
+- LoanLead.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const investorlift = {
+  $type: 'Technology',
+  name: 'Investorlift',
+  url: 'https://investorlift.com'
+}
+
+await $.Technology.create(investorlift)
+```
+
+## Resources
+
+- [Investorlift](https://investorlift.com)
+- [Zapier Integration](https://zapier.com/apps/investorlift/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

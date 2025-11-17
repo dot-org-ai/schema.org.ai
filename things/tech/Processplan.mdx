@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/Processplan
+$context: https://schema.org.ai
+$type: Technology
+name: Processplan
+description: Project Management platform for business automation
+url: https://processplan.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Processplan
+  url: https://processplan.com
+zapierSlug: processplan
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Processplan
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.unknown
+- TaskAssigned.unknown
+- Field.unknown
+- TaskDue.unknown
+- ProcessInstance.unknown
+- TaskNotes.unknown
+- TaskPast.unknown
+- TaskStart.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const processplan = {
+  $type: 'Technology',
+  name: 'Processplan',
+  url: 'https://processplan.com'
+}
+
+await $.Technology.create(processplan)
+```
+
+## Resources
+
+- [Processplan](https://processplan.com)
+- [Zapier Integration](https://zapier.com/apps/processplan/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,70 @@
+---
+$id: https://tech.org.ai/Everafter
+$context: https://schema.org.ai
+$type: Technology
+name: Everafter
+description: Project Management platform for business automation
+url: https://everafter.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Everafter
+  url: https://everafter.com
+zapierSlug: everafter
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Everafter
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const everafter = {
+  $type: 'Technology',
+  name: 'Everafter',
+  url: 'https://everafter.com'
+}
+
+await $.Technology.create(everafter)
+```
+
+## Resources
+
+- [Everafter](https://everafter.com)
+- [Zapier Integration](https://zapier.com/apps/everafter/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

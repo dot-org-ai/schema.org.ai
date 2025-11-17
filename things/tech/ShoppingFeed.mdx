@@ -1,0 +1,74 @@
+---
+$id: https://tech.org.ai/ShoppingFeed
+$context: https://schema.org.ai
+$type: Technology
+name: Shopping Feed
+description: E-commerce platform for business automation
+url: https://shoppingfeed.com
+applicationCategory: E-commerce Software
+provider:
+  $type: Organization
+  name: Shopping Feed
+  url: https://shoppingfeed.com
+zapierSlug: shopping-feed
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Shopping Feed
+
+E-commerce platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- Order.unknown
+- FailedOrder.unknown
+- FailedExport.unknown
+- FailedCatalog.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const shoppingfeed = {
+  $type: 'Technology',
+  name: 'Shopping Feed',
+  url: 'https://shoppingfeed.com'
+}
+
+await $.Technology.create(shoppingfeed)
+```
+
+## Resources
+
+- [Shopping Feed](https://shoppingfeed.com)
+- [Zapier Integration](https://zapier.com/apps/shopping-feed/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

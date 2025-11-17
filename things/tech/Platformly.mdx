@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Platformly
+$context: https://schema.org.ai
+$type: Technology
+name: Platformly
+description: Form platform for business automation
+url: https://platformly.com
+applicationCategory: Form Software
+provider:
+  $type: Organization
+  name: Platformly
+  url: https://platformly.com
+zapierSlug: platformly
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Platformly
+
+Form platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.created
+- Tag.created
+- CustomField.created
+- Segment.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const platformly = {
+  $type: 'Technology',
+  name: 'Platformly',
+  url: 'https://platformly.com'
+}
+
+await $.Technology.create(platformly)
+```
+
+## Resources
+
+- [Platformly](https://platformly.com)
+- [Zapier Integration](https://zapier.com/apps/platformly/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

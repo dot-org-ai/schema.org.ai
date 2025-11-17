@@ -1,0 +1,76 @@
+---
+$id: https://tech.org.ai/TogglTrack
+$context: https://schema.org.ai
+$type: Technology
+name: Toggl Track
+description: Project Management platform for business automation
+url: https://toggltrack.com
+applicationCategory: Project Management Software
+provider:
+  $type: Organization
+  name: Toggl Track
+  url: https://toggltrack.com
+zapierSlug: toggl-track
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Toggl Track
+
+Project Management platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Task.created
+- Project.created
+- Client.created
+- Activity.created
+- Tag.created
+- TimeEntry.created
+- Workspace.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const toggltrack = {
+  $type: 'Technology',
+  name: 'Toggl Track',
+  url: 'https://toggltrack.com'
+}
+
+await $.Technology.create(toggltrack)
+```
+
+## Resources
+
+- [Toggl Track](https://toggltrack.com)
+- [Zapier Integration](https://zapier.com/apps/toggl-track/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

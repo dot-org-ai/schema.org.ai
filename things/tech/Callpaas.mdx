@@ -1,0 +1,104 @@
+---
+$id: https://tech.org.ai/Callpaas
+$context: https://schema.org.ai
+$type: Technology
+name: Callpaas
+description: Business platform for business automation
+url: https://callpaas.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Callpaas
+  url: https://callpaas.com
+zapierSlug: callpaas
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Callpaas
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.unknown
+- Order.unknown
+- Booking.unknown
+- Invoice.unknown
+- Product.unknown
+- Message.unknown
+- Payment.unknown
+- Email.unknown
+- Service.unknown
+- Location.unknown
+- PhoneNumber.unknown
+- Agent.unknown
+- Address.add
+- Time.unknown
+- ProductType.unknown
+- Cancellation.unknown
+- Brand.unknown
+- MobileNumber.unknown
+- Country.unknown
+- Date.unknown
+- Department.unknown
+- CompanyName.unknown
+- Duration.unknown
+- Name.unknown
+- Suburb.unknown
+- Zipcode.unknown
+- State.unknown
+- TimeSlot.unknown
+- ProductAge.unknown
+- TermsConditions.unknown
+- ConsultantName.unknown
+- TotalOrder.unknown
+- Statement.unknown
+- Quotation.unknown
+- SerialNumber.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const callpaas = {
+  $type: 'Technology',
+  name: 'Callpaas',
+  url: 'https://callpaas.com'
+}
+
+await $.Technology.create(callpaas)
+```
+
+## Resources
+
+- [Callpaas](https://callpaas.com)
+- [Zapier Integration](https://zapier.com/apps/callpaas/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,80 @@
+---
+$id: https://tech.org.ai/CelebrityAgent
+$context: https://schema.org.ai
+$type: Technology
+name: Celebrity Agent
+description: Business platform for business automation
+url: https://celebrityagent.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Celebrity Agent
+  url: https://celebrityagent.com
+zapierSlug: celebrity-agent
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Celebrity Agent
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Contact.unknown
+- Message.unknown
+- ContactUnsubscribed.unknown
+- PhoneCall.unknown
+- SellerConcierge.unknown
+- ContactTag.unknown
+- SMSMessage.unknown
+- ContactStage.unknown
+- EmailMessage.unknown
+- DirectMail.unknown
+- BuyerConcierge.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const celebrityagent = {
+  $type: 'Technology',
+  name: 'Celebrity Agent',
+  url: 'https://celebrityagent.com'
+}
+
+await $.Technology.create(celebrityagent)
+```
+
+## Resources
+
+- [Celebrity Agent](https://celebrityagent.com)
+- [Zapier Integration](https://zapier.com/apps/celebrity-agent/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Smartsuite
+$context: https://schema.org.ai
+$type: Technology
+name: Smartsuite
+description: Business platform for business automation
+url: https://smartsuite.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Smartsuite
+  url: https://smartsuite.com
+zapierSlug: smartsuite
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Smartsuite
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Record.update
+- Record.create
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const smartsuite = {
+  $type: 'Technology',
+  name: 'Smartsuite',
+  url: 'https://smartsuite.com'
+}
+
+await $.Technology.create(smartsuite)
+```
+
+## Resources
+
+- [Smartsuite](https://smartsuite.com)
+- [Zapier Integration](https://zapier.com/apps/smartsuite/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

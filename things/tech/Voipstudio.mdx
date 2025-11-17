@@ -1,0 +1,78 @@
+---
+$id: https://tech.org.ai/Voipstudio
+$context: https://schema.org.ai
+$type: Technology
+name: Voipstudio
+description: Business platform for business automation
+url: https://voipstudio.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Voipstudio
+  url: https://voipstudio.com
+zapierSlug: voipstudio
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Voipstudio
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- SMS.unknown
+- CallEnded.unknown
+- Voicemail.created
+- MissedCall.unknown
+- CallRecording.created
+- CallConnected.unknown
+- CallTracking.unknown
+- CDR.created
+- DTMF.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const voipstudio = {
+  $type: 'Technology',
+  name: 'Voipstudio',
+  url: 'https://voipstudio.com'
+}
+
+await $.Technology.create(voipstudio)
+```
+
+## Resources
+
+- [Voipstudio](https://voipstudio.com)
+- [Zapier Integration](https://zapier.com/apps/voipstudio/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

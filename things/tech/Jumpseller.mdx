@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Jumpseller
+$context: https://schema.org.ai
+$type: Technology
+name: Jumpseller
+description: Business platform for business automation
+url: https://jumpseller.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Jumpseller
+  url: https://jumpseller.com
+zapierSlug: jumpseller
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Jumpseller
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Customer.unknown
+- Order.unknown
+- Product.unknown
+- OrderPaid.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const jumpseller = {
+  $type: 'Technology',
+  name: 'Jumpseller',
+  url: 'https://jumpseller.com'
+}
+
+await $.Technology.create(jumpseller)
+```
+
+## Resources
+
+- [Jumpseller](https://jumpseller.com)
+- [Zapier Integration](https://zapier.com/apps/jumpseller/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

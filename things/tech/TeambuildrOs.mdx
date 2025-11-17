@@ -1,0 +1,75 @@
+---
+$id: https://tech.org.ai/TeambuildrOs
+$context: https://schema.org.ai
+$type: Technology
+name: Teambuildr Os
+description: Business platform for business automation
+url: https://teambuildros.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Teambuildr Os
+  url: https://teambuildros.com
+zapierSlug: teambuildr-os
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Teambuildr Os
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Membership.unknown
+- SuccessfulMember.unknown
+- MemberProfile.created
+- FirstSuccessful.unknown
+- MemberBooking.unknown
+- StaffProfile.created
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const teambuildros = {
+  $type: 'Technology',
+  name: 'Teambuildr Os',
+  url: 'https://teambuildros.com'
+}
+
+await $.Technology.create(teambuildros)
+```
+
+## Resources
+
+- [Teambuildr Os](https://teambuildros.com)
+- [Zapier Integration](https://zapier.com/apps/teambuildr-os/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

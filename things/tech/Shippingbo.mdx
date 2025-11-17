@@ -1,0 +1,71 @@
+---
+$id: https://tech.org.ai/Shippingbo
+$context: https://schema.org.ai
+$type: Technology
+name: Shippingbo
+description: Business platform for business automation
+url: https://shippingbo.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Shippingbo
+  url: https://shippingbo.com
+zapierSlug: shippingbo
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Shippingbo
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Order.created
+- ShippedOrder.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const shippingbo = {
+  $type: 'Technology',
+  name: 'Shippingbo',
+  url: 'https://shippingbo.com'
+}
+
+await $.Technology.create(shippingbo)
+```
+
+## Resources
+
+- [Shippingbo](https://shippingbo.com)
+- [Zapier Integration](https://zapier.com/apps/shippingbo/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

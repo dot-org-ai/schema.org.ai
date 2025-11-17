@@ -1,0 +1,73 @@
+---
+$id: https://tech.org.ai/Mailersend
+$context: https://schema.org.ai
+$type: Technology
+name: Mailersend
+description: Communication platform for business automation
+url: https://mailersend.com
+applicationCategory: Communication Software
+provider:
+  $type: Organization
+  name: Mailersend
+  url: https://mailersend.com
+zapierSlug: mailersend
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Mailersend
+
+Communication platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- Email.unknown
+- SMS.unknown
+- Recipient.unknown
+- SMSDelivery.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const mailersend = {
+  $type: 'Technology',
+  name: 'Mailersend',
+  url: 'https://mailersend.com'
+}
+
+await $.Technology.create(mailersend)
+```
+
+## Resources
+
+- [Mailersend](https://mailersend.com)
+- [Zapier Integration](https://zapier.com/apps/mailersend/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

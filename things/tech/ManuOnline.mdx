@@ -1,0 +1,77 @@
+---
+$id: https://tech.org.ai/ManuOnline
+$context: https://schema.org.ai
+$type: Technology
+name: Manu Online
+description: Business platform for business automation
+url: https://manuonline.com
+applicationCategory: Business Software
+provider:
+  $type: Organization
+  name: Manu Online
+  url: https://manuonline.com
+zapierSlug: manu-online
+digital: 1.0
+---
+
+[Thing](../Thing.mdx) > [CreativeWork](../CreativeWork.mdx) > [SoftwareApplication](../SoftwareApplication.mdx) > [Technology](../Technology.mdx)
+
+# Manu Online
+
+Business platform for business automation and workflow integration.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Technology" | - |
+| `$id` | URL | Unique identifier | Thing |
+| `name` | Text | Service name | Thing |
+| `description` | Text | Service description | Thing |
+| `url` | URL | Service website | Thing |
+| `provider` | Organization | Service provider | SoftwareApplication |
+| `applicationCategory` | Text | Software category | SoftwareApplication |
+| `zapierSlug` | Text | Zapier identifier | Technology |
+| `events` | Event[] | Available events | Technology |
+| `actions` | Action[] | Available actions | Technology |
+
+## Available Events
+
+- SalesOrder.created
+- SalesOrder.unknown
+- PurchaseOrder.unknown
+- SalesInvoice.unknown
+- SalesDispatch.unknown
+- PartnerSaved.unknown
+- PurchaseInvoice.unknown
+- ItemSaved.unknown
+
+## Available Actions
+
+- Create record
+- Update record
+- Find record
+- Delete record
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+
+const manuonline = {
+  $type: 'Technology',
+  name: 'Manu Online',
+  url: 'https://manuonline.com'
+}
+
+await $.Technology.create(manuonline)
+```
+
+## Resources
+
+- [Manu Online](https://manuonline.com)
+- [Zapier Integration](https://zapier.com/apps/manu-online/integrations)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
