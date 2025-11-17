@@ -18,6 +18,98 @@ interface TypeMetadata {
   title: string
 }
 
+interface TypeNode {
+  name: string
+  slug: string
+  children: TypeNode[]
+}
+
+function buildHierarchy(types: any[]): TypeNode {
+  const typeMap = new Map<string, TypeNode>()
+
+  // First pass: create all nodes
+  types.forEach(t => {
+    typeMap.set(t.name, {
+      name: t.name,
+      slug: t.slug,
+      children: []
+    })
+  })
+
+  // Create root node for Thing
+  const root: TypeNode = typeMap.get('Thing') || { name: 'Thing', slug: 'Thing', children: [] }
+
+  // Second pass: build parent-child relationships
+  types.forEach(t => {
+    if (t.name === 'Thing') return // Skip root
+
+    const node = typeMap.get(t.name)
+    if (!node) return
+
+    // Get parent (first subClassOf if array)
+    const parentName = Array.isArray(t.subClassOf) ? t.subClassOf[0] : t.subClassOf
+
+    if (parentName) {
+      const parent = typeMap.get(parentName)
+      if (parent) {
+        parent.children.push(node)
+      }
+    }
+  })
+
+  // Sort children alphabetically at each level
+  function sortChildren(node: TypeNode) {
+    node.children.sort((a, b) => a.name.localeCompare(b.name))
+    node.children.forEach(sortChildren)
+  }
+  sortChildren(root)
+
+  return root
+}
+
+function generateSidebarHTML(node: TypeNode, currentSlug: string, ancestorSlugs: Set<string>, level: number = 0): string {
+  const isCurrentPage = node.slug === currentSlug
+  const hasChildren = node.children.length > 0
+  const shouldBeOpen = ancestorSlugs.has(node.slug) || isCurrentPage
+
+  if (!hasChildren) {
+    // Leaf node - just a link
+    return `
+      <li>
+        <a href="${node.slug}.html"${isCurrentPage ? ' aria-current="page"' : ''}>${node.name}</a>
+      </li>`
+  }
+
+  // Node with children - use details element
+  return `
+    <li>
+      <details${shouldBeOpen ? ' open' : ''}>
+        <summary>
+          <a href="${node.slug}.html"${isCurrentPage ? ' aria-current="page"' : ''}>${node.name}</a>
+        </summary>
+        <ul>
+          ${node.children.map(child => generateSidebarHTML(child, currentSlug, ancestorSlugs, level + 1)).join('')}
+        </ul>
+      </details>
+    </li>`
+}
+
+function getAncestorSlugs(types: any[], currentSlug: string): Set<string> {
+  const ancestors = new Set<string>()
+  const typeMap = new Map(types.map(t => [t.name, t]))
+
+  let current = types.find(t => t.slug === currentSlug)
+  while (current) {
+    const parentName = Array.isArray(current.subClassOf) ? current.subClassOf[0] : current.subClassOf
+    if (!parentName) break
+
+    ancestors.add(parentName)
+    current = typeMap.get(parentName)
+  }
+
+  return ancestors
+}
+
 async function buildSite() {
   const docsDir = path.join(process.cwd(), 'content/docs')
   const outDir = path.join(process.cwd(), 'out')
@@ -29,6 +121,88 @@ async function buildSite() {
   // Copy shared custom CSS (minimal overrides for Pico CSS)
   const customCSS = `
 /* Custom overrides for Pico CSS */
+body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  max-width: 100%;
+  padding: 0;
+}
+
+aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--pico-background-color);
+  border-right: 1px solid var(--pico-muted-border-color);
+  padding: 1rem;
+}
+
+aside nav ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+aside nav li {
+  margin: 0;
+}
+
+aside nav details {
+  margin: 0;
+}
+
+aside nav details summary {
+  cursor: pointer;
+  padding: 0.25rem 0;
+  list-style: none;
+}
+
+aside nav details summary::-webkit-details-marker {
+  display: none;
+}
+
+aside nav details summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+  font-size: 0.7rem;
+}
+
+aside nav details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+aside nav a {
+  text-decoration: none;
+  color: var(--pico-color);
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  border-radius: var(--pico-border-radius);
+}
+
+aside nav a:hover {
+  background: var(--pico-secondary-hover);
+}
+
+aside nav a[aria-current="page"] {
+  background: var(--pico-primary);
+  color: var(--pico-primary-inverse);
+  font-weight: 600;
+}
+
+aside nav ul ul {
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+main.content-with-sidebar {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .metadata {
   background: var(--pico-card-background-color);
   padding: 1.5rem;
@@ -61,6 +235,18 @@ async function buildSite() {
   font-size: 0.85rem;
   color: var(--pico-muted-color);
 }
+
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+  aside {
+    position: relative;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--pico-muted-border-color);
+  }
+}
 `
 
   await fs.writeFile(path.join(outDir, 'custom.css'), customCSS)
@@ -70,8 +256,9 @@ async function buildSite() {
   console.log(`Found ${files.length} MDX files`)
 
   const allTypes: any[] = []
+  const typeData = new Map<string, { metadata: TypeMetadata, mdContent: string }>()
 
-  // Process each file
+  // First pass: collect all types
   for (const file of files) {
     const filePath = path.join(docsDir, file)
     const content = await fs.readFile(filePath, 'utf-8')
@@ -80,6 +267,21 @@ async function buildSite() {
     const slug = file.replace('.mdx', '')
     const metadata = data as TypeMetadata
 
+    typeData.set(slug, { metadata, mdContent })
+
+    allTypes.push({
+      slug,
+      name: metadata.name,
+      description: metadata.description,
+      subClassOf: metadata.subClassOf
+    })
+  }
+
+  // Build hierarchy
+  const hierarchy = buildHierarchy(allTypes)
+
+  // Second pass: generate all output files with sidebar
+  for (const [slug, { metadata, mdContent }] of typeData) {
     // Save JSON
     await fs.writeFile(
       path.join(outDir, `${slug}.json`),
@@ -92,19 +294,14 @@ async function buildSite() {
       mdContent
     )
 
-    // Save HTML
-    const html = generateHTML(metadata, mdContent, slug)
+    // Save HTML with sidebar
+    const ancestorSlugs = getAncestorSlugs(allTypes, slug)
+    const sidebarHTML = generateSidebarHTML(hierarchy, slug, ancestorSlugs)
+    const html = generateHTML(metadata, mdContent, slug, sidebarHTML)
     await fs.writeFile(
       path.join(outDir, `${slug}.html`),
       html
     )
-
-    allTypes.push({
-      slug,
-      name: metadata.name,
-      description: metadata.description,
-      subClassOf: metadata.subClassOf
-    })
   }
 
   // Generate index page
@@ -124,7 +321,7 @@ async function buildSite() {
   console.log(`✅ Output directory: ${outDir}`)
 }
 
-function generateHTML(metadata: TypeMetadata, markdown: string, slug: string): string {
+function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, sidebarHTML: string): string {
   const subClassOfHTML = metadata.subClassOf
     ? Array.isArray(metadata.subClassOf)
       ? metadata.subClassOf.map(c => `<a href="${c}.html">${c}</a>`).join(', ')
@@ -142,14 +339,24 @@ function generateHTML(metadata: TypeMetadata, markdown: string, slug: string): s
   <link rel="stylesheet" href="custom.css">
 </head>
 <body>
-  <main class="container">
+  <aside>
+    <header>
+      <hgroup>
+        <h2><a href="index.html" style="text-decoration: none; color: inherit;">schema.org.ai</a></h2>
+        <p>Schema.org Types</p>
+      </hgroup>
+    </header>
     <nav>
       <ul>
-        <li><strong>schema.org.ai</strong></li>
+        ${sidebarHTML}
       </ul>
+    </nav>
+  </aside>
+
+  <main class="content-with-sidebar">
+    <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="Thing.html">Thing</a></li>
         <li><a href="${slug}.json">JSON</a></li>
         <li><a href="${slug}.md">Markdown</a></li>
       </ul>
@@ -174,7 +381,10 @@ function generateHTML(metadata: TypeMetadata, markdown: string, slug: string): s
 }
 
 function generateIndex(types: any[]): string {
-  const typeCards = types.map(t => `
+  // Sort types alphabetically
+  const sortedTypes = [...types].sort((a, b) => a.name.localeCompare(b.name))
+
+  const typeCards = sortedTypes.map(t => `
     <article class="type-card">
       <h3><a href="${t.slug}.html">${t.name}</a></h3>
       <p>${t.description?.substring(0, 120) || ''}...</p>
@@ -215,7 +425,7 @@ function generateIndex(types: any[]): string {
     </div>
 
     <script>
-      const allTypes = ${JSON.stringify(types)};
+      const allTypes = ${JSON.stringify(sortedTypes)};
 
       document.getElementById('search').addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
