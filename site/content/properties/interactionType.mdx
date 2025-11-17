@@ -5,6 +5,10 @@ $type: Property
 name: interactionType
 description: "The Action representing the type of interaction. For up votes, +1s, etc. use LikeAction. For down votes use DislikeAction. Otherwise, use the most specific Action."
 title: interactionType
+domainIncludes:
+  - "InteractionCounter"
+rangeIncludes:
+  - "Action"
 ---
 
 # interactionType

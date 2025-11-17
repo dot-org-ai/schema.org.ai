@@ -5,6 +5,11 @@ $type: Property
 name: returnShippingFeesAmount
 description: "Amount of shipping costs for product returns (for any reason). Applicable when property returnFees equals ReturnShippingFees."
 title: returnShippingFeesAmount
+domainIncludes:
+  - "MerchantReturnPolicy"
+  - "MerchantReturnPolicySeasonalOverride"
+rangeIncludes:
+  - "MonetaryAmount"
 ---
 
 # returnShippingFeesAmount

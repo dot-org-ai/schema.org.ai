@@ -5,6 +5,12 @@ $type: Property
 name: recipeIngredient
 description: "An ingredient or ordered list of ingredients and potentially quantities used in the recipe, e.g. 1 cup of sugar, flour or garlic. The ingredients can be represented as free text or more structured val"
 title: recipeIngredient
+domainIncludes:
+  - "Recipe"
+rangeIncludes:
+  - "ItemList"
+  - "PropertyValue"
+  - "Text"
 subPropertyOf: "supply"
 ---
 

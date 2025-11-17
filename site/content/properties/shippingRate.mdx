@@ -5,6 +5,13 @@ $type: Property
 name: shippingRate
 description: "The shipping rate is the cost of shipping to the specified destination. Typically, the maxValue and currency values (of the MonetaryAmount) are most appropriate."
 title: shippingRate
+domainIncludes:
+  - "OfferShippingDetails"
+  - "ShippingConditions"
+  - "ShippingRateSettings"
+rangeIncludes:
+  - "MonetaryAmount"
+  - "ShippingRateSettings"
 ---
 
 # shippingRate

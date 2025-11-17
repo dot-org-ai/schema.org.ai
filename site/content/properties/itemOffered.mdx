@@ -5,6 +5,17 @@ $type: Property
 name: itemOffered
 description: "An item being offered (or demanded). The transactional nature of the offer or demand is documented using businessFunction, e.g. sell, lease etc. While several common expected types are listed explicit"
 title: itemOffered
+domainIncludes:
+  - "Demand"
+  - "Offer"
+rangeIncludes:
+  - "AggregateOffer"
+  - "CreativeWork"
+  - "Event"
+  - "MenuItem"
+  - "Product"
+  - "Service"
+  - "Trip"
 ---
 
 # itemOffered

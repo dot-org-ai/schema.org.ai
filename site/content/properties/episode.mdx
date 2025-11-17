@@ -5,6 +5,13 @@ $type: Property
 name: episode
 description: "An episode of a TV, radio or game media within a series or season."
 title: episode
+domainIncludes:
+  - "CreativeWorkSeason"
+  - "RadioSeries"
+  - "TVSeries"
+  - "VideoGameSeries"
+rangeIncludes:
+  - "Episode"
 subPropertyOf: "hasPart"
 ---
 

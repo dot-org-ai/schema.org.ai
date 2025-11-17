@@ -5,6 +5,14 @@ $type: Property
 name: currency
 description: "The currency in which the monetary amount is expressed. Use standard formats: ISO 4217 currency format, e.g. \"USD\"; Ticker symbol for cryptocurrencies, e.g. \"BTC\"; well known names for Local Exchange "
 title: currency
+domainIncludes:
+  - "DatedMoneySpecification"
+  - "ExchangeRateSpecification"
+  - "LoanOrCredit"
+  - "MonetaryAmount"
+  - "MonetaryAmountDistribution"
+rangeIncludes:
+  - "Text"
 ---
 
 # currency

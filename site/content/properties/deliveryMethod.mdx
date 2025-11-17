@@ -5,6 +5,13 @@ $type: Property
 name: deliveryMethod
 description: "A sub property of instrument. The method of delivery."
 title: deliveryMethod
+domainIncludes:
+  - "OrderAction"
+  - "ReceiveAction"
+  - "SendAction"
+  - "TrackAction"
+rangeIncludes:
+  - "DeliveryMethod"
 subPropertyOf: "instrument"
 ---
 

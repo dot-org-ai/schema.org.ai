@@ -5,6 +5,12 @@ $type: Property
 name: customer
 description: "Party placing the order or paying the invoice."
 title: customer
+domainIncludes:
+  - "Invoice"
+  - "Order"
+rangeIncludes:
+  - "Organization"
+  - "Person"
 ---
 
 # customer

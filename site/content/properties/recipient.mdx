@@ -5,6 +5,21 @@ $type: Property
 name: recipient
 description: "A sub property of participant. The participant who is at the receiving end of the action."
 title: recipient
+domainIncludes:
+  - "AuthorizeAction"
+  - "CommunicateAction"
+  - "DonateAction"
+  - "GiveAction"
+  - "Message"
+  - "PayAction"
+  - "ReturnAction"
+  - "SendAction"
+  - "TipAction"
+rangeIncludes:
+  - "Audience"
+  - "ContactPoint"
+  - "Organization"
+  - "Person"
 subPropertyOf: "participant"
 ---
 

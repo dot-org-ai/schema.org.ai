@@ -5,6 +5,12 @@ $type: Property
 name: handlingTime
 description: "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup. In the context of ShippingDel"
 title: handlingTime
+domainIncludes:
+  - "ShippingDeliveryTime"
+  - "ShippingService"
+rangeIncludes:
+  - "QuantitativeValue"
+  - "ServicePeriod"
 ---
 
 # handlingTime

@@ -5,6 +5,12 @@ $type: Property
 name: bccRecipient
 description: "A sub property of recipient. The recipient blind copied on a message."
 title: bccRecipient
+domainIncludes:
+  - "Message"
+rangeIncludes:
+  - "ContactPoint"
+  - "Organization"
+  - "Person"
 subPropertyOf: "recipient"
 ---
 

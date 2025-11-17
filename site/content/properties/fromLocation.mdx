@@ -5,6 +5,12 @@ $type: Property
 name: fromLocation
 description: "A sub property of location. The original location of the object or the agent before the action."
 title: fromLocation
+domainIncludes:
+  - "ExerciseAction"
+  - "MoveAction"
+  - "TransferAction"
+rangeIncludes:
+  - "Place"
 subPropertyOf: "location"
 ---
 

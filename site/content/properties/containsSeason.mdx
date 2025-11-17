@@ -5,6 +5,12 @@ $type: Property
 name: containsSeason
 description: "A season that is part of the media series."
 title: containsSeason
+domainIncludes:
+  - "RadioSeries"
+  - "TVSeries"
+  - "VideoGameSeries"
+rangeIncludes:
+  - "CreativeWorkSeason"
 subPropertyOf: "hasPart"
 ---
 

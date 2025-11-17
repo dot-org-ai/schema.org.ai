@@ -5,6 +5,11 @@ $type: Property
 name: lender
 description: "A sub property of participant. The person that lends the object being borrowed."
 title: lender
+domainIncludes:
+  - "BorrowAction"
+rangeIncludes:
+  - "Organization"
+  - "Person"
 subPropertyOf: "participant"
 ---
 

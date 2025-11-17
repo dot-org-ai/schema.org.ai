@@ -5,6 +5,12 @@ $type: Property
 name: embeddedTextCaption
 description: "Represents textual captioning from a MediaObject, e.g. text of a 'meme'."
 title: embeddedTextCaption
+domainIncludes:
+  - "AudioObject"
+  - "ImageObject"
+  - "VideoObject"
+rangeIncludes:
+  - "Text"
 subPropertyOf: "caption"
 ---
 

@@ -5,6 +5,13 @@ $type: Property
 name: memberOf
 description: "An Organization (or ProgramMembership) to which this Person or Organization belongs."
 title: memberOf
+domainIncludes:
+  - "Organization"
+  - "Person"
+rangeIncludes:
+  - "MemberProgramTier"
+  - "Organization"
+  - "ProgramMembership"
 ---
 
 # memberOf

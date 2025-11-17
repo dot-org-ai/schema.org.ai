@@ -19,6 +19,12 @@ interface TypeMetadata {
   title: string
 }
 
+interface PropertyMetadata extends TypeMetadata {
+  domainIncludes?: string[]
+  rangeIncludes?: string[]
+  subPropertyOf?: string
+}
+
 interface TypeNode {
   name: string
   slug: string
@@ -119,6 +125,32 @@ async function buildSite() {
   // Clean and create output directory
   await fs.rm(outDir, { recursive: true, force: true })
   await fs.mkdir(outDir, { recursive: true })
+
+  // FIRST: Load all properties to build property maps
+  console.log('Loading properties...')
+  const propFiles = await glob('*.mdx', { cwd: propsDir })
+  console.log(`Found ${propFiles.length} property MDX files`)
+
+  const propertyMap = new Map<string, PropertyMetadata>()
+  const typeToPropertiesMap = new Map<string, PropertyMetadata[]>()
+
+  for (const file of propFiles) {
+    const filePath = path.join(propsDir, file)
+    const content = await fs.readFile(filePath, 'utf-8')
+    const { data } = matter(content)
+    const propMetadata = data as PropertyMetadata
+
+    propertyMap.set(propMetadata.name, propMetadata)
+
+    // Build type -> properties map
+    const domainTypes = propMetadata.domainIncludes || []
+    for (const typeName of domainTypes) {
+      if (!typeToPropertiesMap.has(typeName)) {
+        typeToPropertiesMap.set(typeName, [])
+      }
+      typeToPropertiesMap.get(typeName)!.push(propMetadata)
+    }
+  }
 
   // Copy shared custom CSS (minimal overrides for Pico CSS)
   const customCSS = `
@@ -374,10 +406,11 @@ aside#documentation-menu header p {
       mdContent
     )
 
-    // Save HTML with sidebar
+    // Save HTML with sidebar and property tables
     const ancestorSlugs = getAncestorSlugs(allTypes, slug)
     const sidebarHTML = generateSidebarHTML(hierarchy, slug, ancestorSlugs)
-    const html = await generateHTML(metadata, mdContent, slug, sidebarHTML)
+    const propertyTablesHTML = generatePropertyTables(metadata.name, allTypes, typeToPropertiesMap)
+    const html = await generateHTML(metadata, mdContent, slug, sidebarHTML, propertyTablesHTML)
     await fs.writeFile(
       path.join(outDir, `${slug}.html`),
       html
@@ -400,9 +433,6 @@ aside#documentation-menu header p {
   console.log(`   - ${files.length} JSON files`)
 
   // Process properties
-  const propFiles = await glob('*.mdx', { cwd: propsDir })
-  console.log(`Found ${propFiles.length} property MDX files`)
-
   const allProperties: any[] = []
 
   for (const file of propFiles) {
@@ -453,7 +483,76 @@ aside#documentation-menu header p {
   console.log(`✅ Output directory: ${outDir}`)
 }
 
-async function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, sidebarHTML: string): Promise<string> {
+function generatePropertyTables(typeName: string, allTypes: any[], typeToPropertiesMap: Map<string, PropertyMetadata[]>): string {
+  // Get the type hierarchy (ancestors)
+  const ancestors: string[] = []
+  let currentTypeName = typeName
+  const typeMap = new Map(allTypes.map(t => [t.name, t]))
+
+  while (currentTypeName) {
+    ancestors.unshift(currentTypeName)
+    const type = typeMap.get(currentTypeName)
+    if (!type) break
+
+    const parentName = Array.isArray(type.subClassOf) ? type.subClassOf[0] : type.subClassOf
+    currentTypeName = parentName || ''
+  }
+
+  // Build property tables for each ancestor (reverse order: Thing first, then children)
+  let tablesHTML = '<h2>Properties</h2>\n'
+
+  // Reverse to show Thing at top, current type at bottom
+  const reversedAncestors = [...ancestors].reverse()
+
+  for (const ancestorName of reversedAncestors) {
+    const properties = typeToPropertiesMap.get(ancestorName) || []
+    if (properties.length === 0) continue
+
+    const isCurrentType = ancestorName === typeName
+    const tableName = isCurrentType
+      ? `Properties from ${ancestorName}`
+      : `Inherited from ${ancestorName}`
+
+    tablesHTML += `
+<details ${isCurrentType ? 'open' : ''}>
+  <summary><strong>${tableName}</strong></summary>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Expected Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+`
+
+    // Sort properties alphabetically
+    const sortedProps = [...properties].sort((a, b) => a.name.localeCompare(b.name))
+
+    for (const prop of sortedProps) {
+      const rangeTypes = (prop.rangeIncludes || [])
+        .map(t => `<a href="${t}.html">${t}</a>`)
+        .join(', ') || 'Thing'
+
+      tablesHTML += `      <tr>
+        <td><a href="${prop.name}.html"><code>${prop.name}</code></a></td>
+        <td>${rangeTypes}</td>
+        <td>${prop.description}</td>
+      </tr>
+`
+    }
+
+    tablesHTML += `    </tbody>
+  </table>
+</details>
+`
+  }
+
+  return tablesHTML
+}
+
+async function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, sidebarHTML: string, propertyTablesHTML: string = ''): Promise<string> {
   const subClassOfHTML = metadata.subClassOf
     ? Array.isArray(metadata.subClassOf)
       ? metadata.subClassOf.map(c => `<a href="${c}.html">${c}</a>`).join(', ')
@@ -508,6 +607,8 @@ async function generateHTML(metadata: TypeMetadata, markdown: string, slug: stri
       <article class="content">
         ${htmlContent}
       </article>
+
+      ${propertyTablesHTML ? `<article class="properties">\n        ${propertyTablesHTML}\n      </article>` : ''}
     </section>
   </main>
 </body>

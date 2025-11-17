@@ -5,6 +5,15 @@ $type: Property
 name: seller
 description: "An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider."
 title: seller
+domainIncludes:
+  - "BuyAction"
+  - "Demand"
+  - "Flight"
+  - "Offer"
+  - "Order"
+rangeIncludes:
+  - "Organization"
+  - "Person"
 subPropertyOf: "participant"
 ---
 

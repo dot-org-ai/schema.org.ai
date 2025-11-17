@@ -5,6 +5,12 @@ $type: Property
 name: restockingFee
 description: "Use MonetaryAmount to specify a fixed restocking fee for product returns, or use Number to specify a percentage of the product price paid by the customer."
 title: restockingFee
+domainIncludes:
+  - "MerchantReturnPolicy"
+  - "MerchantReturnPolicySeasonalOverride"
+rangeIncludes:
+  - "MonetaryAmount"
+  - "Number"
 ---
 
 # restockingFee

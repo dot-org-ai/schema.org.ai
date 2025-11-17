@@ -5,6 +5,11 @@ $type: Property
 name: buyer
 description: "A sub property of participant. The participant/person/organization that bought the object."
 title: buyer
+domainIncludes:
+  - "SellAction"
+rangeIncludes:
+  - "Organization"
+  - "Person"
 subPropertyOf: "participant"
 ---
 

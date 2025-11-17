@@ -5,6 +5,13 @@ $type: Property
 name: hasTierRequirement
 description: "A requirement for a user to join a membership tier, for example: a CreditCard if the tier requires sign up for a credit card, A UnitPriceSpecification if the user is required to pay a (periodic) fee, "
 title: hasTierRequirement
+domainIncludes:
+  - "MemberProgramTier"
+rangeIncludes:
+  - "CreditCard"
+  - "MonetaryAmount"
+  - "Text"
+  - "UnitPriceSpecification"
 ---
 
 # hasTierRequirement

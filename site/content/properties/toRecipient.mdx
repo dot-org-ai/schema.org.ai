@@ -5,6 +5,13 @@ $type: Property
 name: toRecipient
 description: "A sub property of recipient. The recipient who was directly sent the message."
 title: toRecipient
+domainIncludes:
+  - "Message"
+rangeIncludes:
+  - "Audience"
+  - "ContactPoint"
+  - "Organization"
+  - "Person"
 subPropertyOf: "recipient"
 ---
 

@@ -5,6 +5,11 @@ $type: Property
 name: incomeLimit
 description: "Optional. Income limit for which the incentive is applicable for. If MonetaryAmount is specified, this should be based on annualized income (e.g. if an incentive is limited to those making { \"@type\": "
 title: incomeLimit
+domainIncludes:
+  - "FinancialIncentive"
+rangeIncludes:
+  - "MonetaryAmount"
+  - "Text"
 ---
 
 # incomeLimit

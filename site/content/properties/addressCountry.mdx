@@ -5,6 +5,14 @@ $type: Property
 name: addressCountry
 description: "The country. Recommended to be in 2-letter ISO 3166-1 alpha-2 format, for example \"US\". For backward compatibility, a 3-letter ISO 3166-1 alpha-3 country code such as \"SGP\" or a full country name such"
 title: addressCountry
+domainIncludes:
+  - "DefinedRegion"
+  - "GeoCoordinates"
+  - "GeoShape"
+  - "PostalAddress"
+rangeIncludes:
+  - "Country"
+  - "Text"
 ---
 
 # addressCountry

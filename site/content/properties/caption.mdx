@@ -5,6 +5,13 @@ $type: Property
 name: caption
 description: "The caption for this object. For downloadable machine formats (closed caption, subtitles etc.) use MediaObject and indicate the encodingFormat."
 title: caption
+domainIncludes:
+  - "AudioObject"
+  - "ImageObject"
+  - "VideoObject"
+rangeIncludes:
+  - "MediaObject"
+  - "Text"
 ---
 
 # caption

@@ -76,6 +76,14 @@ description: ${escapedDescription}
 title: ${title}
 `
 
+  if (prop.domainIncludes.length > 0) {
+    frontmatter += `domainIncludes:\n${prop.domainIncludes.map(t => `  - "${t}"`).join('\n')}\n`
+  }
+
+  if (prop.rangeIncludes.length > 0) {
+    frontmatter += `rangeIncludes:\n${prop.rangeIncludes.map(t => `  - "${t}"`).join('\n')}\n`
+  }
+
   if (prop.subPropertyOf) {
     frontmatter += `subPropertyOf: "${prop.subPropertyOf}"\n`
   }

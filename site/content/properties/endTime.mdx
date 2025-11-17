@@ -5,6 +5,15 @@ $type: Property
 name: endTime
 description: "The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performe"
 title: endTime
+domainIncludes:
+  - "Action"
+  - "FoodEstablishmentReservation"
+  - "InteractionCounter"
+  - "MediaObject"
+  - "Schedule"
+rangeIncludes:
+  - "DateTime"
+  - "Time"
 ---
 
 # endTime

@@ -5,6 +5,18 @@ $type: Property
 name: measurementMethod
 description: "A subproperty of measurementTechnique that can be used for specifying specific methods, in particular via MeasurementMethodEnum."
 title: measurementMethod
+domainIncludes:
+  - "DataCatalog"
+  - "DataDownload"
+  - "Dataset"
+  - "Observation"
+  - "PropertyValue"
+  - "StatisticalVariable"
+rangeIncludes:
+  - "DefinedTerm"
+  - "MeasurementMethodEnum"
+  - "Text"
+  - "URL"
 subPropertyOf: "measurementTechnique"
 ---
 

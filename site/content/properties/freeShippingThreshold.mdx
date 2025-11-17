@@ -5,6 +5,11 @@ $type: Property
 name: freeShippingThreshold
 description: "A monetary value above (or at) which the shipping rate becomes free. Intended to be used via an OfferShippingDetails with shippingSettingsLink matching this ShippingRateSettings."
 title: freeShippingThreshold
+domainIncludes:
+  - "ShippingRateSettings"
+rangeIncludes:
+  - "DeliveryChargeSpecification"
+  - "MonetaryAmount"
 ---
 
 # freeShippingThreshold

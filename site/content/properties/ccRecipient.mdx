@@ -5,6 +5,12 @@ $type: Property
 name: ccRecipient
 description: "A sub property of recipient. The recipient copied on a message."
 title: ccRecipient
+domainIncludes:
+  - "Message"
+rangeIncludes:
+  - "ContactPoint"
+  - "Organization"
+  - "Person"
 subPropertyOf: "recipient"
 ---
 

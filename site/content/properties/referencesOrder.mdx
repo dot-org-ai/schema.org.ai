@@ -5,6 +5,10 @@ $type: Property
 name: referencesOrder
 description: "The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice."
 title: referencesOrder
+domainIncludes:
+  - "Invoice"
+rangeIncludes:
+  - "Order"
 ---
 
 # referencesOrder

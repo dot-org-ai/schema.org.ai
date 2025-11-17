@@ -5,6 +5,11 @@ $type: Property
 name: foodEstablishment
 description: "A sub property of location. The specific food establishment where the action occurred."
 title: foodEstablishment
+domainIncludes:
+  - "CookAction"
+rangeIncludes:
+  - "FoodEstablishment"
+  - "Place"
 subPropertyOf: "location"
 ---
 

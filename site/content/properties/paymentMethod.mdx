@@ -5,6 +5,12 @@ $type: Property
 name: paymentMethod
 description: "The name of the credit card or other method of payment for the order."
 title: paymentMethod
+domainIncludes:
+  - "Invoice"
+  - "Order"
+rangeIncludes:
+  - "PaymentMethod"
+  - "Text"
 ---
 
 # paymentMethod

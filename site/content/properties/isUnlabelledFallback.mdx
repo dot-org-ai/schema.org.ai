@@ -5,6 +5,11 @@ $type: Property
 name: isUnlabelledFallback
 description: "This can be marked 'true' to indicate that some published DeliveryTimeSettings or ShippingRateSettings are intended to apply to all OfferShippingDetails published by the same merchant, when referenced"
 title: isUnlabelledFallback
+domainIncludes:
+  - "DeliveryTimeSettings"
+  - "ShippingRateSettings"
+rangeIncludes:
+  - "Boolean"
 ---
 
 # isUnlabelledFallback

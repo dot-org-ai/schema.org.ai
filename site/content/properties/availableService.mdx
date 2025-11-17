@@ -5,6 +5,14 @@ $type: Property
 name: availableService
 description: "A medical service available from this provider."
 title: availableService
+domainIncludes:
+  - "Hospital"
+  - "MedicalClinic"
+  - "Physician"
+rangeIncludes:
+  - "MedicalProcedure"
+  - "MedicalTest"
+  - "MedicalTherapy"
 ---
 
 # availableService

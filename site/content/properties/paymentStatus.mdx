@@ -5,6 +5,11 @@ $type: Property
 name: paymentStatus
 description: "The status of payment; whether the invoice has been paid or not."
 title: paymentStatus
+domainIncludes:
+  - "Invoice"
+rangeIncludes:
+  - "PaymentStatusType"
+  - "Text"
 ---
 
 # paymentStatus

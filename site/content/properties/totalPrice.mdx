@@ -5,6 +5,13 @@ $type: Property
 name: totalPrice
 description: "The total price for the reservation or ticket, including applicable taxes, shipping, etc. Usage guidelines: Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather t"
 title: totalPrice
+domainIncludes:
+  - "Reservation"
+  - "Ticket"
+rangeIncludes:
+  - "Number"
+  - "PriceSpecification"
+  - "Text"
 ---
 
 # totalPrice

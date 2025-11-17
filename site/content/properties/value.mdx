@@ -5,6 +5,15 @@ $type: Property
 name: value
 description: "The value of a QuantitativeValue (including Observation) or property value node. For QuantitativeValue and MonetaryAmount, the recommended type for values is 'Number'. For PropertyValue, it can be 'Te"
 title: value
+domainIncludes:
+  - "MonetaryAmount"
+  - "PropertyValue"
+  - "QuantitativeValue"
+rangeIncludes:
+  - "Boolean"
+  - "Number"
+  - "StructuredValue"
+  - "Text"
 ---
 
 # value

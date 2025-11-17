@@ -5,6 +5,11 @@ $type: Property
 name: agentInteractionStatistic
 description: "The number of completed interactions for this entity, in a particular role (the 'agent'), in a particular action (indicated in the statistic), and in a particular context (i.e. interactionService)."
 title: agentInteractionStatistic
+domainIncludes:
+  - "Organization"
+  - "Person"
+rangeIncludes:
+  - "InteractionCounter"
 ---
 
 # agentInteractionStatistic

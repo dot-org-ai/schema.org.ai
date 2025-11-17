@@ -5,6 +5,15 @@ $type: Property
 name: amount
 description: "The amount of money."
 title: amount
+domainIncludes:
+  - "DatedMoneySpecification"
+  - "InvestmentOrDeposit"
+  - "LoanOrCredit"
+  - "MonetaryGrant"
+  - "MoneyTransfer"
+rangeIncludes:
+  - "MonetaryAmount"
+  - "Number"
 ---
 
 # amount

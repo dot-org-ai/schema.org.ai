@@ -5,6 +5,15 @@ $type: Property
 name: startTime
 description: "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was perf"
 title: startTime
+domainIncludes:
+  - "Action"
+  - "FoodEstablishmentReservation"
+  - "InteractionCounter"
+  - "MediaObject"
+  - "Schedule"
+rangeIncludes:
+  - "DateTime"
+  - "Time"
 ---
 
 # startTime

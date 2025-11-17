@@ -5,6 +5,13 @@ $type: Property
 name: toLocation
 description: "A sub property of location. The final location of the object or the agent after the action."
 title: toLocation
+domainIncludes:
+  - "ExerciseAction"
+  - "InsertAction"
+  - "MoveAction"
+  - "TransferAction"
+rangeIncludes:
+  - "Place"
 subPropertyOf: "location"
 ---
 

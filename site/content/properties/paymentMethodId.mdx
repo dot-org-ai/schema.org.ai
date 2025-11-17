@@ -5,6 +5,11 @@ $type: Property
 name: paymentMethodId
 description: "An identifier for the method of payment used (e.g. the last 4 digits of the credit card)."
 title: paymentMethodId
+domainIncludes:
+  - "Invoice"
+  - "Order"
+rangeIncludes:
+  - "Text"
 ---
 
 # paymentMethodId

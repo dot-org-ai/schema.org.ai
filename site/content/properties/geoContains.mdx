@@ -5,6 +5,12 @@ $type: Property
 name: geoContains
 description: "Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. \"a contains b iff no points of b lie in the exterior of a, and "
 title: geoContains
+domainIncludes:
+  - "GeospatialGeometry"
+  - "Place"
+rangeIncludes:
+  - "GeospatialGeometry"
+  - "Place"
 ---
 
 # geoContains

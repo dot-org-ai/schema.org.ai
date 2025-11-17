@@ -5,6 +5,11 @@ $type: Property
 name: resultComment
 description: "A sub property of result. The Comment created or sent as a result of this action."
 title: resultComment
+domainIncludes:
+  - "CommentAction"
+  - "ReplyAction"
+rangeIncludes:
+  - "Comment"
 subPropertyOf: "result"
 ---
 

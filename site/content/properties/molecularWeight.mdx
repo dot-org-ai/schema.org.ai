@@ -5,6 +5,11 @@ $type: Property
 name: molecularWeight
 description: "This is the molecular weight of the entity being described, not of the parent. Units should be included in the form '&lt;Number&gt; &lt;unit&gt;', for example '12 amu' or as '&lt;QuantitativeValue&gt;"
 title: molecularWeight
+domainIncludes:
+  - "MolecularEntity"
+rangeIncludes:
+  - "QuantitativeValue"
+  - "Text"
 ---
 
 # molecularWeight

@@ -5,6 +5,13 @@ $type: Property
 name: sender
 description: "A sub property of participant. The participant who is at the sending end of the action."
 title: sender
+domainIncludes:
+  - "Message"
+  - "ReceiveAction"
+rangeIncludes:
+  - "Audience"
+  - "Organization"
+  - "Person"
 subPropertyOf: "participant"
 ---
 

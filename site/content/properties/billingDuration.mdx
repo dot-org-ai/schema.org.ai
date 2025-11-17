@@ -5,6 +5,12 @@ $type: Property
 name: billingDuration
 description: "Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan. Type can be either a Duration or a"
 title: billingDuration
+domainIncludes:
+  - "UnitPriceSpecification"
+rangeIncludes:
+  - "Duration"
+  - "Number"
+  - "QuantitativeValue"
 ---
 
 # billingDuration

@@ -5,6 +5,12 @@ $type: Property
 name: isVariantOf
 description: "Indicates the kind of product that this is a variant of. In the case of ProductModel, this is a pointer (from a ProductModel) to a base product from which this product is a variant. It is safe to infe"
 title: isVariantOf
+domainIncludes:
+  - "Product"
+  - "ProductModel"
+rangeIncludes:
+  - "ProductGroup"
+  - "ProductModel"
 ---
 
 # isVariantOf

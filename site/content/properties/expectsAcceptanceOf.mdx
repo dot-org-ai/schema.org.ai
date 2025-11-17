@@ -5,6 +5,12 @@ $type: Property
 name: expectsAcceptanceOf
 description: "An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it."
 title: expectsAcceptanceOf
+domainIncludes:
+  - "ActionAccessSpecification"
+  - "ConsumeAction"
+  - "MediaSubscription"
+rangeIncludes:
+  - "Offer"
 ---
 
 # expectsAcceptanceOf

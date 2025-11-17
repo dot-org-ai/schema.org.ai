@@ -5,6 +5,12 @@ $type: Property
 name: incentiveAmount
 description: "Describes the amount that can be redeemed from this incentive. QuantitativeValue: Use this for incentives based on price (either raw amount or percentage-based). For a raw amount example, \"You can cla"
 title: incentiveAmount
+domainIncludes:
+  - "FinancialIncentive"
+rangeIncludes:
+  - "LoanOrCredit"
+  - "QuantitativeValue"
+  - "UnitPriceSpecification"
 ---
 
 # incentiveAmount

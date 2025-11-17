@@ -5,6 +5,16 @@ $type: Property
 name: event
 description: "Upcoming or past event associated with this place, organization, or action."
 title: event
+domainIncludes:
+  - "InformAction"
+  - "InviteAction"
+  - "JoinAction"
+  - "LeaveAction"
+  - "Organization"
+  - "Place"
+  - "PlayAction"
+rangeIncludes:
+  - "Event"
 ---
 
 # event
