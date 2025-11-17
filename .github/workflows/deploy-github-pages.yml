@@ -37,9 +37,11 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
+        working-directory: ./site
         run: pnpm install --frozen-lockfile
 
       - name: Build Next.js static export
+        working-directory: ./site
         run: NODE_OPTIONS='--max-old-space-size=12288' pnpm build
         env:
           NEXT_PUBLIC_BASE_PATH: ''
@@ -47,7 +49,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./site/out
 
   deploy:
     environment:
