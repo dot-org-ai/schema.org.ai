@@ -1,3 +1,15 @@
+---
+$id: https://schema.org.ai/LICENSE
+$context: https://creativecommons.org/ns
+$type: CreativeWork
+name: Creative Commons Attribution-ShareAlike 4.0 International License
+license: CC-BY-SA-4.0
+copyrightHolder:
+  $type: Organization
+  name: .do Platform Team
+copyrightYear: 2025
+---
+
 Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)
 
 Copyright (c) 2025 .do Platform Team
@@ -27,8 +39,7 @@ Full license text: https://creativecommons.org/licenses/by-sa/4.0/legalcode
 
 ## Attribution Required
 
-This ontology is derived from Schema.org vocabulary, which is licensed under
-Creative Commons Attribution-ShareAlike License (version 3.0).
+This ontology is derived from Schema.org, which is licensed under CC BY-SA 3.0.
 
 When using this work, you MUST provide attribution to:
 1. schema.org.ai (https://schema.org.ai)
