@@ -1,0 +1,299 @@
+---
+$id: https://schema.org.ai/Webhook
+$context: https://schema.org.ai
+$type: Class
+name: Webhook
+description: A webhook receiver that accepts HTTP callbacks for event-driven architecture, enabling real-time notifications and automated workflows.
+subClassOf:
+  - https://schema.org/Thing
+digital: 1.0
+---
+
+[Thing](Thing.mdx)
+
+# Webhook
+
+A webhook receiver that accepts HTTP callbacks for event-driven architecture, enabling real-time notifications and automated workflows. Webhooks allow systems to push events to registered endpoints, triggering automated responses in Business-as-Code systems.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Webhook" | - |
+| `$id` | URL | Unique identifier for the webhook | Thing |
+| `name` | Text | The name of the webhook | Thing |
+| `description` | Text | Description of the webhook's purpose | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the webhook | Thing |
+| `url` | URL | Webhook endpoint URL | Thing |
+| `image` | URL or ImageObject | Icon representing the webhook | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score (1.0 for webhooks) | Thing |
+| `method` | Text | HTTP method (typically POST or PUT) | Webhook |
+| `event` | Text[] | Event types the webhook handles | Webhook |
+| `payload` | Thing | Expected payload schema | Webhook |
+| `authentication` | Text | Authentication method (HMAC, Bearer, Basic, etc.) | Webhook |
+| `secret` | Text | Webhook secret for signature verification | Webhook |
+| `headers` | PropertyValue[] | Required or expected HTTP headers | Webhook |
+| `retry` | Thing | Retry policy for failed deliveries | Webhook |
+| `timeout` | QuantitativeValue | Webhook timeout duration | Webhook |
+| `workflow` | Workflow | Workflows triggered by this webhook | Webhook |
+| `action` | Action | Actions executed when webhook fires | Webhook |
+| `source` | Organization or SoftwareApplication | The system sending the webhook | Thing |
+| `status` | Text | Webhook status (active, paused, disabled) | Webhook |
+
+## Types
+
+The following types extend Webhook:
+
+- **GitHubWebhook**: Webhooks from GitHub (push, PR, issue events)
+- **PaymentWebhook**: Payment provider webhooks (Stripe, PayPal)
+- **CloudWebhook**: Cloud service webhooks (AWS, GCP, Cloudflare)
+- **CustomWebhook**: Custom application webhooks
+
+## Examples
+
+### Example 1: GitHub Push Webhook
+
+```typescript
+import { $ } from 'sdk.do'
+
+const githubPushWebhook = {
+  $type: 'Webhook',
+  $id: 'https://platform.do/webhooks/github/push',
+  name: 'GitHub Push Event',
+  description: 'Webhook receiver for GitHub repository push events to trigger CI/CD workflows',
+  digital: 1.0,
+  url: 'https://platform.do/webhooks/github/push',
+  method: 'POST',
+  event: [
+    'push',
+    'pull_request',
+    'release'
+  ],
+  payload: {
+    $type: 'Thing',
+    name: 'GitHub Push Payload',
+    description: 'Standard GitHub webhook payload format'
+  },
+  authentication: 'HMAC-SHA256',
+  secret: '${GITHUB_WEBHOOK_SECRET}',
+  headers: [
+    {
+      $type: 'PropertyValue',
+      name: 'X-GitHub-Event',
+      description: 'Event type header'
+    },
+    {
+      $type: 'PropertyValue',
+      name: 'X-Hub-Signature-256',
+      description: 'HMAC signature for verification'
+    }
+  ],
+  retry: {
+    $type: 'Thing',
+    name: 'Exponential Backoff',
+    description: 'Retries with exponential backoff up to 3 times'
+  },
+  timeout: {
+    $type: 'QuantitativeValue',
+    value: 10,
+    unitText: 'seconds'
+  },
+  workflow: {
+    $type: 'Workflow',
+    name: 'CI/CD Pipeline',
+    description: 'Run tests, build, and deploy on push'
+  },
+  source: {
+    $type: 'Organization',
+    name: 'GitHub',
+    url: 'https://github.com'
+  },
+  status: 'active'
+}
+
+await $.Webhook.create(githubPushWebhook)
+```
+
+### Example 2: Stripe Payment Webhook
+
+```typescript
+import { $ } from 'sdk.do'
+
+const stripeWebhook = {
+  $type: 'Webhook',
+  $id: 'https://platform.do/webhooks/stripe/payment',
+  name: 'Stripe Payment Events',
+  description: 'Webhook receiver for Stripe payment events to update subscription status and send notifications',
+  digital: 1.0,
+  url: 'https://platform.do/webhooks/stripe/payment',
+  method: 'POST',
+  event: [
+    'payment_intent.succeeded',
+    'payment_intent.failed',
+    'customer.subscription.created',
+    'customer.subscription.updated',
+    'customer.subscription.deleted'
+  ],
+  payload: {
+    $type: 'Thing',
+    name: 'Stripe Event Object',
+    url: 'https://stripe.com/docs/api/events/object'
+  },
+  authentication: 'Stripe Signature',
+  secret: '${STRIPE_WEBHOOK_SECRET}',
+  headers: [
+    {
+      $type: 'PropertyValue',
+      name: 'Stripe-Signature',
+      description: 'Signature for webhook verification'
+    }
+  ],
+  retry: {
+    $type: 'Thing',
+    name: 'Automatic Retry',
+    description: 'Stripe automatically retries failed webhooks'
+  },
+  timeout: {
+    $type: 'QuantitativeValue',
+    value: 5,
+    unitText: 'seconds'
+  },
+  action: [
+    {
+      $type: 'Action',
+      name: 'Update Subscription',
+      description: 'Update user subscription status in database'
+    },
+    {
+      $type: 'Action',
+      name: 'Send Notification',
+      description: 'Send email notification to user'
+    }
+  ],
+  source: {
+    $type: 'Organization',
+    name: 'Stripe',
+    url: 'https://stripe.com'
+  },
+  status: 'active'
+}
+
+await $.Webhook.create(stripeWebhook)
+```
+
+### Example 3: Custom Application Webhook
+
+```typescript
+import { $ } from 'sdk.do'
+
+const customWebhook = {
+  $type: 'Webhook',
+  $id: 'https://myapp.do/webhooks/user-action',
+  name: 'User Action Event',
+  description: 'Custom webhook for user activity events to trigger analytics and automation',
+  digital: 1.0,
+  url: 'https://myapp.do/webhooks/user-action',
+  method: 'POST',
+  event: [
+    'user.signup',
+    'user.login',
+    'user.action',
+    'user.purchase'
+  ],
+  payload: {
+    $type: 'Thing',
+    name: 'User Action Payload',
+    description: 'Custom payload with user ID, action type, timestamp, and metadata'
+  },
+  authentication: 'Bearer token',
+  headers: [
+    {
+      $type: 'PropertyValue',
+      name: 'Authorization',
+      description: 'Bearer token for authentication',
+      valueRequired: true
+    },
+    {
+      $type: 'PropertyValue',
+      name: 'X-Event-Type',
+      description: 'Event type identifier'
+    }
+  ],
+  retry: {
+    $type: 'Thing',
+    name: 'Exponential Backoff',
+    description: 'Retry up to 5 times with exponential backoff'
+  },
+  timeout: {
+    $type: 'QuantitativeValue',
+    value: 15,
+    unitText: 'seconds'
+  },
+  workflow: [
+    {
+      $type: 'Workflow',
+      name: 'Analytics Pipeline',
+      description: 'Process and store analytics data'
+    },
+    {
+      $type: 'Workflow',
+      name: 'User Journey Tracking',
+      description: 'Track user journey and trigger personalization'
+    }
+  ],
+  source: {
+    $type: 'SoftwareApplication',
+    name: 'MyApp Frontend',
+    url: 'https://myapp.do'
+  },
+  status: 'active'
+}
+
+await $.Webhook.create(customWebhook)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Webhook, Workflow } from 'schema.org.ai'
+
+// Create a webhook
+const webhook: Webhook = {
+  $type: 'Webhook',
+  $id: 'https://myapp.do/webhooks/events',
+  name: 'Event Webhook',
+  description: 'Handles incoming events',
+  digital: 1.0,
+  url: 'https://myapp.do/webhooks/events',
+  method: 'POST',
+  event: ['event.created'],
+  authentication: 'Bearer token'
+}
+
+await $.Webhook.create(webhook)
+
+// Link webhook to workflow
+const workflow: Workflow = {
+  $type: 'Workflow',
+  name: 'Event Processing',
+  trigger: webhook
+}
+
+await $.Workflow.create(workflow)
+
+// Query webhooks by event type
+const pushWebhooks = await $.Webhook.find({
+  event: 'push'
+})
+```
+
+## Resources
+
+- [Schema.org Thing](https://schema.org/Thing)
+- [Webhook Best Practices](https://docs.platform.do/webhooks/best-practices)
+- [Event-Driven Architecture](https://docs.platform.do/architecture/event-driven)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

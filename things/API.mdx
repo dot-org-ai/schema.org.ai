@@ -1,0 +1,242 @@
+---
+$id: https://schema.org.ai/API
+$context: https://schema.org.ai
+$type: Class
+name: API
+description: An Application Programming Interface that provides programmatic access to services, data, or functionality through defined endpoints and protocols.
+subClassOf:
+  - https://schema.org/Thing
+digital: 1.0
+---
+
+[Thing](Thing.mdx)
+
+# API
+
+An Application Programming Interface (API) that provides programmatic access to services, data, or functionality through defined endpoints and protocols. APIs enable system integration, automation, and Business-as-Code by exposing structured interfaces for REST, RPC, GraphQL, and other communication patterns.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "API" | - |
+| `$id` | URL | Unique identifier for the API | Thing |
+| `name` | Text | The name of the API | Thing |
+| `description` | Text | Description of the API's purpose and capabilities | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the API | Thing |
+| `url` | URL | Base URL endpoint for the API | Thing |
+| `image` | URL or ImageObject | Logo or image representing the API | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score (1.0 for APIs) | Thing |
+| `protocol` | Text | Protocol type (REST, RPC, GraphQL, gRPC, JSON-RPC, etc.) | API |
+| `version` | Text | API version (e.g., "v1", "2024-01") | API |
+| `endpoint` | URL[] | Available API endpoints | API |
+| `authentication` | Text | Authentication method (Bearer, API Key, OAuth2, etc.) | API |
+| `authorization` | Text | Authorization scheme | API |
+| `rateLimit` | QuantitativeValue | Rate limiting constraints | API |
+| `documentation` | URL or CreativeWork | API documentation or reference | API |
+| `openApiSpec` | URL | OpenAPI/Swagger specification URL | API |
+| `schema` | URL or Thing | Schema definition (JSON Schema, GraphQL Schema, etc.) | API |
+| `tool` | Tool | Tools exposed by this API | API |
+| `provider` | Organization | The organization providing the API | Thing |
+| `termsOfService` | URL | Terms of service URL | API |
+| `status` | Text | API status (active, deprecated, beta, etc.) | API |
+
+## Types
+
+The following types extend API:
+
+- **RestAPI**: RESTful HTTP APIs following REST principles
+- **RpcAPI**: Remote Procedure Call APIs (JSON-RPC, gRPC, CapnProto RPC)
+- **GraphQLAPI**: GraphQL query and mutation APIs
+- **WebhookAPI**: APIs that send HTTP callbacks to registered URLs
+- **StreamAPI**: Real-time streaming APIs (WebSocket, SSE, gRPC streaming)
+
+## Examples
+
+### Example 1: Platform REST API
+
+```typescript
+import { $ } from 'sdk.do'
+
+const platformAPI = {
+  $type: 'API',
+  $id: 'https://api.platform.do',
+  name: 'Platform API',
+  description: 'REST API for managing platform resources, collections, and workflows',
+  digital: 1.0,
+  url: 'https://api.platform.do',
+  protocol: 'REST',
+  version: 'v1',
+  endpoint: [
+    'https://api.platform.do/v1/collections',
+    'https://api.platform.do/v1/workflows',
+    'https://api.platform.do/v1/agents',
+    'https://api.platform.do/v1/tools'
+  ],
+  authentication: 'Bearer token',
+  authorization: 'Role-based access control (RBAC)',
+  rateLimit: {
+    $type: 'QuantitativeValue',
+    value: 10000,
+    unitText: 'requests per hour'
+  },
+  documentation: 'https://docs.platform.do/api',
+  openApiSpec: 'https://api.platform.do/openapi.json',
+  schema: {
+    $type: 'Thing',
+    url: 'https://schema.org.ai'
+  },
+  provider: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  },
+  termsOfService: 'https://platform.do/terms',
+  status: 'active'
+}
+
+await $.API.create(platformAPI)
+```
+
+### Example 2: Third-Party GraphQL API
+
+```typescript
+import { $ } from 'sdk.do'
+
+const githubAPI = {
+  $type: 'API',
+  $id: 'https://api.github.com/graphql',
+  name: 'GitHub GraphQL API',
+  description: 'GraphQL API for accessing GitHub repositories, issues, pull requests, and more',
+  digital: 1.0,
+  url: 'https://api.github.com/graphql',
+  protocol: 'GraphQL',
+  version: 'v4',
+  endpoint: [
+    'https://api.github.com/graphql'
+  ],
+  authentication: 'Bearer token (Personal Access Token or OAuth)',
+  authorization: 'Scope-based permissions',
+  rateLimit: {
+    $type: 'QuantitativeValue',
+    value: 5000,
+    unitText: 'points per hour'
+  },
+  documentation: 'https://docs.github.com/graphql',
+  schema: {
+    $type: 'Thing',
+    url: 'https://docs.github.com/graphql/reference'
+  },
+  provider: {
+    $type: 'Organization',
+    name: 'GitHub',
+    url: 'https://github.com'
+  },
+  termsOfService: 'https://docs.github.com/site-policy/github-terms/github-terms-of-service',
+  status: 'active'
+}
+
+await $.API.create(githubAPI)
+```
+
+### Example 3: RPC API for Workers
+
+```typescript
+import { $ } from 'sdk.do'
+
+const workerRpcAPI = {
+  $type: 'API',
+  $id: 'https://platform.do/api/rpc',
+  name: 'Platform RPC API',
+  description: 'High-performance RPC API for worker-to-worker communication using CapnProto',
+  digital: 1.0,
+  url: 'https://platform.do/api/rpc',
+  protocol: 'RPC',
+  version: '2025-01',
+  endpoint: [
+    'https://platform.do/api/rpc/collections',
+    'https://platform.do/api/rpc/workflows',
+    'https://platform.do/api/rpc/agents'
+  ],
+  authentication: 'Service token',
+  authorization: 'Worker binding authentication',
+  rateLimit: {
+    $type: 'QuantitativeValue',
+    value: 100000,
+    unitText: 'requests per minute'
+  },
+  documentation: 'https://docs.platform.do/rpc',
+  schema: {
+    $type: 'Thing',
+    name: 'CapnProto Schema',
+    url: 'https://platform.do/schemas/rpc.capnp'
+  },
+  tool: [
+    {
+      $type: 'Tool',
+      name: 'Collection Query',
+      description: 'Query Payload collections via RPC'
+    },
+    {
+      $type: 'Tool',
+      name: 'Workflow Execute',
+      description: 'Execute workflows via RPC'
+    }
+  ],
+  provider: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  },
+  status: 'active'
+}
+
+await $.API.create(workerRpcAPI)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { API, Tool } from 'schema.org.ai'
+
+// Create an API
+const api: API = {
+  $type: 'API',
+  $id: 'https://api.myapp.do',
+  name: 'MyApp API',
+  description: 'API for MyApp services',
+  digital: 1.0,
+  url: 'https://api.myapp.do',
+  protocol: 'REST',
+  version: 'v1',
+  authentication: 'Bearer token'
+}
+
+await $.API.create(api)
+
+// Link API to Tools
+const tool: Tool = {
+  $type: 'Tool',
+  name: 'MyApp Tool',
+  api: api
+}
+
+await $.Tool.create(tool)
+
+// Query APIs by protocol
+const graphqlAPIs = await $.API.find({
+  protocol: 'GraphQL'
+})
+```
+
+## Resources
+
+- [Schema.org Thing](https://schema.org/Thing)
+- [API Design Patterns](https://docs.platform.do/api/design)
+- [REST vs RPC vs GraphQL](https://docs.platform.do/api/protocols)
+- [OpenAPI Specification](https://swagger.io/specification/)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

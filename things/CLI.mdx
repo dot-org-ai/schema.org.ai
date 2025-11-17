@@ -1,0 +1,367 @@
+---
+$id: https://schema.org.ai/CLI
+$context: https://schema.org.ai
+$type: Class
+name: CLI
+description: A Command-Line Interface tool that provides terminal-based access to platform capabilities, enabling developers to automate workflows and manage resources.
+subClassOf:
+  - https://schema.org/Thing
+digital: 1.0
+---
+
+[Thing](Thing.mdx)
+
+# CLI
+
+A Command-Line Interface (CLI) tool that provides terminal-based access to platform capabilities, enabling developers to automate workflows and manage resources through scriptable commands. CLIs are essential for Business-as-Code automation, CI/CD pipelines, and developer productivity.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "CLI" | - |
+| `$id` | URL | Unique identifier for the CLI | Thing |
+| `name` | Text | The name of the CLI tool | Thing |
+| `description` | Text | Description of the CLI's capabilities | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the CLI | Thing |
+| `url` | URL | CLI documentation or homepage URL | Thing |
+| `image` | URL or ImageObject | Logo representing the CLI | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score (1.0 for CLIs) | Thing |
+| `version` | Text | CLI version | CLI |
+| `command` | Text[] | Available commands | CLI |
+| `executable` | Text | Executable name (e.g., "dotdo", "gh", "npm") | CLI |
+| `package` | SoftwarePackage | Package distribution information | CLI |
+| `installation` | Text | Installation instructions | CLI |
+| `usage` | Text | Basic usage instructions | CLI |
+| `configuration` | PropertyValue[] | Configuration options | CLI |
+| `api` | API | APIs accessed by the CLI | CLI |
+| `sdk` | SDK | Related SDK | CLI |
+| `platform` | Text[] | Supported platforms (Linux, macOS, Windows) | CLI |
+| `shell` | Text[] | Compatible shells (bash, zsh, fish, PowerShell) | CLI |
+| `documentation` | URL or CreativeWork | CLI documentation | CLI |
+| `example` | CreativeWork[] | Command examples | CLI |
+| `authentication` | Text | Authentication method | CLI |
+| `repository` | URL | Source code repository URL | CLI |
+| `license` | Text or URL | Software license | CLI |
+| `provider` | Organization or Person | The entity providing the CLI | Thing |
+| `status` | Text | CLI status (stable, beta, deprecated) | CLI |
+
+## Types
+
+The following types extend CLI:
+
+- **PlatformCLI**: CLIs for managing platform resources
+- **PackageCLI**: CLIs for package management (npm, pnpm, yarn)
+- **DeploymentCLI**: CLIs for deployment and infrastructure (wrangler, vercel)
+- **DeveloperCLI**: CLIs for development tools (gh, git)
+
+## Examples
+
+### Example 1: Platform Management CLI
+
+```typescript
+import { $ } from 'sdk.do'
+
+const dotdoCLI = {
+  $type: 'CLI',
+  $id: 'https://platform.do/cli',
+  name: '.do CLI',
+  description: 'Command-line interface for managing .do platform resources, workflows, and deployments',
+  digital: 1.0,
+  url: 'https://docs.platform.do/cli',
+  version: '1.0.0',
+  command: [
+    'init',
+    'dev',
+    'build',
+    'deploy',
+    'workflows list',
+    'workflows run',
+    'collections list',
+    'collections create',
+    'agents list',
+    'agents deploy'
+  ],
+  executable: 'dotdo',
+  package: {
+    $type: 'SoftwarePackage',
+    name: '@dotdo/cli',
+    url: 'https://www.npmjs.com/package/@dotdo/cli',
+    packageManager: 'npm'
+  },
+  installation: 'npm install -g @dotdo/cli',
+  usage: `# Initialize a new project
+dotdo init
+
+# Start development server
+dotdo dev
+
+# Deploy to production
+dotdo deploy --production`,
+  configuration: [
+    {
+      $type: 'PropertyValue',
+      name: 'DOTDO_API_KEY',
+      description: 'API key for authentication',
+      valueRequired: true
+    },
+    {
+      $type: 'PropertyValue',
+      name: 'DOTDO_PROJECT',
+      description: 'Project identifier',
+      valueRequired: false
+    }
+  ],
+  api: {
+    $type: 'API',
+    $id: 'https://api.platform.do',
+    name: 'Platform API'
+  },
+  sdk: {
+    $type: 'SDK',
+    $id: 'https://sdk.do',
+    name: '.do Platform SDK'
+  },
+  platform: ['Linux', 'macOS', 'Windows'],
+  shell: ['bash', 'zsh', 'fish', 'PowerShell'],
+  documentation: 'https://docs.platform.do/cli',
+  example: [
+    {
+      $type: 'CreativeWork',
+      name: 'Getting Started',
+      url: 'https://docs.platform.do/cli/getting-started'
+    },
+    {
+      $type: 'CreativeWork',
+      name: 'Workflow Management',
+      url: 'https://docs.platform.do/cli/workflows'
+    }
+  ],
+  authentication: 'API key',
+  repository: 'https://github.com/dot-do/cli',
+  license: 'MIT',
+  provider: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  },
+  status: 'stable'
+}
+
+await $.CLI.create(dotdoCLI)
+```
+
+### Example 2: GitHub CLI Integration
+
+```typescript
+import { $ } from 'sdk.do'
+
+const githubCLI = {
+  $type: 'CLI',
+  $id: 'https://cli.github.com',
+  name: 'GitHub CLI',
+  description: 'Official GitHub command-line tool for managing repositories, issues, pull requests, and workflows',
+  digital: 1.0,
+  url: 'https://cli.github.com',
+  version: '2.40.0',
+  command: [
+    'repo create',
+    'repo clone',
+    'issue create',
+    'issue list',
+    'pr create',
+    'pr checkout',
+    'pr merge',
+    'workflow run',
+    'workflow view'
+  ],
+  executable: 'gh',
+  installation: `# macOS
+brew install gh
+
+# Windows
+winget install GitHub.cli
+
+# Linux
+See https://github.com/cli/cli/blob/trunk/docs/install_linux.md`,
+  usage: `# Create a pull request
+gh pr create --title "Add feature" --body "Description"
+
+# List open issues
+gh issue list --state open
+
+# Run a workflow
+gh workflow run ci.yml`,
+  configuration: [
+    {
+      $type: 'PropertyValue',
+      name: 'GH_TOKEN',
+      description: 'GitHub personal access token',
+      valueRequired: false
+    }
+  ],
+  api: {
+    $type: 'API',
+    $id: 'https://api.github.com',
+    name: 'GitHub API',
+    protocol: 'REST'
+  },
+  platform: ['Linux', 'macOS', 'Windows'],
+  shell: ['bash', 'zsh', 'fish', 'PowerShell'],
+  documentation: 'https://cli.github.com/manual',
+  example: [
+    {
+      $type: 'CreativeWork',
+      name: 'Pull Request Workflow',
+      url: 'https://docs.github.com/en/github-cli/github-cli/quickstart'
+    }
+  ],
+  authentication: 'GitHub OAuth or Personal Access Token',
+  repository: 'https://github.com/cli/cli',
+  license: 'MIT',
+  provider: {
+    $type: 'Organization',
+    name: 'GitHub',
+    url: 'https://github.com'
+  },
+  status: 'stable'
+}
+
+await $.CLI.create(githubCLI)
+```
+
+### Example 3: Cloudflare Workers CLI
+
+```typescript
+import { $ } from 'sdk.do'
+
+const wranglerCLI = {
+  $type: 'CLI',
+  $id: 'https://developers.cloudflare.com/workers/wrangler',
+  name: 'Wrangler',
+  description: 'Command-line tool for developing, testing, and deploying Cloudflare Workers',
+  digital: 1.0,
+  url: 'https://developers.cloudflare.com/workers/wrangler',
+  version: '3.0.0',
+  command: [
+    'init',
+    'dev',
+    'deploy',
+    'publish',
+    'tail',
+    'kv:namespace create',
+    'kv:key put',
+    'r2 bucket create',
+    'd1 create'
+  ],
+  executable: 'wrangler',
+  package: {
+    $type: 'SoftwarePackage',
+    name: 'wrangler',
+    url: 'https://www.npmjs.com/package/wrangler',
+    packageManager: 'npm'
+  },
+  installation: 'npm install -g wrangler',
+  usage: `# Initialize a new Worker
+wrangler init my-worker
+
+# Start local development
+wrangler dev
+
+# Deploy to Cloudflare
+wrangler deploy`,
+  configuration: [
+    {
+      $type: 'PropertyValue',
+      name: 'CLOUDFLARE_API_TOKEN',
+      description: 'Cloudflare API token',
+      valueRequired: true
+    },
+    {
+      $type: 'PropertyValue',
+      name: 'CLOUDFLARE_ACCOUNT_ID',
+      description: 'Cloudflare account ID',
+      valueRequired: true
+    }
+  ],
+  api: {
+    $type: 'API',
+    $id: 'https://api.cloudflare.com',
+    name: 'Cloudflare API',
+    protocol: 'REST'
+  },
+  platform: ['Linux', 'macOS', 'Windows'],
+  shell: ['bash', 'zsh', 'fish', 'PowerShell'],
+  documentation: 'https://developers.cloudflare.com/workers/wrangler/commands',
+  example: [
+    {
+      $type: 'CreativeWork',
+      name: 'Getting Started',
+      url: 'https://developers.cloudflare.com/workers/get-started/guide'
+    },
+    {
+      $type: 'CreativeWork',
+      name: 'Deploy a Worker',
+      url: 'https://developers.cloudflare.com/workers/wrangler/commands/#deploy'
+    }
+  ],
+  authentication: 'Cloudflare API Token',
+  repository: 'https://github.com/cloudflare/workers-sdk',
+  license: 'MIT',
+  provider: {
+    $type: 'Organization',
+    name: 'Cloudflare',
+    url: 'https://cloudflare.com'
+  },
+  status: 'stable'
+}
+
+await $.CLI.create(wranglerCLI)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CLI, SDK } from 'schema.org.ai'
+
+// Create a CLI
+const cli: CLI = {
+  $type: 'CLI',
+  $id: 'https://myapp.do/cli',
+  name: 'MyApp CLI',
+  description: 'CLI for MyApp platform',
+  digital: 1.0,
+  url: 'https://docs.myapp.do/cli',
+  version: '1.0.0',
+  executable: 'myapp',
+  command: ['init', 'dev', 'deploy']
+}
+
+await $.CLI.create(cli)
+
+// Link to SDK
+const sdk: SDK = {
+  $type: 'SDK',
+  $id: 'https://myapp.do/sdk',
+  name: 'MyApp SDK',
+  cli: cli
+}
+
+await $.SDK.create(sdk)
+
+// Query CLIs by platform
+const macOSCLIs = await $.CLI.find({
+  platform: 'macOS'
+})
+```
+
+## Resources
+
+- [Schema.org Thing](https://schema.org/Thing)
+- [CLI Design Best Practices](https://docs.platform.do/cli/design)
+- [Building Modern CLIs](https://docs.platform.do/cli/building)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

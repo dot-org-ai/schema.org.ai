@@ -1,0 +1,313 @@
+---
+$id: https://schema.org.ai/SDK
+$context: https://schema.org.ai
+$type: Class
+name: SDK
+description: A Software Development Kit that provides libraries, tools, and documentation for building applications with a specific platform or service.
+subClassOf:
+  - https://schema.org/Thing
+digital: 1.0
+---
+
+[Thing](Thing.mdx)
+
+# SDK
+
+A Software Development Kit (SDK) that provides libraries, tools, and documentation for building applications with a specific platform or service. SDKs enable developers to integrate platform capabilities into their applications through type-safe APIs and Business-as-Code patterns.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "SDK" | - |
+| `$id` | URL | Unique identifier for the SDK | Thing |
+| `name` | Text | The name of the SDK | Thing |
+| `description` | Text | Description of the SDK's capabilities | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the SDK | Thing |
+| `url` | URL | SDK documentation or homepage URL | Thing |
+| `image` | URL or ImageObject | Logo representing the SDK | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score (1.0 for SDKs) | Thing |
+| `version` | Text | SDK version (e.g., "1.0.0", "2024.1") | SDK |
+| `language` | Text[] | Programming languages supported | SDK |
+| `package` | SoftwarePackage | Package distribution information | SDK |
+| `repository` | URL | Source code repository URL | SDK |
+| `documentation` | URL or CreativeWork | API documentation and guides | SDK |
+| `example` | CreativeWork[] | Code examples and tutorials | SDK |
+| `api` | API | APIs accessed by the SDK | SDK |
+| `dependency` | SoftwarePackage[] | Required dependencies | SDK |
+| `license` | Text or URL | Software license | SDK |
+| `installation` | Text | Installation instructions | SDK |
+| `usage` | Text | Basic usage instructions | SDK |
+| `feature` | Text[] | Key features and capabilities | SDK |
+| `platform` | Text[] | Supported platforms (Node.js, Browser, Deno, etc.) | SDK |
+| `provider` | Organization or Person | The entity providing the SDK | Thing |
+| `status` | Text | SDK status (stable, beta, deprecated) | SDK |
+
+## Types
+
+The following types extend SDK:
+
+- **JavaScriptSDK**: SDKs for JavaScript/TypeScript environments
+- **PythonSDK**: SDKs for Python applications
+- **MobileSDK**: SDKs for iOS and Android platforms
+- **WebSDK**: Browser-based SDKs
+
+## Examples
+
+### Example 1: Platform JavaScript SDK
+
+```typescript
+import { $ } from 'sdk.do'
+
+const platformSDK = {
+  $type: 'SDK',
+  $id: 'https://sdk.do',
+  name: '.do Platform SDK',
+  description: 'Official TypeScript/JavaScript SDK for building Business-as-Code applications with semantic patterns',
+  digital: 1.0,
+  url: 'https://docs.platform.do/sdk',
+  version: '1.0.0',
+  language: ['TypeScript', 'JavaScript'],
+  package: {
+    $type: 'SoftwarePackage',
+    name: 'sdk.do',
+    url: 'https://www.npmjs.com/package/sdk.do',
+    packageManager: 'npm'
+  },
+  repository: 'https://github.com/dot-do/sdk',
+  documentation: 'https://docs.platform.do/sdk',
+  example: [
+    {
+      $type: 'CreativeWork',
+      name: 'Quick Start Guide',
+      url: 'https://docs.platform.do/sdk/quickstart'
+    },
+    {
+      $type: 'CreativeWork',
+      name: 'Semantic Patterns',
+      url: 'https://docs.platform.do/sdk/patterns'
+    }
+  ],
+  api: {
+    $type: 'API',
+    $id: 'https://api.platform.do',
+    name: 'Platform API'
+  },
+  dependency: [
+    {
+      $type: 'SoftwarePackage',
+      name: 'hono',
+      version: '^4.0.0'
+    }
+  ],
+  license: 'MIT',
+  installation: 'npm install sdk.do',
+  usage: `import { $ } from 'sdk.do'
+
+// Use semantic patterns
+await $.Product.create({ name: 'My Product' })
+const products = await $.Product.find({})`,
+  feature: [
+    'Type-safe semantic patterns ($.Subject.predicate.Object)',
+    'Automatic schema validation with schema.org.ai',
+    'Built-in RPC and REST support',
+    'Real-time subscriptions',
+    'TypeScript-first design'
+  ],
+  platform: ['Node.js', 'Browser', 'Cloudflare Workers', 'Deno'],
+  provider: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  },
+  status: 'stable'
+}
+
+await $.SDK.create(platformSDK)
+```
+
+### Example 2: Third-Party Integration SDK
+
+```typescript
+import { $ } from 'sdk.do'
+
+const stripeSDK = {
+  $type: 'SDK',
+  $id: 'https://stripe.com/sdk/node',
+  name: 'Stripe Node.js SDK',
+  description: 'Official Stripe SDK for accepting payments, managing subscriptions, and handling billing',
+  digital: 1.0,
+  url: 'https://stripe.com/docs/api',
+  version: '14.0.0',
+  language: ['JavaScript', 'TypeScript'],
+  package: {
+    $type: 'SoftwarePackage',
+    name: 'stripe',
+    url: 'https://www.npmjs.com/package/stripe',
+    packageManager: 'npm'
+  },
+  repository: 'https://github.com/stripe/stripe-node',
+  documentation: 'https://stripe.com/docs/api',
+  example: [
+    {
+      $type: 'CreativeWork',
+      name: 'Payment Intents',
+      url: 'https://stripe.com/docs/payments/payment-intents'
+    },
+    {
+      $type: 'CreativeWork',
+      name: 'Subscriptions',
+      url: 'https://stripe.com/docs/billing/subscriptions/overview'
+    }
+  ],
+  api: {
+    $type: 'API',
+    $id: 'https://api.stripe.com',
+    name: 'Stripe API',
+    protocol: 'REST'
+  },
+  license: 'MIT',
+  installation: 'npm install stripe',
+  usage: `import Stripe from 'stripe'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+const paymentIntent = await stripe.paymentIntents.create({
+  amount: 2000,
+  currency: 'usd'
+})`,
+  feature: [
+    'Type-safe payment processing',
+    'Subscription management',
+    'Customer portal',
+    'Webhook handling',
+    'Automatic retries and idempotency'
+  ],
+  platform: ['Node.js', 'Browser'],
+  provider: {
+    $type: 'Organization',
+    name: 'Stripe',
+    url: 'https://stripe.com'
+  },
+  status: 'stable'
+}
+
+await $.SDK.create(stripeSDK)
+```
+
+### Example 3: Developer Tools SDK
+
+```typescript
+import { $ } from 'sdk.do'
+
+const openaiSDK = {
+  $type: 'SDK',
+  $id: 'https://openai.com/sdk/node',
+  name: 'OpenAI Node.js SDK',
+  description: 'Official OpenAI SDK for accessing GPT models, embeddings, and other AI capabilities',
+  digital: 1.0,
+  url: 'https://platform.openai.com/docs',
+  version: '4.20.0',
+  language: ['TypeScript', 'JavaScript'],
+  package: {
+    $type: 'SoftwarePackage',
+    name: 'openai',
+    url: 'https://www.npmjs.com/package/openai',
+    packageManager: 'npm'
+  },
+  repository: 'https://github.com/openai/openai-node',
+  documentation: 'https://platform.openai.com/docs/api-reference',
+  example: [
+    {
+      $type: 'CreativeWork',
+      name: 'Chat Completions',
+      url: 'https://platform.openai.com/docs/guides/chat'
+    },
+    {
+      $type: 'CreativeWork',
+      name: 'Function Calling',
+      url: 'https://platform.openai.com/docs/guides/function-calling'
+    }
+  ],
+  api: {
+    $type: 'API',
+    $id: 'https://api.openai.com',
+    name: 'OpenAI API',
+    protocol: 'REST'
+  },
+  dependency: [],
+  license: 'Apache-2.0',
+  installation: 'npm install openai',
+  usage: `import OpenAI from 'openai'
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+})
+
+const completion = await openai.chat.completions.create({
+  model: 'gpt-5',
+  messages: [{ role: 'user', content: 'Hello!' }]
+})`,
+  feature: [
+    'Full TypeScript support',
+    'Streaming responses',
+    'Function calling',
+    'Vision and audio support',
+    'Automatic retries'
+  ],
+  platform: ['Node.js', 'Browser', 'Cloudflare Workers', 'Deno', 'Edge Runtime'],
+  provider: {
+    $type: 'Organization',
+    name: 'OpenAI',
+    url: 'https://openai.com'
+  },
+  status: 'stable'
+}
+
+await $.SDK.create(openaiSDK)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SDK, SoftwarePackage } from 'schema.org.ai'
+
+// Create an SDK
+const sdk: SDK = {
+  $type: 'SDK',
+  $id: 'https://myapp.do/sdk',
+  name: 'MyApp SDK',
+  description: 'SDK for MyApp platform',
+  digital: 1.0,
+  url: 'https://docs.myapp.do/sdk',
+  version: '1.0.0',
+  language: ['TypeScript'],
+  license: 'MIT'
+}
+
+await $.SDK.create(sdk)
+
+// Link to package
+const package: SoftwarePackage = {
+  $type: 'SoftwarePackage',
+  name: 'myapp-sdk',
+  sdk: sdk
+}
+
+await $.SoftwarePackage.create(package)
+
+// Query SDKs by language
+const typeScriptSDKs = await $.SDK.find({
+  language: 'TypeScript'
+})
+```
+
+## Resources
+
+- [Schema.org Thing](https://schema.org/Thing)
+- [SDK Design Best Practices](https://docs.platform.do/sdk/design)
+- [Building TypeScript SDKs](https://docs.platform.do/sdk/typescript)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

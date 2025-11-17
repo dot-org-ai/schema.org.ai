@@ -1,0 +1,455 @@
+---
+$id: https://schema.org.ai/MCP
+$context: https://schema.org.ai
+$type: Class
+name: MCP
+description: A Model Context Protocol server that provides RPC-based tools, resources, and prompts for AI agents to extend their capabilities.
+subClassOf:
+  - https://schema.org/Thing
+digital: 1.0
+---
+
+[Thing](Thing.mdx)
+
+# MCP
+
+A Model Context Protocol (MCP) server that provides RPC-based tools, resources, and prompts for AI agents to extend their capabilities. MCP enables standardized communication between AI agents and external systems, following a client-server architecture over RPC protocols.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "MCP" | - |
+| `$id` | URL | Unique identifier for the MCP server | Thing |
+| `name` | Text | The name of the MCP server | Thing |
+| `description` | Text | Description of the MCP server's capabilities | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the MCP server | Thing |
+| `url` | URL | MCP server endpoint URL | Thing |
+| `image` | URL or ImageObject | Icon representing the MCP server | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score (1.0 for MCP servers) | Thing |
+| `protocol` | Text | RPC protocol (stdio, SSE, WebSocket, etc.) | MCP |
+| `version` | Text | MCP protocol version | MCP |
+| `tool` | Tool[] | Tools exposed by the MCP server | MCP |
+| `resource` | Thing[] | Resources available through the MCP server | MCP |
+| `prompt` | Text[] | Prompts provided by the MCP server | MCP |
+| `capability` | Text[] | MCP capabilities (tools, resources, prompts, logging) | MCP |
+| `transport` | Text | Transport mechanism (stdio, HTTP SSE, WebSocket) | MCP |
+| `authentication` | Text | Authentication method if required | MCP |
+| `agent` | Agent[] | Agents that can use this MCP server | MCP |
+| `configuration` | PropertyValue[] | Server configuration parameters | MCP |
+| `provider` | Organization or Person | The entity providing the MCP server | Thing |
+| `status` | Text | Server status (active, maintenance, deprecated) | MCP |
+
+## Types
+
+The following types extend MCP:
+
+- **FileSystemMCP**: MCP servers for filesystem access
+- **DatabaseMCP**: MCP servers for database operations
+- **APIMCP**: MCP servers wrapping external APIs
+- **CustomMCP**: Custom MCP server implementations
+
+## Examples
+
+### Example 1: Filesystem MCP Server
+
+```typescript
+import { $ } from 'sdk.do'
+
+const filesystemMCP = {
+  $type: 'MCP',
+  $id: 'https://mcp.platform.do/filesystem',
+  name: 'Filesystem MCP Server',
+  description: 'Provides file system access tools for reading, writing, and managing files',
+  digital: 1.0,
+  url: 'https://mcp.platform.do/filesystem',
+  protocol: 'MCP',
+  version: '2024-11-05',
+  tool: [
+    {
+      $type: 'Tool',
+      name: 'read_file',
+      description: 'Read contents of a file',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'path',
+          description: 'File path to read',
+          valueRequired: true,
+          valueType: 'Text'
+        }
+      ],
+      returns: {
+        $type: 'PropertyValue',
+        name: 'content',
+        description: 'File contents',
+        valueType: 'Text'
+      }
+    },
+    {
+      $type: 'Tool',
+      name: 'write_file',
+      description: 'Write content to a file',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'path',
+          description: 'File path to write',
+          valueRequired: true,
+          valueType: 'Text'
+        },
+        {
+          $type: 'PropertyValue',
+          name: 'content',
+          description: 'Content to write',
+          valueRequired: true,
+          valueType: 'Text'
+        }
+      ]
+    },
+    {
+      $type: 'Tool',
+      name: 'list_directory',
+      description: 'List files in a directory',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'path',
+          description: 'Directory path',
+          valueRequired: true,
+          valueType: 'Text'
+        }
+      ],
+      returns: {
+        $type: 'PropertyValue',
+        name: 'files',
+        description: 'Array of file names',
+        valueType: 'Text[]'
+      }
+    }
+  ],
+  resource: [
+    {
+      $type: 'Thing',
+      name: 'file:///',
+      description: 'File system resource access'
+    }
+  ],
+  capability: ['tools', 'resources'],
+  transport: 'stdio',
+  agent: [
+    {
+      $type: 'Agent',
+      $id: 'https://Cody.do',
+      name: 'Cody'
+    }
+  ],
+  provider: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  },
+  status: 'active'
+}
+
+await $.MCP.create(filesystemMCP)
+```
+
+### Example 2: GitHub MCP Server
+
+```typescript
+import { $ } from 'sdk.do'
+
+const githubMCP = {
+  $type: 'MCP',
+  $id: 'https://mcp.platform.do/github',
+  name: 'GitHub MCP Server',
+  description: 'Provides GitHub API access for repositories, issues, pull requests, and workflows',
+  digital: 1.0,
+  url: 'https://mcp.platform.do/github',
+  protocol: 'MCP',
+  version: '2024-11-05',
+  tool: [
+    {
+      $type: 'Tool',
+      name: 'create_issue',
+      description: 'Create a new GitHub issue',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'repo',
+          description: 'Repository name (owner/repo)',
+          valueRequired: true,
+          valueType: 'Text'
+        },
+        {
+          $type: 'PropertyValue',
+          name: 'title',
+          description: 'Issue title',
+          valueRequired: true,
+          valueType: 'Text'
+        },
+        {
+          $type: 'PropertyValue',
+          name: 'body',
+          description: 'Issue body',
+          valueRequired: false,
+          valueType: 'Text'
+        }
+      ]
+    },
+    {
+      $type: 'Tool',
+      name: 'list_pull_requests',
+      description: 'List pull requests in a repository',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'repo',
+          description: 'Repository name (owner/repo)',
+          valueRequired: true,
+          valueType: 'Text'
+        },
+        {
+          $type: 'PropertyValue',
+          name: 'state',
+          description: 'PR state (open, closed, all)',
+          valueRequired: false,
+          valueType: 'Text',
+          defaultValue: 'open'
+        }
+      ]
+    },
+    {
+      $type: 'Tool',
+      name: 'search_code',
+      description: 'Search code across repositories',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'query',
+          description: 'Search query',
+          valueRequired: true,
+          valueType: 'Text'
+        }
+      ]
+    }
+  ],
+  resource: [
+    {
+      $type: 'Thing',
+      name: 'github://repository',
+      description: 'Access to repository metadata and contents'
+    },
+    {
+      $type: 'Thing',
+      name: 'github://issues',
+      description: 'Access to issues and discussions'
+    }
+  ],
+  prompt: [
+    'Analyze repository structure and suggest improvements',
+    'Review pull request for code quality and security',
+    'Generate release notes from recent commits'
+  ],
+  capability: ['tools', 'resources', 'prompts'],
+  transport: 'HTTP SSE',
+  authentication: 'GitHub Personal Access Token',
+  configuration: [
+    {
+      $type: 'PropertyValue',
+      name: 'GITHUB_TOKEN',
+      description: 'GitHub API token',
+      valueRequired: true
+    }
+  ],
+  agent: [
+    {
+      $type: 'Agent',
+      $id: 'https://Cody.do',
+      name: 'Cody'
+    },
+    {
+      $type: 'Agent',
+      $id: 'https://Priya.do',
+      name: 'Priya'
+    }
+  ],
+  provider: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  },
+  status: 'active'
+}
+
+await $.MCP.create(githubMCP)
+```
+
+### Example 3: Database MCP Server
+
+```typescript
+import { $ } from 'sdk.do'
+
+const databaseMCP = {
+  $type: 'MCP',
+  $id: 'https://mcp.platform.do/database',
+  name: 'Database MCP Server',
+  description: 'Provides database query and management tools for SQL and NoSQL databases',
+  digital: 1.0,
+  url: 'https://mcp.platform.do/database',
+  protocol: 'MCP',
+  version: '2024-11-05',
+  tool: [
+    {
+      $type: 'Tool',
+      name: 'execute_query',
+      description: 'Execute a database query',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'query',
+          description: 'SQL query to execute',
+          valueRequired: true,
+          valueType: 'Text'
+        },
+        {
+          $type: 'PropertyValue',
+          name: 'params',
+          description: 'Query parameters',
+          valueRequired: false,
+          valueType: 'Object'
+        }
+      ],
+      returns: {
+        $type: 'PropertyValue',
+        name: 'results',
+        description: 'Query results',
+        valueType: 'Object[]'
+      }
+    },
+    {
+      $type: 'Tool',
+      name: 'get_schema',
+      description: 'Get database schema information',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'table',
+          description: 'Table name',
+          valueRequired: false,
+          valueType: 'Text'
+        }
+      ]
+    },
+    {
+      $type: 'Tool',
+      name: 'insert_records',
+      description: 'Insert records into a table',
+      parameters: [
+        {
+          $type: 'PropertyValue',
+          name: 'table',
+          description: 'Table name',
+          valueRequired: true,
+          valueType: 'Text'
+        },
+        {
+          $type: 'PropertyValue',
+          name: 'records',
+          description: 'Records to insert',
+          valueRequired: true,
+          valueType: 'Object[]'
+        }
+      ]
+    }
+  ],
+  resource: [
+    {
+      $type: 'Thing',
+      name: 'db://tables',
+      description: 'Access to database tables and schemas'
+    },
+    {
+      $type: 'Thing',
+      name: 'db://views',
+      description: 'Access to database views'
+    }
+  ],
+  capability: ['tools', 'resources'],
+  transport: 'WebSocket',
+  authentication: 'Database credentials',
+  configuration: [
+    {
+      $type: 'PropertyValue',
+      name: 'DATABASE_URL',
+      description: 'Database connection string',
+      valueRequired: true
+    }
+  ],
+  agent: [
+    {
+      $type: 'Agent',
+      $id: 'https://Cody.do',
+      name: 'Cody'
+    }
+  ],
+  provider: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  },
+  status: 'active'
+}
+
+await $.MCP.create(databaseMCP)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MCP, Agent } from 'schema.org.ai'
+
+// Create an MCP server
+const mcp: MCP = {
+  $type: 'MCP',
+  $id: 'https://mcp.myapp.do/server',
+  name: 'My MCP Server',
+  description: 'Custom MCP server with specialized tools',
+  digital: 1.0,
+  url: 'https://mcp.myapp.do/server',
+  protocol: 'MCP',
+  version: '2024-11-05',
+  transport: 'stdio',
+  capability: ['tools', 'resources']
+}
+
+await $.MCP.create(mcp)
+
+// Connect MCP to an agent
+const agent: Agent = {
+  $type: 'Agent',
+  $id: 'https://MyAgent.do',
+  name: 'My Agent',
+  tool: mcp.tool
+}
+
+await $.Agent.create(agent)
+
+// Query MCP servers by capability
+const toolServers = await $.MCP.find({
+  capability: 'tools'
+})
+```
+
+## Resources
+
+- [Schema.org Thing](https://schema.org/Thing)
+- [Model Context Protocol Specification](https://spec.modelcontextprotocol.io)
+- [MCP Servers Documentation](https://docs.platform.do/mcp)
+- [Building Custom MCP Servers](https://docs.platform.do/mcp/custom-servers)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
