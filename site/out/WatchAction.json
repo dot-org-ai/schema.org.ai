@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WatchAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WatchAction",
+  "description": "The act of consuming dynamic/moving visual content.",
+  "subClassOf": [
+    "ConsumeAction"
+  ],
+  "title": "WatchAction"
+}

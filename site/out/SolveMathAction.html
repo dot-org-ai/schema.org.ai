@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolveMathAction - schema.org.ai</title>
+  <meta name="description" content="The action that takes in a math expression and directs users to a page potentially capable of solving/simplifying that expression.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="SolveMathAction.json">JSON</a>
+    <a href="SolveMathAction.md">Markdown</a>
+  </nav>
+
+  <h1>SolveMathAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/SolveMathAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="Action.html">Action</a></p>
+    <p><strong>Description:</strong> The action that takes in a math expression and directs users to a page potentially capable of solving/simplifying that expression.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# SolveMathAction
+
+The action that takes in a math expression and directs users to a page potentially capable of solving/simplifying that expression.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > **SolveMathAction**
+
+
+
+## Properties
+
+See [Schema.org SolveMathAction properties](https://schema.org/SolveMathAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SolveMathAction } from 'schema.org.ai'
+
+// Create a SolveMathAction
+const item: SolveMathAction = {
+  $type: 'SolveMathAction',
+  name: 'Example SolveMathAction'
+}
+
+// Use semantic patterns
+await $.SolveMathAction.create(item)
+const result = await $.SolveMathAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org SolveMathAction](https://schema.org/SolveMathAction)
+- [SolveMathAction Properties](https://schema.org/SolveMathAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

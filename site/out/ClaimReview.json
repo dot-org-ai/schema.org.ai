@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ClaimReview",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ClaimReview",
+  "description": "A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).",
+  "subClassOf": [
+    "Review"
+  ],
+  "title": "ClaimReview"
+}

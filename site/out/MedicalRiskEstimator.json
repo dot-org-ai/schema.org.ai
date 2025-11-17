@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicalRiskEstimator",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalRiskEstimator",
+  "description": "Any rule set or interactive tool for estimating the risk of developing a complication or condition.",
+  "subClassOf": [
+    "MedicalEntity"
+  ],
+  "title": "MedicalRiskEstimator"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/NonprofitType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "NonprofitType",
+  "description": "NonprofitType enumerates several kinds of official non-profit types of which a non-profit organization can be.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "NonprofitType"
+}

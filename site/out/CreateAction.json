@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CreateAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CreateAction",
+  "description": "The act of deliberately creating/producing/generating/building a result out of the agent.",
+  "subClassOf": [
+    "Action"
+  ],
+  "title": "CreateAction"
+}

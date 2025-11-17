@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Park",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Park",
+  "description": "A park.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "Park"
+}

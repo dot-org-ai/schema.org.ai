@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BookFormatType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BookFormatType",
+  "description": "The publication format of the book.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "BookFormatType"
+}

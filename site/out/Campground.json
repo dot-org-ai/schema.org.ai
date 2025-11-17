@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/Campground",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Campground",
+  "description": "A camping site, campsite, or Campground is a place used for overnight stay in the outdoors, typically containing individual CampingPitch locations. \\",
+  "subClassOf": [
+    "LodgingBusiness",
+    "CivicStructure"
+  ],
+  "title": "Campground"
+}

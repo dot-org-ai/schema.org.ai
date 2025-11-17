@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ParentAudience",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ParentAudience",
+  "description": "A set of characteristics describing parents, who can be interested in viewing some content.",
+  "subClassOf": [
+    "PeopleAudience"
+  ],
+  "title": "ParentAudience"
+}

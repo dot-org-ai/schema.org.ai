@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/StadiumOrArena",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "StadiumOrArena",
+  "description": "A stadium.",
+  "subClassOf": [
+    "CivicStructure",
+    "SportsActivityLocation"
+  ],
+  "title": "StadiumOrArena"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Menu",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Menu",
+  "description": "A structured representation of food or drink items available from a FoodEstablishment.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Menu"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OfferShippingDetails - schema.org.ai</title>
+  <meta name="description" content="OfferShippingDetails represents information about shipping destinations. Multiple of these entities can be used to represent different shipping rates for different destinations: One entity for Alaska/Hawaii. A different one for continental US. A different one for all France. Multiple of these entities can be used to represent different shipping costs and delivery times. Two entities that are identical but differ in rate and time: E.g. Cheaper and slower: $5 in 5-7 days or Fast and expensive: $15 in 1-2 days.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="OfferShippingDetails.json">JSON</a>
+    <a href="OfferShippingDetails.md">Markdown</a>
+  </nav>
+
+  <h1>OfferShippingDetails</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/OfferShippingDetails</code></p>
+    <p><strong>Subclass of:</strong> <a href="StructuredValue.html">StructuredValue</a></p>
+    <p><strong>Description:</strong> OfferShippingDetails represents information about shipping destinations. Multiple of these entities can be used to represent different shipping rates for different destinations: One entity for Alaska/Hawaii. A different one for continental US. A different one for all France. Multiple of these entities can be used to represent different shipping costs and delivery times. Two entities that are identical but differ in rate and time: E.g. Cheaper and slower: $5 in 5-7 days or Fast and expensive: $15 in 1-2 days.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# OfferShippingDetails
+
+OfferShippingDetails represents information about shipping destinations. Multiple of these entities can be used to represent different shipping rates for different destinations: One entity for Alaska/Hawaii. A different one for continental US. A different one for all France. Multiple of these entities can be used to represent different shipping costs and delivery times. Two entities that are identical but differ in rate and time: E.g. Cheaper and slower: $5 in 5-7 days or Fast and expensive: $15 in 1-2 days.
+
+## Type Hierarchy
+
+**OfferShippingDetails**
+
+
+
+## Properties
+
+See [Schema.org OfferShippingDetails properties](https://schema.org/OfferShippingDetails#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { OfferShippingDetails } from 'schema.org.ai'
+
+// Create a OfferShippingDetails
+const item: OfferShippingDetails = {
+  $type: 'OfferShippingDetails',
+  name: 'Example OfferShippingDetails'
+}
+
+// Use semantic patterns
+await $.OfferShippingDetails.create(item)
+const result = await $.OfferShippingDetails.get('item-id')
+```
+
+## Resources
+
+- [Schema.org OfferShippingDetails](https://schema.org/OfferShippingDetails)
+- [OfferShippingDetails Properties](https://schema.org/OfferShippingDetails#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

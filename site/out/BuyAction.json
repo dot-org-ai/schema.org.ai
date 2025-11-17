@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BuyAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BuyAction",
+  "description": "The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction.",
+  "subClassOf": [
+    "TradeAction"
+  ],
+  "title": "BuyAction"
+}

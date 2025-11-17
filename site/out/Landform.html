@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landform - schema.org.ai</title>
+  <meta name="description" content="A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Landform.json">JSON</a>
+    <a href="Landform.md">Markdown</a>
+  </nav>
+
+  <h1>Landform</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Landform</code></p>
+    <p><strong>Subclass of:</strong> <a href="Place.html">Place</a></p>
+    <p><strong>Description:</strong> A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Landform
+
+A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > **Landform**
+
+## Direct Subclasses
+
+- **[BodyOfWater](BodyOfWater.mdx)**: A body of water, such as a sea, ocean, or lake
+- **[Continent](Continent.mdx)**: One of the continents (for example, Europe or Africa)
+- **[Mountain](Mountain.mdx)**: A mountain, like Mount Whitney or Mount Everest
+- **[Volcano](Volcano.mdx)**: A volcano, like Fujisan
+
+## Properties
+
+See [Schema.org Landform properties](https://schema.org/Landform#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Landform } from 'schema.org.ai'
+
+// Create a Landform
+const item: Landform = {
+  $type: 'Landform',
+  name: 'Example Landform'
+}
+
+// Use semantic patterns
+await $.Landform.create(item)
+const result = await $.Landform.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Landform](https://schema.org/Landform)
+- [Landform Properties](https://schema.org/Landform#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

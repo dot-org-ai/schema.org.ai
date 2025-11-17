@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/VideoGameClip",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "VideoGameClip",
+  "description": "A short segment/part of a video game.",
+  "subClassOf": [
+    "Clip"
+  ],
+  "title": "VideoGameClip"
+}

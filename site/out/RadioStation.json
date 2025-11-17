@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RadioStation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RadioStation",
+  "description": "A radio station.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "RadioStation"
+}

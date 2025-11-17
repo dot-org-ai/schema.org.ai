@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PlaceOfWorship",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PlaceOfWorship",
+  "description": "Place of worship, such as a church, synagogue, or mosque.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "PlaceOfWorship"
+}

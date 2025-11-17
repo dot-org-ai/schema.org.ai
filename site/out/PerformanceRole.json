@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PerformanceRole",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PerformanceRole",
+  "description": "A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc.",
+  "subClassOf": [
+    "Role"
+  ],
+  "title": "PerformanceRole"
+}

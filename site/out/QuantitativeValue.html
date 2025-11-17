@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuantitativeValue - schema.org.ai</title>
+  <meta name="description" content="A point value or interval for product characteristics and other purposes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="QuantitativeValue.json">JSON</a>
+    <a href="QuantitativeValue.md">Markdown</a>
+  </nav>
+
+  <h1>QuantitativeValue</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/QuantitativeValue</code></p>
+    <p><strong>Subclass of:</strong> <a href="StructuredValue.html">StructuredValue</a></p>
+    <p><strong>Description:</strong> A point value or interval for product characteristics and other purposes.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# QuantitativeValue
+
+A point value or interval for product characteristics and other purposes.
+
+## Type Hierarchy
+
+**QuantitativeValue**
+
+## Direct Subclasses
+
+- **[Observation](Observation.mdx)**: Instances of the class Observation are used to specify observations about an entity at a particular time
+
+## Properties
+
+See [Schema.org QuantitativeValue properties](https://schema.org/QuantitativeValue#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { QuantitativeValue } from 'schema.org.ai'
+
+// Create a QuantitativeValue
+const item: QuantitativeValue = {
+  $type: 'QuantitativeValue',
+  name: 'Example QuantitativeValue'
+}
+
+// Use semantic patterns
+await $.QuantitativeValue.create(item)
+const result = await $.QuantitativeValue.get('item-id')
+```
+
+## Resources
+
+- [Schema.org QuantitativeValue](https://schema.org/QuantitativeValue)
+- [QuantitativeValue Properties](https://schema.org/QuantitativeValue#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

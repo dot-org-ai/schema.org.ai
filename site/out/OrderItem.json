@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OrderItem",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OrderItem",
+  "description": "An order item is a line of an order. It includes the quantity and shipping details of a bought offer.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "OrderItem"
+}

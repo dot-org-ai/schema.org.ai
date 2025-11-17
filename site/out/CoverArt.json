@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CoverArt",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CoverArt",
+  "description": "The artwork on the outer surface of a CreativeWork.",
+  "subClassOf": [
+    "VisualArtwork"
+  ],
+  "title": "CoverArt"
+}

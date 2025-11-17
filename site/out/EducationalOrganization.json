@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/EducationalOrganization",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EducationalOrganization",
+  "description": "An educational organization.",
+  "subClassOf": [
+    "CivicStructure",
+    "Organization"
+  ],
+  "title": "EducationalOrganization"
+}

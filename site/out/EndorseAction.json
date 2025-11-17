@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EndorseAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EndorseAction",
+  "description": "An agent approves/certifies/likes/supports/sanctions an object.",
+  "subClassOf": [
+    "ReactAction"
+  ],
+  "title": "EndorseAction"
+}

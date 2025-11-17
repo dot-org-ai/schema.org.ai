@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CheckoutPage",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CheckoutPage",
+  "description": "Web page type: Checkout page.",
+  "subClassOf": [
+    "WebPage"
+  ],
+  "title": "CheckoutPage"
+}

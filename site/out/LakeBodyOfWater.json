@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LakeBodyOfWater",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LakeBodyOfWater",
+  "description": "A lake (for example, Lake Pontrachain).",
+  "subClassOf": [
+    "BodyOfWater"
+  ],
+  "title": "LakeBodyOfWater"
+}

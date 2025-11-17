@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BeautySalon",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BeautySalon",
+  "description": "Beauty salon.",
+  "subClassOf": [
+    "HealthAndBeautyBusiness"
+  ],
+  "title": "BeautySalon"
+}

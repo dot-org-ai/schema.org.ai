@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BlogPosting",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BlogPosting",
+  "description": "A blog post.",
+  "subClassOf": [
+    "SocialMediaPosting"
+  ],
+  "title": "BlogPosting"
+}

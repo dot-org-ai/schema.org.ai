@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Service",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Service",
+  "description": "A service provided by an organization, e.g. delivery service, print services, etc.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "Service"
+}

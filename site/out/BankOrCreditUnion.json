@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BankOrCreditUnion",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BankOrCreditUnion",
+  "description": "Bank or credit union.",
+  "subClassOf": [
+    "FinancialService"
+  ],
+  "title": "BankOrCreditUnion"
+}

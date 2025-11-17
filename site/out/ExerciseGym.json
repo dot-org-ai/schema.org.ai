@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ExerciseGym",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ExerciseGym",
+  "description": "A gym.",
+  "subClassOf": [
+    "SportsActivityLocation"
+  ],
+  "title": "ExerciseGym"
+}

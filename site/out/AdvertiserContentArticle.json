@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AdvertiserContentArticle",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AdvertiserContentArticle",
+  "description": "An Article that an external entity has paid to place or to produce to its specifications. Includes [advertorials](https://en.wikipedia.org/wiki/Advertorial), sponsored content, native advertising and other paid content.",
+  "subClassOf": [
+    "Article"
+  ],
+  "title": "AdvertiserContentArticle"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OnlineStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OnlineStore",
+  "description": "An eCommerce site.",
+  "subClassOf": [
+    "OnlineBusiness"
+  ],
+  "title": "OnlineStore"
+}

@@ -1,0 +1,41 @@
+
+
+# EndorseAction
+
+An agent approves/certifies/likes/supports/sanctions an object.
+
+## Type Hierarchy
+
+**EndorseAction**
+
+
+
+## Properties
+
+See [Schema.org EndorseAction properties](https://schema.org/EndorseAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { EndorseAction } from 'schema.org.ai'
+
+// Create a EndorseAction
+const item: EndorseAction = {
+  $type: 'EndorseAction',
+  name: 'Example EndorseAction'
+}
+
+// Use semantic patterns
+await $.EndorseAction.create(item)
+const result = await $.EndorseAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org EndorseAction](https://schema.org/EndorseAction)
+- [EndorseAction Properties](https://schema.org/EndorseAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

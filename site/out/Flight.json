@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Flight",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Flight",
+  "description": "An airline flight.",
+  "subClassOf": [
+    "Trip"
+  ],
+  "title": "Flight"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DiagnosticProcedure",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DiagnosticProcedure",
+  "description": "A medical procedure intended primarily for diagnostic, as opposed to therapeutic, purposes.",
+  "subClassOf": [
+    "MedicalProcedure"
+  ],
+  "title": "DiagnosticProcedure"
+}

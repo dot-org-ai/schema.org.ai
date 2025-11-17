@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/IgnoreAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "IgnoreAction",
+  "description": "The act of intentionally disregarding the object. An agent ignores an object.",
+  "subClassOf": [
+    "AssessAction"
+  ],
+  "title": "IgnoreAction"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Attorney",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Attorney",
+  "description": "Professional service: Attorney. \\",
+  "subClassOf": [
+    "LegalService"
+  ],
+  "title": "Attorney"
+}

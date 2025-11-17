@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LoanOrCredit",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LoanOrCredit",
+  "description": "A financial product for the loaning of an amount of money, or line of credit, under agreed terms and charges.",
+  "subClassOf": [
+    "FinancialProduct"
+  ],
+  "title": "LoanOrCredit"
+}

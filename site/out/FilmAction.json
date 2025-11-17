@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/FilmAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FilmAction",
+  "description": "The act of capturing sound and moving images on film, video, or digitally.",
+  "subClassOf": [
+    "CreateAction"
+  ],
+  "title": "FilmAction"
+}

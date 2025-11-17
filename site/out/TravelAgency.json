@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TravelAgency",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TravelAgency",
+  "description": "A travel agency.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "TravelAgency"
+}

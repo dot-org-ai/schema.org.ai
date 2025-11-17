@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play - schema.org.ai</title>
+  <meta name="description" content="A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a TheaterEvent or BroadcastEvent - the *Play* being the workPerformed.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Play.json">JSON</a>
+    <a href="Play.md">Markdown</a>
+  </nav>
+
+  <h1>Play</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Play</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a></p>
+    <p><strong>Description:</strong> A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a TheaterEvent or BroadcastEvent - the *Play* being the workPerformed.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Play
+
+A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a TheaterEvent or BroadcastEvent - the *Play* being the workPerformed.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **Play**
+
+
+
+## Properties
+
+See [Schema.org Play properties](https://schema.org/Play#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Play } from 'schema.org.ai'
+
+// Create a Play
+const item: Play = {
+  $type: 'Play',
+  name: 'Example Play'
+}
+
+// Use semantic patterns
+await $.Play.create(item)
+const result = await $.Play.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Play](https://schema.org/Play)
+- [Play Properties](https://schema.org/Play#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

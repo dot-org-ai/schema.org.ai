@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AggregateRating",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AggregateRating",
+  "description": "The average rating based on multiple ratings or reviews.",
+  "subClassOf": [
+    "Rating"
+  ],
+  "title": "AggregateRating"
+}

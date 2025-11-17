@@ -1,0 +1,41 @@
+
+
+# ShippingService
+
+ShippingService represents the criteria used to determine if and how an offer could be shipped to a customer.
+
+## Type Hierarchy
+
+**ShippingService**
+
+
+
+## Properties
+
+See [Schema.org ShippingService properties](https://schema.org/ShippingService#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ShippingService } from 'schema.org.ai'
+
+// Create a ShippingService
+const item: ShippingService = {
+  $type: 'ShippingService',
+  name: 'Example ShippingService'
+}
+
+// Use semantic patterns
+await $.ShippingService.create(item)
+const result = await $.ShippingService.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ShippingService](https://schema.org/ShippingService)
+- [ShippingService Properties](https://schema.org/ShippingService#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

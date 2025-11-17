@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/VisualArtsEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "VisualArtsEvent",
+  "description": "Event type: Visual arts event.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "VisualArtsEvent"
+}

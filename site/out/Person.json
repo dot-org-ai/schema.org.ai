@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Person",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Person",
+  "description": "A person (alive, dead, undead, or fictional).",
+  "subClassOf": [
+    "Thing"
+  ],
+  "title": "Person"
+}

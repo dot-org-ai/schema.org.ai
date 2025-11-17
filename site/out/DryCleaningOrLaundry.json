@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DryCleaningOrLaundry",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DryCleaningOrLaundry",
+  "description": "A dry-cleaning business.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "DryCleaningOrLaundry"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PawnShop",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PawnShop",
+  "description": "A shop that will buy, or lend money against the security of, personal possessions.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "PawnShop"
+}

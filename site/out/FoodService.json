@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/FoodService",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FoodService",
+  "description": "A food service, like breakfast, lunch, or dinner.",
+  "subClassOf": [
+    "Service"
+  ],
+  "title": "FoodService"
+}

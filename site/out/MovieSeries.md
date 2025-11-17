@@ -1,0 +1,41 @@
+
+
+# MovieSeries
+
+A series of movies. Included movies can be indicated with the hasPart property.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [CreativeWorkSeries](CreativeWorkSeries.mdx) > **MovieSeries**
+
+
+
+## Properties
+
+See [Schema.org MovieSeries properties](https://schema.org/MovieSeries#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MovieSeries } from 'schema.org.ai'
+
+// Create a MovieSeries
+const item: MovieSeries = {
+  $type: 'MovieSeries',
+  name: 'Example MovieSeries'
+}
+
+// Use semantic patterns
+await $.MovieSeries.create(item)
+const result = await $.MovieSeries.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MovieSeries](https://schema.org/MovieSeries)
+- [MovieSeries Properties](https://schema.org/MovieSeries#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

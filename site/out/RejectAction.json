@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RejectAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RejectAction",
+  "description": "The act of rejecting to/adopting an object.\\",
+  "subClassOf": [
+    "AllocateAction"
+  ],
+  "title": "RejectAction"
+}

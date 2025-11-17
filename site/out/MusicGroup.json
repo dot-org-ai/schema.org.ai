@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicGroup",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicGroup",
+  "description": "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.",
+  "subClassOf": [
+    "PerformingGroup"
+  ],
+  "title": "MusicGroup"
+}

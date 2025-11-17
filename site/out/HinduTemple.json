@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HinduTemple",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HinduTemple",
+  "description": "A Hindu temple.",
+  "subClassOf": [
+    "PlaceOfWorship"
+  ],
+  "title": "HinduTemple"
+}

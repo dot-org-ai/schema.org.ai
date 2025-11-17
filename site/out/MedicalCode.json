@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/MedicalCode",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalCode",
+  "description": "A code for a medical entity.",
+  "subClassOf": [
+    "MedicalIntangible",
+    "CategoryCode"
+  ],
+  "title": "MedicalCode"
+}

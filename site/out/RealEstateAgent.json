@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RealEstateAgent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RealEstateAgent",
+  "description": "A real-estate agent.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "RealEstateAgent"
+}

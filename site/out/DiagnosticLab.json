@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DiagnosticLab",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DiagnosticLab",
+  "description": "A medical laboratory that offers on-site or off-site diagnostic services.",
+  "subClassOf": [
+    "MedicalOrganization"
+  ],
+  "title": "DiagnosticLab"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalSpecialty - schema.org.ai</title>
+  <meta name="description" content="Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalSpecialty.json">JSON</a>
+    <a href="MedicalSpecialty.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalSpecialty</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalSpecialty</code></p>
+    <p><strong>Subclass of:</strong> <a href="Specialty.html">Specialty</a>, <a href="MedicalEnumeration.html">MedicalEnumeration</a></p>
+    <p><strong>Description:</strong> Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalSpecialty
+
+Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.
+
+## Type Hierarchy
+
+**MedicalSpecialty**
+
+
+
+## Properties
+
+See [Schema.org MedicalSpecialty properties](https://schema.org/MedicalSpecialty#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalSpecialty } from 'schema.org.ai'
+
+// Create a MedicalSpecialty
+const item: MedicalSpecialty = {
+  $type: 'MedicalSpecialty',
+  name: 'Example MedicalSpecialty'
+}
+
+// Use semantic patterns
+await $.MedicalSpecialty.create(item)
+const result = await $.MedicalSpecialty.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalSpecialty](https://schema.org/MedicalSpecialty)
+- [MedicalSpecialty Properties](https://schema.org/MedicalSpecialty#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

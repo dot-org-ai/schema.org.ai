@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OfficeEquipmentStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OfficeEquipmentStore",
+  "description": "An office equipment store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "OfficeEquipmentStore"
+}

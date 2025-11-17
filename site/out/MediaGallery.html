@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaGallery - schema.org.ai</title>
+  <meta name="description" content="Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MediaGallery.json">JSON</a>
+    <a href="MediaGallery.md">Markdown</a>
+  </nav>
+
+  <h1>MediaGallery</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MediaGallery</code></p>
+    <p><strong>Subclass of:</strong> <a href="CollectionPage.html">CollectionPage</a></p>
+    <p><strong>Description:</strong> Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MediaGallery
+
+Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [WebPage](WebPage.mdx) > [CollectionPage](CollectionPage.mdx) > **MediaGallery**
+
+## Direct Subclasses
+
+- **[ImageGallery](ImageGallery.mdx)**: Web page type: Image gallery page
+- **[VideoGallery](VideoGallery.mdx)**: Web page type: Video gallery page
+
+## Properties
+
+See [Schema.org MediaGallery properties](https://schema.org/MediaGallery#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MediaGallery } from 'schema.org.ai'
+
+// Create a MediaGallery
+const item: MediaGallery = {
+  $type: 'MediaGallery',
+  name: 'Example MediaGallery'
+}
+
+// Use semantic patterns
+await $.MediaGallery.create(item)
+const result = await $.MediaGallery.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MediaGallery](https://schema.org/MediaGallery)
+- [MediaGallery Properties](https://schema.org/MediaGallery#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

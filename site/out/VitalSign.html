@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalSign - schema.org.ai</title>
+  <meta name="description" content="Vital signs are measures of various physiological functions in order to assess the most basic body functions.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="VitalSign.json">JSON</a>
+    <a href="VitalSign.md">Markdown</a>
+  </nav>
+
+  <h1>VitalSign</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/VitalSign</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalSign.html">MedicalSign</a></p>
+    <p><strong>Description:</strong> Vital signs are measures of various physiological functions in order to assess the most basic body functions.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# VitalSign
+
+Vital signs are measures of various physiological functions in order to assess the most basic body functions.
+
+## Type Hierarchy
+
+**VitalSign**
+
+
+
+## Properties
+
+See [Schema.org VitalSign properties](https://schema.org/VitalSign#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { VitalSign } from 'schema.org.ai'
+
+// Create a VitalSign
+const item: VitalSign = {
+  $type: 'VitalSign',
+  name: 'Example VitalSign'
+}
+
+// Use semantic patterns
+await $.VitalSign.create(item)
+const result = await $.VitalSign.get('item-id')
+```
+
+## Resources
+
+- [Schema.org VitalSign](https://schema.org/VitalSign)
+- [VitalSign Properties](https://schema.org/VitalSign#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

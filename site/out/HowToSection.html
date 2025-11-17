@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HowToSection - schema.org.ai</title>
+  <meta name="description" content="A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe).">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="HowToSection.json">JSON</a>
+    <a href="HowToSection.md">Markdown</a>
+  </nav>
+
+  <h1>HowToSection</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/HowToSection</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a>, <a href="ListItem.html">ListItem</a>, <a href="ItemList.html">ItemList</a></p>
+    <p><strong>Description:</strong> A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe).</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# HowToSection
+
+A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe).
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **HowToSection**
+
+
+
+## Properties
+
+See [Schema.org HowToSection properties](https://schema.org/HowToSection#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { HowToSection } from 'schema.org.ai'
+
+// Create a HowToSection
+const item: HowToSection = {
+  $type: 'HowToSection',
+  name: 'Example HowToSection'
+}
+
+// Use semantic patterns
+await $.HowToSection.create(item)
+const result = await $.HowToSection.get('item-id')
+```
+
+## Resources
+
+- [Schema.org HowToSection](https://schema.org/HowToSection)
+- [HowToSection Properties](https://schema.org/HowToSection#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

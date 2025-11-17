@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DeactivateAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DeactivateAction",
+  "description": "The act of stopping or deactivating a device or application (e.g. stopping a timer or turning off a flashlight).",
+  "subClassOf": [
+    "ControlAction"
+  ],
+  "title": "DeactivateAction"
+}

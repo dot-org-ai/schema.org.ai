@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DanceGroup - schema.org.ai</title>
+  <meta name="description" content="A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="DanceGroup.json">JSON</a>
+    <a href="DanceGroup.md">Markdown</a>
+  </nav>
+
+  <h1>DanceGroup</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/DanceGroup</code></p>
+    <p><strong>Subclass of:</strong> <a href="PerformingGroup.html">PerformingGroup</a></p>
+    <p><strong>Description:</strong> A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# DanceGroup
+
+A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Organization](Organization.mdx) > [PerformingGroup](PerformingGroup.mdx) > **DanceGroup**
+
+
+
+## Properties
+
+See [Schema.org DanceGroup properties](https://schema.org/DanceGroup#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { DanceGroup } from 'schema.org.ai'
+
+// Create a DanceGroup
+const item: DanceGroup = {
+  $type: 'DanceGroup',
+  name: 'Example DanceGroup'
+}
+
+// Use semantic patterns
+await $.DanceGroup.create(item)
+const result = await $.DanceGroup.get('item-id')
+```
+
+## Resources
+
+- [Schema.org DanceGroup](https://schema.org/DanceGroup)
+- [DanceGroup Properties](https://schema.org/DanceGroup#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

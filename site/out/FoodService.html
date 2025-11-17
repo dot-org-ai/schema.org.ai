@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodService - schema.org.ai</title>
+  <meta name="description" content="A food service, like breakfast, lunch, or dinner.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="FoodService.json">JSON</a>
+    <a href="FoodService.md">Markdown</a>
+  </nav>
+
+  <h1>FoodService</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/FoodService</code></p>
+    <p><strong>Subclass of:</strong> <a href="Service.html">Service</a></p>
+    <p><strong>Description:</strong> A food service, like breakfast, lunch, or dinner.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# FoodService
+
+A food service, like breakfast, lunch, or dinner.
+
+## Type Hierarchy
+
+**FoodService**
+
+
+
+## Properties
+
+See [Schema.org FoodService properties](https://schema.org/FoodService#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { FoodService } from 'schema.org.ai'
+
+// Create a FoodService
+const item: FoodService = {
+  $type: 'FoodService',
+  name: 'Example FoodService'
+}
+
+// Use semantic patterns
+await $.FoodService.create(item)
+const result = await $.FoodService.get('item-id')
+```
+
+## Resources
+
+- [Schema.org FoodService](https://schema.org/FoodService)
+- [FoodService Properties](https://schema.org/FoodService#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

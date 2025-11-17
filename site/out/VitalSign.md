@@ -1,0 +1,41 @@
+
+
+# VitalSign
+
+Vital signs are measures of various physiological functions in order to assess the most basic body functions.
+
+## Type Hierarchy
+
+**VitalSign**
+
+
+
+## Properties
+
+See [Schema.org VitalSign properties](https://schema.org/VitalSign#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { VitalSign } from 'schema.org.ai'
+
+// Create a VitalSign
+const item: VitalSign = {
+  $type: 'VitalSign',
+  name: 'Example VitalSign'
+}
+
+// Use semantic patterns
+await $.VitalSign.create(item)
+const result = await $.VitalSign.get('item-id')
+```
+
+## Resources
+
+- [Schema.org VitalSign](https://schema.org/VitalSign)
+- [VitalSign Properties](https://schema.org/VitalSign#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

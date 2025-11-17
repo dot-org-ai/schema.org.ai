@@ -1,0 +1,9 @@
+{
+  "$id": "https://schema.org.ai/DataType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DataType",
+  "description": "The basic data types such as Integers, Strings, etc.",
+  "subClassOf": [],
+  "title": "DataType"
+}

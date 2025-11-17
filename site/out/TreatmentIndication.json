@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TreatmentIndication",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TreatmentIndication",
+  "description": "An indication for treating an underlying condition, symptom, etc.",
+  "subClassOf": [
+    "MedicalIndication"
+  ],
+  "title": "TreatmentIndication"
+}

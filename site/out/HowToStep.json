@@ -1,0 +1,13 @@
+{
+  "$id": "https://schema.org.ai/HowToStep",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HowToStep",
+  "description": "A step in the instructions for how to achieve a result. It is an ordered list with HowToDirection and/or HowToTip items.",
+  "subClassOf": [
+    "ItemList",
+    "CreativeWork",
+    "ListItem"
+  ],
+  "title": "HowToStep"
+}

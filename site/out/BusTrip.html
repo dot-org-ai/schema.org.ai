@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BusTrip - schema.org.ai</title>
+  <meta name="description" content="A trip on a commercial bus line.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="BusTrip.json">JSON</a>
+    <a href="BusTrip.md">Markdown</a>
+  </nav>
+
+  <h1>BusTrip</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/BusTrip</code></p>
+    <p><strong>Subclass of:</strong> <a href="Trip.html">Trip</a></p>
+    <p><strong>Description:</strong> A trip on a commercial bus line.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# BusTrip
+
+A trip on a commercial bus line.
+
+## Type Hierarchy
+
+**BusTrip**
+
+
+
+## Properties
+
+See [Schema.org BusTrip properties](https://schema.org/BusTrip#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BusTrip } from 'schema.org.ai'
+
+// Create a BusTrip
+const item: BusTrip = {
+  $type: 'BusTrip',
+  name: 'Example BusTrip'
+}
+
+// Use semantic patterns
+await $.BusTrip.create(item)
+const result = await $.BusTrip.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BusTrip](https://schema.org/BusTrip)
+- [BusTrip Properties](https://schema.org/BusTrip#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

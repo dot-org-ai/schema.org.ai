@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PostalAddress",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PostalAddress",
+  "description": "The mailing address.",
+  "subClassOf": [
+    "ContactPoint"
+  ],
+  "title": "PostalAddress"
+}

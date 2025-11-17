@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CityHall",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CityHall",
+  "description": "A city hall.",
+  "subClassOf": [
+    "GovernmentBuilding"
+  ],
+  "title": "CityHall"
+}

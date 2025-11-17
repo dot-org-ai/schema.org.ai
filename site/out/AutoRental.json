@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AutoRental",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AutoRental",
+  "description": "A car rental business.",
+  "subClassOf": [
+    "AutomotiveBusiness"
+  ],
+  "title": "AutoRental"
+}

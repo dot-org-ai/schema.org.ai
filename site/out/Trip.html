@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip - schema.org.ai</title>
+  <meta name="description" content="A trip or journey. An itinerary of visits to one or more places.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Trip.json">JSON</a>
+    <a href="Trip.md">Markdown</a>
+  </nav>
+
+  <h1>Trip</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Trip</code></p>
+    <p><strong>Subclass of:</strong> <a href="Intangible.html">Intangible</a></p>
+    <p><strong>Description:</strong> A trip or journey. An itinerary of visits to one or more places.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Trip
+
+A trip or journey. An itinerary of visits to one or more places.
+
+## Type Hierarchy
+
+**Trip**
+
+## Direct Subclasses
+
+- **[BoatTrip](BoatTrip.mdx)**: A trip on a commercial ferry line
+- **[BusTrip](BusTrip.mdx)**: A trip on a commercial bus line
+- **[Flight](Flight.mdx)**: An airline flight
+- **[TouristTrip](TouristTrip.mdx)**: A tourist trip
+- **[TrainTrip](TrainTrip.mdx)**: A trip on a commercial train line
+
+## Properties
+
+See [Schema.org Trip properties](https://schema.org/Trip#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Trip } from 'schema.org.ai'
+
+// Create a Trip
+const item: Trip = {
+  $type: 'Trip',
+  name: 'Example Trip'
+}
+
+// Use semantic patterns
+await $.Trip.create(item)
+const result = await $.Trip.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Trip](https://schema.org/Trip)
+- [Trip Properties](https://schema.org/Trip#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

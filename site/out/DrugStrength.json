@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DrugStrength",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DrugStrength",
+  "description": "A specific strength in which a medical drug is available in a specific country.",
+  "subClassOf": [
+    "MedicalIntangible"
+  ],
+  "title": "DrugStrength"
+}

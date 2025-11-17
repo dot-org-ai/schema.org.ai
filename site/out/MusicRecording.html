@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MusicRecording - schema.org.ai</title>
+  <meta name="description" content="A music recording (track), usually a single song.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MusicRecording.json">JSON</a>
+    <a href="MusicRecording.md">Markdown</a>
+  </nav>
+
+  <h1>MusicRecording</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MusicRecording</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a></p>
+    <p><strong>Description:</strong> A music recording (track), usually a single song.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MusicRecording
+
+A music recording (track), usually a single song.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **MusicRecording**
+
+
+
+## Properties
+
+See [Schema.org MusicRecording properties](https://schema.org/MusicRecording#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MusicRecording } from 'schema.org.ai'
+
+// Create a MusicRecording
+const item: MusicRecording = {
+  $type: 'MusicRecording',
+  name: 'Example MusicRecording'
+}
+
+// Use semantic patterns
+await $.MusicRecording.create(item)
+const result = await $.MusicRecording.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MusicRecording](https://schema.org/MusicRecording)
+- [MusicRecording Properties](https://schema.org/MusicRecording#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

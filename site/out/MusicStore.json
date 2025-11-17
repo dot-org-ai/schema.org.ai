@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicStore",
+  "description": "A music store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "MusicStore"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Sculpture",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Sculpture",
+  "description": "A piece of sculpture.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Sculpture"
+}

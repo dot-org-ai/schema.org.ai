@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RadioClip",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RadioClip",
+  "description": "A short radio program or a segment/part of a radio program.",
+  "subClassOf": [
+    "Clip"
+  ],
+  "title": "RadioClip"
+}

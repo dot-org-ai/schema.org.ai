@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LendAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LendAction",
+  "description": "The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.\\",
+  "subClassOf": [
+    "TransferAction"
+  ],
+  "title": "LendAction"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RsvpAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RsvpAction",
+  "description": "The act of notifying an event organizer as to whether you expect to attend the event.",
+  "subClassOf": [
+    "InformAction"
+  ],
+  "title": "RsvpAction"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City - schema.org.ai</title>
+  <meta name="description" content="A city or town.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="City.json">JSON</a>
+    <a href="City.md">Markdown</a>
+  </nav>
+
+  <h1>City</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/City</code></p>
+    <p><strong>Subclass of:</strong> <a href="AdministrativeArea.html">AdministrativeArea</a></p>
+    <p><strong>Description:</strong> A city or town.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# City
+
+A city or town.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [AdministrativeArea](AdministrativeArea.mdx) > **City**
+
+
+
+## Properties
+
+See [Schema.org City properties](https://schema.org/City#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { City } from 'schema.org.ai'
+
+// Create a City
+const item: City = {
+  $type: 'City',
+  name: 'Example City'
+}
+
+// Use semantic patterns
+await $.City.create(item)
+const result = await $.City.get('item-id')
+```
+
+## Resources
+
+- [Schema.org City](https://schema.org/City)
+- [City Properties](https://schema.org/City#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

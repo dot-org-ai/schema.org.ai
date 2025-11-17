@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BusStation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BusStation",
+  "description": "A bus station.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "BusStation"
+}

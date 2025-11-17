@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Car",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Car",
+  "description": "A car is a wheeled, self-powered motor vehicle used for transportation.",
+  "subClassOf": [
+    "Vehicle"
+  ],
+  "title": "Car"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Occupation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Occupation",
+  "description": "A profession, may involve prolonged training and/or a formal qualification.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "Occupation"
+}

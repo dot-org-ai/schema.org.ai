@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ConsumeAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ConsumeAction",
+  "description": "The act of ingesting information/resources/food.",
+  "subClassOf": [
+    "Action"
+  ],
+  "title": "ConsumeAction"
+}

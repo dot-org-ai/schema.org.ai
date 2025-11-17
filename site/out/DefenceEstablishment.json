@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DefenceEstablishment",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DefenceEstablishment",
+  "description": "A defence establishment, such as an army or navy base.",
+  "subClassOf": [
+    "GovernmentBuilding"
+  ],
+  "title": "DefenceEstablishment"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order - schema.org.ai</title>
+  <meta name="description" content="An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Order.json">JSON</a>
+    <a href="Order.md">Markdown</a>
+  </nav>
+
+  <h1>Order</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Order</code></p>
+    <p><strong>Subclass of:</strong> <a href="Intangible.html">Intangible</a></p>
+    <p><strong>Description:</strong> An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Order
+
+An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.
+
+## Type Hierarchy
+
+**Order**
+
+
+
+## Properties
+
+See [Schema.org Order properties](https://schema.org/Order#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Order } from 'schema.org.ai'
+
+// Create a Order
+const item: Order = {
+  $type: 'Order',
+  name: 'Example Order'
+}
+
+// Use semantic patterns
+await $.Order.create(item)
+const result = await $.Order.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Order](https://schema.org/Order)
+- [Order Properties](https://schema.org/Order#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

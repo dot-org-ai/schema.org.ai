@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicRelease",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicRelease",
+  "description": "A MusicRelease is a specific release of a music album.",
+  "subClassOf": [
+    "MusicPlaylist"
+  ],
+  "title": "MusicRelease"
+}

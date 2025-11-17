@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HomeGoodsStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HomeGoodsStore",
+  "description": "A home goods store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "HomeGoodsStore"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Corporation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Corporation",
+  "description": "Organization: A business corporation.",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "Corporation"
+}

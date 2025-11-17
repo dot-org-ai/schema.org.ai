@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReadAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReadAction",
+  "description": "The act of consuming written content.",
+  "subClassOf": [
+    "ConsumeAction"
+  ],
+  "title": "ReadAction"
+}

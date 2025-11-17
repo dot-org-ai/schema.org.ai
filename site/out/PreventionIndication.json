@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PreventionIndication",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PreventionIndication",
+  "description": "An indication for preventing an underlying condition, symptom, etc.",
+  "subClassOf": [
+    "MedicalIndication"
+  ],
+  "title": "PreventionIndication"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegislationObject - schema.org.ai</title>
+  <meta name="description" content="A specific object or file containing a Legislation. Note that the same Legislation can be published in multiple files. For example, a digitally signed PDF, a plain PDF and an HTML version.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="LegislationObject.json">JSON</a>
+    <a href="LegislationObject.md">Markdown</a>
+  </nav>
+
+  <h1>LegislationObject</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/LegislationObject</code></p>
+    <p><strong>Subclass of:</strong> <a href="Legislation.html">Legislation</a>, <a href="MediaObject.html">MediaObject</a></p>
+    <p><strong>Description:</strong> A specific object or file containing a Legislation. Note that the same Legislation can be published in multiple files. For example, a digitally signed PDF, a plain PDF and an HTML version.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# LegislationObject
+
+A specific object or file containing a Legislation. Note that the same Legislation can be published in multiple files. For example, a digitally signed PDF, a plain PDF and an HTML version.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [Legislation](Legislation.mdx) > **LegislationObject**
+
+
+
+## Properties
+
+See [Schema.org LegislationObject properties](https://schema.org/LegislationObject#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { LegislationObject } from 'schema.org.ai'
+
+// Create a LegislationObject
+const item: LegislationObject = {
+  $type: 'LegislationObject',
+  name: 'Example LegislationObject'
+}
+
+// Use semantic patterns
+await $.LegislationObject.create(item)
+const result = await $.LegislationObject.get('item-id')
+```
+
+## Resources
+
+- [Schema.org LegislationObject](https://schema.org/LegislationObject)
+- [LegislationObject Properties](https://schema.org/LegislationObject#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

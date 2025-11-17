@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HealthAndBeautyBusiness",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HealthAndBeautyBusiness",
+  "description": "Health and beauty.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "HealthAndBeautyBusiness"
+}

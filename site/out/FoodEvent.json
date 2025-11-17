@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/FoodEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FoodEvent",
+  "description": "Event type: Food event.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "FoodEvent"
+}

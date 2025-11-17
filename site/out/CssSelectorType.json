@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CssSelectorType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CssSelectorType",
+  "description": "Text representing a CSS selector.",
+  "subClassOf": [
+    "Text"
+  ],
+  "title": "CssSelectorType"
+}

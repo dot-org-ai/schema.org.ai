@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LiteraryEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LiteraryEvent",
+  "description": "Event type: Literary event.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "LiteraryEvent"
+}

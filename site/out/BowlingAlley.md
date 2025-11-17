@@ -1,0 +1,41 @@
+
+
+# BowlingAlley
+
+A bowling alley.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [SportsActivityLocation](SportsActivityLocation.mdx) > **BowlingAlley**
+
+
+
+## Properties
+
+See [Schema.org BowlingAlley properties](https://schema.org/BowlingAlley#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BowlingAlley } from 'schema.org.ai'
+
+// Create a BowlingAlley
+const item: BowlingAlley = {
+  $type: 'BowlingAlley',
+  name: 'Example BowlingAlley'
+}
+
+// Use semantic patterns
+await $.BowlingAlley.create(item)
+const result = await $.BowlingAlley.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BowlingAlley](https://schema.org/BowlingAlley)
+- [BowlingAlley Properties](https://schema.org/BowlingAlley#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

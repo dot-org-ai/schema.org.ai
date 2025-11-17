@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DataFeedItem",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DataFeedItem",
+  "description": "A single item within a larger data feed.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "DataFeedItem"
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ListItem - schema.org.ai</title>
+  <meta name="description" content="An list item, e.g. a step in a checklist or how-to description.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ListItem.json">JSON</a>
+    <a href="ListItem.md">Markdown</a>
+  </nav>
+
+  <h1>ListItem</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ListItem</code></p>
+    <p><strong>Subclass of:</strong> <a href="Intangible.html">Intangible</a></p>
+    <p><strong>Description:</strong> An list item, e.g. a step in a checklist or how-to description.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ListItem
+
+An list item, e.g. a step in a checklist or how-to description.
+
+## Type Hierarchy
+
+**ListItem**
+
+## Direct Subclasses
+
+- **[HowToDirection](HowToDirection.mdx)**: A direction indicating a single action to do in the instructions for how to achieve a result
+- **[HowToItem](HowToItem.mdx)**: An item used as either a tool or supply when performing the instructions for how to achieve a result
+- **[HowToSection](HowToSection.mdx)**: A sub-grouping of steps in the instructions for how to achieve a result (e
+- **[HowToStep](HowToStep.mdx)**: A step in the instructions for how to achieve a result
+
+## Properties
+
+See [Schema.org ListItem properties](https://schema.org/ListItem#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ListItem } from 'schema.org.ai'
+
+// Create a ListItem
+const item: ListItem = {
+  $type: 'ListItem',
+  name: 'Example ListItem'
+}
+
+// Use semantic patterns
+await $.ListItem.create(item)
+const result = await $.ListItem.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ListItem](https://schema.org/ListItem)
+- [ListItem Properties](https://schema.org/ListItem#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

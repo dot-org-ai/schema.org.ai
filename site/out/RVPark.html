@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RVPark - schema.org.ai</title>
+  <meta name="description" content="A place offering space for "Recreational Vehicles", Caravans, mobile homes and the like.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="RVPark.json">JSON</a>
+    <a href="RVPark.md">Markdown</a>
+  </nav>
+
+  <h1>RVPark</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/RVPark</code></p>
+    <p><strong>Subclass of:</strong> <a href="CivicStructure.html">CivicStructure</a></p>
+    <p><strong>Description:</strong> A place offering space for "Recreational Vehicles", Caravans, mobile homes and the like.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# RVPark
+
+A place offering space for "Recreational Vehicles", Caravans, mobile homes and the like.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [CivicStructure](CivicStructure.mdx) > **RVPark**
+
+
+
+## Properties
+
+See [Schema.org RVPark properties](https://schema.org/RVPark#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { RVPark } from 'schema.org.ai'
+
+// Create a RVPark
+const item: RVPark = {
+  $type: 'RVPark',
+  name: 'Example RVPark'
+}
+
+// Use semantic patterns
+await $.RVPark.create(item)
+const result = await $.RVPark.get('item-id')
+```
+
+## Resources
+
+- [Schema.org RVPark](https://schema.org/RVPark)
+- [RVPark Properties](https://schema.org/RVPark#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

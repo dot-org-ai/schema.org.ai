@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/IncentiveQualifiedExpenseType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "IncentiveQualifiedExpenseType",
+  "description": "The types of expenses that are covered by the incentive. For example some incentives are only for the goods (tangible items) but the services (labor) are excluded.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "IncentiveQualifiedExpenseType"
+}

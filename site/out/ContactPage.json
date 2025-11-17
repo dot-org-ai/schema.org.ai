@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ContactPage",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ContactPage",
+  "description": "Web page type: Contact page.",
+  "subClassOf": [
+    "WebPage"
+  ],
+  "title": "ContactPage"
+}

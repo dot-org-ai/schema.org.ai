@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/ComicCoverArt",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ComicCoverArt",
+  "description": "The artwork on the cover of a comic.",
+  "subClassOf": [
+    "ComicStory",
+    "CoverArt"
+  ],
+  "title": "ComicCoverArt"
+}

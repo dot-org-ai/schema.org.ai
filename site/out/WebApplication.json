@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WebApplication",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WebApplication",
+  "description": "Web applications.",
+  "subClassOf": [
+    "SoftwareApplication"
+  ],
+  "title": "WebApplication"
+}

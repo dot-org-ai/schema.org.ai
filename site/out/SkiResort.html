@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkiResort - schema.org.ai</title>
+  <meta name="description" content="A ski resort.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="SkiResort.json">JSON</a>
+    <a href="SkiResort.md">Markdown</a>
+  </nav>
+
+  <h1>SkiResort</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/SkiResort</code></p>
+    <p><strong>Subclass of:</strong> <a href="Resort.html">Resort</a>, <a href="SportsActivityLocation.html">SportsActivityLocation</a></p>
+    <p><strong>Description:</strong> A ski resort.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# SkiResort
+
+A ski resort.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [SportsActivityLocation](SportsActivityLocation.mdx) > **SkiResort**
+
+
+
+## Properties
+
+See [Schema.org SkiResort properties](https://schema.org/SkiResort#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SkiResort } from 'schema.org.ai'
+
+// Create a SkiResort
+const item: SkiResort = {
+  $type: 'SkiResort',
+  name: 'Example SkiResort'
+}
+
+// Use semantic patterns
+await $.SkiResort.create(item)
+const result = await $.SkiResort.get('item-id')
+```
+
+## Resources
+
+- [Schema.org SkiResort](https://schema.org/SkiResort)
+- [SkiResort Properties](https://schema.org/SkiResort#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

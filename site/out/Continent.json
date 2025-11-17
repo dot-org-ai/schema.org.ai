@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Continent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Continent",
+  "description": "One of the continents (for example, Europe or Africa).",
+  "subClassOf": [
+    "Landform"
+  ],
+  "title": "Continent"
+}

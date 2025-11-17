@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetStore - schema.org.ai</title>
+  <meta name="description" content="A pet store.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PetStore.json">JSON</a>
+    <a href="PetStore.md">Markdown</a>
+  </nav>
+
+  <h1>PetStore</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PetStore</code></p>
+    <p><strong>Subclass of:</strong> <a href="Store.html">Store</a></p>
+    <p><strong>Description:</strong> A pet store.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PetStore
+
+A pet store.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [Store](Store.mdx) > **PetStore**
+
+
+
+## Properties
+
+See [Schema.org PetStore properties](https://schema.org/PetStore#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PetStore } from 'schema.org.ai'
+
+// Create a PetStore
+const item: PetStore = {
+  $type: 'PetStore',
+  name: 'Example PetStore'
+}
+
+// Use semantic patterns
+await $.PetStore.create(item)
+const result = await $.PetStore.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PetStore](https://schema.org/PetStore)
+- [PetStore Properties](https://schema.org/PetStore#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

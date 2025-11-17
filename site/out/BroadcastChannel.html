@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BroadcastChannel - schema.org.ai</title>
+  <meta name="description" content="A unique instance of a BroadcastService on a CableOrSatelliteService lineup.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="BroadcastChannel.json">JSON</a>
+    <a href="BroadcastChannel.md">Markdown</a>
+  </nav>
+
+  <h1>BroadcastChannel</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/BroadcastChannel</code></p>
+    <p><strong>Subclass of:</strong> <a href="Intangible.html">Intangible</a></p>
+    <p><strong>Description:</strong> A unique instance of a BroadcastService on a CableOrSatelliteService lineup.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# BroadcastChannel
+
+A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
+
+## Type Hierarchy
+
+**BroadcastChannel**
+
+## Direct Subclasses
+
+- **[RadioChannel](RadioChannel.mdx)**: A unique instance of a radio BroadcastService on a CableOrSatelliteService lineup
+- **[TelevisionChannel](TelevisionChannel.mdx)**: A unique instance of a television BroadcastService on a CableOrSatelliteService lineup
+
+## Properties
+
+See [Schema.org BroadcastChannel properties](https://schema.org/BroadcastChannel#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BroadcastChannel } from 'schema.org.ai'
+
+// Create a BroadcastChannel
+const item: BroadcastChannel = {
+  $type: 'BroadcastChannel',
+  name: 'Example BroadcastChannel'
+}
+
+// Use semantic patterns
+await $.BroadcastChannel.create(item)
+const result = await $.BroadcastChannel.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BroadcastChannel](https://schema.org/BroadcastChannel)
+- [BroadcastChannel Properties](https://schema.org/BroadcastChannel#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

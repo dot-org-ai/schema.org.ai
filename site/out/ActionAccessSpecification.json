@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ActionAccessSpecification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ActionAccessSpecification",
+  "description": "A set of requirements that must be fulfilled in order to perform an Action.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "ActionAccessSpecification"
+}

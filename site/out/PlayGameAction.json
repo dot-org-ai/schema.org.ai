@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PlayGameAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PlayGameAction",
+  "description": "The act of playing a video game.",
+  "subClassOf": [
+    "ConsumeAction"
+  ],
+  "title": "PlayGameAction"
+}

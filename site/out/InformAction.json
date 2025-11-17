@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/InformAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "InformAction",
+  "description": "The act of notifying someone of information pertinent to them, with no expectation of a response.",
+  "subClassOf": [
+    "CommunicateAction"
+  ],
+  "title": "InformAction"
+}

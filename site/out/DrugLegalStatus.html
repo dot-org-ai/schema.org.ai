@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrugLegalStatus - schema.org.ai</title>
+  <meta name="description" content="The legal availability status of a medical drug.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="DrugLegalStatus.json">JSON</a>
+    <a href="DrugLegalStatus.md">Markdown</a>
+  </nav>
+
+  <h1>DrugLegalStatus</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/DrugLegalStatus</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalIntangible.html">MedicalIntangible</a></p>
+    <p><strong>Description:</strong> The legal availability status of a medical drug.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# DrugLegalStatus
+
+The legal availability status of a medical drug.
+
+## Type Hierarchy
+
+**DrugLegalStatus**
+
+
+
+## Properties
+
+See [Schema.org DrugLegalStatus properties](https://schema.org/DrugLegalStatus#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { DrugLegalStatus } from 'schema.org.ai'
+
+// Create a DrugLegalStatus
+const item: DrugLegalStatus = {
+  $type: 'DrugLegalStatus',
+  name: 'Example DrugLegalStatus'
+}
+
+// Use semantic patterns
+await $.DrugLegalStatus.create(item)
+const result = await $.DrugLegalStatus.get('item-id')
+```
+
+## Resources
+
+- [Schema.org DrugLegalStatus](https://schema.org/DrugLegalStatus)
+- [DrugLegalStatus Properties](https://schema.org/DrugLegalStatus#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/UserPlusOnes",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "UserPlusOnes",
+  "description": "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use Action-based vocabulary, alongside types such as Comment.",
+  "subClassOf": [
+    "UserInteraction"
+  ],
+  "title": "UserPlusOnes"
+}

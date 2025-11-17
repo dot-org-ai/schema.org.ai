@@ -1,0 +1,41 @@
+
+
+# MedicalCode
+
+A code for a medical entity.
+
+## Type Hierarchy
+
+**MedicalCode**
+
+
+
+## Properties
+
+See [Schema.org MedicalCode properties](https://schema.org/MedicalCode#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalCode } from 'schema.org.ai'
+
+// Create a MedicalCode
+const item: MedicalCode = {
+  $type: 'MedicalCode',
+  name: 'Example MedicalCode'
+}
+
+// Use semantic patterns
+await $.MedicalCode.create(item)
+const result = await $.MedicalCode.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalCode](https://schema.org/MedicalCode)
+- [MedicalCode Properties](https://schema.org/MedicalCode#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

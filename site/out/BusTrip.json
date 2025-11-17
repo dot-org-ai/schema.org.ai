@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BusTrip",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BusTrip",
+  "description": "A trip on a commercial bus line.",
+  "subClassOf": [
+    "Trip"
+  ],
+  "title": "BusTrip"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalGuidelineContraindication - schema.org.ai</title>
+  <meta name="description" content="A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalGuidelineContraindication.json">JSON</a>
+    <a href="MedicalGuidelineContraindication.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalGuidelineContraindication</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalGuidelineContraindication</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalGuideline.html">MedicalGuideline</a></p>
+    <p><strong>Description:</strong> A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalGuidelineContraindication
+
+A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalGuideline](MedicalGuideline.mdx) > **MedicalGuidelineContraindication**
+
+
+
+## Properties
+
+See [Schema.org MedicalGuidelineContraindication properties](https://schema.org/MedicalGuidelineContraindication#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalGuidelineContraindication } from 'schema.org.ai'
+
+// Create a MedicalGuidelineContraindication
+const item: MedicalGuidelineContraindication = {
+  $type: 'MedicalGuidelineContraindication',
+  name: 'Example MedicalGuidelineContraindication'
+}
+
+// Use semantic patterns
+await $.MedicalGuidelineContraindication.create(item)
+const result = await $.MedicalGuidelineContraindication.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalGuidelineContraindication](https://schema.org/MedicalGuidelineContraindication)
+- [MedicalGuidelineContraindication Properties](https://schema.org/MedicalGuidelineContraindication#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Periodical",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Periodical",
+  "description": "A publication in any medium issued in successive parts bearing numerical or chronological designations and intended to continue indefinitely, such as a magazine, scholarly journal, or newspaper.\\",
+  "subClassOf": [
+    "CreativeWorkSeries"
+  ],
+  "title": "Periodical"
+}

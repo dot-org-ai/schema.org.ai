@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ImageObject",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ImageObject",
+  "description": "An image file.",
+  "subClassOf": [
+    "MediaObject"
+  ],
+  "title": "ImageObject"
+}

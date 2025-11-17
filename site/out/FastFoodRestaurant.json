@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/FastFoodRestaurant",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FastFoodRestaurant",
+  "description": "A fast-food restaurant.",
+  "subClassOf": [
+    "FoodEstablishment"
+  ],
+  "title": "FastFoodRestaurant"
+}

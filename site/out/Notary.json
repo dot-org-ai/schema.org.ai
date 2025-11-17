@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Notary",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Notary",
+  "description": "A notary.",
+  "subClassOf": [
+    "LegalService"
+  ],
+  "title": "Notary"
+}

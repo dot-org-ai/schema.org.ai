@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpeningHoursSpecification - schema.org.ai</title>
+  <meta name="description" content="A structured value providing information about the opening hours of a place or a certain service inside a place.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="OpeningHoursSpecification.json">JSON</a>
+    <a href="OpeningHoursSpecification.md">Markdown</a>
+  </nav>
+
+  <h1>OpeningHoursSpecification</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/OpeningHoursSpecification</code></p>
+    <p><strong>Subclass of:</strong> <a href="StructuredValue.html">StructuredValue</a></p>
+    <p><strong>Description:</strong> A structured value providing information about the opening hours of a place or a certain service inside a place.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# OpeningHoursSpecification
+
+A structured value providing information about the opening hours of a place or a certain service inside a place.\
+\
+ The place is __open__ if the opens property is specified, and __closed__ otherwise.\
+\
+If the value for the closes property is less than the value for the opens property then the hour range is assumed to span over the next day.
+
+## Type Hierarchy
+
+**OpeningHoursSpecification**
+
+
+
+## Properties
+
+See [Schema.org OpeningHoursSpecification properties](https://schema.org/OpeningHoursSpecification#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { OpeningHoursSpecification } from 'schema.org.ai'
+
+// Create a OpeningHoursSpecification
+const item: OpeningHoursSpecification = {
+  $type: 'OpeningHoursSpecification',
+  name: 'Example OpeningHoursSpecification'
+}
+
+// Use semantic patterns
+await $.OpeningHoursSpecification.create(item)
+const result = await $.OpeningHoursSpecification.get('item-id')
+```
+
+## Resources
+
+- [Schema.org OpeningHoursSpecification](https://schema.org/OpeningHoursSpecification)
+- [OpeningHoursSpecification Properties](https://schema.org/OpeningHoursSpecification#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OccupationalTherapy",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OccupationalTherapy",
+  "description": "A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems.",
+  "subClassOf": [
+    "MedicalTherapy"
+  ],
+  "title": "OccupationalTherapy"
+}

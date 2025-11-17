@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReactAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReactAction",
+  "description": "The act of responding instinctively and emotionally to an object, expressing a sentiment.",
+  "subClassOf": [
+    "AssessAction"
+  ],
+  "title": "ReactAction"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FundingAgency - schema.org.ai</title>
+  <meta name="description" content="A FundingAgency is an organization that implements one or more FundingSchemes and manages the granting process (via Grants, typically MonetaryGrants). A funding agency is not always required for grant funding, e.g. philanthropic giving, corporate sponsorship etc. Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="FundingAgency.json">JSON</a>
+    <a href="FundingAgency.md">Markdown</a>
+  </nav>
+
+  <h1>FundingAgency</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/FundingAgency</code></p>
+    <p><strong>Subclass of:</strong> <a href="Project.html">Project</a></p>
+    <p><strong>Description:</strong> A FundingAgency is an organization that implements one or more FundingSchemes and manages the granting process (via Grants, typically MonetaryGrants). A funding agency is not always required for grant funding, e.g. philanthropic giving, corporate sponsorship etc. Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# FundingAgency
+
+A FundingAgency is an organization that implements one or more FundingSchemes and manages the granting process (via Grants, typically MonetaryGrants). A funding agency is not always required for grant funding, e.g. philanthropic giving, corporate sponsorship etc. Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Organization](Organization.mdx) > [Project](Project.mdx) > **FundingAgency**
+
+
+
+## Properties
+
+See [Schema.org FundingAgency properties](https://schema.org/FundingAgency#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { FundingAgency } from 'schema.org.ai'
+
+// Create a FundingAgency
+const item: FundingAgency = {
+  $type: 'FundingAgency',
+  name: 'Example FundingAgency'
+}
+
+// Use semantic patterns
+await $.FundingAgency.create(item)
+const result = await $.FundingAgency.get('item-id')
+```
+
+## Resources
+
+- [Schema.org FundingAgency](https://schema.org/FundingAgency)
+- [FundingAgency Properties](https://schema.org/FundingAgency#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

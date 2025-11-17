@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/SiteNavigationElement",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "SiteNavigationElement",
+  "description": "A navigation element of the page.",
+  "subClassOf": [
+    "WebPageElement"
+  ],
+  "title": "SiteNavigationElement"
+}

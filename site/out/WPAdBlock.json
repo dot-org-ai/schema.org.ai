@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WPAdBlock",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WPAdBlock",
+  "description": "An advertising section of the page.",
+  "subClassOf": [
+    "WebPageElement"
+  ],
+  "title": "WPAdBlock"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LibrarySystem - schema.org.ai</title>
+  <meta name="description" content="A LibrarySystem is a collaborative system amongst several libraries.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="LibrarySystem.json">JSON</a>
+    <a href="LibrarySystem.md">Markdown</a>
+  </nav>
+
+  <h1>LibrarySystem</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/LibrarySystem</code></p>
+    <p><strong>Subclass of:</strong> <a href="Organization.html">Organization</a></p>
+    <p><strong>Description:</strong> A LibrarySystem is a collaborative system amongst several libraries.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# LibrarySystem
+
+A LibrarySystem is a collaborative system amongst several libraries.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Organization](Organization.mdx) > **LibrarySystem**
+
+
+
+## Properties
+
+See [Schema.org LibrarySystem properties](https://schema.org/LibrarySystem#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { LibrarySystem } from 'schema.org.ai'
+
+// Create a LibrarySystem
+const item: LibrarySystem = {
+  $type: 'LibrarySystem',
+  name: 'Example LibrarySystem'
+}
+
+// Use semantic patterns
+await $.LibrarySystem.create(item)
+const result = await $.LibrarySystem.get('item-id')
+```
+
+## Resources
+
+- [Schema.org LibrarySystem](https://schema.org/LibrarySystem)
+- [LibrarySystem Properties](https://schema.org/LibrarySystem#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thesis - schema.org.ai</title>
+  <meta name="description" content="A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Thesis.json">JSON</a>
+    <a href="Thesis.md">Markdown</a>
+  </nav>
+
+  <h1>Thesis</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Thesis</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a></p>
+    <p><strong>Description:</strong> A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Thesis
+
+A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **Thesis**
+
+
+
+## Properties
+
+See [Schema.org Thesis properties](https://schema.org/Thesis#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Thesis } from 'schema.org.ai'
+
+// Create a Thesis
+const item: Thesis = {
+  $type: 'Thesis',
+  name: 'Example Thesis'
+}
+
+// Use semantic patterns
+await $.Thesis.create(item)
+const result = await $.Thesis.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Thesis](https://schema.org/Thesis)
+- [Thesis Properties](https://schema.org/Thesis#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

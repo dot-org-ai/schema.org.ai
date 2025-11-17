@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/State",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "State",
+  "description": "A state or province of a country.",
+  "subClassOf": [
+    "AdministrativeArea"
+  ],
+  "title": "State"
+}

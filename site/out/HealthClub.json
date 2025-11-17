@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/HealthClub",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HealthClub",
+  "description": "A health club.",
+  "subClassOf": [
+    "HealthAndBeautyBusiness",
+    "SportsActivityLocation"
+  ],
+  "title": "HealthClub"
+}

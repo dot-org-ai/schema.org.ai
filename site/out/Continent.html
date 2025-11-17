@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continent - schema.org.ai</title>
+  <meta name="description" content="One of the continents (for example, Europe or Africa).">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Continent.json">JSON</a>
+    <a href="Continent.md">Markdown</a>
+  </nav>
+
+  <h1>Continent</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Continent</code></p>
+    <p><strong>Subclass of:</strong> <a href="Landform.html">Landform</a></p>
+    <p><strong>Description:</strong> One of the continents (for example, Europe or Africa).</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Continent
+
+One of the continents (for example, Europe or Africa).
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [Landform](Landform.mdx) > **Continent**
+
+
+
+## Properties
+
+See [Schema.org Continent properties](https://schema.org/Continent#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Continent } from 'schema.org.ai'
+
+// Create a Continent
+const item: Continent = {
+  $type: 'Continent',
+  name: 'Example Continent'
+}
+
+// Use semantic patterns
+await $.Continent.create(item)
+const result = await $.Continent.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Continent](https://schema.org/Continent)
+- [Continent Properties](https://schema.org/Continent#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

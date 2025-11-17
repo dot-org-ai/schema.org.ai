@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicAlbum",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicAlbum",
+  "description": "A collection of music tracks.",
+  "subClassOf": [
+    "MusicPlaylist"
+  ],
+  "title": "MusicAlbum"
+}

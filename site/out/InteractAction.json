@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/InteractAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "InteractAction",
+  "description": "The act of interacting with another person or organization.",
+  "subClassOf": [
+    "Action"
+  ],
+  "title": "InteractAction"
+}

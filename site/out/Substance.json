@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Substance",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Substance",
+  "description": "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.",
+  "subClassOf": [
+    "MedicalEntity"
+  ],
+  "title": "Substance"
+}

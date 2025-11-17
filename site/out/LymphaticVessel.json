@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LymphaticVessel",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LymphaticVessel",
+  "description": "A type of blood vessel that specifically carries lymph fluid unidirectionally toward the heart.",
+  "subClassOf": [
+    "Vessel"
+  ],
+  "title": "LymphaticVessel"
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InsertAction - schema.org.ai</title>
+  <meta name="description" content="The act of adding at a specific location in an ordered collection.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="InsertAction.json">JSON</a>
+    <a href="InsertAction.md">Markdown</a>
+  </nav>
+
+  <h1>InsertAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/InsertAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="AddAction.html">AddAction</a></p>
+    <p><strong>Description:</strong> The act of adding at a specific location in an ordered collection.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# InsertAction
+
+The act of adding at a specific location in an ordered collection.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [UpdateAction](UpdateAction.mdx) > [AddAction](AddAction.mdx) > **InsertAction**
+
+## Direct Subclasses
+
+- **[AppendAction](AppendAction.mdx)**: The act of inserting at the end if an ordered collection
+- **[PrependAction](PrependAction.mdx)**: The act of inserting at the beginning if an ordered collection
+
+## Properties
+
+See [Schema.org InsertAction properties](https://schema.org/InsertAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { InsertAction } from 'schema.org.ai'
+
+// Create a InsertAction
+const item: InsertAction = {
+  $type: 'InsertAction',
+  name: 'Example InsertAction'
+}
+
+// Use semantic patterns
+await $.InsertAction.create(item)
+const result = await $.InsertAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org InsertAction](https://schema.org/InsertAction)
+- [InsertAction Properties](https://schema.org/InsertAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

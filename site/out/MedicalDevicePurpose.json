@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicalDevicePurpose",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalDevicePurpose",
+  "description": "Categories of medical devices, organized by the purpose or intended use of the device.",
+  "subClassOf": [
+    "MedicalEnumeration"
+  ],
+  "title": "MedicalDevicePurpose"
+}

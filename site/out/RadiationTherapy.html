@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RadiationTherapy - schema.org.ai</title>
+  <meta name="description" content="A process of care using radiation aimed at improving a health condition.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="RadiationTherapy.json">JSON</a>
+    <a href="RadiationTherapy.md">Markdown</a>
+  </nav>
+
+  <h1>RadiationTherapy</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/RadiationTherapy</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalTherapy.html">MedicalTherapy</a></p>
+    <p><strong>Description:</strong> A process of care using radiation aimed at improving a health condition.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# RadiationTherapy
+
+A process of care using radiation aimed at improving a health condition.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalProcedure](MedicalProcedure.mdx) > [TherapeuticProcedure](TherapeuticProcedure.mdx) > [MedicalTherapy](MedicalTherapy.mdx) > **RadiationTherapy**
+
+
+
+## Properties
+
+See [Schema.org RadiationTherapy properties](https://schema.org/RadiationTherapy#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { RadiationTherapy } from 'schema.org.ai'
+
+// Create a RadiationTherapy
+const item: RadiationTherapy = {
+  $type: 'RadiationTherapy',
+  name: 'Example RadiationTherapy'
+}
+
+// Use semantic patterns
+await $.RadiationTherapy.create(item)
+const result = await $.RadiationTherapy.get('item-id')
+```
+
+## Resources
+
+- [Schema.org RadiationTherapy](https://schema.org/RadiationTherapy)
+- [RadiationTherapy Properties](https://schema.org/RadiationTherapy#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

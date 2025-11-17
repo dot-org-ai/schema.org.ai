@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Game",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Game",
+  "description": "The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Game"
+}

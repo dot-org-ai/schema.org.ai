@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BookSeries",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BookSeries",
+  "description": "A series of books. Included books can be indicated with the hasPart property.",
+  "subClassOf": [
+    "CreativeWorkSeries"
+  ],
+  "title": "BookSeries"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoatReservation - schema.org.ai</title>
+  <meta name="description" content="A reservation for boat travel.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="BoatReservation.json">JSON</a>
+    <a href="BoatReservation.md">Markdown</a>
+  </nav>
+
+  <h1>BoatReservation</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/BoatReservation</code></p>
+    <p><strong>Subclass of:</strong> <a href="Reservation.html">Reservation</a></p>
+    <p><strong>Description:</strong> A reservation for boat travel.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# BoatReservation
+
+A reservation for boat travel.
+
+## Type Hierarchy
+
+**BoatReservation**
+
+
+
+## Properties
+
+See [Schema.org BoatReservation properties](https://schema.org/BoatReservation#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BoatReservation } from 'schema.org.ai'
+
+// Create a BoatReservation
+const item: BoatReservation = {
+  $type: 'BoatReservation',
+  name: 'Example BoatReservation'
+}
+
+// Use semantic patterns
+await $.BoatReservation.create(item)
+const result = await $.BoatReservation.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BoatReservation](https://schema.org/BoatReservation)
+- [BoatReservation Properties](https://schema.org/BoatReservation#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

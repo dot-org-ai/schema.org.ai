@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canal - schema.org.ai</title>
+  <meta name="description" content="A canal, like the Panama Canal.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Canal.json">JSON</a>
+    <a href="Canal.md">Markdown</a>
+  </nav>
+
+  <h1>Canal</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Canal</code></p>
+    <p><strong>Subclass of:</strong> <a href="BodyOfWater.html">BodyOfWater</a></p>
+    <p><strong>Description:</strong> A canal, like the Panama Canal.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Canal
+
+A canal, like the Panama Canal.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [Landform](Landform.mdx) > [BodyOfWater](BodyOfWater.mdx) > **Canal**
+
+
+
+## Properties
+
+See [Schema.org Canal properties](https://schema.org/Canal#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Canal } from 'schema.org.ai'
+
+// Create a Canal
+const item: Canal = {
+  $type: 'Canal',
+  name: 'Example Canal'
+}
+
+// Use semantic patterns
+await $.Canal.create(item)
+const result = await $.Canal.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Canal](https://schema.org/Canal)
+- [Canal Properties](https://schema.org/Canal#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

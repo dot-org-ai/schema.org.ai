@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/InstallAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "InstallAction",
+  "description": "The act of installing an application.",
+  "subClassOf": [
+    "ConsumeAction"
+  ],
+  "title": "InstallAction"
+}

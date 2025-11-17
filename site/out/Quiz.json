@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Quiz",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Quiz",
+  "description": "Quiz: A test of knowledge, skills and abilities.",
+  "subClassOf": [
+    "LearningResource"
+  ],
+  "title": "Quiz"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MediaGallery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MediaGallery",
+  "description": "Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.",
+  "subClassOf": [
+    "CollectionPage"
+  ],
+  "title": "MediaGallery"
+}

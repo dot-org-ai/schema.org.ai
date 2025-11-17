@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReplyAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReplyAction",
+  "description": "The act of responding to a question/message asked/sent by the object. Related to AskAction.\\",
+  "subClassOf": [
+    "CommunicateAction"
+  ],
+  "title": "ReplyAction"
+}

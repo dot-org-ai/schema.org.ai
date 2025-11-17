@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park - schema.org.ai</title>
+  <meta name="description" content="A park.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Park.json">JSON</a>
+    <a href="Park.md">Markdown</a>
+  </nav>
+
+  <h1>Park</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Park</code></p>
+    <p><strong>Subclass of:</strong> <a href="CivicStructure.html">CivicStructure</a></p>
+    <p><strong>Description:</strong> A park.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Park
+
+A park.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [CivicStructure](CivicStructure.mdx) > **Park**
+
+
+
+## Properties
+
+See [Schema.org Park properties](https://schema.org/Park#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Park } from 'schema.org.ai'
+
+// Create a Park
+const item: Park = {
+  $type: 'Park',
+  name: 'Example Park'
+}
+
+// Use semantic patterns
+await $.Park.create(item)
+const result = await $.Park.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Park](https://schema.org/Park)
+- [Park Properties](https://schema.org/Park#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

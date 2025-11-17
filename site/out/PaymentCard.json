@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/PaymentCard",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PaymentCard",
+  "description": "A payment method using a credit, debit, store or other card to associate the payment with an account.",
+  "subClassOf": [
+    "FinancialProduct",
+    "PaymentMethod"
+  ],
+  "title": "PaymentCard"
+}

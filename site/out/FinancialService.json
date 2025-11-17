@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/FinancialService",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FinancialService",
+  "description": "Financial services business.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "FinancialService"
+}

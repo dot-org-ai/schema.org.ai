@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicVideoObject",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicVideoObject",
+  "description": "A music video file.",
+  "subClassOf": [
+    "MediaObject"
+  ],
+  "title": "MusicVideoObject"
+}

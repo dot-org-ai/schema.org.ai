@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Poster",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Poster",
+  "description": "A large, usually printed placard, bill, or announcement, often illustrated, that is posted to advertise or publicize something.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Poster"
+}

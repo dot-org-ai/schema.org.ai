@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RadioChannel",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RadioChannel",
+  "description": "A unique instance of a radio BroadcastService on a CableOrSatelliteService lineup.",
+  "subClassOf": [
+    "BroadcastChannel"
+  ],
+  "title": "RadioChannel"
+}

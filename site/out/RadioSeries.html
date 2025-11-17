@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RadioSeries - schema.org.ai</title>
+  <meta name="description" content="CreativeWorkSeries dedicated to radio broadcast and associated online delivery.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="RadioSeries.json">JSON</a>
+    <a href="RadioSeries.md">Markdown</a>
+  </nav>
+
+  <h1>RadioSeries</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/RadioSeries</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWorkSeries.html">CreativeWorkSeries</a></p>
+    <p><strong>Description:</strong> CreativeWorkSeries dedicated to radio broadcast and associated online delivery.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# RadioSeries
+
+CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [CreativeWorkSeries](CreativeWorkSeries.mdx) > **RadioSeries**
+
+
+
+## Properties
+
+See [Schema.org RadioSeries properties](https://schema.org/RadioSeries#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { RadioSeries } from 'schema.org.ai'
+
+// Create a RadioSeries
+const item: RadioSeries = {
+  $type: 'RadioSeries',
+  name: 'Example RadioSeries'
+}
+
+// Use semantic patterns
+await $.RadioSeries.create(item)
+const result = await $.RadioSeries.get('item-id')
+```
+
+## Resources
+
+- [Schema.org RadioSeries](https://schema.org/RadioSeries)
+- [RadioSeries Properties](https://schema.org/RadioSeries#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TelevisionChannel",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TelevisionChannel",
+  "description": "A unique instance of a television BroadcastService on a CableOrSatelliteService lineup.",
+  "subClassOf": [
+    "BroadcastChannel"
+  ],
+  "title": "TelevisionChannel"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Electrician",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Electrician",
+  "description": "An electrician.",
+  "subClassOf": [
+    "HomeAndConstructionBusiness"
+  ],
+  "title": "Electrician"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ScheduleAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ScheduleAction",
+  "description": "Scheduling future actions, events, or tasks.\\",
+  "subClassOf": [
+    "PlanAction"
+  ],
+  "title": "ScheduleAction"
+}

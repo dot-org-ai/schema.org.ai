@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SizeGroupEnumeration - schema.org.ai</title>
+  <meta name="description" content="Enumerates common size groups for various product categories.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="SizeGroupEnumeration.json">JSON</a>
+    <a href="SizeGroupEnumeration.md">Markdown</a>
+  </nav>
+
+  <h1>SizeGroupEnumeration</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/SizeGroupEnumeration</code></p>
+    <p><strong>Subclass of:</strong> <a href="Enumeration.html">Enumeration</a></p>
+    <p><strong>Description:</strong> Enumerates common size groups for various product categories.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# SizeGroupEnumeration
+
+Enumerates common size groups for various product categories.
+
+## Type Hierarchy
+
+**SizeGroupEnumeration**
+
+## Direct Subclasses
+
+- **[WearableSizeGroupEnumeration](WearableSizeGroupEnumeration.mdx)**: Enumerates common size groups (also known as "size types") for wearable products
+
+## Properties
+
+See [Schema.org SizeGroupEnumeration properties](https://schema.org/SizeGroupEnumeration#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SizeGroupEnumeration } from 'schema.org.ai'
+
+// Create a SizeGroupEnumeration
+const item: SizeGroupEnumeration = {
+  $type: 'SizeGroupEnumeration',
+  name: 'Example SizeGroupEnumeration'
+}
+
+// Use semantic patterns
+await $.SizeGroupEnumeration.create(item)
+const result = await $.SizeGroupEnumeration.get('item-id')
+```
+
+## Resources
+
+- [Schema.org SizeGroupEnumeration](https://schema.org/SizeGroupEnumeration)
+- [SizeGroupEnumeration Properties](https://schema.org/SizeGroupEnumeration#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

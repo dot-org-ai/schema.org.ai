@@ -1,0 +1,43 @@
+
+
+# CategoryCode
+
+A Category Code.
+
+## Type Hierarchy
+
+**CategoryCode**
+
+## Direct Subclasses
+
+- **[MedicalCode](MedicalCode.mdx)**: A code for a medical entity
+
+## Properties
+
+See [Schema.org CategoryCode properties](https://schema.org/CategoryCode#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CategoryCode } from 'schema.org.ai'
+
+// Create a CategoryCode
+const item: CategoryCode = {
+  $type: 'CategoryCode',
+  name: 'Example CategoryCode'
+}
+
+// Use semantic patterns
+await $.CategoryCode.create(item)
+const result = await $.CategoryCode.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CategoryCode](https://schema.org/CategoryCode)
+- [CategoryCode Properties](https://schema.org/CategoryCode#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

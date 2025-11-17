@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EventAttendanceModeEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EventAttendanceModeEnumeration",
+  "description": "An EventAttendanceModeEnumeration value is one of potentially several modes of organising an event, relating to whether it is online or offline.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "EventAttendanceModeEnumeration"
+}

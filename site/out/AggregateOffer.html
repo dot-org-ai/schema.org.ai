@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AggregateOffer - schema.org.ai</title>
+  <meta name="description" content="When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="AggregateOffer.json">JSON</a>
+    <a href="AggregateOffer.md">Markdown</a>
+  </nav>
+
+  <h1>AggregateOffer</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/AggregateOffer</code></p>
+    <p><strong>Subclass of:</strong> <a href="Offer.html">Offer</a></p>
+    <p><strong>Description:</strong> When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# AggregateOffer
+
+When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.\
+\
+Note: AggregateOffers are normally expected to associate multiple offers that all share the same defined businessFunction value, or default to http://purl.org/goodrelations/v1#Sell if businessFunction is not explicitly defined.
+
+## Type Hierarchy
+
+**AggregateOffer**
+
+
+
+## Properties
+
+See [Schema.org AggregateOffer properties](https://schema.org/AggregateOffer#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { AggregateOffer } from 'schema.org.ai'
+
+// Create a AggregateOffer
+const item: AggregateOffer = {
+  $type: 'AggregateOffer',
+  name: 'Example AggregateOffer'
+}
+
+// Use semantic patterns
+await $.AggregateOffer.create(item)
+const result = await $.AggregateOffer.get('item-id')
+```
+
+## Resources
+
+- [Schema.org AggregateOffer](https://schema.org/AggregateOffer)
+- [AggregateOffer Properties](https://schema.org/AggregateOffer#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

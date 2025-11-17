@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicalEntity",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalEntity",
+  "description": "The most generic type of entity related to health and the practice of medicine.",
+  "subClassOf": [
+    "Thing"
+  ],
+  "title": "MedicalEntity"
+}

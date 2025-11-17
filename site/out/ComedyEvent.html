@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComedyEvent - schema.org.ai</title>
+  <meta name="description" content="Event type: Comedy event.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ComedyEvent.json">JSON</a>
+    <a href="ComedyEvent.md">Markdown</a>
+  </nav>
+
+  <h1>ComedyEvent</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ComedyEvent</code></p>
+    <p><strong>Subclass of:</strong> <a href="Event.html">Event</a></p>
+    <p><strong>Description:</strong> Event type: Comedy event.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ComedyEvent
+
+Event type: Comedy event.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Event](Event.mdx) > **ComedyEvent**
+
+
+
+## Properties
+
+See [Schema.org ComedyEvent properties](https://schema.org/ComedyEvent#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ComedyEvent } from 'schema.org.ai'
+
+// Create a ComedyEvent
+const item: ComedyEvent = {
+  $type: 'ComedyEvent',
+  name: 'Example ComedyEvent'
+}
+
+// Use semantic patterns
+await $.ComedyEvent.create(item)
+const result = await $.ComedyEvent.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ComedyEvent](https://schema.org/ComedyEvent)
+- [ComedyEvent Properties](https://schema.org/ComedyEvent#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

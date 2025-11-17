@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalCondition - schema.org.ai</title>
+  <meta name="description" content="Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalCondition.json">JSON</a>
+    <a href="MedicalCondition.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalCondition</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalCondition</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalEntity.html">MedicalEntity</a></p>
+    <p><strong>Description:</strong> Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalCondition
+
+Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > **MedicalCondition**
+
+## Direct Subclasses
+
+- **[InfectiousDisease](InfectiousDisease.mdx)**: An infectious disease is a clinically evident human disease resulting from the presence of pathogenic microbial agents, like pathogenic viruses, pathogenic bacteria, fungi, protozoa, multicellular parasites, and prions
+- **[MedicalSignOrSymptom](MedicalSignOrSymptom.mdx)**: Any feature associated or not with a medical condition
+
+## Properties
+
+See [Schema.org MedicalCondition properties](https://schema.org/MedicalCondition#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalCondition } from 'schema.org.ai'
+
+// Create a MedicalCondition
+const item: MedicalCondition = {
+  $type: 'MedicalCondition',
+  name: 'Example MedicalCondition'
+}
+
+// Use semantic patterns
+await $.MedicalCondition.create(item)
+const result = await $.MedicalCondition.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalCondition](https://schema.org/MedicalCondition)
+- [MedicalCondition Properties](https://schema.org/MedicalCondition#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

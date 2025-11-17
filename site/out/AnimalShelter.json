@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AnimalShelter",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AnimalShelter",
+  "description": "Animal shelter.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "AnimalShelter"
+}

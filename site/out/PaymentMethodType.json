@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PaymentMethodType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PaymentMethodType",
+  "description": "The type of payment method, only for generic payment types, specific forms of payments, like card payment should be expressed using subclasses of PaymentMethod.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "PaymentMethodType"
+}

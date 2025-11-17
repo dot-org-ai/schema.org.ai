@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Vehicle",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Vehicle",
+  "description": "A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.",
+  "subClassOf": [
+    "Product"
+  ],
+  "title": "Vehicle"
+}

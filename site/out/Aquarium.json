@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Aquarium",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Aquarium",
+  "description": "Aquarium.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "Aquarium"
+}

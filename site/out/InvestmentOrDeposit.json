@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/InvestmentOrDeposit",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "InvestmentOrDeposit",
+  "description": "A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return.",
+  "subClassOf": [
+    "FinancialProduct"
+  ],
+  "title": "InvestmentOrDeposit"
+}

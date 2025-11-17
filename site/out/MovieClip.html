@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieClip - schema.org.ai</title>
+  <meta name="description" content="A short segment/part of a movie.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MovieClip.json">JSON</a>
+    <a href="MovieClip.md">Markdown</a>
+  </nav>
+
+  <h1>MovieClip</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MovieClip</code></p>
+    <p><strong>Subclass of:</strong> <a href="Clip.html">Clip</a></p>
+    <p><strong>Description:</strong> A short segment/part of a movie.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MovieClip
+
+A short segment/part of a movie.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [Clip](Clip.mdx) > **MovieClip**
+
+
+
+## Properties
+
+See [Schema.org MovieClip properties](https://schema.org/MovieClip#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MovieClip } from 'schema.org.ai'
+
+// Create a MovieClip
+const item: MovieClip = {
+  $type: 'MovieClip',
+  name: 'Example MovieClip'
+}
+
+// Use semantic patterns
+await $.MovieClip.create(item)
+const result = await $.MovieClip.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MovieClip](https://schema.org/MovieClip)
+- [MovieClip Properties](https://schema.org/MovieClip#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

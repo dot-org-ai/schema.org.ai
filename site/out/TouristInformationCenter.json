@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TouristInformationCenter",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TouristInformationCenter",
+  "description": "A tourist information center.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "TouristInformationCenter"
+}

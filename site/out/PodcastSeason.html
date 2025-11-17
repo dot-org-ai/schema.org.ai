@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PodcastSeason - schema.org.ai</title>
+  <meta name="description" content="A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PodcastSeason.json">JSON</a>
+    <a href="PodcastSeason.md">Markdown</a>
+  </nav>
+
+  <h1>PodcastSeason</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PodcastSeason</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWorkSeason.html">CreativeWorkSeason</a></p>
+    <p><strong>Description:</strong> A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PodcastSeason
+
+A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [CreativeWorkSeason](CreativeWorkSeason.mdx) > **PodcastSeason**
+
+
+
+## Properties
+
+See [Schema.org PodcastSeason properties](https://schema.org/PodcastSeason#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PodcastSeason } from 'schema.org.ai'
+
+// Create a PodcastSeason
+const item: PodcastSeason = {
+  $type: 'PodcastSeason',
+  name: 'Example PodcastSeason'
+}
+
+// Use semantic patterns
+await $.PodcastSeason.create(item)
+const result = await $.PodcastSeason.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PodcastSeason](https://schema.org/PodcastSeason)
+- [PodcastSeason Properties](https://schema.org/PodcastSeason#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

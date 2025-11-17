@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrainReservation - schema.org.ai</title>
+  <meta name="description" content="A reservation for train travel.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="TrainReservation.json">JSON</a>
+    <a href="TrainReservation.md">Markdown</a>
+  </nav>
+
+  <h1>TrainReservation</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/TrainReservation</code></p>
+    <p><strong>Subclass of:</strong> <a href="Reservation.html">Reservation</a></p>
+    <p><strong>Description:</strong> A reservation for train travel.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# TrainReservation
+
+A reservation for train travel.\
+\
+Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use Offer.
+
+## Type Hierarchy
+
+**TrainReservation**
+
+
+
+## Properties
+
+See [Schema.org TrainReservation properties](https://schema.org/TrainReservation#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { TrainReservation } from 'schema.org.ai'
+
+// Create a TrainReservation
+const item: TrainReservation = {
+  $type: 'TrainReservation',
+  name: 'Example TrainReservation'
+}
+
+// Use semantic patterns
+await $.TrainReservation.create(item)
+const result = await $.TrainReservation.get('item-id')
+```
+
+## Resources
+
+- [Schema.org TrainReservation](https://schema.org/TrainReservation)
+- [TrainReservation Properties](https://schema.org/TrainReservation#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

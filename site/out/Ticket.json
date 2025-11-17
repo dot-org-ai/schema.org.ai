@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Ticket",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Ticket",
+  "description": "Used to describe a ticket to an event, a flight, a bus ride, etc.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "Ticket"
+}

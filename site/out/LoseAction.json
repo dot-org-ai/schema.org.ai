@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LoseAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LoseAction",
+  "description": "The act of being defeated in a competitive activity.",
+  "subClassOf": [
+    "AchieveAction"
+  ],
+  "title": "LoseAction"
+}

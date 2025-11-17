@@ -1,0 +1,41 @@
+
+
+# ProductCollection
+
+A set of products (either ProductGroups or specific variants) that are listed together e.g. in an Offer.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Product](Product.mdx) > **ProductCollection**
+
+
+
+## Properties
+
+See [Schema.org ProductCollection properties](https://schema.org/ProductCollection#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ProductCollection } from 'schema.org.ai'
+
+// Create a ProductCollection
+const item: ProductCollection = {
+  $type: 'ProductCollection',
+  name: 'Example ProductCollection'
+}
+
+// Use semantic patterns
+await $.ProductCollection.create(item)
+const result = await $.ProductCollection.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ProductCollection](https://schema.org/ProductCollection)
+- [ProductCollection Properties](https://schema.org/ProductCollection#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

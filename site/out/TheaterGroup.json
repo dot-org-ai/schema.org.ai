@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TheaterGroup",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TheaterGroup",
+  "description": "A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre.",
+  "subClassOf": [
+    "PerformingGroup"
+  ],
+  "title": "TheaterGroup"
+}

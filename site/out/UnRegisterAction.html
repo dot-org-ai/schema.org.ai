@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnRegisterAction - schema.org.ai</title>
+  <meta name="description" content="The act of un-registering from a service.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="UnRegisterAction.json">JSON</a>
+    <a href="UnRegisterAction.md">Markdown</a>
+  </nav>
+
+  <h1>UnRegisterAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/UnRegisterAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="InteractAction.html">InteractAction</a></p>
+    <p><strong>Description:</strong> The act of un-registering from a service.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# UnRegisterAction
+
+The act of un-registering from a service.\
+\
+Related actions:\
+\
+* RegisterAction: antonym of UnRegisterAction.\
+* LeaveAction: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you were previously registered, rather than leaving a team/group of people.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [InteractAction](InteractAction.mdx) > **UnRegisterAction**
+
+
+
+## Properties
+
+See [Schema.org UnRegisterAction properties](https://schema.org/UnRegisterAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { UnRegisterAction } from 'schema.org.ai'
+
+// Create a UnRegisterAction
+const item: UnRegisterAction = {
+  $type: 'UnRegisterAction',
+  name: 'Example UnRegisterAction'
+}
+
+// Use semantic patterns
+await $.UnRegisterAction.create(item)
+const result = await $.UnRegisterAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org UnRegisterAction](https://schema.org/UnRegisterAction)
+- [UnRegisterAction Properties](https://schema.org/UnRegisterAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

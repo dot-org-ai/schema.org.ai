@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DefinedTermSet",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DefinedTermSet",
+  "description": "A set of defined terms, for example a set of categories or a classification scheme, a glossary, dictionary or enumeration.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "DefinedTermSet"
+}

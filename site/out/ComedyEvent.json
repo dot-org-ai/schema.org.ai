@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ComedyEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ComedyEvent",
+  "description": "Event type: Comedy event.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "ComedyEvent"
+}

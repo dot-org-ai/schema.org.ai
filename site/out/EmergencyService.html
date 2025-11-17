@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmergencyService - schema.org.ai</title>
+  <meta name="description" content="An emergency service, such as a fire station or ER.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="EmergencyService.json">JSON</a>
+    <a href="EmergencyService.md">Markdown</a>
+  </nav>
+
+  <h1>EmergencyService</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/EmergencyService</code></p>
+    <p><strong>Subclass of:</strong> <a href="LocalBusiness.html">LocalBusiness</a></p>
+    <p><strong>Description:</strong> An emergency service, such as a fire station or ER.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# EmergencyService
+
+An emergency service, such as a fire station or ER.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **EmergencyService**
+
+## Direct Subclasses
+
+- **[FireStation](FireStation.mdx)**: A fire station
+- **[Hospital](Hospital.mdx)**: A hospital
+- **[PoliceStation](PoliceStation.mdx)**: A police station
+
+## Properties
+
+See [Schema.org EmergencyService properties](https://schema.org/EmergencyService#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { EmergencyService } from 'schema.org.ai'
+
+// Create a EmergencyService
+const item: EmergencyService = {
+  $type: 'EmergencyService',
+  name: 'Example EmergencyService'
+}
+
+// Use semantic patterns
+await $.EmergencyService.create(item)
+const result = await $.EmergencyService.get('item-id')
+```
+
+## Resources
+
+- [Schema.org EmergencyService](https://schema.org/EmergencyService)
+- [EmergencyService Properties](https://schema.org/EmergencyService#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

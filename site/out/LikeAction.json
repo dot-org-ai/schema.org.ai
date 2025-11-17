@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LikeAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LikeAction",
+  "description": "The act of expressing a positive sentiment about the object. An agent likes an object (a proposition, topic or theme) with participants.",
+  "subClassOf": [
+    "ReactAction"
+  ],
+  "title": "LikeAction"
+}

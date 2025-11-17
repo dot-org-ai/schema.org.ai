@@ -1,0 +1,41 @@
+
+
+# AMRadioChannel
+
+A radio channel that uses AM.
+
+## Type Hierarchy
+
+**AMRadioChannel**
+
+
+
+## Properties
+
+See [Schema.org AMRadioChannel properties](https://schema.org/AMRadioChannel#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { AMRadioChannel } from 'schema.org.ai'
+
+// Create a AMRadioChannel
+const item: AMRadioChannel = {
+  $type: 'AMRadioChannel',
+  name: 'Example AMRadioChannel'
+}
+
+// Use semantic patterns
+await $.AMRadioChannel.create(item)
+const result = await $.AMRadioChannel.get('item-id')
+```
+
+## Resources
+
+- [Schema.org AMRadioChannel](https://schema.org/AMRadioChannel)
+- [AMRadioChannel Properties](https://schema.org/AMRadioChannel#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

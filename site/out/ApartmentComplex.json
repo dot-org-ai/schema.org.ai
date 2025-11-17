@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ApartmentComplex",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ApartmentComplex",
+  "description": "Residence type: Apartment complex.",
+  "subClassOf": [
+    "Residence"
+  ],
+  "title": "ApartmentComplex"
+}

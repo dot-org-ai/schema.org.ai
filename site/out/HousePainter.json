@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HousePainter",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HousePainter",
+  "description": "A house painting service.",
+  "subClassOf": [
+    "HomeAndConstructionBusiness"
+  ],
+  "title": "HousePainter"
+}

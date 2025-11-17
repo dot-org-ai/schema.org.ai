@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DownloadAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DownloadAction",
+  "description": "The act of downloading an object.",
+  "subClassOf": [
+    "TransferAction"
+  ],
+  "title": "DownloadAction"
+}

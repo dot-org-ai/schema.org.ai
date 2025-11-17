@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EventVenue",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EventVenue",
+  "description": "An event venue.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "EventVenue"
+}

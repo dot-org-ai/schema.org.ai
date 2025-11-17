@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TelevisionStation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TelevisionStation",
+  "description": "A television station.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "TelevisionStation"
+}

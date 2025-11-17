@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integer - schema.org.ai</title>
+  <meta name="description" content="Data type: Integer.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Integer.json">JSON</a>
+    <a href="Integer.md">Markdown</a>
+  </nav>
+
+  <h1>Integer</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Integer</code></p>
+    <p><strong>Subclass of:</strong> <a href="Number.html">Number</a></p>
+    <p><strong>Description:</strong> Data type: Integer.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Integer
+
+Data type: Integer.
+
+## Type Hierarchy
+
+**Integer**
+
+
+
+## Properties
+
+See [Schema.org Integer properties](https://schema.org/Integer#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Integer } from 'schema.org.ai'
+
+// Create a Integer
+const item: Integer = {
+  $type: 'Integer',
+  name: 'Example Integer'
+}
+
+// Use semantic patterns
+await $.Integer.create(item)
+const result = await $.Integer.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Integer](https://schema.org/Integer)
+- [Integer Properties](https://schema.org/Integer#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

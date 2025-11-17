@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BusinessEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BusinessEvent",
+  "description": "Event type: Business event.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "BusinessEvent"
+}

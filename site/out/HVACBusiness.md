@@ -1,0 +1,41 @@
+
+
+# HVACBusiness
+
+A business that provides Heating, Ventilation and Air Conditioning services.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [HomeAndConstructionBusiness](HomeAndConstructionBusiness.mdx) > **HVACBusiness**
+
+
+
+## Properties
+
+See [Schema.org HVACBusiness properties](https://schema.org/HVACBusiness#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { HVACBusiness } from 'schema.org.ai'
+
+// Create a HVACBusiness
+const item: HVACBusiness = {
+  $type: 'HVACBusiness',
+  name: 'Example HVACBusiness'
+}
+
+// Use semantic patterns
+await $.HVACBusiness.create(item)
+const result = await $.HVACBusiness.get('item-id')
+```
+
+## Resources
+
+- [Schema.org HVACBusiness](https://schema.org/HVACBusiness)
+- [HVACBusiness Properties](https://schema.org/HVACBusiness#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

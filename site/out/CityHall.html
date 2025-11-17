@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CityHall - schema.org.ai</title>
+  <meta name="description" content="A city hall.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="CityHall.json">JSON</a>
+    <a href="CityHall.md">Markdown</a>
+  </nav>
+
+  <h1>CityHall</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/CityHall</code></p>
+    <p><strong>Subclass of:</strong> <a href="GovernmentBuilding.html">GovernmentBuilding</a></p>
+    <p><strong>Description:</strong> A city hall.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# CityHall
+
+A city hall.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [CivicStructure](CivicStructure.mdx) > [GovernmentBuilding](GovernmentBuilding.mdx) > **CityHall**
+
+
+
+## Properties
+
+See [Schema.org CityHall properties](https://schema.org/CityHall#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CityHall } from 'schema.org.ai'
+
+// Create a CityHall
+const item: CityHall = {
+  $type: 'CityHall',
+  name: 'Example CityHall'
+}
+
+// Use semantic patterns
+await $.CityHall.create(item)
+const result = await $.CityHall.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CityHall](https://schema.org/CityHall)
+- [CityHall Properties](https://schema.org/CityHall#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

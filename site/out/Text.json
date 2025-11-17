@@ -1,0 +1,9 @@
+{
+  "$id": "https://schema.org.ai/Text",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Text",
+  "description": "Data type: Text.",
+  "subClassOf": [],
+  "title": "Text"
+}

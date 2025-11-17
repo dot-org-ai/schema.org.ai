@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuoteAction - schema.org.ai</title>
+  <meta name="description" content="An agent quotes/estimates/appraises an object/product/service with a price at a location/store.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="QuoteAction.json">JSON</a>
+    <a href="QuoteAction.md">Markdown</a>
+  </nav>
+
+  <h1>QuoteAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/QuoteAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="TradeAction.html">TradeAction</a></p>
+    <p><strong>Description:</strong> An agent quotes/estimates/appraises an object/product/service with a price at a location/store.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# QuoteAction
+
+An agent quotes/estimates/appraises an object/product/service with a price at a location/store.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [TradeAction](TradeAction.mdx) > **QuoteAction**
+
+
+
+## Properties
+
+See [Schema.org QuoteAction properties](https://schema.org/QuoteAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { QuoteAction } from 'schema.org.ai'
+
+// Create a QuoteAction
+const item: QuoteAction = {
+  $type: 'QuoteAction',
+  name: 'Example QuoteAction'
+}
+
+// Use semantic patterns
+await $.QuoteAction.create(item)
+const result = await $.QuoteAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org QuoteAction](https://schema.org/QuoteAction)
+- [QuoteAction Properties](https://schema.org/QuoteAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

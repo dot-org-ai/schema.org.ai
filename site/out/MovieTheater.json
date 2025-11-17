@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/MovieTheater",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MovieTheater",
+  "description": "A movie theater.",
+  "subClassOf": [
+    "CivicStructure",
+    "EntertainmentBusiness"
+  ],
+  "title": "MovieTheater"
+}

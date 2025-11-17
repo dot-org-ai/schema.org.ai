@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PurchaseType - schema.org.ai</title>
+  <meta name="description" content="Enumerates a purchase type for an item.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PurchaseType.json">JSON</a>
+    <a href="PurchaseType.md">Markdown</a>
+  </nav>
+
+  <h1>PurchaseType</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PurchaseType</code></p>
+    <p><strong>Subclass of:</strong> <a href="Enumeration.html">Enumeration</a></p>
+    <p><strong>Description:</strong> Enumerates a purchase type for an item.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PurchaseType
+
+Enumerates a purchase type for an item.
+
+## Type Hierarchy
+
+**PurchaseType**
+
+
+
+## Properties
+
+See [Schema.org PurchaseType properties](https://schema.org/PurchaseType#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PurchaseType } from 'schema.org.ai'
+
+// Create a PurchaseType
+const item: PurchaseType = {
+  $type: 'PurchaseType',
+  name: 'Example PurchaseType'
+}
+
+// Use semantic patterns
+await $.PurchaseType.create(item)
+const result = await $.PurchaseType.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PurchaseType](https://schema.org/PurchaseType)
+- [PurchaseType Properties](https://schema.org/PurchaseType#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

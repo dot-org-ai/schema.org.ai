@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaleEvent - schema.org.ai</title>
+  <meta name="description" content="Event type: Sales event.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="SaleEvent.json">JSON</a>
+    <a href="SaleEvent.md">Markdown</a>
+  </nav>
+
+  <h1>SaleEvent</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/SaleEvent</code></p>
+    <p><strong>Subclass of:</strong> <a href="Event.html">Event</a></p>
+    <p><strong>Description:</strong> Event type: Sales event.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# SaleEvent
+
+Event type: Sales event.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Event](Event.mdx) > **SaleEvent**
+
+
+
+## Properties
+
+See [Schema.org SaleEvent properties](https://schema.org/SaleEvent#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SaleEvent } from 'schema.org.ai'
+
+// Create a SaleEvent
+const item: SaleEvent = {
+  $type: 'SaleEvent',
+  name: 'Example SaleEvent'
+}
+
+// Use semantic patterns
+await $.SaleEvent.create(item)
+const result = await $.SaleEvent.get('item-id')
+```
+
+## Resources
+
+- [Schema.org SaleEvent](https://schema.org/SaleEvent)
+- [SaleEvent Properties](https://schema.org/SaleEvent#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

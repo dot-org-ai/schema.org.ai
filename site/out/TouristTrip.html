@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TouristTrip - schema.org.ai</title>
+  <meta name="description" content="A tourist trip. A created itinerary of visits to one or more places of interest (TouristAttraction/TouristDestination) often linked by a similar theme, geographic area, or interest to a particular touristType. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors. (See examples below.)">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="TouristTrip.json">JSON</a>
+    <a href="TouristTrip.md">Markdown</a>
+  </nav>
+
+  <h1>TouristTrip</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/TouristTrip</code></p>
+    <p><strong>Subclass of:</strong> <a href="Trip.html">Trip</a></p>
+    <p><strong>Description:</strong> A tourist trip. A created itinerary of visits to one or more places of interest (TouristAttraction/TouristDestination) often linked by a similar theme, geographic area, or interest to a particular touristType. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors. (See examples below.)</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# TouristTrip
+
+A tourist trip. A created itinerary of visits to one or more places of interest (TouristAttraction/TouristDestination) often linked by a similar theme, geographic area, or interest to a particular touristType. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors. (See examples below.)
+
+## Type Hierarchy
+
+**TouristTrip**
+
+
+
+## Properties
+
+See [Schema.org TouristTrip properties](https://schema.org/TouristTrip#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { TouristTrip } from 'schema.org.ai'
+
+// Create a TouristTrip
+const item: TouristTrip = {
+  $type: 'TouristTrip',
+  name: 'Example TouristTrip'
+}
+
+// Use semantic patterns
+await $.TouristTrip.create(item)
+const result = await $.TouristTrip.get('item-id')
+```
+
+## Resources
+
+- [Schema.org TouristTrip](https://schema.org/TouristTrip)
+- [TouristTrip Properties](https://schema.org/TouristTrip#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

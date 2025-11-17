@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Dataset",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Dataset",
+  "description": "A body of structured information describing some topic(s) of interest.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Dataset"
+}

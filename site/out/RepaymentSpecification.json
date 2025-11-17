@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RepaymentSpecification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RepaymentSpecification",
+  "description": "A structured value representing repayment.",
+  "subClassOf": [
+    "StructuredValue"
+  ],
+  "title": "RepaymentSpecification"
+}

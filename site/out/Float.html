@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float - schema.org.ai</title>
+  <meta name="description" content="Data type: Floating number.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Float.json">JSON</a>
+    <a href="Float.md">Markdown</a>
+  </nav>
+
+  <h1>Float</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Float</code></p>
+    <p><strong>Subclass of:</strong> <a href="Number.html">Number</a></p>
+    <p><strong>Description:</strong> Data type: Floating number.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Float
+
+Data type: Floating number.
+
+## Type Hierarchy
+
+**Float**
+
+
+
+## Properties
+
+See [Schema.org Float properties](https://schema.org/Float#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Float } from 'schema.org.ai'
+
+// Create a Float
+const item: Float = {
+  $type: 'Float',
+  name: 'Example Float'
+}
+
+// Use semantic patterns
+await $.Float.create(item)
+const result = await $.Float.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Float](https://schema.org/Float)
+- [Float Properties](https://schema.org/Float#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

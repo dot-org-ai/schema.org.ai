@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MobilePhoneStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MobilePhoneStore",
+  "description": "A store that sells mobile phones and related accessories.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "MobilePhoneStore"
+}

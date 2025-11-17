@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MerchantReturnPolicy",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MerchantReturnPolicy",
+  "description": "A MerchantReturnPolicy provides information about product return policies associated with an Organization, Product, or Offer.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "MerchantReturnPolicy"
+}

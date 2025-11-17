@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WearableSizeSystemEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WearableSizeSystemEnumeration",
+  "description": "Enumerates common size systems specific for wearable products.",
+  "subClassOf": [
+    "SizeSystemEnumeration"
+  ],
+  "title": "WearableSizeSystemEnumeration"
+}

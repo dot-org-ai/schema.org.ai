@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResearchProject - schema.org.ai</title>
+  <meta name="description" content="A Research project.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ResearchProject.json">JSON</a>
+    <a href="ResearchProject.md">Markdown</a>
+  </nav>
+
+  <h1>ResearchProject</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ResearchProject</code></p>
+    <p><strong>Subclass of:</strong> <a href="Project.html">Project</a></p>
+    <p><strong>Description:</strong> A Research project.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ResearchProject
+
+A Research project.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Organization](Organization.mdx) > [Project](Project.mdx) > **ResearchProject**
+
+
+
+## Properties
+
+See [Schema.org ResearchProject properties](https://schema.org/ResearchProject#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ResearchProject } from 'schema.org.ai'
+
+// Create a ResearchProject
+const item: ResearchProject = {
+  $type: 'ResearchProject',
+  name: 'Example ResearchProject'
+}
+
+// Use semantic patterns
+await $.ResearchProject.create(item)
+const result = await $.ResearchProject.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ResearchProject](https://schema.org/ResearchProject)
+- [ResearchProject Properties](https://schema.org/ResearchProject#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

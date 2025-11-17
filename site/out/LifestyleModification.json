@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LifestyleModification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LifestyleModification",
+  "description": "A process of care involving exercise, changes to diet, fitness routines, and other lifestyle changes aimed at improving a health condition.",
+  "subClassOf": [
+    "MedicalEntity"
+  ],
+  "title": "LifestyleModification"
+}

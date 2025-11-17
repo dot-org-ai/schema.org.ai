@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Float",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Float",
+  "description": "Data type: Floating number.",
+  "subClassOf": [
+    "Number"
+  ],
+  "title": "Float"
+}

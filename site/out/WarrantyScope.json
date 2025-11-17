@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WarrantyScope",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WarrantyScope",
+  "description": "A range of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.\\",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "WarrantyScope"
+}

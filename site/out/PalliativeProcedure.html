@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PalliativeProcedure - schema.org.ai</title>
+  <meta name="description" content="A medical procedure intended primarily for palliative purposes, aimed at relieving the symptoms of an underlying health condition.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PalliativeProcedure.json">JSON</a>
+    <a href="PalliativeProcedure.md">Markdown</a>
+  </nav>
+
+  <h1>PalliativeProcedure</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PalliativeProcedure</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalTherapy.html">MedicalTherapy</a>, <a href="MedicalProcedure.html">MedicalProcedure</a></p>
+    <p><strong>Description:</strong> A medical procedure intended primarily for palliative purposes, aimed at relieving the symptoms of an underlying health condition.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PalliativeProcedure
+
+A medical procedure intended primarily for palliative purposes, aimed at relieving the symptoms of an underlying health condition.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalProcedure](MedicalProcedure.mdx) > [TherapeuticProcedure](TherapeuticProcedure.mdx) > [MedicalTherapy](MedicalTherapy.mdx) > **PalliativeProcedure**
+
+
+
+## Properties
+
+See [Schema.org PalliativeProcedure properties](https://schema.org/PalliativeProcedure#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PalliativeProcedure } from 'schema.org.ai'
+
+// Create a PalliativeProcedure
+const item: PalliativeProcedure = {
+  $type: 'PalliativeProcedure',
+  name: 'Example PalliativeProcedure'
+}
+
+// Use semantic patterns
+await $.PalliativeProcedure.create(item)
+const result = await $.PalliativeProcedure.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PalliativeProcedure](https://schema.org/PalliativeProcedure)
+- [PalliativeProcedure Properties](https://schema.org/PalliativeProcedure#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

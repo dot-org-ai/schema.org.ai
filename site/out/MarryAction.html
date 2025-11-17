@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarryAction - schema.org.ai</title>
+  <meta name="description" content="The act of marrying a person.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MarryAction.json">JSON</a>
+    <a href="MarryAction.md">Markdown</a>
+  </nav>
+
+  <h1>MarryAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MarryAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="InteractAction.html">InteractAction</a></p>
+    <p><strong>Description:</strong> The act of marrying a person.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MarryAction
+
+The act of marrying a person.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [InteractAction](InteractAction.mdx) > **MarryAction**
+
+
+
+## Properties
+
+See [Schema.org MarryAction properties](https://schema.org/MarryAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MarryAction } from 'schema.org.ai'
+
+// Create a MarryAction
+const item: MarryAction = {
+  $type: 'MarryAction',
+  name: 'Example MarryAction'
+}
+
+// Use semantic patterns
+await $.MarryAction.create(item)
+const result = await $.MarryAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MarryAction](https://schema.org/MarryAction)
+- [MarryAction Properties](https://schema.org/MarryAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

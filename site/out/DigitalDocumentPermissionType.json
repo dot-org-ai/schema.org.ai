@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DigitalDocumentPermissionType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DigitalDocumentPermissionType",
+  "description": "A type of permission which can be granted for accessing a digital document.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "DigitalDocumentPermissionType"
+}

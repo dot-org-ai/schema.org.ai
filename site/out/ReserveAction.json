@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReserveAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReserveAction",
+  "description": "Reserving a concrete object.\\",
+  "subClassOf": [
+    "PlanAction"
+  ],
+  "title": "ReserveAction"
+}

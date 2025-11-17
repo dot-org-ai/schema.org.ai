@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Ligament",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Ligament",
+  "description": "A short band of tough, flexible, fibrous connective tissue that functions to connect multiple bones, cartilages, and structurally support joints.",
+  "subClassOf": [
+    "AnatomicalStructure"
+  ],
+  "title": "Ligament"
+}

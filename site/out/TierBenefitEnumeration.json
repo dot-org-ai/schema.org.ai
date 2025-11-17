@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TierBenefitEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TierBenefitEnumeration",
+  "description": "An enumeration of possible benefits as part of a loyalty (members) program.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "TierBenefitEnumeration"
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProfessionalService - schema.org.ai</title>
+  <meta name="description" content="Original definition: \"provider of professional services.\"\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ProfessionalService.json">JSON</a>
+    <a href="ProfessionalService.md">Markdown</a>
+  </nav>
+
+  <h1>ProfessionalService</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ProfessionalService</code></p>
+    <p><strong>Subclass of:</strong> <a href="LocalBusiness.html">LocalBusiness</a></p>
+    <p><strong>Description:</strong> Original definition: \"provider of professional services.\"\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ProfessionalService
+
+Original definition: "provider of professional services."\
+\
+The general ProfessionalService type for local businesses was deprecated due to confusion with Service. For reference, the types that it included were: Dentist, AccountingService, Attorney, Notary, as well as types for several kinds of HomeAndConstructionBusiness: Electrician, GeneralContractor, HousePainter, Locksmith, Plumber, RoofingContractor. LegalService was introduced as a more inclusive supertype of Attorney.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **ProfessionalService**
+
+
+
+## Properties
+
+See [Schema.org ProfessionalService properties](https://schema.org/ProfessionalService#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ProfessionalService } from 'schema.org.ai'
+
+// Create a ProfessionalService
+const item: ProfessionalService = {
+  $type: 'ProfessionalService',
+  name: 'Example ProfessionalService'
+}
+
+// Use semantic patterns
+await $.ProfessionalService.create(item)
+const result = await $.ProfessionalService.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ProfessionalService](https://schema.org/ProfessionalService)
+- [ProfessionalService Properties](https://schema.org/ProfessionalService#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

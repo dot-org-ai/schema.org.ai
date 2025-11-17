@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Barcode",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Barcode",
+  "description": "An image of a visual machine-readable code such as a barcode or QR code.",
+  "subClassOf": [
+    "ImageObject"
+  ],
+  "title": "Barcode"
+}

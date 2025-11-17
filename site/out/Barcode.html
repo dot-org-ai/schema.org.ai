@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barcode - schema.org.ai</title>
+  <meta name="description" content="An image of a visual machine-readable code such as a barcode or QR code.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Barcode.json">JSON</a>
+    <a href="Barcode.md">Markdown</a>
+  </nav>
+
+  <h1>Barcode</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Barcode</code></p>
+    <p><strong>Subclass of:</strong> <a href="ImageObject.html">ImageObject</a></p>
+    <p><strong>Description:</strong> An image of a visual machine-readable code such as a barcode or QR code.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Barcode
+
+An image of a visual machine-readable code such as a barcode or QR code.
+
+## Type Hierarchy
+
+**Barcode**
+
+
+
+## Properties
+
+See [Schema.org Barcode properties](https://schema.org/Barcode#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Barcode } from 'schema.org.ai'
+
+// Create a Barcode
+const item: Barcode = {
+  $type: 'Barcode',
+  name: 'Example Barcode'
+}
+
+// Use semantic patterns
+await $.Barcode.create(item)
+const result = await $.Barcode.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Barcode](https://schema.org/Barcode)
+- [Barcode Properties](https://schema.org/Barcode#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ServicePeriod",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ServicePeriod",
+  "description": "ServicePeriod represents a duration with some constraints about cutoff time and business days. This is used e.g. in shipping for handling times or transit time.",
+  "subClassOf": [
+    "StructuredValue"
+  ],
+  "title": "ServicePeriod"
+}

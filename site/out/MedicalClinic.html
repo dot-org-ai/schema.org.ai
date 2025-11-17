@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalClinic - schema.org.ai</title>
+  <meta name="description" content="A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalClinic.json">JSON</a>
+    <a href="MedicalClinic.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalClinic</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalClinic</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalOrganization.html">MedicalOrganization</a>, <a href="MedicalBusiness.html">MedicalBusiness</a></p>
+    <p><strong>Description:</strong> A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalClinic
+
+A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [MedicalBusiness](MedicalBusiness.mdx) > **MedicalClinic**
+
+## Direct Subclasses
+
+- **[CovidTestingFacility](CovidTestingFacility.mdx)**: A CovidTestingFacility is a MedicalClinic where testing for the COVID-19 Coronavirus disease is available
+
+## Properties
+
+See [Schema.org MedicalClinic properties](https://schema.org/MedicalClinic#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalClinic } from 'schema.org.ai'
+
+// Create a MedicalClinic
+const item: MedicalClinic = {
+  $type: 'MedicalClinic',
+  name: 'Example MedicalClinic'
+}
+
+// Use semantic patterns
+await $.MedicalClinic.create(item)
+const result = await $.MedicalClinic.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalClinic](https://schema.org/MedicalClinic)
+- [MedicalClinic Properties](https://schema.org/MedicalClinic#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

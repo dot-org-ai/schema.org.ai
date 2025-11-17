@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Table",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Table",
+  "description": "A table on a Web page.",
+  "subClassOf": [
+    "WebPageElement"
+  ],
+  "title": "Table"
+}

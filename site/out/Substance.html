@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Substance - schema.org.ai</title>
+  <meta name="description" content="Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Substance.json">JSON</a>
+    <a href="Substance.md">Markdown</a>
+  </nav>
+
+  <h1>Substance</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Substance</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalEntity.html">MedicalEntity</a></p>
+    <p><strong>Description:</strong> Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Substance
+
+Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > **Substance**
+
+## Direct Subclasses
+
+- **[DietarySupplement](DietarySupplement.mdx)**: A product taken by mouth that contains a dietary ingredient intended to supplement the diet
+- **[Drug](Drug.mdx)**: A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism
+
+## Properties
+
+See [Schema.org Substance properties](https://schema.org/Substance#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Substance } from 'schema.org.ai'
+
+// Create a Substance
+const item: Substance = {
+  $type: 'Substance',
+  name: 'Example Substance'
+}
+
+// Use semantic patterns
+await $.Substance.create(item)
+const result = await $.Substance.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Substance](https://schema.org/Substance)
+- [Substance Properties](https://schema.org/Substance#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

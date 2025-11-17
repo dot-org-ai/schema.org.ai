@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/VisualArtwork",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "VisualArtwork",
+  "description": "A work of art that is primarily visual in character.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "VisualArtwork"
+}

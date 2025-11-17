@@ -1,0 +1,41 @@
+
+
+# HowToDirection
+
+A direction indicating a single action to do in the instructions for how to achieve a result.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **HowToDirection**
+
+
+
+## Properties
+
+See [Schema.org HowToDirection properties](https://schema.org/HowToDirection#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { HowToDirection } from 'schema.org.ai'
+
+// Create a HowToDirection
+const item: HowToDirection = {
+  $type: 'HowToDirection',
+  name: 'Example HowToDirection'
+}
+
+// Use semantic patterns
+await $.HowToDirection.create(item)
+const result = await $.HowToDirection.get('item-id')
+```
+
+## Resources
+
+- [Schema.org HowToDirection](https://schema.org/HowToDirection)
+- [HowToDirection Properties](https://schema.org/HowToDirection#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanAction - schema.org.ai</title>
+  <meta name="description" content="The act of planning the execution of an event/task/action/reservation/plan to a future date.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PlanAction.json">JSON</a>
+    <a href="PlanAction.md">Markdown</a>
+  </nav>
+
+  <h1>PlanAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PlanAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="OrganizeAction.html">OrganizeAction</a></p>
+    <p><strong>Description:</strong> The act of planning the execution of an event/task/action/reservation/plan to a future date.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PlanAction
+
+The act of planning the execution of an event/task/action/reservation/plan to a future date.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [OrganizeAction](OrganizeAction.mdx) > **PlanAction**
+
+## Direct Subclasses
+
+- **[CancelAction](CancelAction.mdx)**: The act of asserting that a future event/action is no longer going to happen
+- **[ReserveAction](ReserveAction.mdx)**: Reserving a concrete object
+- **[ScheduleAction](ScheduleAction.mdx)**: Scheduling future actions, events, or tasks
+
+## Properties
+
+See [Schema.org PlanAction properties](https://schema.org/PlanAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PlanAction } from 'schema.org.ai'
+
+// Create a PlanAction
+const item: PlanAction = {
+  $type: 'PlanAction',
+  name: 'Example PlanAction'
+}
+
+// Use semantic patterns
+await $.PlanAction.create(item)
+const result = await $.PlanAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PlanAction](https://schema.org/PlanAction)
+- [PlanAction Properties](https://schema.org/PlanAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

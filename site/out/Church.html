@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church - schema.org.ai</title>
+  <meta name="description" content="A church.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Church.json">JSON</a>
+    <a href="Church.md">Markdown</a>
+  </nav>
+
+  <h1>Church</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Church</code></p>
+    <p><strong>Subclass of:</strong> <a href="PlaceOfWorship.html">PlaceOfWorship</a></p>
+    <p><strong>Description:</strong> A church.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Church
+
+A church.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [CivicStructure](CivicStructure.mdx) > [PlaceOfWorship](PlaceOfWorship.mdx) > **Church**
+
+## Direct Subclasses
+
+- **[CatholicChurch](CatholicChurch.mdx)**: A Catholic church
+
+## Properties
+
+See [Schema.org Church properties](https://schema.org/Church#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Church } from 'schema.org.ai'
+
+// Create a Church
+const item: Church = {
+  $type: 'Church',
+  name: 'Example Church'
+}
+
+// Use semantic patterns
+await $.Church.create(item)
+const result = await $.Church.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Church](https://schema.org/Church)
+- [Church Properties](https://schema.org/Church#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

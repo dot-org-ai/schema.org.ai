@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Winery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Winery",
+  "description": "A winery.",
+  "subClassOf": [
+    "FoodEstablishment"
+  ],
+  "title": "Winery"
+}

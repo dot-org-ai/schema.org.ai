@@ -1,0 +1,13 @@
+{
+  "$id": "https://schema.org.ai/Dentist",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Dentist",
+  "description": "A dentist.",
+  "subClassOf": [
+    "MedicalBusiness",
+    "LocalBusiness",
+    "MedicalOrganization"
+  ],
+  "title": "Dentist"
+}

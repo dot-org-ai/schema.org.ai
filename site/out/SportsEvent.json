@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/SportsEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "SportsEvent",
+  "description": "Event type: Sports event.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "SportsEvent"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Reservoir",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Reservoir",
+  "description": "A reservoir of water, typically an artificially created lake, like the Lake Kariba reservoir.",
+  "subClassOf": [
+    "BodyOfWater"
+  ],
+  "title": "Reservoir"
+}

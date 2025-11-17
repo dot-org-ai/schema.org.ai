@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CorrectionComment",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CorrectionComment",
+  "description": "A comment that corrects CreativeWork.",
+  "subClassOf": [
+    "Comment"
+  ],
+  "title": "CorrectionComment"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DeleteAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DeleteAction",
+  "description": "The act of editing a recipient by removing one of its objects.",
+  "subClassOf": [
+    "UpdateAction"
+  ],
+  "title": "DeleteAction"
+}

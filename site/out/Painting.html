@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painting - schema.org.ai</title>
+  <meta name="description" content="A painting.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Painting.json">JSON</a>
+    <a href="Painting.md">Markdown</a>
+  </nav>
+
+  <h1>Painting</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Painting</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a></p>
+    <p><strong>Description:</strong> A painting.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Painting
+
+A painting.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **Painting**
+
+
+
+## Properties
+
+See [Schema.org Painting properties](https://schema.org/Painting#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Painting } from 'schema.org.ai'
+
+// Create a Painting
+const item: Painting = {
+  $type: 'Painting',
+  name: 'Example Painting'
+}
+
+// Use semantic patterns
+await $.Painting.create(item)
+const result = await $.Painting.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Painting](https://schema.org/Painting)
+- [Painting Properties](https://schema.org/Painting#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

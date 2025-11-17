@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BoardingPolicyType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BoardingPolicyType",
+  "description": "A type of boarding policy used by an airline.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "BoardingPolicyType"
+}

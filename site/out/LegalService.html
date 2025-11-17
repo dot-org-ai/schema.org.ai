@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalService - schema.org.ai</title>
+  <meta name="description" content="A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="LegalService.json">JSON</a>
+    <a href="LegalService.md">Markdown</a>
+  </nav>
+
+  <h1>LegalService</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/LegalService</code></p>
+    <p><strong>Subclass of:</strong> <a href="LocalBusiness.html">LocalBusiness</a></p>
+    <p><strong>Description:</strong> A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# LegalService
+
+A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\
+\
+As a LocalBusiness it can be described as a provider of one or more Service\\(s).
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **LegalService**
+
+## Direct Subclasses
+
+- **[Attorney](Attorney.mdx)**: Professional service: Attorney
+- **[Notary](Notary.mdx)**: A notary
+
+## Properties
+
+See [Schema.org LegalService properties](https://schema.org/LegalService#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { LegalService } from 'schema.org.ai'
+
+// Create a LegalService
+const item: LegalService = {
+  $type: 'LegalService',
+  name: 'Example LegalService'
+}
+
+// Use semantic patterns
+await $.LegalService.create(item)
+const result = await $.LegalService.get('item-id')
+```
+
+## Resources
+
+- [Schema.org LegalService](https://schema.org/LegalService)
+- [LegalService Properties](https://schema.org/LegalService#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

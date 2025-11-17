@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muscle - schema.org.ai</title>
+  <meta name="description" content="A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Muscle.json">JSON</a>
+    <a href="Muscle.md">Markdown</a>
+  </nav>
+
+  <h1>Muscle</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Muscle</code></p>
+    <p><strong>Subclass of:</strong> <a href="AnatomicalStructure.html">AnatomicalStructure</a></p>
+    <p><strong>Description:</strong> A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Muscle
+
+A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [AnatomicalStructure](AnatomicalStructure.mdx) > **Muscle**
+
+
+
+## Properties
+
+See [Schema.org Muscle properties](https://schema.org/Muscle#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Muscle } from 'schema.org.ai'
+
+// Create a Muscle
+const item: Muscle = {
+  $type: 'Muscle',
+  name: 'Example Muscle'
+}
+
+// Use semantic patterns
+await $.Muscle.create(item)
+const result = await $.Muscle.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Muscle](https://schema.org/Muscle)
+- [Muscle Properties](https://schema.org/Muscle#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

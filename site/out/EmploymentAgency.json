@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EmploymentAgency",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EmploymentAgency",
+  "description": "An employment agency.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "EmploymentAgency"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe - schema.org.ai</title>
+  <meta name="description" content="A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via suitableForDiet. The keywords property can also be used to add more detail.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Recipe.json">JSON</a>
+    <a href="Recipe.md">Markdown</a>
+  </nav>
+
+  <h1>Recipe</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Recipe</code></p>
+    <p><strong>Subclass of:</strong> <a href="HowTo.html">HowTo</a></p>
+    <p><strong>Description:</strong> A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via suitableForDiet. The keywords property can also be used to add more detail.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Recipe
+
+A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via suitableForDiet. The keywords property can also be used to add more detail.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [HowTo](HowTo.mdx) > **Recipe**
+
+
+
+## Properties
+
+See [Schema.org Recipe properties](https://schema.org/Recipe#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Recipe } from 'schema.org.ai'
+
+// Create a Recipe
+const item: Recipe = {
+  $type: 'Recipe',
+  name: 'Example Recipe'
+}
+
+// Use semantic patterns
+await $.Recipe.create(item)
+const result = await $.Recipe.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Recipe](https://schema.org/Recipe)
+- [Recipe Properties](https://schema.org/Recipe#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

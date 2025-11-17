@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpinionNewsArticle - schema.org.ai</title>
+  <meta name="description" content="An OpinionNewsArticle is a NewsArticle that primarily expresses opinions rather than journalistic reporting of news and events. For example, a NewsArticle consisting of a column or Blog/BlogPosting entry in the Opinions section of a news publication.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="OpinionNewsArticle.json">JSON</a>
+    <a href="OpinionNewsArticle.md">Markdown</a>
+  </nav>
+
+  <h1>OpinionNewsArticle</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/OpinionNewsArticle</code></p>
+    <p><strong>Subclass of:</strong> <a href="NewsArticle.html">NewsArticle</a></p>
+    <p><strong>Description:</strong> An OpinionNewsArticle is a NewsArticle that primarily expresses opinions rather than journalistic reporting of news and events. For example, a NewsArticle consisting of a column or Blog/BlogPosting entry in the Opinions section of a news publication.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# OpinionNewsArticle
+
+An OpinionNewsArticle is a NewsArticle that primarily expresses opinions rather than journalistic reporting of news and events. For example, a NewsArticle consisting of a column or Blog/BlogPosting entry in the Opinions section of a news publication.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [Article](Article.mdx) > [NewsArticle](NewsArticle.mdx) > **OpinionNewsArticle**
+
+
+
+## Properties
+
+See [Schema.org OpinionNewsArticle properties](https://schema.org/OpinionNewsArticle#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { OpinionNewsArticle } from 'schema.org.ai'
+
+// Create a OpinionNewsArticle
+const item: OpinionNewsArticle = {
+  $type: 'OpinionNewsArticle',
+  name: 'Example OpinionNewsArticle'
+}
+
+// Use semantic patterns
+await $.OpinionNewsArticle.create(item)
+const result = await $.OpinionNewsArticle.get('item-id')
+```
+
+## Resources
+
+- [Schema.org OpinionNewsArticle](https://schema.org/OpinionNewsArticle)
+- [OpinionNewsArticle Properties](https://schema.org/OpinionNewsArticle#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/TVSeason",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TVSeason",
+  "description": "Season dedicated to TV broadcast and associated online delivery.",
+  "subClassOf": [
+    "CreativeWorkSeason",
+    "CreativeWork"
+  ],
+  "title": "TVSeason"
+}

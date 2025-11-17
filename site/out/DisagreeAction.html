@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DisagreeAction - schema.org.ai</title>
+  <meta name="description" content="The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="DisagreeAction.json">JSON</a>
+    <a href="DisagreeAction.md">Markdown</a>
+  </nav>
+
+  <h1>DisagreeAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/DisagreeAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="ReactAction.html">ReactAction</a></p>
+    <p><strong>Description:</strong> The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# DisagreeAction
+
+The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants.
+
+## Type Hierarchy
+
+**DisagreeAction**
+
+
+
+## Properties
+
+See [Schema.org DisagreeAction properties](https://schema.org/DisagreeAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { DisagreeAction } from 'schema.org.ai'
+
+// Create a DisagreeAction
+const item: DisagreeAction = {
+  $type: 'DisagreeAction',
+  name: 'Example DisagreeAction'
+}
+
+// Use semantic patterns
+await $.DisagreeAction.create(item)
+const result = await $.DisagreeAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org DisagreeAction](https://schema.org/DisagreeAction)
+- [DisagreeAction Properties](https://schema.org/DisagreeAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

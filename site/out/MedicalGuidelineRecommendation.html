@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalGuidelineRecommendation - schema.org.ai</title>
+  <meta name="description" content="A guideline recommendation that is regarded as efficacious and where quality of the data supporting the recommendation is sound.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalGuidelineRecommendation.json">JSON</a>
+    <a href="MedicalGuidelineRecommendation.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalGuidelineRecommendation</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalGuidelineRecommendation</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalGuideline.html">MedicalGuideline</a></p>
+    <p><strong>Description:</strong> A guideline recommendation that is regarded as efficacious and where quality of the data supporting the recommendation is sound.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalGuidelineRecommendation
+
+A guideline recommendation that is regarded as efficacious and where quality of the data supporting the recommendation is sound.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalGuideline](MedicalGuideline.mdx) > **MedicalGuidelineRecommendation**
+
+
+
+## Properties
+
+See [Schema.org MedicalGuidelineRecommendation properties](https://schema.org/MedicalGuidelineRecommendation#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalGuidelineRecommendation } from 'schema.org.ai'
+
+// Create a MedicalGuidelineRecommendation
+const item: MedicalGuidelineRecommendation = {
+  $type: 'MedicalGuidelineRecommendation',
+  name: 'Example MedicalGuidelineRecommendation'
+}
+
+// Use semantic patterns
+await $.MedicalGuidelineRecommendation.create(item)
+const result = await $.MedicalGuidelineRecommendation.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalGuidelineRecommendation](https://schema.org/MedicalGuidelineRecommendation)
+- [MedicalGuidelineRecommendation Properties](https://schema.org/MedicalGuidelineRecommendation#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

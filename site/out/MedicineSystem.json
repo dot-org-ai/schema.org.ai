@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicineSystem",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicineSystem",
+  "description": "Systems of medical practice.",
+  "subClassOf": [
+    "MedicalEnumeration"
+  ],
+  "title": "MedicineSystem"
+}

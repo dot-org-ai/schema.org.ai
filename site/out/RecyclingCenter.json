@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RecyclingCenter",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RecyclingCenter",
+  "description": "A recycling center.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "RecyclingCenter"
+}

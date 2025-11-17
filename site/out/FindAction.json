@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/FindAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FindAction",
+  "description": "The act of finding an object.\\",
+  "subClassOf": [
+    "Action"
+  ],
+  "title": "FindAction"
+}

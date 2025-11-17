@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EmailMessage",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EmailMessage",
+  "description": "An email message.",
+  "subClassOf": [
+    "Message"
+  ],
+  "title": "EmailMessage"
+}

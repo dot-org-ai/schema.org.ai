@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/MedicalSpecialty",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalSpecialty",
+  "description": "Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.",
+  "subClassOf": [
+    "Specialty",
+    "MedicalEnumeration"
+  ],
+  "title": "MedicalSpecialty"
+}

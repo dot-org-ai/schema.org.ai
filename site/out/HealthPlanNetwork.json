@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HealthPlanNetwork",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HealthPlanNetwork",
+  "description": "A US-style health insurance plan network.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "HealthPlanNetwork"
+}

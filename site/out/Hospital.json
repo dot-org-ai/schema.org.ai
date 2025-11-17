@@ -1,0 +1,13 @@
+{
+  "$id": "https://schema.org.ai/Hospital",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Hospital",
+  "description": "A hospital.",
+  "subClassOf": [
+    "CivicStructure",
+    "MedicalOrganization",
+    "EmergencyService"
+  ],
+  "title": "Hospital"
+}

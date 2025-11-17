@@ -1,0 +1,41 @@
+
+
+# RadioEpisode
+
+A radio episode which can be part of a series or season.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [Episode](Episode.mdx) > **RadioEpisode**
+
+
+
+## Properties
+
+See [Schema.org RadioEpisode properties](https://schema.org/RadioEpisode#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { RadioEpisode } from 'schema.org.ai'
+
+// Create a RadioEpisode
+const item: RadioEpisode = {
+  $type: 'RadioEpisode',
+  name: 'Example RadioEpisode'
+}
+
+// Use semantic patterns
+await $.RadioEpisode.create(item)
+const result = await $.RadioEpisode.get('item-id')
+```
+
+## Resources
+
+- [Schema.org RadioEpisode](https://schema.org/RadioEpisode)
+- [RadioEpisode Properties](https://schema.org/RadioEpisode#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

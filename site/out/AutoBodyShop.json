@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AutoBodyShop",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AutoBodyShop",
+  "description": "Auto body shop.",
+  "subClassOf": [
+    "AutomotiveBusiness"
+  ],
+  "title": "AutoBodyShop"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HealthPlanCostSharingSpecification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HealthPlanCostSharingSpecification",
+  "description": "A description of costs to the patient under a given network or formulary.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "HealthPlanCostSharingSpecification"
+}

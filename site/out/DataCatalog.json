@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DataCatalog",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DataCatalog",
+  "description": "A collection of datasets.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "DataCatalog"
+}

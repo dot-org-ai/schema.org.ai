@@ -1,0 +1,41 @@
+
+
+# ReturnMethodEnumeration
+
+Enumerates several types of product return methods.
+
+## Type Hierarchy
+
+**ReturnMethodEnumeration**
+
+
+
+## Properties
+
+See [Schema.org ReturnMethodEnumeration properties](https://schema.org/ReturnMethodEnumeration#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ReturnMethodEnumeration } from 'schema.org.ai'
+
+// Create a ReturnMethodEnumeration
+const item: ReturnMethodEnumeration = {
+  $type: 'ReturnMethodEnumeration',
+  name: 'Example ReturnMethodEnumeration'
+}
+
+// Use semantic patterns
+await $.ReturnMethodEnumeration.create(item)
+const result = await $.ReturnMethodEnumeration.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ReturnMethodEnumeration](https://schema.org/ReturnMethodEnumeration)
+- [ReturnMethodEnumeration Properties](https://schema.org/ReturnMethodEnumeration#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

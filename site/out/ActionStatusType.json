@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ActionStatusType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ActionStatusType",
+  "description": "The status of an Action.",
+  "subClassOf": [
+    "StatusEnumeration"
+  ],
+  "title": "ActionStatusType"
+}

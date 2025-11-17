@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EnergyEfficiencyEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EnergyEfficiencyEnumeration",
+  "description": "Enumerates energy efficiency levels (also known as \"classes\" or \"ratings\") and certifications that are part of several international energy efficiency standards.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "EnergyEfficiencyEnumeration"
+}

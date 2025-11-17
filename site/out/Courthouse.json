@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Courthouse",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Courthouse",
+  "description": "A courthouse.",
+  "subClassOf": [
+    "GovernmentBuilding"
+  ],
+  "title": "Courthouse"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocationFeatureSpecification - schema.org.ai</title>
+  <meta name="description" content="Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="LocationFeatureSpecification.json">JSON</a>
+    <a href="LocationFeatureSpecification.md">Markdown</a>
+  </nav>
+
+  <h1>LocationFeatureSpecification</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/LocationFeatureSpecification</code></p>
+    <p><strong>Subclass of:</strong> <a href="PropertyValue.html">PropertyValue</a></p>
+    <p><strong>Description:</strong> Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# LocationFeatureSpecification
+
+Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.
+
+## Type Hierarchy
+
+**LocationFeatureSpecification**
+
+
+
+## Properties
+
+See [Schema.org LocationFeatureSpecification properties](https://schema.org/LocationFeatureSpecification#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { LocationFeatureSpecification } from 'schema.org.ai'
+
+// Create a LocationFeatureSpecification
+const item: LocationFeatureSpecification = {
+  $type: 'LocationFeatureSpecification',
+  name: 'Example LocationFeatureSpecification'
+}
+
+// Use semantic patterns
+await $.LocationFeatureSpecification.create(item)
+const result = await $.LocationFeatureSpecification.get('item-id')
+```
+
+## Resources
+
+- [Schema.org LocationFeatureSpecification](https://schema.org/LocationFeatureSpecification)
+- [LocationFeatureSpecification Properties](https://schema.org/LocationFeatureSpecification#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

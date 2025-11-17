@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Reservation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Reservation",
+  "description": "Describes a reservation for travel, dining or an event. Some reservations require tickets. \\",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "Reservation"
+}

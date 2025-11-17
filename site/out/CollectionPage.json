@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CollectionPage",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CollectionPage",
+  "description": "Web page type: Collection page.",
+  "subClassOf": [
+    "WebPage"
+  ],
+  "title": "CollectionPage"
+}

@@ -1,0 +1,41 @@
+
+
+# ChildCare
+
+A Childcare center.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **ChildCare**
+
+
+
+## Properties
+
+See [Schema.org ChildCare properties](https://schema.org/ChildCare#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ChildCare } from 'schema.org.ai'
+
+// Create a ChildCare
+const item: ChildCare = {
+  $type: 'ChildCare',
+  name: 'Example ChildCare'
+}
+
+// Use semantic patterns
+await $.ChildCare.create(item)
+const result = await $.ChildCare.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ChildCare](https://schema.org/ChildCare)
+- [ChildCare Properties](https://schema.org/ChildCare#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

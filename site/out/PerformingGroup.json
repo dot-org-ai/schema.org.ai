@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PerformingGroup",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PerformingGroup",
+  "description": "A performance group, such as a band, an orchestra, or a circus.",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "PerformingGroup"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LegalForceStatus",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LegalForceStatus",
+  "description": "A list of possible statuses for the legal force of a legislation.",
+  "subClassOf": [
+    "StatusEnumeration"
+  ],
+  "title": "LegalForceStatus"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MerchantReturnPolicySeasonalOverride",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MerchantReturnPolicySeasonalOverride",
+  "description": "A seasonal override of a return policy, for example used for holidays.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "MerchantReturnPolicySeasonalOverride"
+}

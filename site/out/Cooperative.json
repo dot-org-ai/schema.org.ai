@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Cooperative",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Cooperative",
+  "description": "An organization that is a joint project of multiple organizations or persons.",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "Cooperative"
+}

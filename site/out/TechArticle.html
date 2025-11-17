@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechArticle - schema.org.ai</title>
+  <meta name="description" content="A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="TechArticle.json">JSON</a>
+    <a href="TechArticle.md">Markdown</a>
+  </nav>
+
+  <h1>TechArticle</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/TechArticle</code></p>
+    <p><strong>Subclass of:</strong> <a href="Article.html">Article</a></p>
+    <p><strong>Description:</strong> A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# TechArticle
+
+A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [Article](Article.mdx) > **TechArticle**
+
+## Direct Subclasses
+
+- **[APIReference](APIReference.mdx)**: Reference documentation for application programming interfaces (APIs)
+
+## Properties
+
+See [Schema.org TechArticle properties](https://schema.org/TechArticle#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { TechArticle } from 'schema.org.ai'
+
+// Create a TechArticle
+const item: TechArticle = {
+  $type: 'TechArticle',
+  name: 'Example TechArticle'
+}
+
+// Use semantic patterns
+await $.TechArticle.create(item)
+const result = await $.TechArticle.get('item-id')
+```
+
+## Resources
+
+- [Schema.org TechArticle](https://schema.org/TechArticle)
+- [TechArticle Properties](https://schema.org/TechArticle#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

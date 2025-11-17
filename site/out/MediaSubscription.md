@@ -1,0 +1,41 @@
+
+
+# MediaSubscription
+
+A subscription which allows a user to access media including audio, video, books, etc.
+
+## Type Hierarchy
+
+**MediaSubscription**
+
+
+
+## Properties
+
+See [Schema.org MediaSubscription properties](https://schema.org/MediaSubscription#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MediaSubscription } from 'schema.org.ai'
+
+// Create a MediaSubscription
+const item: MediaSubscription = {
+  $type: 'MediaSubscription',
+  name: 'Example MediaSubscription'
+}
+
+// Use semantic patterns
+await $.MediaSubscription.create(item)
+const result = await $.MediaSubscription.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MediaSubscription](https://schema.org/MediaSubscription)
+- [MediaSubscription Properties](https://schema.org/MediaSubscription#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ExerciseAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ExerciseAction",
+  "description": "The act of participating in exertive activity for the purposes of improving health and fitness.",
+  "subClassOf": [
+    "PlayAction"
+  ],
+  "title": "ExerciseAction"
+}

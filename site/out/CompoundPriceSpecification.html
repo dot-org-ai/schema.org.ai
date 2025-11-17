@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompoundPriceSpecification - schema.org.ai</title>
+  <meta name="description" content="A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. "electricity" or "final cleaning").">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="CompoundPriceSpecification.json">JSON</a>
+    <a href="CompoundPriceSpecification.md">Markdown</a>
+  </nav>
+
+  <h1>CompoundPriceSpecification</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/CompoundPriceSpecification</code></p>
+    <p><strong>Subclass of:</strong> <a href="PriceSpecification.html">PriceSpecification</a></p>
+    <p><strong>Description:</strong> A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. "electricity" or "final cleaning").</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# CompoundPriceSpecification
+
+A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. "electricity" or "final cleaning").
+
+## Type Hierarchy
+
+**CompoundPriceSpecification**
+
+
+
+## Properties
+
+See [Schema.org CompoundPriceSpecification properties](https://schema.org/CompoundPriceSpecification#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CompoundPriceSpecification } from 'schema.org.ai'
+
+// Create a CompoundPriceSpecification
+const item: CompoundPriceSpecification = {
+  $type: 'CompoundPriceSpecification',
+  name: 'Example CompoundPriceSpecification'
+}
+
+// Use semantic patterns
+await $.CompoundPriceSpecification.create(item)
+const result = await $.CompoundPriceSpecification.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CompoundPriceSpecification](https://schema.org/CompoundPriceSpecification)
+- [CompoundPriceSpecification Properties](https://schema.org/CompoundPriceSpecification#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

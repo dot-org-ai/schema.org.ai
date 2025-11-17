@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EatAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EatAction",
+  "description": "The act of swallowing solid objects.",
+  "subClassOf": [
+    "ConsumeAction"
+  ],
+  "title": "EatAction"
+}

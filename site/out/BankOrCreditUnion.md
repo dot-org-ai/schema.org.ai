@@ -1,0 +1,41 @@
+
+
+# BankOrCreditUnion
+
+Bank or credit union.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [FinancialService](FinancialService.mdx) > **BankOrCreditUnion**
+
+
+
+## Properties
+
+See [Schema.org BankOrCreditUnion properties](https://schema.org/BankOrCreditUnion#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BankOrCreditUnion } from 'schema.org.ai'
+
+// Create a BankOrCreditUnion
+const item: BankOrCreditUnion = {
+  $type: 'BankOrCreditUnion',
+  name: 'Example BankOrCreditUnion'
+}
+
+// Use semantic patterns
+await $.BankOrCreditUnion.create(item)
+const result = await $.BankOrCreditUnion.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BankOrCreditUnion](https://schema.org/BankOrCreditUnion)
+- [BankOrCreditUnion Properties](https://schema.org/BankOrCreditUnion#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OrderAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OrderAction",
+  "description": "An agent orders an object/product/service to be delivered/sent.",
+  "subClassOf": [
+    "TradeAction"
+  ],
+  "title": "OrderAction"
+}

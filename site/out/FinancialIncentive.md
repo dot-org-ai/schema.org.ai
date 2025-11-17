@@ -1,0 +1,41 @@
+
+
+# FinancialIncentive
+
+Represents financial incentives for goods/services offered by an organization (or individual). Typically contains the name of the incentive, the incentivizedItem, the incentiveAmount, the incentiveStatus, incentiveType, the provider of the incentive, and eligibleWithSupplier. Optionally contains criteria on whether the incentive is limited based on purchaseType, purchasePriceLimit, incomeLimit, and the qualifiedExpense.
+
+## Type Hierarchy
+
+**FinancialIncentive**
+
+
+
+## Properties
+
+See [Schema.org FinancialIncentive properties](https://schema.org/FinancialIncentive#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { FinancialIncentive } from 'schema.org.ai'
+
+// Create a FinancialIncentive
+const item: FinancialIncentive = {
+  $type: 'FinancialIncentive',
+  name: 'Example FinancialIncentive'
+}
+
+// Use semantic patterns
+await $.FinancialIncentive.create(item)
+const result = await $.FinancialIncentive.get('item-id')
+```
+
+## Resources
+
+- [Schema.org FinancialIncentive](https://schema.org/FinancialIncentive)
+- [FinancialIncentive Properties](https://schema.org/FinancialIncentive#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

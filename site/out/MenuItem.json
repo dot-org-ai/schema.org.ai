@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MenuItem",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MenuItem",
+  "description": "A food or drink item listed in a menu or menu section.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "MenuItem"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AdministrativeArea",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AdministrativeArea",
+  "description": "A geographical region, typically under the jurisdiction of a particular government.",
+  "subClassOf": [
+    "Place"
+  ],
+  "title": "AdministrativeArea"
+}

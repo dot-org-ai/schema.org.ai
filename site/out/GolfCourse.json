@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/GolfCourse",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "GolfCourse",
+  "description": "A golf course.",
+  "subClassOf": [
+    "SportsActivityLocation"
+  ],
+  "title": "GolfCourse"
+}

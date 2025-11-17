@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TVClip",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TVClip",
+  "description": "A short TV program or a segment/part of a TV program.",
+  "subClassOf": [
+    "Clip"
+  ],
+  "title": "TVClip"
+}

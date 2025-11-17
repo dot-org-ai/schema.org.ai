@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ImageGallery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ImageGallery",
+  "description": "Web page type: Image gallery page.",
+  "subClassOf": [
+    "MediaGallery"
+  ],
+  "title": "ImageGallery"
+}

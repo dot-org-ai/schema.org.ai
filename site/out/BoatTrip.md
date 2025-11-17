@@ -1,0 +1,41 @@
+
+
+# BoatTrip
+
+A trip on a commercial ferry line.
+
+## Type Hierarchy
+
+**BoatTrip**
+
+
+
+## Properties
+
+See [Schema.org BoatTrip properties](https://schema.org/BoatTrip#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BoatTrip } from 'schema.org.ai'
+
+// Create a BoatTrip
+const item: BoatTrip = {
+  $type: 'BoatTrip',
+  name: 'Example BoatTrip'
+}
+
+// Use semantic patterns
+await $.BoatTrip.create(item)
+const result = await $.BoatTrip.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BoatTrip](https://schema.org/BoatTrip)
+- [BoatTrip Properties](https://schema.org/BoatTrip#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

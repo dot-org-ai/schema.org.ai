@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CollegeOrUniversity",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CollegeOrUniversity",
+  "description": "A college, university, or other third-level educational institution.",
+  "subClassOf": [
+    "EducationalOrganization"
+  ],
+  "title": "CollegeOrUniversity"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BroadcastChannel",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BroadcastChannel",
+  "description": "A unique instance of a BroadcastService on a CableOrSatelliteService lineup.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "BroadcastChannel"
+}

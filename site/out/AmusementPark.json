@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AmusementPark",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AmusementPark",
+  "description": "An amusement park.",
+  "subClassOf": [
+    "EntertainmentBusiness"
+  ],
+  "title": "AmusementPark"
+}

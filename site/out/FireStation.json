@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/FireStation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FireStation",
+  "description": "A fire station. With firemen.",
+  "subClassOf": [
+    "CivicStructure",
+    "EmergencyService"
+  ],
+  "title": "FireStation"
+}

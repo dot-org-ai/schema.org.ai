@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BefriendAction - schema.org.ai</title>
+  <meta name="description" content="The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="BefriendAction.json">JSON</a>
+    <a href="BefriendAction.md">Markdown</a>
+  </nav>
+
+  <h1>BefriendAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/BefriendAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="InteractAction.html">InteractAction</a></p>
+    <p><strong>Description:</strong> The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# BefriendAction
+
+The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.\
+\
+Related actions:\
+\
+* FollowAction: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [InteractAction](InteractAction.mdx) > **BefriendAction**
+
+
+
+## Properties
+
+See [Schema.org BefriendAction properties](https://schema.org/BefriendAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BefriendAction } from 'schema.org.ai'
+
+// Create a BefriendAction
+const item: BefriendAction = {
+  $type: 'BefriendAction',
+  name: 'Example BefriendAction'
+}
+
+// Use semantic patterns
+await $.BefriendAction.create(item)
+const result = await $.BefriendAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BefriendAction](https://schema.org/BefriendAction)
+- [BefriendAction Properties](https://schema.org/BefriendAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

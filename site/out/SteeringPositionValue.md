@@ -1,0 +1,41 @@
+
+
+# SteeringPositionValue
+
+A value indicating a steering position.
+
+## Type Hierarchy
+
+**SteeringPositionValue**
+
+
+
+## Properties
+
+See [Schema.org SteeringPositionValue properties](https://schema.org/SteeringPositionValue#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SteeringPositionValue } from 'schema.org.ai'
+
+// Create a SteeringPositionValue
+const item: SteeringPositionValue = {
+  $type: 'SteeringPositionValue',
+  name: 'Example SteeringPositionValue'
+}
+
+// Use semantic patterns
+await $.SteeringPositionValue.create(item)
+const result = await $.SteeringPositionValue.get('item-id')
+```
+
+## Resources
+
+- [Schema.org SteeringPositionValue](https://schema.org/SteeringPositionValue)
+- [SteeringPositionValue Properties](https://schema.org/SteeringPositionValue#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School - schema.org.ai</title>
+  <meta name="description" content="A school.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="School.json">JSON</a>
+    <a href="School.md">Markdown</a>
+  </nav>
+
+  <h1>School</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/School</code></p>
+    <p><strong>Subclass of:</strong> <a href="EducationalOrganization.html">EducationalOrganization</a></p>
+    <p><strong>Description:</strong> A school.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# School
+
+A school.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [CivicStructure](CivicStructure.mdx) > [EducationalOrganization](EducationalOrganization.mdx) > **School**
+
+
+
+## Properties
+
+See [Schema.org School properties](https://schema.org/School#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { School } from 'schema.org.ai'
+
+// Create a School
+const item: School = {
+  $type: 'School',
+  name: 'Example School'
+}
+
+// Use semantic patterns
+await $.School.create(item)
+const result = await $.School.get('item-id')
+```
+
+## Resources
+
+- [Schema.org School](https://schema.org/School)
+- [School Properties](https://schema.org/School#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

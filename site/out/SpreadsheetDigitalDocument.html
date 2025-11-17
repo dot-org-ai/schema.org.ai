@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpreadsheetDigitalDocument - schema.org.ai</title>
+  <meta name="description" content="A spreadsheet file.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="SpreadsheetDigitalDocument.json">JSON</a>
+    <a href="SpreadsheetDigitalDocument.md">Markdown</a>
+  </nav>
+
+  <h1>SpreadsheetDigitalDocument</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/SpreadsheetDigitalDocument</code></p>
+    <p><strong>Subclass of:</strong> <a href="DigitalDocument.html">DigitalDocument</a></p>
+    <p><strong>Description:</strong> A spreadsheet file.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# SpreadsheetDigitalDocument
+
+A spreadsheet file.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [DigitalDocument](DigitalDocument.mdx) > **SpreadsheetDigitalDocument**
+
+
+
+## Properties
+
+See [Schema.org SpreadsheetDigitalDocument properties](https://schema.org/SpreadsheetDigitalDocument#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SpreadsheetDigitalDocument } from 'schema.org.ai'
+
+// Create a SpreadsheetDigitalDocument
+const item: SpreadsheetDigitalDocument = {
+  $type: 'SpreadsheetDigitalDocument',
+  name: 'Example SpreadsheetDigitalDocument'
+}
+
+// Use semantic patterns
+await $.SpreadsheetDigitalDocument.create(item)
+const result = await $.SpreadsheetDigitalDocument.get('item-id')
+```
+
+## Resources
+
+- [Schema.org SpreadsheetDigitalDocument](https://schema.org/SpreadsheetDigitalDocument)
+- [SpreadsheetDigitalDocument Properties](https://schema.org/SpreadsheetDigitalDocument#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

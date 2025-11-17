@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PaintAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PaintAction",
+  "description": "The act of producing a painting, typically with paint and canvas as instruments.",
+  "subClassOf": [
+    "CreateAction"
+  ],
+  "title": "PaintAction"
+}

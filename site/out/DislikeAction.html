@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DislikeAction - schema.org.ai</title>
+  <meta name="description" content="The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="DislikeAction.json">JSON</a>
+    <a href="DislikeAction.md">Markdown</a>
+  </nav>
+
+  <h1>DislikeAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/DislikeAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="ReactAction.html">ReactAction</a></p>
+    <p><strong>Description:</strong> The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# DislikeAction
+
+The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants.
+
+## Type Hierarchy
+
+**DislikeAction**
+
+
+
+## Properties
+
+See [Schema.org DislikeAction properties](https://schema.org/DislikeAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { DislikeAction } from 'schema.org.ai'
+
+// Create a DislikeAction
+const item: DislikeAction = {
+  $type: 'DislikeAction',
+  name: 'Example DislikeAction'
+}
+
+// Use semantic patterns
+await $.DislikeAction.create(item)
+const result = await $.DislikeAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org DislikeAction](https://schema.org/DislikeAction)
+- [DislikeAction Properties](https://schema.org/DislikeAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

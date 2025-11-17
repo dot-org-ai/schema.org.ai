@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ArchiveOrganization",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ArchiveOrganization",
+  "description": "An organization with archival holdings. An organization which keeps and preserves archival material and typically makes it accessible to the public.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "ArchiveOrganization"
+}

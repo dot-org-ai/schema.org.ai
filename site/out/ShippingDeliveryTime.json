@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ShippingDeliveryTime",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ShippingDeliveryTime",
+  "description": "ShippingDeliveryTime provides various pieces of information about delivery times for shipping.",
+  "subClassOf": [
+    "StructuredValue"
+  ],
+  "title": "ShippingDeliveryTime"
+}

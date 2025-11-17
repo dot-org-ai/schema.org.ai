@@ -1,0 +1,41 @@
+
+
+# MedicineSystem
+
+Systems of medical practice.
+
+## Type Hierarchy
+
+**MedicineSystem**
+
+
+
+## Properties
+
+See [Schema.org MedicineSystem properties](https://schema.org/MedicineSystem#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicineSystem } from 'schema.org.ai'
+
+// Create a MedicineSystem
+const item: MedicineSystem = {
+  $type: 'MedicineSystem',
+  name: 'Example MedicineSystem'
+}
+
+// Use semantic patterns
+await $.MedicineSystem.create(item)
+const result = await $.MedicineSystem.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicineSystem](https://schema.org/MedicineSystem)
+- [MedicineSystem Properties](https://schema.org/MedicineSystem#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

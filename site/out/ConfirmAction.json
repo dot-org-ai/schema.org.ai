@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ConfirmAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ConfirmAction",
+  "description": "The act of notifying someone that a future event/action is going to happen as expected.\\",
+  "subClassOf": [
+    "InformAction"
+  ],
+  "title": "ConfirmAction"
+}

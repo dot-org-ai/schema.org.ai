@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RoofingContractor",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RoofingContractor",
+  "description": "A roofing contractor.",
+  "subClassOf": [
+    "HomeAndConstructionBusiness"
+  ],
+  "title": "RoofingContractor"
+}

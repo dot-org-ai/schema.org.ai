@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DoseSchedule",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DoseSchedule",
+  "description": "A specific dosing schedule for a drug or supplement.",
+  "subClassOf": [
+    "MedicalIntangible"
+  ],
+  "title": "DoseSchedule"
+}

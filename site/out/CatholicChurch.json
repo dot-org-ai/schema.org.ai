@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CatholicChurch",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CatholicChurch",
+  "description": "A Catholic church.",
+  "subClassOf": [
+    "Church"
+  ],
+  "title": "CatholicChurch"
+}

@@ -1,0 +1,41 @@
+
+
+# ScreeningEvent
+
+A screening of a movie or other video.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Event](Event.mdx) > **ScreeningEvent**
+
+
+
+## Properties
+
+See [Schema.org ScreeningEvent properties](https://schema.org/ScreeningEvent#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ScreeningEvent } from 'schema.org.ai'
+
+// Create a ScreeningEvent
+const item: ScreeningEvent = {
+  $type: 'ScreeningEvent',
+  name: 'Example ScreeningEvent'
+}
+
+// Use semantic patterns
+await $.ScreeningEvent.create(item)
+const result = await $.ScreeningEvent.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ScreeningEvent](https://schema.org/ScreeningEvent)
+- [ScreeningEvent Properties](https://schema.org/ScreeningEvent#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

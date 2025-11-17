@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EmergencyService",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EmergencyService",
+  "description": "An emergency service, such as a fire station or ER.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "EmergencyService"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Bakery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Bakery",
+  "description": "A bakery.",
+  "subClassOf": [
+    "FoodEstablishment"
+  ],
+  "title": "Bakery"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ResearchProject",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ResearchProject",
+  "description": "A Research project.",
+  "subClassOf": [
+    "Project"
+  ],
+  "title": "ResearchProject"
+}

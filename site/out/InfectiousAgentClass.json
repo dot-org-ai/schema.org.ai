@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/InfectiousAgentClass",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "InfectiousAgentClass",
+  "description": "Classes of agents or pathogens that transmit infectious diseases. Enumerated type.",
+  "subClassOf": [
+    "MedicalEnumeration"
+  ],
+  "title": "InfectiousAgentClass"
+}

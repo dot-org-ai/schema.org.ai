@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EducationalAudience",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EducationalAudience",
+  "description": "An EducationalAudience.",
+  "subClassOf": [
+    "Audience"
+  ],
+  "title": "EducationalAudience"
+}

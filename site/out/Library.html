@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - schema.org.ai</title>
+  <meta name="description" content="A library.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Library.json">JSON</a>
+    <a href="Library.md">Markdown</a>
+  </nav>
+
+  <h1>Library</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Library</code></p>
+    <p><strong>Subclass of:</strong> <a href="LocalBusiness.html">LocalBusiness</a></p>
+    <p><strong>Description:</strong> A library.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Library
+
+A library.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **Library**
+
+
+
+## Properties
+
+See [Schema.org Library properties](https://schema.org/Library#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Library } from 'schema.org.ai'
+
+// Create a Library
+const item: Library = {
+  $type: 'Library',
+  name: 'Example Library'
+}
+
+// Use semantic patterns
+await $.Library.create(item)
+const result = await $.Library.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Library](https://schema.org/Library)
+- [Library Properties](https://schema.org/Library#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

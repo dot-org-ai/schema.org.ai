@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChooseAction - schema.org.ai</title>
+  <meta name="description" content="The act of expressing a preference from a set of options or a large or unbounded set of choices/options.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ChooseAction.json">JSON</a>
+    <a href="ChooseAction.md">Markdown</a>
+  </nav>
+
+  <h1>ChooseAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ChooseAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="AssessAction.html">AssessAction</a></p>
+    <p><strong>Description:</strong> The act of expressing a preference from a set of options or a large or unbounded set of choices/options.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ChooseAction
+
+The act of expressing a preference from a set of options or a large or unbounded set of choices/options.
+
+## Type Hierarchy
+
+**ChooseAction**
+
+## Direct Subclasses
+
+- **[VoteAction](VoteAction.mdx)**: The act of expressing a preference from a fixed/finite/structured set of choices/options
+
+## Properties
+
+See [Schema.org ChooseAction properties](https://schema.org/ChooseAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ChooseAction } from 'schema.org.ai'
+
+// Create a ChooseAction
+const item: ChooseAction = {
+  $type: 'ChooseAction',
+  name: 'Example ChooseAction'
+}
+
+// Use semantic patterns
+await $.ChooseAction.create(item)
+const result = await $.ChooseAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ChooseAction](https://schema.org/ChooseAction)
+- [ChooseAction Properties](https://schema.org/ChooseAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

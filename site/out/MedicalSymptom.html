@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalSymptom - schema.org.ai</title>
+  <meta name="description" content="Any complaint sensed and expressed by the patient (therefore defined as subjective)  like stomachache, lower-back pain, or fatigue.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalSymptom.json">JSON</a>
+    <a href="MedicalSymptom.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalSymptom</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalSymptom</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalSignOrSymptom.html">MedicalSignOrSymptom</a></p>
+    <p><strong>Description:</strong> Any complaint sensed and expressed by the patient (therefore defined as subjective)  like stomachache, lower-back pain, or fatigue.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalSymptom
+
+Any complaint sensed and expressed by the patient (therefore defined as subjective)  like stomachache, lower-back pain, or fatigue.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalCondition](MedicalCondition.mdx) > [MedicalSignOrSymptom](MedicalSignOrSymptom.mdx) > **MedicalSymptom**
+
+
+
+## Properties
+
+See [Schema.org MedicalSymptom properties](https://schema.org/MedicalSymptom#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalSymptom } from 'schema.org.ai'
+
+// Create a MedicalSymptom
+const item: MedicalSymptom = {
+  $type: 'MedicalSymptom',
+  name: 'Example MedicalSymptom'
+}
+
+// Use semantic patterns
+await $.MedicalSymptom.create(item)
+const result = await $.MedicalSymptom.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalSymptom](https://schema.org/MedicalSymptom)
+- [MedicalSymptom Properties](https://schema.org/MedicalSymptom#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

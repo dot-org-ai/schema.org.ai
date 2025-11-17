@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReserveAction - schema.org.ai</title>
+  <meta name="description" content="Reserving a concrete object.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ReserveAction.json">JSON</a>
+    <a href="ReserveAction.md">Markdown</a>
+  </nav>
+
+  <h1>ReserveAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ReserveAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="PlanAction.html">PlanAction</a></p>
+    <p><strong>Description:</strong> Reserving a concrete object.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ReserveAction
+
+Reserving a concrete object.\
+\
+Related actions:\
+\
+* ScheduleAction: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [OrganizeAction](OrganizeAction.mdx) > [PlanAction](PlanAction.mdx) > **ReserveAction**
+
+
+
+## Properties
+
+See [Schema.org ReserveAction properties](https://schema.org/ReserveAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ReserveAction } from 'schema.org.ai'
+
+// Create a ReserveAction
+const item: ReserveAction = {
+  $type: 'ReserveAction',
+  name: 'Example ReserveAction'
+}
+
+// Use semantic patterns
+await $.ReserveAction.create(item)
+const result = await $.ReserveAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ReserveAction](https://schema.org/ReserveAction)
+- [ReserveAction Properties](https://schema.org/ReserveAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

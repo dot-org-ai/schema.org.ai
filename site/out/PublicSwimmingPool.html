@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PublicSwimmingPool - schema.org.ai</title>
+  <meta name="description" content="A public swimming pool.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PublicSwimmingPool.json">JSON</a>
+    <a href="PublicSwimmingPool.md">Markdown</a>
+  </nav>
+
+  <h1>PublicSwimmingPool</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PublicSwimmingPool</code></p>
+    <p><strong>Subclass of:</strong> <a href="SportsActivityLocation.html">SportsActivityLocation</a></p>
+    <p><strong>Description:</strong> A public swimming pool.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PublicSwimmingPool
+
+A public swimming pool.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [SportsActivityLocation](SportsActivityLocation.mdx) > **PublicSwimmingPool**
+
+
+
+## Properties
+
+See [Schema.org PublicSwimmingPool properties](https://schema.org/PublicSwimmingPool#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PublicSwimmingPool } from 'schema.org.ai'
+
+// Create a PublicSwimmingPool
+const item: PublicSwimmingPool = {
+  $type: 'PublicSwimmingPool',
+  name: 'Example PublicSwimmingPool'
+}
+
+// Use semantic patterns
+await $.PublicSwimmingPool.create(item)
+const result = await $.PublicSwimmingPool.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PublicSwimmingPool](https://schema.org/PublicSwimmingPool)
+- [PublicSwimmingPool Properties](https://schema.org/PublicSwimmingPool#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

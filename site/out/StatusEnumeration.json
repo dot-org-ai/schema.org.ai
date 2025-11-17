@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/StatusEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "StatusEnumeration",
+  "description": "Lists or enumerations dealing with status types.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "StatusEnumeration"
+}

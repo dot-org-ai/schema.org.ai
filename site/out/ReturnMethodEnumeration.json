@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReturnMethodEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReturnMethodEnumeration",
+  "description": "Enumerates several types of product return methods.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "ReturnMethodEnumeration"
+}

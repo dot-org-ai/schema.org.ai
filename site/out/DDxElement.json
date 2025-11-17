@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DDxElement",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DDxElement",
+  "description": "An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.",
+  "subClassOf": [
+    "MedicalIntangible"
+  ],
+  "title": "DDxElement"
+}

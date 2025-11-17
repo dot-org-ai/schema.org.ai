@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FireStation - schema.org.ai</title>
+  <meta name="description" content="A fire station. With firemen.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="FireStation.json">JSON</a>
+    <a href="FireStation.md">Markdown</a>
+  </nav>
+
+  <h1>FireStation</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/FireStation</code></p>
+    <p><strong>Subclass of:</strong> <a href="CivicStructure.html">CivicStructure</a>, <a href="EmergencyService.html">EmergencyService</a></p>
+    <p><strong>Description:</strong> A fire station. With firemen.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# FireStation
+
+A fire station. With firemen.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [EmergencyService](EmergencyService.mdx) > **FireStation**
+
+
+
+## Properties
+
+See [Schema.org FireStation properties](https://schema.org/FireStation#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { FireStation } from 'schema.org.ai'
+
+// Create a FireStation
+const item: FireStation = {
+  $type: 'FireStation',
+  name: 'Example FireStation'
+}
+
+// Use semantic patterns
+await $.FireStation.create(item)
+const result = await $.FireStation.get('item-id')
+```
+
+## Resources
+
+- [Schema.org FireStation](https://schema.org/FireStation)
+- [FireStation Properties](https://schema.org/FireStation#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

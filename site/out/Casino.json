@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Casino",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Casino",
+  "description": "A casino.",
+  "subClassOf": [
+    "EntertainmentBusiness"
+  ],
+  "title": "Casino"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PaymentStatusType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PaymentStatusType",
+  "description": "A specific payment status. For example, PaymentDue, PaymentComplete, etc.",
+  "subClassOf": [
+    "StatusEnumeration"
+  ],
+  "title": "PaymentStatusType"
+}

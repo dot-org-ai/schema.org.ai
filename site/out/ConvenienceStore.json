@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ConvenienceStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ConvenienceStore",
+  "description": "A convenience store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "ConvenienceStore"
+}

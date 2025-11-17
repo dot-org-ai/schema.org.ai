@@ -1,0 +1,41 @@
+
+
+# NLNonprofitType
+
+NLNonprofitType: Non-profit organization type originating from the Netherlands.
+
+## Type Hierarchy
+
+**NLNonprofitType**
+
+
+
+## Properties
+
+See [Schema.org NLNonprofitType properties](https://schema.org/NLNonprofitType#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { NLNonprofitType } from 'schema.org.ai'
+
+// Create a NLNonprofitType
+const item: NLNonprofitType = {
+  $type: 'NLNonprofitType',
+  name: 'Example NLNonprofitType'
+}
+
+// Use semantic patterns
+await $.NLNonprofitType.create(item)
+const result = await $.NLNonprofitType.get('item-id')
+```
+
+## Resources
+
+- [Schema.org NLNonprofitType](https://schema.org/NLNonprofitType)
+- [NLNonprofitType Properties](https://schema.org/NLNonprofitType#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

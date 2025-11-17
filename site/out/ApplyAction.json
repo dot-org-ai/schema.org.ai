@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ApplyAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ApplyAction",
+  "description": "The act of registering to an organization/service without the guarantee to receive it.\\",
+  "subClassOf": [
+    "OrganizeAction"
+  ],
+  "title": "ApplyAction"
+}

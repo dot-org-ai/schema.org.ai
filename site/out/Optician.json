@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Optician",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Optician",
+  "description": "A store that sells reading glasses and similar devices for improving vision.",
+  "subClassOf": [
+    "MedicalBusiness"
+  ],
+  "title": "Optician"
+}

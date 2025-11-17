@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarUsageType - schema.org.ai</title>
+  <meta name="description" content="A value indicating a special usage of a car, e.g. commercial rental, driving school, or as a taxi.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="CarUsageType.json">JSON</a>
+    <a href="CarUsageType.md">Markdown</a>
+  </nav>
+
+  <h1>CarUsageType</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/CarUsageType</code></p>
+    <p><strong>Subclass of:</strong> <a href="Enumeration.html">Enumeration</a></p>
+    <p><strong>Description:</strong> A value indicating a special usage of a car, e.g. commercial rental, driving school, or as a taxi.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# CarUsageType
+
+A value indicating a special usage of a car, e.g. commercial rental, driving school, or as a taxi.
+
+## Type Hierarchy
+
+**CarUsageType**
+
+
+
+## Properties
+
+See [Schema.org CarUsageType properties](https://schema.org/CarUsageType#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CarUsageType } from 'schema.org.ai'
+
+// Create a CarUsageType
+const item: CarUsageType = {
+  $type: 'CarUsageType',
+  name: 'Example CarUsageType'
+}
+
+// Use semantic patterns
+await $.CarUsageType.create(item)
+const result = await $.CarUsageType.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CarUsageType](https://schema.org/CarUsageType)
+- [CarUsageType Properties](https://schema.org/CarUsageType#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

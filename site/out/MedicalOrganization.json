@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicalOrganization",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalOrganization",
+  "description": "A medical organization (physical or not), such as hospital, institution or clinic.",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "MedicalOrganization"
+}

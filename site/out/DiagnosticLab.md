@@ -1,0 +1,41 @@
+
+
+# DiagnosticLab
+
+A medical laboratory that offers on-site or off-site diagnostic services.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Organization](Organization.mdx) > [MedicalOrganization](MedicalOrganization.mdx) > **DiagnosticLab**
+
+
+
+## Properties
+
+See [Schema.org DiagnosticLab properties](https://schema.org/DiagnosticLab#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { DiagnosticLab } from 'schema.org.ai'
+
+// Create a DiagnosticLab
+const item: DiagnosticLab = {
+  $type: 'DiagnosticLab',
+  name: 'Example DiagnosticLab'
+}
+
+// Use semantic patterns
+await $.DiagnosticLab.create(item)
+const result = await $.DiagnosticLab.get('item-id')
+```
+
+## Resources
+
+- [Schema.org DiagnosticLab](https://schema.org/DiagnosticLab)
+- [DiagnosticLab Properties](https://schema.org/DiagnosticLab#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

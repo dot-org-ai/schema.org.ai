@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WearableMeasurementTypeEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WearableMeasurementTypeEnumeration",
+  "description": "Enumerates common types of measurement for wearables products.",
+  "subClassOf": [
+    "MeasurementTypeEnumeration"
+  ],
+  "title": "WearableMeasurementTypeEnumeration"
+}

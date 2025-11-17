@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Taxi",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Taxi",
+  "description": "A taxi.",
+  "subClassOf": [
+    "Service"
+  ],
+  "title": "Taxi"
+}

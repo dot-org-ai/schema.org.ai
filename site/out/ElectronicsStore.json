@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ElectronicsStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ElectronicsStore",
+  "description": "An electronics store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "ElectronicsStore"
+}

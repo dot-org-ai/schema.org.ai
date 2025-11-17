@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PayAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PayAction",
+  "description": "An agent pays a price to a participant.",
+  "subClassOf": [
+    "TradeAction"
+  ],
+  "title": "PayAction"
+}

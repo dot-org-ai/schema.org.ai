@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicalSymptom",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalSymptom",
+  "description": "Any complaint sensed and expressed by the patient (therefore defined as subjective)  like stomachache, lower-back pain, or fatigue.",
+  "subClassOf": [
+    "MedicalSignOrSymptom"
+  ],
+  "title": "MedicalSymptom"
+}

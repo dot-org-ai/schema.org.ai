@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/CreditCard",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CreditCard",
+  "description": "A card payment method of a particular brand or name.  Used to mark up a particular payment method and/or the financial product/service that supplies the card account.\\",
+  "subClassOf": [
+    "PaymentCard",
+    "LoanOrCredit"
+  ],
+  "title": "CreditCard"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WPFooter",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WPFooter",
+  "description": "The footer section of the page.",
+  "subClassOf": [
+    "WebPageElement"
+  ],
+  "title": "WPFooter"
+}

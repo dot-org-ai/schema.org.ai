@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DrugCostCategory",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DrugCostCategory",
+  "description": "Enumerated categories of medical drug costs.",
+  "subClassOf": [
+    "MedicalEnumeration"
+  ],
+  "title": "DrugCostCategory"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CafeOrCoffeeShop",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CafeOrCoffeeShop",
+  "description": "A cafe or coffee shop.",
+  "subClassOf": [
+    "FoodEstablishment"
+  ],
+  "title": "CafeOrCoffeeShop"
+}

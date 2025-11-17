@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicRecording",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicRecording",
+  "description": "A music recording (track), usually a single song.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "MusicRecording"
+}

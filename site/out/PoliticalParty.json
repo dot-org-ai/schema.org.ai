@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PoliticalParty",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PoliticalParty",
+  "description": "Organization: Political Party.",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "PoliticalParty"
+}

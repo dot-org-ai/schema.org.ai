@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InvestmentFund - schema.org.ai</title>
+  <meta name="description" content="A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="InvestmentFund.json">JSON</a>
+    <a href="InvestmentFund.md">Markdown</a>
+  </nav>
+
+  <h1>InvestmentFund</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/InvestmentFund</code></p>
+    <p><strong>Subclass of:</strong> <a href="InvestmentOrDeposit.html">InvestmentOrDeposit</a></p>
+    <p><strong>Description:</strong> A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# InvestmentFund
+
+A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets.
+
+## Type Hierarchy
+
+**InvestmentFund**
+
+
+
+## Properties
+
+See [Schema.org InvestmentFund properties](https://schema.org/InvestmentFund#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { InvestmentFund } from 'schema.org.ai'
+
+// Create a InvestmentFund
+const item: InvestmentFund = {
+  $type: 'InvestmentFund',
+  name: 'Example InvestmentFund'
+}
+
+// Use semantic patterns
+await $.InvestmentFund.create(item)
+const result = await $.InvestmentFund.get('item-id')
+```
+
+## Resources
+
+- [Schema.org InvestmentFund](https://schema.org/InvestmentFund)
+- [InvestmentFund Properties](https://schema.org/InvestmentFund#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

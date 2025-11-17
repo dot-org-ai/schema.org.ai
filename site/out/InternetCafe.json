@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/InternetCafe",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "InternetCafe",
+  "description": "An internet cafe.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "InternetCafe"
+}

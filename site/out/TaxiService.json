@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TaxiService",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TaxiService",
+  "description": "A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled.",
+  "subClassOf": [
+    "Service"
+  ],
+  "title": "TaxiService"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EntertainmentBusiness",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EntertainmentBusiness",
+  "description": "A business providing entertainment.",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "EntertainmentBusiness"
+}

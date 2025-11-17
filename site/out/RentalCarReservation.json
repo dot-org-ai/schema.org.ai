@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RentalCarReservation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RentalCarReservation",
+  "description": "A reservation for a rental car.\\",
+  "subClassOf": [
+    "Reservation"
+  ],
+  "title": "RentalCarReservation"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MovieSeries",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MovieSeries",
+  "description": "A series of movies. Included movies can be indicated with the hasPart property.",
+  "subClassOf": [
+    "CreativeWorkSeries"
+  ],
+  "title": "MovieSeries"
+}

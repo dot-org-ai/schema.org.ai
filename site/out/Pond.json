@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Pond",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Pond",
+  "description": "A pond.",
+  "subClassOf": [
+    "BodyOfWater"
+  ],
+  "title": "Pond"
+}

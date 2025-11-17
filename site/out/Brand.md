@@ -1,0 +1,41 @@
+
+
+# Brand
+
+A brand is a name used by an organization or business person for labeling a product, product group, or similar.
+
+## Type Hierarchy
+
+**Brand**
+
+
+
+## Properties
+
+See [Schema.org Brand properties](https://schema.org/Brand#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Brand } from 'schema.org.ai'
+
+// Create a Brand
+const item: Brand = {
+  $type: 'Brand',
+  name: 'Example Brand'
+}
+
+// Use semantic patterns
+await $.Brand.create(item)
+const result = await $.Brand.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Brand](https://schema.org/Brand)
+- [Brand Properties](https://schema.org/Brand#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

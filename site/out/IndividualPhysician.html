@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IndividualPhysician - schema.org.ai</title>
+  <meta name="description" content="An individual medical practitioner. For their official address use address, for affiliations to hospitals use hospitalAffiliation.  The practicesAt property can be used to indicate MedicalOrganization hospitals, clinics, pharmacies etc. where this physician practices.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="IndividualPhysician.json">JSON</a>
+    <a href="IndividualPhysician.md">Markdown</a>
+  </nav>
+
+  <h1>IndividualPhysician</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/IndividualPhysician</code></p>
+    <p><strong>Subclass of:</strong> <a href="Physician.html">Physician</a></p>
+    <p><strong>Description:</strong> An individual medical practitioner. For their official address use address, for affiliations to hospitals use hospitalAffiliation.  The practicesAt property can be used to indicate MedicalOrganization hospitals, clinics, pharmacies etc. where this physician practices.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# IndividualPhysician
+
+An individual medical practitioner. For their official address use address, for affiliations to hospitals use hospitalAffiliation.  The practicesAt property can be used to indicate MedicalOrganization hospitals, clinics, pharmacies etc. where this physician practices.
+
+## Type Hierarchy
+
+**IndividualPhysician**
+
+
+
+## Properties
+
+See [Schema.org IndividualPhysician properties](https://schema.org/IndividualPhysician#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { IndividualPhysician } from 'schema.org.ai'
+
+// Create a IndividualPhysician
+const item: IndividualPhysician = {
+  $type: 'IndividualPhysician',
+  name: 'Example IndividualPhysician'
+}
+
+// Use semantic patterns
+await $.IndividualPhysician.create(item)
+const result = await $.IndividualPhysician.get('item-id')
+```
+
+## Resources
+
+- [Schema.org IndividualPhysician](https://schema.org/IndividualPhysician)
+- [IndividualPhysician Properties](https://schema.org/IndividualPhysician#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DrawAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DrawAction",
+  "description": "The act of producing a visual/graphical representation of an object, typically with a pen/pencil and paper as instruments.",
+  "subClassOf": [
+    "CreateAction"
+  ],
+  "title": "DrawAction"
+}

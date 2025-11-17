@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicPlaylist",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicPlaylist",
+  "description": "A collection of music tracks in playlist form.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "MusicPlaylist"
+}

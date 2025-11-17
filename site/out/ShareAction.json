@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ShareAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ShareAction",
+  "description": "The act of distributing content to people for their amusement or edification.",
+  "subClassOf": [
+    "CommunicateAction"
+  ],
+  "title": "ShareAction"
+}

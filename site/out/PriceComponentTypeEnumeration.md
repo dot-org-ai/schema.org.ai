@@ -1,0 +1,41 @@
+
+
+# PriceComponentTypeEnumeration
+
+Enumerates different price components that together make up the total price for an offered product.
+
+## Type Hierarchy
+
+**PriceComponentTypeEnumeration**
+
+
+
+## Properties
+
+See [Schema.org PriceComponentTypeEnumeration properties](https://schema.org/PriceComponentTypeEnumeration#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PriceComponentTypeEnumeration } from 'schema.org.ai'
+
+// Create a PriceComponentTypeEnumeration
+const item: PriceComponentTypeEnumeration = {
+  $type: 'PriceComponentTypeEnumeration',
+  name: 'Example PriceComponentTypeEnumeration'
+}
+
+// Use semantic patterns
+await $.PriceComponentTypeEnumeration.create(item)
+const result = await $.PriceComponentTypeEnumeration.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PriceComponentTypeEnumeration](https://schema.org/PriceComponentTypeEnumeration)
+- [PriceComponentTypeEnumeration Properties](https://schema.org/PriceComponentTypeEnumeration#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

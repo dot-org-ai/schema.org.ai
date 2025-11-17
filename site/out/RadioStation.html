@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RadioStation - schema.org.ai</title>
+  <meta name="description" content="A radio station.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="RadioStation.json">JSON</a>
+    <a href="RadioStation.md">Markdown</a>
+  </nav>
+
+  <h1>RadioStation</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/RadioStation</code></p>
+    <p><strong>Subclass of:</strong> <a href="LocalBusiness.html">LocalBusiness</a></p>
+    <p><strong>Description:</strong> A radio station.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# RadioStation
+
+A radio station.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **RadioStation**
+
+
+
+## Properties
+
+See [Schema.org RadioStation properties](https://schema.org/RadioStation#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { RadioStation } from 'schema.org.ai'
+
+// Create a RadioStation
+const item: RadioStation = {
+  $type: 'RadioStation',
+  name: 'Example RadioStation'
+}
+
+// Use semantic patterns
+await $.RadioStation.create(item)
+const result = await $.RadioStation.get('item-id')
+```
+
+## Resources
+
+- [Schema.org RadioStation](https://schema.org/RadioStation)
+- [RadioStation Properties](https://schema.org/RadioStation#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

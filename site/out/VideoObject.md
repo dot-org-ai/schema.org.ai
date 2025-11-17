@@ -1,0 +1,41 @@
+
+
+# VideoObject
+
+A video file.
+
+## Type Hierarchy
+
+**VideoObject**
+
+
+
+## Properties
+
+See [Schema.org VideoObject properties](https://schema.org/VideoObject#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { VideoObject } from 'schema.org.ai'
+
+// Create a VideoObject
+const item: VideoObject = {
+  $type: 'VideoObject',
+  name: 'Example VideoObject'
+}
+
+// Use semantic patterns
+await $.VideoObject.create(item)
+const result = await $.VideoObject.get('item-id')
+```
+
+## Resources
+
+- [Schema.org VideoObject](https://schema.org/VideoObject)
+- [VideoObject Properties](https://schema.org/VideoObject#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

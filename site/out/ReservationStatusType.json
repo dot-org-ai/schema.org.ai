@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReservationStatusType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReservationStatusType",
+  "description": "Enumerated status values for Reservation.",
+  "subClassOf": [
+    "StatusEnumeration"
+  ],
+  "title": "ReservationStatusType"
+}

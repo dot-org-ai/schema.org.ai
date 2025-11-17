@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Bridge",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Bridge",
+  "description": "A bridge.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "Bridge"
+}

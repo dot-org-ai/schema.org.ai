@@ -1,0 +1,41 @@
+
+
+# DanceEvent
+
+Event type: A social dance.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Event](Event.mdx) > **DanceEvent**
+
+
+
+## Properties
+
+See [Schema.org DanceEvent properties](https://schema.org/DanceEvent#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { DanceEvent } from 'schema.org.ai'
+
+// Create a DanceEvent
+const item: DanceEvent = {
+  $type: 'DanceEvent',
+  name: 'Example DanceEvent'
+}
+
+// Use semantic patterns
+await $.DanceEvent.create(item)
+const result = await $.DanceEvent.get('item-id')
+```
+
+## Resources
+
+- [Schema.org DanceEvent](https://schema.org/DanceEvent)
+- [DanceEvent Properties](https://schema.org/DanceEvent#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

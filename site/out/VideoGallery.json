@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/VideoGallery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "VideoGallery",
+  "description": "Web page type: Video gallery page.",
+  "subClassOf": [
+    "MediaGallery"
+  ],
+  "title": "VideoGallery"
+}

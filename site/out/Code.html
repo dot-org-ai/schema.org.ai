@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code - schema.org.ai</title>
+  <meta name="description" content="Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Code.json">JSON</a>
+    <a href="Code.md">Markdown</a>
+  </nav>
+
+  <h1>Code</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Code</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a></p>
+    <p><strong>Description:</strong> Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Code
+
+Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **Code**
+
+
+
+## Properties
+
+See [Schema.org Code properties](https://schema.org/Code#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Code } from 'schema.org.ai'
+
+// Create a Code
+const item: Code = {
+  $type: 'Code',
+  name: 'Example Code'
+}
+
+// Use semantic patterns
+await $.Code.create(item)
+const result = await $.Code.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Code](https://schema.org/Code)
+- [Code Properties](https://schema.org/Code#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

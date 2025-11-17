@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReviewAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReviewAction",
+  "description": "The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.",
+  "subClassOf": [
+    "AssessAction"
+  ],
+  "title": "ReviewAction"
+}

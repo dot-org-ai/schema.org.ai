@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Joint",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Joint",
+  "description": "The anatomical location at which two or more bones make contact.",
+  "subClassOf": [
+    "AnatomicalStructure"
+  ],
+  "title": "Joint"
+}

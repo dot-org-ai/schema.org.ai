@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReservationPackage",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReservationPackage",
+  "description": "A group of multiple reservations with common values for all sub-reservations.",
+  "subClassOf": [
+    "Reservation"
+  ],
+  "title": "ReservationPackage"
+}

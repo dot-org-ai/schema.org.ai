@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OfferItemCondition - schema.org.ai</title>
+  <meta name="description" content="A list of possible conditions for the item.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="OfferItemCondition.json">JSON</a>
+    <a href="OfferItemCondition.md">Markdown</a>
+  </nav>
+
+  <h1>OfferItemCondition</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/OfferItemCondition</code></p>
+    <p><strong>Subclass of:</strong> <a href="Enumeration.html">Enumeration</a></p>
+    <p><strong>Description:</strong> A list of possible conditions for the item.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# OfferItemCondition
+
+A list of possible conditions for the item.
+
+## Type Hierarchy
+
+**OfferItemCondition**
+
+
+
+## Properties
+
+See [Schema.org OfferItemCondition properties](https://schema.org/OfferItemCondition#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { OfferItemCondition } from 'schema.org.ai'
+
+// Create a OfferItemCondition
+const item: OfferItemCondition = {
+  $type: 'OfferItemCondition',
+  name: 'Example OfferItemCondition'
+}
+
+// Use semantic patterns
+await $.OfferItemCondition.create(item)
+const result = await $.OfferItemCondition.get('item-id')
+```
+
+## Resources
+
+- [Schema.org OfferItemCondition](https://schema.org/OfferItemCondition)
+- [OfferItemCondition Properties](https://schema.org/OfferItemCondition#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

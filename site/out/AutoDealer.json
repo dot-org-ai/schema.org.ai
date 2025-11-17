@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AutoDealer",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AutoDealer",
+  "description": "An car dealership.",
+  "subClassOf": [
+    "AutomotiveBusiness"
+  ],
+  "title": "AutoDealer"
+}

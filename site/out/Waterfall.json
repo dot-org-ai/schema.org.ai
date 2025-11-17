@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Waterfall",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Waterfall",
+  "description": "A waterfall, like Niagara.",
+  "subClassOf": [
+    "BodyOfWater"
+  ],
+  "title": "Waterfall"
+}

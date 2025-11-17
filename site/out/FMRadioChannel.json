@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/FMRadioChannel",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "FMRadioChannel",
+  "description": "A radio channel that uses FM.",
+  "subClassOf": [
+    "RadioChannel"
+  ],
+  "title": "FMRadioChannel"
+}

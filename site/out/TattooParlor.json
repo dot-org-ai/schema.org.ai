@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TattooParlor",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TattooParlor",
+  "description": "A tattoo parlor.",
+  "subClassOf": [
+    "HealthAndBeautyBusiness"
+  ],
+  "title": "TattooParlor"
+}

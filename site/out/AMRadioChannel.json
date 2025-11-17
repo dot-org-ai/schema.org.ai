@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AMRadioChannel",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AMRadioChannel",
+  "description": "A radio channel that uses AM.",
+  "subClassOf": [
+    "RadioChannel"
+  ],
+  "title": "AMRadioChannel"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HomeAndConstructionBusiness",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HomeAndConstructionBusiness",
+  "description": "A construction business.\\",
+  "subClassOf": [
+    "LocalBusiness"
+  ],
+  "title": "HomeAndConstructionBusiness"
+}

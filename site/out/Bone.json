@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Bone",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Bone",
+  "description": "Rigid connective tissue that comprises up the skeletal structure of the human body.",
+  "subClassOf": [
+    "AnatomicalStructure"
+  ],
+  "title": "Bone"
+}

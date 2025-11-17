@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Map",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Map",
+  "description": "A map.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Map"
+}

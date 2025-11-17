@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Specialty",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Specialty",
+  "description": "Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "Specialty"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ItemListOrderType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ItemListOrderType",
+  "description": "Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "ItemListOrderType"
+}

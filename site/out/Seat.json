@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Seat",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Seat",
+  "description": "Used to describe a seat, such as a reserved seat in an event reservation.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "Seat"
+}

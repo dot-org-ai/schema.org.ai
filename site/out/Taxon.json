@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Taxon",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Taxon",
+  "description": "A set of organisms asserted to represent a natural cohesive biological unit.",
+  "subClassOf": [
+    "Thing"
+  ],
+  "title": "Taxon"
+}

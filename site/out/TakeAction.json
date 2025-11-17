@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TakeAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TakeAction",
+  "description": "The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\\",
+  "subClassOf": [
+    "TransferAction"
+  ],
+  "title": "TakeAction"
+}

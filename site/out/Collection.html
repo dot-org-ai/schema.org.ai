@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection - schema.org.ai</title>
+  <meta name="description" content="A collection of items, e.g. creative works or products.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Collection.json">JSON</a>
+    <a href="Collection.md">Markdown</a>
+  </nav>
+
+  <h1>Collection</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Collection</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a></p>
+    <p><strong>Description:</strong> A collection of items, e.g. creative works or products.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Collection
+
+A collection of items, e.g. creative works or products.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **Collection**
+
+## Direct Subclasses
+
+- **[ProductCollection](ProductCollection.mdx)**: A set of products (either ProductGroups or specific variants) that are listed together e
+
+## Properties
+
+See [Schema.org Collection properties](https://schema.org/Collection#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Collection } from 'schema.org.ai'
+
+// Create a Collection
+const item: Collection = {
+  $type: 'Collection',
+  name: 'Example Collection'
+}
+
+// Use semantic patterns
+await $.Collection.create(item)
+const result = await $.Collection.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Collection](https://schema.org/Collection)
+- [Collection Properties](https://schema.org/Collection#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

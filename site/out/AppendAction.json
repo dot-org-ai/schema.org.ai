@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AppendAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AppendAction",
+  "description": "The act of inserting at the end if an ordered collection.",
+  "subClassOf": [
+    "InsertAction"
+  ],
+  "title": "AppendAction"
+}

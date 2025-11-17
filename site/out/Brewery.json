@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Brewery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Brewery",
+  "description": "Brewery.",
+  "subClassOf": [
+    "FoodEstablishment"
+  ],
+  "title": "Brewery"
+}

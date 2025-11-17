@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AdultOrientedEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AdultOrientedEnumeration",
+  "description": "Enumeration of considerations that make a product relevant or potentially restricted for adults only.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "AdultOrientedEnumeration"
+}

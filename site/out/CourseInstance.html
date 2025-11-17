@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CourseInstance - schema.org.ai</title>
+  <meta name="description" content="An instance of a Course which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="CourseInstance.json">JSON</a>
+    <a href="CourseInstance.md">Markdown</a>
+  </nav>
+
+  <h1>CourseInstance</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/CourseInstance</code></p>
+    <p><strong>Subclass of:</strong> <a href="Event.html">Event</a></p>
+    <p><strong>Description:</strong> An instance of a Course which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# CourseInstance
+
+An instance of a Course which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Event](Event.mdx) > **CourseInstance**
+
+
+
+## Properties
+
+See [Schema.org CourseInstance properties](https://schema.org/CourseInstance#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CourseInstance } from 'schema.org.ai'
+
+// Create a CourseInstance
+const item: CourseInstance = {
+  $type: 'CourseInstance',
+  name: 'Example CourseInstance'
+}
+
+// Use semantic patterns
+await $.CourseInstance.create(item)
+const result = await $.CourseInstance.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CourseInstance](https://schema.org/CourseInstance)
+- [CourseInstance Properties](https://schema.org/CourseInstance#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

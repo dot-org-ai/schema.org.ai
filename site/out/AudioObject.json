@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AudioObject",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AudioObject",
+  "description": "An audio file.",
+  "subClassOf": [
+    "MediaObject"
+  ],
+  "title": "AudioObject"
+}

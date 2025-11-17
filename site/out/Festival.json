@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Festival",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Festival",
+  "description": "Event type: Festival.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "Festival"
+}

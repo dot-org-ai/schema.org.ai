@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MusicPlaylist - schema.org.ai</title>
+  <meta name="description" content="A collection of music tracks in playlist form.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MusicPlaylist.json">JSON</a>
+    <a href="MusicPlaylist.md">Markdown</a>
+  </nav>
+
+  <h1>MusicPlaylist</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MusicPlaylist</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreativeWork.html">CreativeWork</a></p>
+    <p><strong>Description:</strong> A collection of music tracks in playlist form.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MusicPlaylist
+
+A collection of music tracks in playlist form.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **MusicPlaylist**
+
+## Direct Subclasses
+
+- **[MusicAlbum](MusicAlbum.mdx)**: A collection of music tracks
+- **[MusicRelease](MusicRelease.mdx)**: A MusicRelease is a specific release of a music album
+
+## Properties
+
+See [Schema.org MusicPlaylist properties](https://schema.org/MusicPlaylist#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MusicPlaylist } from 'schema.org.ai'
+
+// Create a MusicPlaylist
+const item: MusicPlaylist = {
+  $type: 'MusicPlaylist',
+  name: 'Example MusicPlaylist'
+}
+
+// Use semantic patterns
+await $.MusicPlaylist.create(item)
+const result = await $.MusicPlaylist.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MusicPlaylist](https://schema.org/MusicPlaylist)
+- [MusicPlaylist Properties](https://schema.org/MusicPlaylist#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

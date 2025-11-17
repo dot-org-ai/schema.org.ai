@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PostalCodeRangeSpecification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PostalCodeRangeSpecification",
+  "description": "Indicates a range of postal codes, usually defined as the set of valid codes between postalCodeBegin and postalCodeEnd, inclusively.",
+  "subClassOf": [
+    "StructuredValue"
+  ],
+  "title": "PostalCodeRangeSpecification"
+}

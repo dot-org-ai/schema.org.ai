@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Distillery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Distillery",
+  "description": "A distillery.",
+  "subClassOf": [
+    "FoodEstablishment"
+  ],
+  "title": "Distillery"
+}

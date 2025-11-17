@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TennisComplex",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TennisComplex",
+  "description": "A tennis complex.",
+  "subClassOf": [
+    "SportsActivityLocation"
+  ],
+  "title": "TennisComplex"
+}

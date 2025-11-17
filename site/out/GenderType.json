@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/GenderType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "GenderType",
+  "description": "An enumeration of genders.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "GenderType"
+}

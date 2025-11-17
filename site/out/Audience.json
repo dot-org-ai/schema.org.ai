@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Audience",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Audience",
+  "description": "Intended audience for an item, i.e. the group for whom the item was created.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "Audience"
+}

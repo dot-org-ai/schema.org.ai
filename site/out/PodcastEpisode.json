@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PodcastEpisode",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PodcastEpisode",
+  "description": "A single episode of a podcast series.",
+  "subClassOf": [
+    "Episode"
+  ],
+  "title": "PodcastEpisode"
+}

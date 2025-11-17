@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicalStudyStatus",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalStudyStatus",
+  "description": "The status of a medical study. Enumerated type.",
+  "subClassOf": [
+    "MedicalEnumeration"
+  ],
+  "title": "MedicalStudyStatus"
+}

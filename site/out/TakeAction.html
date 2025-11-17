@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TakeAction - schema.org.ai</title>
+  <meta name="description" content="The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="TakeAction.json">JSON</a>
+    <a href="TakeAction.md">Markdown</a>
+  </nav>
+
+  <h1>TakeAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/TakeAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="TransferAction.html">TransferAction</a></p>
+    <p><strong>Description:</strong> The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# TakeAction
+
+The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\
+\
+Related actions:\
+\
+* GiveAction: The reciprocal of TakeAction.\
+* ReceiveAction: Unlike ReceiveAction, TakeAction implies that ownership has been transferred.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [TransferAction](TransferAction.mdx) > **TakeAction**
+
+
+
+## Properties
+
+See [Schema.org TakeAction properties](https://schema.org/TakeAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { TakeAction } from 'schema.org.ai'
+
+// Create a TakeAction
+const item: TakeAction = {
+  $type: 'TakeAction',
+  name: 'Example TakeAction'
+}
+
+// Use semantic patterns
+await $.TakeAction.create(item)
+const result = await $.TakeAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org TakeAction](https://schema.org/TakeAction)
+- [TakeAction Properties](https://schema.org/TakeAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

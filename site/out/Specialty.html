@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specialty - schema.org.ai</title>
+  <meta name="description" content="Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Specialty.json">JSON</a>
+    <a href="Specialty.md">Markdown</a>
+  </nav>
+
+  <h1>Specialty</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Specialty</code></p>
+    <p><strong>Subclass of:</strong> <a href="Enumeration.html">Enumeration</a></p>
+    <p><strong>Description:</strong> Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Specialty
+
+Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.
+
+## Type Hierarchy
+
+**Specialty**
+
+## Direct Subclasses
+
+- **[MedicalSpecialty](MedicalSpecialty.mdx)**: Any specific branch of medical science or practice
+
+## Properties
+
+See [Schema.org Specialty properties](https://schema.org/Specialty#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Specialty } from 'schema.org.ai'
+
+// Create a Specialty
+const item: Specialty = {
+  $type: 'Specialty',
+  name: 'Example Specialty'
+}
+
+// Use semantic patterns
+await $.Specialty.create(item)
+const result = await $.Specialty.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Specialty](https://schema.org/Specialty)
+- [Specialty Properties](https://schema.org/Specialty#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

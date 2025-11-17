@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MerchantReturnEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MerchantReturnEnumeration",
+  "description": "Enumerates several kinds of product return policies.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "MerchantReturnEnumeration"
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalSignOrSymptom - schema.org.ai</title>
+  <meta name="description" content="Any feature associated or not with a medical condition. In medicine a symptom is generally subjective while a sign is objective.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalSignOrSymptom.json">JSON</a>
+    <a href="MedicalSignOrSymptom.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalSignOrSymptom</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalSignOrSymptom</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalCondition.html">MedicalCondition</a></p>
+    <p><strong>Description:</strong> Any feature associated or not with a medical condition. In medicine a symptom is generally subjective while a sign is objective.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalSignOrSymptom
+
+Any feature associated or not with a medical condition. In medicine a symptom is generally subjective while a sign is objective.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalCondition](MedicalCondition.mdx) > **MedicalSignOrSymptom**
+
+## Direct Subclasses
+
+- **[MedicalSymptom](MedicalSymptom.mdx)**: Any complaint sensed and expressed by the patient (therefore defined as subjective)  like stomachache, lower-back pain, or fatigue
+
+## Properties
+
+See [Schema.org MedicalSignOrSymptom properties](https://schema.org/MedicalSignOrSymptom#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalSignOrSymptom } from 'schema.org.ai'
+
+// Create a MedicalSignOrSymptom
+const item: MedicalSignOrSymptom = {
+  $type: 'MedicalSignOrSymptom',
+  name: 'Example MedicalSignOrSymptom'
+}
+
+// Use semantic patterns
+await $.MedicalSignOrSymptom.create(item)
+const result = await $.MedicalSignOrSymptom.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalSignOrSymptom](https://schema.org/MedicalSignOrSymptom)
+- [MedicalSignOrSymptom Properties](https://schema.org/MedicalSignOrSymptom#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

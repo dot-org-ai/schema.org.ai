@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ShippingService",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ShippingService",
+  "description": "ShippingService represents the criteria used to determine if and how an offer could be shipped to a customer.",
+  "subClassOf": [
+    "StructuredValue"
+  ],
+  "title": "ShippingService"
+}

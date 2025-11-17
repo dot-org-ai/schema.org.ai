@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Cemetery",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Cemetery",
+  "description": "A graveyard.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "Cemetery"
+}

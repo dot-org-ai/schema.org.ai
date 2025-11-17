@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PresentationDigitalDocument",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PresentationDigitalDocument",
+  "description": "A file containing slides or used for a presentation.",
+  "subClassOf": [
+    "DigitalDocument"
+  ],
+  "title": "PresentationDigitalDocument"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalWebPage - schema.org.ai</title>
+  <meta name="description" content="A web page that provides medical information.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalWebPage.json">JSON</a>
+    <a href="MedicalWebPage.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalWebPage</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalWebPage</code></p>
+    <p><strong>Subclass of:</strong> <a href="WebPage.html">WebPage</a></p>
+    <p><strong>Description:</strong> A web page that provides medical information.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalWebPage
+
+A web page that provides medical information.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [WebPage](WebPage.mdx) > **MedicalWebPage**
+
+
+
+## Properties
+
+See [Schema.org MedicalWebPage properties](https://schema.org/MedicalWebPage#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalWebPage } from 'schema.org.ai'
+
+// Create a MedicalWebPage
+const item: MedicalWebPage = {
+  $type: 'MedicalWebPage',
+  name: 'Example MedicalWebPage'
+}
+
+// Use semantic patterns
+await $.MedicalWebPage.create(item)
+const result = await $.MedicalWebPage.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalWebPage](https://schema.org/MedicalWebPage)
+- [MedicalWebPage Properties](https://schema.org/MedicalWebPage#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

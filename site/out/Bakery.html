@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakery - schema.org.ai</title>
+  <meta name="description" content="A bakery.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Bakery.json">JSON</a>
+    <a href="Bakery.md">Markdown</a>
+  </nav>
+
+  <h1>Bakery</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Bakery</code></p>
+    <p><strong>Subclass of:</strong> <a href="FoodEstablishment.html">FoodEstablishment</a></p>
+    <p><strong>Description:</strong> A bakery.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Bakery
+
+A bakery.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [FoodEstablishment](FoodEstablishment.mdx) > **Bakery**
+
+
+
+## Properties
+
+See [Schema.org Bakery properties](https://schema.org/Bakery#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Bakery } from 'schema.org.ai'
+
+// Create a Bakery
+const item: Bakery = {
+  $type: 'Bakery',
+  name: 'Example Bakery'
+}
+
+// Use semantic patterns
+await $.Bakery.create(item)
+const result = await $.Bakery.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Bakery](https://schema.org/Bakery)
+- [Bakery Properties](https://schema.org/Bakery#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

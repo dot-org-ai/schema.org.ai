@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeneralContractor - schema.org.ai</title>
+  <meta name="description" content="A general contractor.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="GeneralContractor.json">JSON</a>
+    <a href="GeneralContractor.md">Markdown</a>
+  </nav>
+
+  <h1>GeneralContractor</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/GeneralContractor</code></p>
+    <p><strong>Subclass of:</strong> <a href="HomeAndConstructionBusiness.html">HomeAndConstructionBusiness</a></p>
+    <p><strong>Description:</strong> A general contractor.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# GeneralContractor
+
+A general contractor.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [HomeAndConstructionBusiness](HomeAndConstructionBusiness.mdx) > **GeneralContractor**
+
+
+
+## Properties
+
+See [Schema.org GeneralContractor properties](https://schema.org/GeneralContractor#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { GeneralContractor } from 'schema.org.ai'
+
+// Create a GeneralContractor
+const item: GeneralContractor = {
+  $type: 'GeneralContractor',
+  name: 'Example GeneralContractor'
+}
+
+// Use semantic patterns
+await $.GeneralContractor.create(item)
+const result = await $.GeneralContractor.get('item-id')
+```
+
+## Resources
+
+- [Schema.org GeneralContractor](https://schema.org/GeneralContractor)
+- [GeneralContractor Properties](https://schema.org/GeneralContractor#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Beach",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Beach",
+  "description": "Beach.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "Beach"
+}

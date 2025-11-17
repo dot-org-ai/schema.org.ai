@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ExchangeRateSpecification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ExchangeRateSpecification",
+  "description": "A structured value representing exchange rate.",
+  "subClassOf": [
+    "StructuredValue"
+  ],
+  "title": "ExchangeRateSpecification"
+}

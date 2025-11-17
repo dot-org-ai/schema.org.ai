@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PaymentChargeSpecification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PaymentChargeSpecification",
+  "description": "The costs of settling the payment using a particular payment method.",
+  "subClassOf": [
+    "PriceSpecification"
+  ],
+  "title": "PaymentChargeSpecification"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/HealthPlanFormulary",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "HealthPlanFormulary",
+  "description": "For a given health insurance plan, the specification for costs and coverage of prescription drugs.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "HealthPlanFormulary"
+}

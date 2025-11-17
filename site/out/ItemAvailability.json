@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ItemAvailability",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ItemAvailability",
+  "description": "A list of possible product availability options.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "ItemAvailability"
+}

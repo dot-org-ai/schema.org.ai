@@ -1,0 +1,41 @@
+
+
+# Blog
+
+A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Note that the individual posts (BlogPostings) in a Blog are often colloquially referred to by the same term.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **Blog**
+
+
+
+## Properties
+
+See [Schema.org Blog properties](https://schema.org/Blog#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Blog } from 'schema.org.ai'
+
+// Create a Blog
+const item: Blog = {
+  $type: 'Blog',
+  name: 'Example Blog'
+}
+
+// Use semantic patterns
+await $.Blog.create(item)
+const result = await $.Blog.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Blog](https://schema.org/Blog)
+- [Blog Properties](https://schema.org/Blog#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

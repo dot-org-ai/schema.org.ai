@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameServer - schema.org.ai</title>
+  <meta name="description" content="Server that provides game interaction in a multiplayer game.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="GameServer.json">JSON</a>
+    <a href="GameServer.md">Markdown</a>
+  </nav>
+
+  <h1>GameServer</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/GameServer</code></p>
+    <p><strong>Subclass of:</strong> <a href="Intangible.html">Intangible</a></p>
+    <p><strong>Description:</strong> Server that provides game interaction in a multiplayer game.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# GameServer
+
+Server that provides game interaction in a multiplayer game.
+
+## Type Hierarchy
+
+**GameServer**
+
+
+
+## Properties
+
+See [Schema.org GameServer properties](https://schema.org/GameServer#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { GameServer } from 'schema.org.ai'
+
+// Create a GameServer
+const item: GameServer = {
+  $type: 'GameServer',
+  name: 'Example GameServer'
+}
+
+// Use semantic patterns
+await $.GameServer.create(item)
+const result = await $.GameServer.get('item-id')
+```
+
+## Resources
+
+- [Schema.org GameServer](https://schema.org/GameServer)
+- [GameServer Properties](https://schema.org/GameServer#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

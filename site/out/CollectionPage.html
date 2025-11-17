@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollectionPage - schema.org.ai</title>
+  <meta name="description" content="Web page type: Collection page.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="CollectionPage.json">JSON</a>
+    <a href="CollectionPage.md">Markdown</a>
+  </nav>
+
+  <h1>CollectionPage</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/CollectionPage</code></p>
+    <p><strong>Subclass of:</strong> <a href="WebPage.html">WebPage</a></p>
+    <p><strong>Description:</strong> Web page type: Collection page.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# CollectionPage
+
+Web page type: Collection page.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [WebPage](WebPage.mdx) > **CollectionPage**
+
+## Direct Subclasses
+
+- **[MediaGallery](MediaGallery.mdx)**: Web page type: Media gallery page
+
+## Properties
+
+See [Schema.org CollectionPage properties](https://schema.org/CollectionPage#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CollectionPage } from 'schema.org.ai'
+
+// Create a CollectionPage
+const item: CollectionPage = {
+  $type: 'CollectionPage',
+  name: 'Example CollectionPage'
+}
+
+// Use semantic patterns
+await $.CollectionPage.create(item)
+const result = await $.CollectionPage.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CollectionPage](https://schema.org/CollectionPage)
+- [CollectionPage Properties](https://schema.org/CollectionPage#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

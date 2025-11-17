@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/Audiobook",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Audiobook",
+  "description": "An audiobook.",
+  "subClassOf": [
+    "AudioObject",
+    "Book"
+  ],
+  "title": "Audiobook"
+}

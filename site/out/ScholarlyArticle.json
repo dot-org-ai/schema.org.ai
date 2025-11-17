@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ScholarlyArticle",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ScholarlyArticle",
+  "description": "A scholarly article.",
+  "subClassOf": [
+    "Article"
+  ],
+  "title": "ScholarlyArticle"
+}

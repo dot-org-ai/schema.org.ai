@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Series - schema.org.ai</title>
+  <meta name="description" content="A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also CreativeWorkSeries, EventSeries.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Series.json">JSON</a>
+    <a href="Series.md">Markdown</a>
+  </nav>
+
+  <h1>Series</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Series</code></p>
+    <p><strong>Subclass of:</strong> <a href="Intangible.html">Intangible</a></p>
+    <p><strong>Description:</strong> A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also CreativeWorkSeries, EventSeries.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Series
+
+A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also CreativeWorkSeries, EventSeries.
+
+## Type Hierarchy
+
+**Series**
+
+## Direct Subclasses
+
+- **[CreativeWorkSeries](CreativeWorkSeries.mdx)**: A CreativeWorkSeries in schema
+- **[EventSeries](EventSeries.mdx)**: A series of Events
+
+## Properties
+
+See [Schema.org Series properties](https://schema.org/Series#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Series } from 'schema.org.ai'
+
+// Create a Series
+const item: Series = {
+  $type: 'Series',
+  name: 'Example Series'
+}
+
+// Use semantic patterns
+await $.Series.create(item)
+const result = await $.Series.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Series](https://schema.org/Series)
+- [Series Properties](https://schema.org/Series#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

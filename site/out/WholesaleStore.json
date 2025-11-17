@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/WholesaleStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "WholesaleStore",
+  "description": "A wholesale store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "WholesaleStore"
+}

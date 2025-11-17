@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DiscussionForumPosting",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DiscussionForumPosting",
+  "description": "A posting to a discussion forum.",
+  "subClassOf": [
+    "SocialMediaPosting"
+  ],
+  "title": "DiscussionForumPosting"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Plumber",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Plumber",
+  "description": "A plumbing service.",
+  "subClassOf": [
+    "HomeAndConstructionBusiness"
+  ],
+  "title": "Plumber"
+}

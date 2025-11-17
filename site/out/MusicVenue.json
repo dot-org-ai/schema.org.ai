@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicVenue",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicVenue",
+  "description": "A music venue.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "MusicVenue"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Series",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Series",
+  "description": "A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also CreativeWorkSeries, EventSeries.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "Series"
+}

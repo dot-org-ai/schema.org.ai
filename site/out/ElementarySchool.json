@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ElementarySchool",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ElementarySchool",
+  "description": "An elementary school.",
+  "subClassOf": [
+    "EducationalOrganization"
+  ],
+  "title": "ElementarySchool"
+}

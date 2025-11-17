@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/GroceryStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "GroceryStore",
+  "description": "A grocery store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "GroceryStore"
+}

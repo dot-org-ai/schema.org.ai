@@ -1,0 +1,41 @@
+
+
+# OfferForLease
+
+An OfferForLease in Schema.org represents an Offer to lease out something, i.e. an Offer whose businessFunction is [lease out](http://purl.org/goodrelations/v1#LeaseOut.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for background on the underlying concepts.
+
+## Type Hierarchy
+
+**OfferForLease**
+
+
+
+## Properties
+
+See [Schema.org OfferForLease properties](https://schema.org/OfferForLease#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { OfferForLease } from 'schema.org.ai'
+
+// Create a OfferForLease
+const item: OfferForLease = {
+  $type: 'OfferForLease',
+  name: 'Example OfferForLease'
+}
+
+// Use semantic patterns
+await $.OfferForLease.create(item)
+const result = await $.OfferForLease.get('item-id')
+```
+
+## Resources
+
+- [Schema.org OfferForLease](https://schema.org/OfferForLease)
+- [OfferForLease Properties](https://schema.org/OfferForLease#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

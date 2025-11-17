@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/LiveBlogPosting",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LiveBlogPosting",
+  "description": "A LiveBlogPosting is a BlogPosting intended to provide a rolling textual coverage of an ongoing event through continuous updates.",
+  "subClassOf": [
+    "BlogPosting"
+  ],
+  "title": "LiveBlogPosting"
+}

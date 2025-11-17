@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PriceTypeEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PriceTypeEnumeration",
+  "description": "Enumerates different price types, for example list price, invoice price, and sale price.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "PriceTypeEnumeration"
+}

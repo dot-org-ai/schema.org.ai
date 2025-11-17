@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Museum",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Museum",
+  "description": "A museum.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "Museum"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EmployerAggregateRating",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EmployerAggregateRating",
+  "description": "An aggregate rating of an Organization related to its role as an employer.",
+  "subClassOf": [
+    "AggregateRating"
+  ],
+  "title": "EmployerAggregateRating"
+}

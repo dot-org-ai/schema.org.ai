@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RsvpAction - schema.org.ai</title>
+  <meta name="description" content="The act of notifying an event organizer as to whether you expect to attend the event.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="RsvpAction.json">JSON</a>
+    <a href="RsvpAction.md">Markdown</a>
+  </nav>
+
+  <h1>RsvpAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/RsvpAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="InformAction.html">InformAction</a></p>
+    <p><strong>Description:</strong> The act of notifying an event organizer as to whether you expect to attend the event.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# RsvpAction
+
+The act of notifying an event organizer as to whether you expect to attend the event.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [InteractAction](InteractAction.mdx) > [CommunicateAction](CommunicateAction.mdx) > [InformAction](InformAction.mdx) > **RsvpAction**
+
+
+
+## Properties
+
+See [Schema.org RsvpAction properties](https://schema.org/RsvpAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { RsvpAction } from 'schema.org.ai'
+
+// Create a RsvpAction
+const item: RsvpAction = {
+  $type: 'RsvpAction',
+  name: 'Example RsvpAction'
+}
+
+// Use semantic patterns
+await $.RsvpAction.create(item)
+const result = await $.RsvpAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org RsvpAction](https://schema.org/RsvpAction)
+- [RsvpAction Properties](https://schema.org/RsvpAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

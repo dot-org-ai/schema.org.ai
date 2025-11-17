@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Photograph",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Photograph",
+  "description": "A photograph.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Photograph"
+}

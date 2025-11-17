@@ -1,0 +1,43 @@
+
+
+# House
+
+A house is a building or structure that has the ability to be occupied for habitation by humans or other creatures (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/House).
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [Accommodation](Accommodation.mdx) > **House**
+
+## Direct Subclasses
+
+- **[SingleFamilyResidence](SingleFamilyResidence.mdx)**: Residence type: Single-family home
+
+## Properties
+
+See [Schema.org House properties](https://schema.org/House#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { House } from 'schema.org.ai'
+
+// Create a House
+const item: House = {
+  $type: 'House',
+  name: 'Example House'
+}
+
+// Use semantic patterns
+await $.House.create(item)
+const result = await $.House.get('item-id')
+```
+
+## Resources
+
+- [Schema.org House](https://schema.org/House)
+- [House Properties](https://schema.org/House#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

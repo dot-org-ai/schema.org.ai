@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AboutPage",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AboutPage",
+  "description": "Web page type: About page.",
+  "subClassOf": [
+    "WebPage"
+  ],
+  "title": "AboutPage"
+}

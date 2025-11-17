@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ContactPointOption",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ContactPointOption",
+  "description": "Enumerated options related to a ContactPoint.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "ContactPointOption"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CookAction - schema.org.ai</title>
+  <meta name="description" content="The act of producing/preparing food.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="CookAction.json">JSON</a>
+    <a href="CookAction.md">Markdown</a>
+  </nav>
+
+  <h1>CookAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/CookAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="CreateAction.html">CreateAction</a></p>
+    <p><strong>Description:</strong> The act of producing/preparing food.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# CookAction
+
+The act of producing/preparing food.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [CreateAction](CreateAction.mdx) > **CookAction**
+
+
+
+## Properties
+
+See [Schema.org CookAction properties](https://schema.org/CookAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CookAction } from 'schema.org.ai'
+
+// Create a CookAction
+const item: CookAction = {
+  $type: 'CookAction',
+  name: 'Example CookAction'
+}
+
+// Use semantic patterns
+await $.CookAction.create(item)
+const result = await $.CookAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CookAction](https://schema.org/CookAction)
+- [CookAction Properties](https://schema.org/CookAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

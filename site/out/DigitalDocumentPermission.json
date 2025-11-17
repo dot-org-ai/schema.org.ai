@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DigitalDocumentPermission",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DigitalDocumentPermission",
+  "description": "A permission for a particular person or group to access a particular file.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "DigitalDocumentPermission"
+}

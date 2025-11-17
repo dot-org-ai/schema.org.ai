@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OnDemandEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OnDemandEvent",
+  "description": "A publication event, e.g. catch-up TV or radio podcast, during which a program is available on-demand.",
+  "subClassOf": [
+    "PublicationEvent"
+  ],
+  "title": "OnDemandEvent"
+}

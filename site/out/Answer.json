@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Answer",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Answer",
+  "description": "An answer offered to a question; perhaps correct, perhaps opinionated or wrong.",
+  "subClassOf": [
+    "Comment"
+  ],
+  "title": "Answer"
+}

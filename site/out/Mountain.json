@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Mountain",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Mountain",
+  "description": "A mountain, like Mount Whitney or Mount Everest.",
+  "subClassOf": [
+    "Landform"
+  ],
+  "title": "Mountain"
+}

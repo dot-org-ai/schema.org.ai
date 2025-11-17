@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Mosque",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Mosque",
+  "description": "A mosque.",
+  "subClassOf": [
+    "PlaceOfWorship"
+  ],
+  "title": "Mosque"
+}

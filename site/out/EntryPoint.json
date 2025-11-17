@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EntryPoint",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EntryPoint",
+  "description": "An entry point, within some Web-based protocol.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "EntryPoint"
+}

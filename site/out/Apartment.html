@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartment - schema.org.ai</title>
+  <meta name="description" content="An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Apartment\">http://en.wikipedia.org/wiki/Apartment</a>).">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Apartment.json">JSON</a>
+    <a href="Apartment.md">Markdown</a>
+  </nav>
+
+  <h1>Apartment</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Apartment</code></p>
+    <p><strong>Subclass of:</strong> <a href="Accommodation.html">Accommodation</a></p>
+    <p><strong>Description:</strong> An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Apartment\">http://en.wikipedia.org/wiki/Apartment</a>).</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Apartment
+
+An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Apartment).
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [Accommodation](Accommodation.mdx) > **Apartment**
+
+
+
+## Properties
+
+See [Schema.org Apartment properties](https://schema.org/Apartment#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Apartment } from 'schema.org.ai'
+
+// Create a Apartment
+const item: Apartment = {
+  $type: 'Apartment',
+  name: 'Example Apartment'
+}
+
+// Use semantic patterns
+await $.Apartment.create(item)
+const result = await $.Apartment.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Apartment](https://schema.org/Apartment)
+- [Apartment Properties](https://schema.org/Apartment#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

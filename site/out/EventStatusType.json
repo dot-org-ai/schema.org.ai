@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/EventStatusType",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "EventStatusType",
+  "description": "EventStatusType is an enumeration type whose instances represent several states that an Event may be in.",
+  "subClassOf": [
+    "StatusEnumeration"
+  ],
+  "title": "EventStatusType"
+}

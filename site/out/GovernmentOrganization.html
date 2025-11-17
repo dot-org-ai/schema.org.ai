@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GovernmentOrganization - schema.org.ai</title>
+  <meta name="description" content="A governmental organization or agency.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="GovernmentOrganization.json">JSON</a>
+    <a href="GovernmentOrganization.md">Markdown</a>
+  </nav>
+
+  <h1>GovernmentOrganization</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/GovernmentOrganization</code></p>
+    <p><strong>Subclass of:</strong> <a href="Organization.html">Organization</a></p>
+    <p><strong>Description:</strong> A governmental organization or agency.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# GovernmentOrganization
+
+A governmental organization or agency.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Organization](Organization.mdx) > **GovernmentOrganization**
+
+
+
+## Properties
+
+See [Schema.org GovernmentOrganization properties](https://schema.org/GovernmentOrganization#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { GovernmentOrganization } from 'schema.org.ai'
+
+// Create a GovernmentOrganization
+const item: GovernmentOrganization = {
+  $type: 'GovernmentOrganization',
+  name: 'Example GovernmentOrganization'
+}
+
+// Use semantic patterns
+await $.GovernmentOrganization.create(item)
+const result = await $.GovernmentOrganization.get('item-id')
+```
+
+## Resources
+
+- [Schema.org GovernmentOrganization](https://schema.org/GovernmentOrganization)
+- [GovernmentOrganization Properties](https://schema.org/GovernmentOrganization#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

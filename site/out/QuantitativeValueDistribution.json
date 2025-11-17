@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/QuantitativeValueDistribution",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "QuantitativeValueDistribution",
+  "description": "A statistical distribution of values.",
+  "subClassOf": [
+    "StructuredValue"
+  ],
+  "title": "QuantitativeValueDistribution"
+}

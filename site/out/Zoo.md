@@ -1,0 +1,41 @@
+
+
+# Zoo
+
+A zoo.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [CivicStructure](CivicStructure.mdx) > **Zoo**
+
+
+
+## Properties
+
+See [Schema.org Zoo properties](https://schema.org/Zoo#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Zoo } from 'schema.org.ai'
+
+// Create a Zoo
+const item: Zoo = {
+  $type: 'Zoo',
+  name: 'Example Zoo'
+}
+
+// Use semantic patterns
+await $.Zoo.create(item)
+const result = await $.Zoo.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Zoo](https://schema.org/Zoo)
+- [Zoo Properties](https://schema.org/Zoo#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

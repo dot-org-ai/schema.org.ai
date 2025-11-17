@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DaySpa",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DaySpa",
+  "description": "A day spa.",
+  "subClassOf": [
+    "HealthAndBeautyBusiness"
+  ],
+  "title": "DaySpa"
+}

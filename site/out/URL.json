@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/URL",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "URL",
+  "description": "Data type: URL.",
+  "subClassOf": [
+    "Text"
+  ],
+  "title": "URL"
+}

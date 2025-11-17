@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComicIssue - schema.org.ai</title>
+  <meta name="description" content="Individual comic issues are serially published as part of a larger series. For the sake of consistency, even one-shot issues belong to a series comprised of a single issue. All comic issues can be uniquely identified by: the combination of the name and volume number of the series to which the issue belongs; the issue number; and the variant description of the issue (if any).">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ComicIssue.json">JSON</a>
+    <a href="ComicIssue.md">Markdown</a>
+  </nav>
+
+  <h1>ComicIssue</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ComicIssue</code></p>
+    <p><strong>Subclass of:</strong> <a href="PublicationIssue.html">PublicationIssue</a></p>
+    <p><strong>Description:</strong> Individual comic issues are serially published as part of a larger series. For the sake of consistency, even one-shot issues belong to a series comprised of a single issue. All comic issues can be uniquely identified by: the combination of the name and volume number of the series to which the issue belongs; the issue number; and the variant description of the issue (if any).</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ComicIssue
+
+Individual comic issues are serially published as part of a larger series. For the sake of consistency, even one-shot issues belong to a series comprised of a single issue. All comic issues can be uniquely identified by: the combination of the name and volume number of the series to which the issue belongs; the issue number; and the variant description of the issue (if any).
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [PublicationIssue](PublicationIssue.mdx) > **ComicIssue**
+
+
+
+## Properties
+
+See [Schema.org ComicIssue properties](https://schema.org/ComicIssue#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ComicIssue } from 'schema.org.ai'
+
+// Create a ComicIssue
+const item: ComicIssue = {
+  $type: 'ComicIssue',
+  name: 'Example ComicIssue'
+}
+
+// Use semantic patterns
+await $.ComicIssue.create(item)
+const result = await $.ComicIssue.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ComicIssue](https://schema.org/ComicIssue)
+- [ComicIssue Properties](https://schema.org/ComicIssue#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

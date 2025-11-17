@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MovieRentalStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MovieRentalStore",
+  "description": "A movie rental store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "MovieRentalStore"
+}

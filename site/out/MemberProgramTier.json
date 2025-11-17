@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MemberProgramTier",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MemberProgramTier",
+  "description": "A MemberProgramTier specifies a tier under a loyalty (member) program, for example \"gold\".",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "MemberProgramTier"
+}

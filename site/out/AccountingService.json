@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AccountingService",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AccountingService",
+  "description": "Accountancy business.\\",
+  "subClassOf": [
+    "FinancialService"
+  ],
+  "title": "AccountingService"
+}

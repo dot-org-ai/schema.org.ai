@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/NGO",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "NGO",
+  "description": "Organization: Non-governmental Organization.",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "NGO"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CheckOutAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CheckOutAction",
+  "description": "The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e.g. flight check-in) or place (e.g. hotel).\\",
+  "subClassOf": [
+    "CommunicateAction"
+  ],
+  "title": "CheckOutAction"
+}

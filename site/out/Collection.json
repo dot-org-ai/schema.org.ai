@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Collection",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Collection",
+  "description": "A collection of items, e.g. creative works or products.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Collection"
+}

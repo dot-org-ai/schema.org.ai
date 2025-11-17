@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ComicSeries",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ComicSeries",
+  "description": "A sequential publication of comic stories under a unifying title, for example \"The Amazing Spider-Man\" or \"Groo the Wanderer\".",
+  "subClassOf": [
+    "Periodical"
+  ],
+  "title": "ComicSeries"
+}

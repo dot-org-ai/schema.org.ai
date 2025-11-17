@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MusicComposition",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MusicComposition",
+  "description": "A musical composition.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "MusicComposition"
+}

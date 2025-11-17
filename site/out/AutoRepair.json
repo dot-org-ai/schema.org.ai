@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AutoRepair",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AutoRepair",
+  "description": "Car repair business.",
+  "subClassOf": [
+    "AutomotiveBusiness"
+  ],
+  "title": "AutoRepair"
+}

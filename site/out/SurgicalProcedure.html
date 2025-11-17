@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SurgicalProcedure - schema.org.ai</title>
+  <meta name="description" content="A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="SurgicalProcedure.json">JSON</a>
+    <a href="SurgicalProcedure.md">Markdown</a>
+  </nav>
+
+  <h1>SurgicalProcedure</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/SurgicalProcedure</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalProcedure.html">MedicalProcedure</a></p>
+    <p><strong>Description:</strong> A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# SurgicalProcedure
+
+A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalProcedure](MedicalProcedure.mdx) > **SurgicalProcedure**
+
+
+
+## Properties
+
+See [Schema.org SurgicalProcedure properties](https://schema.org/SurgicalProcedure#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { SurgicalProcedure } from 'schema.org.ai'
+
+// Create a SurgicalProcedure
+const item: SurgicalProcedure = {
+  $type: 'SurgicalProcedure',
+  name: 'Example SurgicalProcedure'
+}
+
+// Use semantic patterns
+await $.SurgicalProcedure.create(item)
+const result = await $.SurgicalProcedure.get('item-id')
+```
+
+## Resources
+
+- [Schema.org SurgicalProcedure](https://schema.org/SurgicalProcedure)
+- [SurgicalProcedure Properties](https://schema.org/SurgicalProcedure#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

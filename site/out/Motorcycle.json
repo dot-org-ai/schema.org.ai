@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Motorcycle",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Motorcycle",
+  "description": "A motorcycle or motorbike is a single-track, two-wheeled motor vehicle.",
+  "subClassOf": [
+    "Vehicle"
+  ],
+  "title": "Motorcycle"
+}

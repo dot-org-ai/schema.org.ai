@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StatisticalVariable - schema.org.ai</title>
+  <meta name="description" content="StatisticalVariable represents any type of statistical metric that can be measured at a place and time. The usage pattern for StatisticalVariable is typically expressed using Observation with an explicit populationType, which is a type, typically drawn from Schema.org. Each StatisticalVariable is marked as a ConstraintNode, meaning that some properties (those listed using constraintProperty) serve in this setting solely to define the statistical variable rather than literally describe a specific person, place or thing. For example, a StatisticalVariable Median_Height_Person_Female representing the median height of women, could be written as follows: the population type is Person; the measuredProperty height; the statType median; the gender Female. It is important to note that there are many kinds of scientific quantitative observation which are not fully, perfectly or unambiguously described following this pattern, or with solely Schema.org terminology. The approach taken here is designed to allow partial, incremental or minimal description of StatisticalVariables, and the use of detailed sets of entity and property IDs from external repositories. The measurementMethod, unitCode and unitText properties can also be used to clarify the specific nature and notation of an observed measurement.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="StatisticalVariable.json">JSON</a>
+    <a href="StatisticalVariable.md">Markdown</a>
+  </nav>
+
+  <h1>StatisticalVariable</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/StatisticalVariable</code></p>
+    <p><strong>Subclass of:</strong> <a href="ConstraintNode.html">ConstraintNode</a></p>
+    <p><strong>Description:</strong> StatisticalVariable represents any type of statistical metric that can be measured at a place and time. The usage pattern for StatisticalVariable is typically expressed using Observation with an explicit populationType, which is a type, typically drawn from Schema.org. Each StatisticalVariable is marked as a ConstraintNode, meaning that some properties (those listed using constraintProperty) serve in this setting solely to define the statistical variable rather than literally describe a specific person, place or thing. For example, a StatisticalVariable Median_Height_Person_Female representing the median height of women, could be written as follows: the population type is Person; the measuredProperty height; the statType median; the gender Female. It is important to note that there are many kinds of scientific quantitative observation which are not fully, perfectly or unambiguously described following this pattern, or with solely Schema.org terminology. The approach taken here is designed to allow partial, incremental or minimal description of StatisticalVariables, and the use of detailed sets of entity and property IDs from external repositories. The measurementMethod, unitCode and unitText properties can also be used to clarify the specific nature and notation of an observed measurement.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# StatisticalVariable
+
+StatisticalVariable represents any type of statistical metric that can be measured at a place and time. The usage pattern for StatisticalVariable is typically expressed using Observation with an explicit populationType, which is a type, typically drawn from Schema.org. Each StatisticalVariable is marked as a ConstraintNode, meaning that some properties (those listed using constraintProperty) serve in this setting solely to define the statistical variable rather than literally describe a specific person, place or thing. For example, a StatisticalVariable Median_Height_Person_Female representing the median height of women, could be written as follows: the population type is Person; the measuredProperty height; the statType median; the gender Female. It is important to note that there are many kinds of scientific quantitative observation which are not fully, perfectly or unambiguously described following this pattern, or with solely Schema.org terminology. The approach taken here is designed to allow partial, incremental or minimal description of StatisticalVariables, and the use of detailed sets of entity and property IDs from external repositories. The measurementMethod, unitCode and unitText properties can also be used to clarify the specific nature and notation of an observed measurement.
+
+## Type Hierarchy
+
+**StatisticalVariable**
+
+
+
+## Properties
+
+See [Schema.org StatisticalVariable properties](https://schema.org/StatisticalVariable#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { StatisticalVariable } from 'schema.org.ai'
+
+// Create a StatisticalVariable
+const item: StatisticalVariable = {
+  $type: 'StatisticalVariable',
+  name: 'Example StatisticalVariable'
+}
+
+// Use semantic patterns
+await $.StatisticalVariable.create(item)
+const result = await $.StatisticalVariable.get('item-id')
+```
+
+## Resources
+
+- [Schema.org StatisticalVariable](https://schema.org/StatisticalVariable)
+- [StatisticalVariable Properties](https://schema.org/StatisticalVariable#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

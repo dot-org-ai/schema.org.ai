@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/GovernmentOrganization",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "GovernmentOrganization",
+  "description": "A governmental organization or agency.",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "GovernmentOrganization"
+}

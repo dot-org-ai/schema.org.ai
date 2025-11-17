@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalTest - schema.org.ai</title>
+  <meta name="description" content="Any medical test, typically performed for diagnostic purposes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalTest.json">JSON</a>
+    <a href="MedicalTest.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalTest</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalTest</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalEntity.html">MedicalEntity</a></p>
+    <p><strong>Description:</strong> Any medical test, typically performed for diagnostic purposes.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalTest
+
+Any medical test, typically performed for diagnostic purposes.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > **MedicalTest**
+
+## Direct Subclasses
+
+- **[ImagingTest](ImagingTest.mdx)**: Any medical imaging modality typically used for diagnostic purposes
+- **[MedicalTestPanel](MedicalTestPanel.mdx)**: Any collection of tests commonly ordered together
+- **[PathologyTest](PathologyTest.mdx)**: A medical test performed by a laboratory that typically involves examination of a tissue sample by a pathologist
+
+## Properties
+
+See [Schema.org MedicalTest properties](https://schema.org/MedicalTest#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalTest } from 'schema.org.ai'
+
+// Create a MedicalTest
+const item: MedicalTest = {
+  $type: 'MedicalTest',
+  name: 'Example MedicalTest'
+}
+
+// Use semantic patterns
+await $.MedicalTest.create(item)
+const result = await $.MedicalTest.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalTest](https://schema.org/MedicalTest)
+- [MedicalTest Properties](https://schema.org/MedicalTest#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

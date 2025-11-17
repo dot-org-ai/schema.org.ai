@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RealEstateAgent - schema.org.ai</title>
+  <meta name="description" content="A real-estate agent.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="RealEstateAgent.json">JSON</a>
+    <a href="RealEstateAgent.md">Markdown</a>
+  </nav>
+
+  <h1>RealEstateAgent</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/RealEstateAgent</code></p>
+    <p><strong>Subclass of:</strong> <a href="LocalBusiness.html">LocalBusiness</a></p>
+    <p><strong>Description:</strong> A real-estate agent.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# RealEstateAgent
+
+A real-estate agent.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **RealEstateAgent**
+
+
+
+## Properties
+
+See [Schema.org RealEstateAgent properties](https://schema.org/RealEstateAgent#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { RealEstateAgent } from 'schema.org.ai'
+
+// Create a RealEstateAgent
+const item: RealEstateAgent = {
+  $type: 'RealEstateAgent',
+  name: 'Example RealEstateAgent'
+}
+
+// Use semantic patterns
+await $.RealEstateAgent.create(item)
+const result = await $.RealEstateAgent.get('item-id')
+```
+
+## Resources
+
+- [Schema.org RealEstateAgent](https://schema.org/RealEstateAgent)
+- [RealEstateAgent Properties](https://schema.org/RealEstateAgent#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

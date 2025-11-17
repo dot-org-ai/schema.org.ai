@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PronounceableText",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PronounceableText",
+  "description": "Data type: PronounceableText.",
+  "subClassOf": [
+    "Text"
+  ],
+  "title": "PronounceableText"
+}

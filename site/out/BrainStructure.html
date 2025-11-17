@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainStructure - schema.org.ai</title>
+  <meta name="description" content="Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="BrainStructure.json">JSON</a>
+    <a href="BrainStructure.md">Markdown</a>
+  </nav>
+
+  <h1>BrainStructure</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/BrainStructure</code></p>
+    <p><strong>Subclass of:</strong> <a href="AnatomicalStructure.html">AnatomicalStructure</a></p>
+    <p><strong>Description:</strong> Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# BrainStructure
+
+Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [AnatomicalStructure](AnatomicalStructure.mdx) > **BrainStructure**
+
+
+
+## Properties
+
+See [Schema.org BrainStructure properties](https://schema.org/BrainStructure#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { BrainStructure } from 'schema.org.ai'
+
+// Create a BrainStructure
+const item: BrainStructure = {
+  $type: 'BrainStructure',
+  name: 'Example BrainStructure'
+}
+
+// Use semantic patterns
+await $.BrainStructure.create(item)
+const result = await $.BrainStructure.get('item-id')
+```
+
+## Resources
+
+- [Schema.org BrainStructure](https://schema.org/BrainStructure)
+- [BrainStructure Properties](https://schema.org/BrainStructure#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

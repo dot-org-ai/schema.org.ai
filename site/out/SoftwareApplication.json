@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/SoftwareApplication",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "SoftwareApplication",
+  "description": "A software application.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "SoftwareApplication"
+}

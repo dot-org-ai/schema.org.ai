@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/MedicalProcedure",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalProcedure",
+  "description": "A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques.",
+  "subClassOf": [
+    "MedicalEntity"
+  ],
+  "title": "MedicalProcedure"
+}

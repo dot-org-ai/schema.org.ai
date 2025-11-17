@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/UseAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "UseAction",
+  "description": "The act of applying an object to its intended purpose.",
+  "subClassOf": [
+    "ConsumeAction"
+  ],
+  "title": "UseAction"
+}

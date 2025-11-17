@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RVPark",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RVPark",
+  "description": "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like.",
+  "subClassOf": [
+    "CivicStructure"
+  ],
+  "title": "RVPark"
+}

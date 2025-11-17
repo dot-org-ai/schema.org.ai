@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OfficeEquipmentStore - schema.org.ai</title>
+  <meta name="description" content="An office equipment store.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="OfficeEquipmentStore.json">JSON</a>
+    <a href="OfficeEquipmentStore.md">Markdown</a>
+  </nav>
+
+  <h1>OfficeEquipmentStore</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/OfficeEquipmentStore</code></p>
+    <p><strong>Subclass of:</strong> <a href="Store.html">Store</a></p>
+    <p><strong>Description:</strong> An office equipment store.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# OfficeEquipmentStore
+
+An office equipment store.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [Store](Store.mdx) > **OfficeEquipmentStore**
+
+
+
+## Properties
+
+See [Schema.org OfficeEquipmentStore properties](https://schema.org/OfficeEquipmentStore#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { OfficeEquipmentStore } from 'schema.org.ai'
+
+// Create a OfficeEquipmentStore
+const item: OfficeEquipmentStore = {
+  $type: 'OfficeEquipmentStore',
+  name: 'Example OfficeEquipmentStore'
+}
+
+// Use semantic patterns
+await $.OfficeEquipmentStore.create(item)
+const result = await $.OfficeEquipmentStore.get('item-id')
+```
+
+## Resources
+
+- [Schema.org OfficeEquipmentStore](https://schema.org/OfficeEquipmentStore)
+- [OfficeEquipmentStore Properties](https://schema.org/OfficeEquipmentStore#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

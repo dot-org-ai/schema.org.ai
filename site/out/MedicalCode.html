@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalCode - schema.org.ai</title>
+  <meta name="description" content="A code for a medical entity.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicalCode.json">JSON</a>
+    <a href="MedicalCode.md">Markdown</a>
+  </nav>
+
+  <h1>MedicalCode</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicalCode</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalIntangible.html">MedicalIntangible</a>, <a href="CategoryCode.html">CategoryCode</a></p>
+    <p><strong>Description:</strong> A code for a medical entity.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicalCode
+
+A code for a medical entity.
+
+## Type Hierarchy
+
+**MedicalCode**
+
+
+
+## Properties
+
+See [Schema.org MedicalCode properties](https://schema.org/MedicalCode#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicalCode } from 'schema.org.ai'
+
+// Create a MedicalCode
+const item: MedicalCode = {
+  $type: 'MedicalCode',
+  name: 'Example MedicalCode'
+}
+
+// Use semantic patterns
+await $.MedicalCode.create(item)
+const result = await $.MedicalCode.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicalCode](https://schema.org/MedicalCode)
+- [MedicalCode Properties](https://schema.org/MedicalCode#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

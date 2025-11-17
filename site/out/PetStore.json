@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PetStore",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PetStore",
+  "description": "A pet store.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "PetStore"
+}

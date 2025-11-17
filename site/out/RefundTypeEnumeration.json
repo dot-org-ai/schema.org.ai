@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RefundTypeEnumeration",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RefundTypeEnumeration",
+  "description": "Enumerates several kinds of product return refund types.",
+  "subClassOf": [
+    "Enumeration"
+  ],
+  "title": "RefundTypeEnumeration"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Place",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Place",
+  "description": "Entities that have a somewhat fixed, physical extension.",
+  "subClassOf": [
+    "Thing"
+  ],
+  "title": "Place"
+}

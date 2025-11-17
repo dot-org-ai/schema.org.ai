@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ResearchOrganization",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ResearchOrganization",
+  "description": "A Research Organization (e.g. scientific institute, research company).",
+  "subClassOf": [
+    "Organization"
+  ],
+  "title": "ResearchOrganization"
+}

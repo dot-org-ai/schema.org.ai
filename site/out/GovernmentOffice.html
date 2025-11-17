@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GovernmentOffice - schema.org.ai</title>
+  <meta name="description" content="A government office&#x2014;for example, an IRS or DMV office.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="GovernmentOffice.json">JSON</a>
+    <a href="GovernmentOffice.md">Markdown</a>
+  </nav>
+
+  <h1>GovernmentOffice</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/GovernmentOffice</code></p>
+    <p><strong>Subclass of:</strong> <a href="LocalBusiness.html">LocalBusiness</a></p>
+    <p><strong>Description:</strong> A government office&#x2014;for example, an IRS or DMV office.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# GovernmentOffice
+
+A government office&#x2014;for example, an IRS or DMV office.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > **GovernmentOffice**
+
+## Direct Subclasses
+
+- **[PostOffice](PostOffice.mdx)**: A post office
+
+## Properties
+
+See [Schema.org GovernmentOffice properties](https://schema.org/GovernmentOffice#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { GovernmentOffice } from 'schema.org.ai'
+
+// Create a GovernmentOffice
+const item: GovernmentOffice = {
+  $type: 'GovernmentOffice',
+  name: 'Example GovernmentOffice'
+}
+
+// Use semantic patterns
+await $.GovernmentOffice.create(item)
+const result = await $.GovernmentOffice.get('item-id')
+```
+
+## Resources
+
+- [Schema.org GovernmentOffice](https://schema.org/GovernmentOffice)
+- [GovernmentOffice Properties](https://schema.org/GovernmentOffice#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

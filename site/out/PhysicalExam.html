@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhysicalExam - schema.org.ai</title>
+  <meta name="description" content="A type of physical examination of a patient performed by a physician.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PhysicalExam.json">JSON</a>
+    <a href="PhysicalExam.md">Markdown</a>
+  </nav>
+
+  <h1>PhysicalExam</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PhysicalExam</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalEnumeration.html">MedicalEnumeration</a>, <a href="MedicalProcedure.html">MedicalProcedure</a></p>
+    <p><strong>Description:</strong> A type of physical examination of a patient performed by a physician.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PhysicalExam
+
+A type of physical examination of a patient performed by a physician.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalProcedure](MedicalProcedure.mdx) > **PhysicalExam**
+
+
+
+## Properties
+
+See [Schema.org PhysicalExam properties](https://schema.org/PhysicalExam#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PhysicalExam } from 'schema.org.ai'
+
+// Create a PhysicalExam
+const item: PhysicalExam = {
+  $type: 'PhysicalExam',
+  name: 'Example PhysicalExam'
+}
+
+// Use semantic patterns
+await $.PhysicalExam.create(item)
+const result = await $.PhysicalExam.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PhysicalExam](https://schema.org/PhysicalExam)
+- [PhysicalExam Properties](https://schema.org/PhysicalExam#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/MedicalAudience",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "MedicalAudience",
+  "description": "Target audiences for medical web pages.",
+  "subClassOf": [
+    "Audience",
+    "PeopleAudience"
+  ],
+  "title": "MedicalAudience"
+}

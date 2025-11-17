@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Residence - schema.org.ai</title>
+  <meta name="description" content="The place where a person lives.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="Residence.json">JSON</a>
+    <a href="Residence.md">Markdown</a>
+  </nav>
+
+  <h1>Residence</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/Residence</code></p>
+    <p><strong>Subclass of:</strong> <a href="Place.html">Place</a></p>
+    <p><strong>Description:</strong> The place where a person lives.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# Residence
+
+The place where a person lives.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > **Residence**
+
+## Direct Subclasses
+
+- **[ApartmentComplex](ApartmentComplex.mdx)**: Residence type: Apartment complex
+- **[GatedResidenceCommunity](GatedResidenceCommunity.mdx)**: Residence type: Gated community
+
+## Properties
+
+See [Schema.org Residence properties](https://schema.org/Residence#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Residence } from 'schema.org.ai'
+
+// Create a Residence
+const item: Residence = {
+  $type: 'Residence',
+  name: 'Example Residence'
+}
+
+// Use semantic patterns
+await $.Residence.create(item)
+const result = await $.Residence.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Residence](https://schema.org/Residence)
+- [Residence Properties](https://schema.org/Residence#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

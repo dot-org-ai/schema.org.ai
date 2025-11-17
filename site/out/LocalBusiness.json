@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/LocalBusiness",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "LocalBusiness",
+  "description": "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.",
+  "subClassOf": [
+    "Place",
+    "Organization"
+  ],
+  "title": "LocalBusiness"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TrainReservation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TrainReservation",
+  "description": "A reservation for train travel.\\",
+  "subClassOf": [
+    "Reservation"
+  ],
+  "title": "TrainReservation"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/ReplaceAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "ReplaceAction",
+  "description": "The act of editing a recipient by replacing an old object with a new object.",
+  "subClassOf": [
+    "UpdateAction"
+  ],
+  "title": "ReplaceAction"
+}

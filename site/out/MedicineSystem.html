@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicineSystem - schema.org.ai</title>
+  <meta name="description" content="Systems of medical practice.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MedicineSystem.json">JSON</a>
+    <a href="MedicineSystem.md">Markdown</a>
+  </nav>
+
+  <h1>MedicineSystem</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MedicineSystem</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalEnumeration.html">MedicalEnumeration</a></p>
+    <p><strong>Description:</strong> Systems of medical practice.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MedicineSystem
+
+Systems of medical practice.
+
+## Type Hierarchy
+
+**MedicineSystem**
+
+
+
+## Properties
+
+See [Schema.org MedicineSystem properties](https://schema.org/MedicineSystem#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MedicineSystem } from 'schema.org.ai'
+
+// Create a MedicineSystem
+const item: MedicineSystem = {
+  $type: 'MedicineSystem',
+  name: 'Example MedicineSystem'
+}
+
+// Use semantic patterns
+await $.MedicineSystem.create(item)
+const result = await $.MedicineSystem.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MedicineSystem](https://schema.org/MedicineSystem)
+- [MedicineSystem Properties](https://schema.org/MedicineSystem#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

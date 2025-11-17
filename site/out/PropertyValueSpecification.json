@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PropertyValueSpecification",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PropertyValueSpecification",
+  "description": "A Property value specification.",
+  "subClassOf": [
+    "Intangible"
+  ],
+  "title": "PropertyValueSpecification"
+}

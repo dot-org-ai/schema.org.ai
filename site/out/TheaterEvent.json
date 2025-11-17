@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/TheaterEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "TheaterEvent",
+  "description": "Event type: Theater performance.",
+  "subClassOf": [
+    "Event"
+  ],
+  "title": "TheaterEvent"
+}

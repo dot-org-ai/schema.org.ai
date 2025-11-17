@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/BroadcastEvent",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "BroadcastEvent",
+  "description": "An over the air or online broadcast event.",
+  "subClassOf": [
+    "PublicationEvent"
+  ],
+  "title": "BroadcastEvent"
+}

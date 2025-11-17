@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/RadioSeason",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "RadioSeason",
+  "description": "Season dedicated to radio broadcast and associated online delivery.",
+  "subClassOf": [
+    "CreativeWorkSeason"
+  ],
+  "title": "RadioSeason"
+}

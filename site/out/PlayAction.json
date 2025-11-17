@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/PlayAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PlayAction",
+  "description": "The act of playing/exercising/training/performing for enjoyment, leisure, recreation, competition or exercise.\\",
+  "subClassOf": [
+    "Action"
+  ],
+  "title": "PlayAction"
+}

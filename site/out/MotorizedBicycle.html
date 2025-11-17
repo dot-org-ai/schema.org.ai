@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotorizedBicycle - schema.org.ai</title>
+  <meta name="description" content="A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="MotorizedBicycle.json">JSON</a>
+    <a href="MotorizedBicycle.md">Markdown</a>
+  </nav>
+
+  <h1>MotorizedBicycle</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/MotorizedBicycle</code></p>
+    <p><strong>Subclass of:</strong> <a href="Vehicle.html">Vehicle</a></p>
+    <p><strong>Description:</strong> A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# MotorizedBicycle
+
+A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Product](Product.mdx) > [Vehicle](Vehicle.mdx) > **MotorizedBicycle**
+
+
+
+## Properties
+
+See [Schema.org MotorizedBicycle properties](https://schema.org/MotorizedBicycle#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { MotorizedBicycle } from 'schema.org.ai'
+
+// Create a MotorizedBicycle
+const item: MotorizedBicycle = {
+  $type: 'MotorizedBicycle',
+  name: 'Example MotorizedBicycle'
+}
+
+// Use semantic patterns
+await $.MotorizedBicycle.create(item)
+const result = await $.MotorizedBicycle.get('item-id')
+```
+
+## Resources
+
+- [Schema.org MotorizedBicycle](https://schema.org/MotorizedBicycle)
+- [MotorizedBicycle Properties](https://schema.org/MotorizedBicycle#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

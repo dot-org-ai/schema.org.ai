@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Residence",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Residence",
+  "description": "The place where a person lives.",
+  "subClassOf": [
+    "Place"
+  ],
+  "title": "Residence"
+}

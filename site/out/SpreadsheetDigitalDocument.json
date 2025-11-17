@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/SpreadsheetDigitalDocument",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "SpreadsheetDigitalDocument",
+  "description": "A spreadsheet file.",
+  "subClassOf": [
+    "DigitalDocument"
+  ],
+  "title": "SpreadsheetDigitalDocument"
+}

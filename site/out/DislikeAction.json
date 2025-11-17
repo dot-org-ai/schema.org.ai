@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/DislikeAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "DislikeAction",
+  "description": "The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants.",
+  "subClassOf": [
+    "ReactAction"
+  ],
+  "title": "DislikeAction"
+}

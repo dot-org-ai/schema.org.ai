@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OrganizationRole",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OrganizationRole",
+  "description": "A subclass of Role used to describe roles within organizations.",
+  "subClassOf": [
+    "Role"
+  ],
+  "title": "OrganizationRole"
+}

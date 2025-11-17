@@ -1,0 +1,43 @@
+
+
+# Hotel
+
+A hotel is an establishment that provides lodging paid on a short-term basis (source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Hotel). 
+
+ See also the dedicated document on the use of schema.org for marking up hotels and other forms of accommodations.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Place](Place.mdx) > [LocalBusiness](LocalBusiness.mdx) > [LodgingBusiness](LodgingBusiness.mdx) > **Hotel**
+
+
+
+## Properties
+
+See [Schema.org Hotel properties](https://schema.org/Hotel#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Hotel } from 'schema.org.ai'
+
+// Create a Hotel
+const item: Hotel = {
+  $type: 'Hotel',
+  name: 'Example Hotel'
+}
+
+// Use semantic patterns
+await $.Hotel.create(item)
+const result = await $.Hotel.get('item-id')
+```
+
+## Resources
+
+- [Schema.org Hotel](https://schema.org/Hotel)
+- [Hotel Properties](https://schema.org/Hotel#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

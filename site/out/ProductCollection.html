@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProductCollection - schema.org.ai</title>
+  <meta name="description" content="A set of products (either ProductGroups or specific variants) that are listed together e.g. in an Offer.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ProductCollection.json">JSON</a>
+    <a href="ProductCollection.md">Markdown</a>
+  </nav>
+
+  <h1>ProductCollection</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ProductCollection</code></p>
+    <p><strong>Subclass of:</strong> <a href="Product.html">Product</a>, <a href="Collection.html">Collection</a></p>
+    <p><strong>Description:</strong> A set of products (either ProductGroups or specific variants) that are listed together e.g. in an Offer.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ProductCollection
+
+A set of products (either ProductGroups or specific variants) that are listed together e.g. in an Offer.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Product](Product.mdx) > **ProductCollection**
+
+
+
+## Properties
+
+See [Schema.org ProductCollection properties](https://schema.org/ProductCollection#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ProductCollection } from 'schema.org.ai'
+
+// Create a ProductCollection
+const item: ProductCollection = {
+  $type: 'ProductCollection',
+  name: 'Example ProductCollection'
+}
+
+// Use semantic patterns
+await $.ProductCollection.create(item)
+const result = await $.ProductCollection.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ProductCollection](https://schema.org/ProductCollection)
+- [ProductCollection Properties](https://schema.org/ProductCollection#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

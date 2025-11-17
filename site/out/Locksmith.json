@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Locksmith",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Locksmith",
+  "description": "A locksmith.",
+  "subClassOf": [
+    "HomeAndConstructionBusiness"
+  ],
+  "title": "Locksmith"
+}

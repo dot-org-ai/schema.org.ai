@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/OrganizeAction",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "OrganizeAction",
+  "description": "The act of manipulating/administering/supervising/controlling one or more objects.",
+  "subClassOf": [
+    "Action"
+  ],
+  "title": "OrganizeAction"
+}

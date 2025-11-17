@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CommentAction - schema.org.ai</title>
+  <meta name="description" content="The act of generating a comment about a subject.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="CommentAction.json">JSON</a>
+    <a href="CommentAction.md">Markdown</a>
+  </nav>
+
+  <h1>CommentAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/CommentAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="CommunicateAction.html">CommunicateAction</a></p>
+    <p><strong>Description:</strong> The act of generating a comment about a subject.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# CommentAction
+
+The act of generating a comment about a subject.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [InteractAction](InteractAction.mdx) > [CommunicateAction](CommunicateAction.mdx) > **CommentAction**
+
+
+
+## Properties
+
+See [Schema.org CommentAction properties](https://schema.org/CommentAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CommentAction } from 'schema.org.ai'
+
+// Create a CommentAction
+const item: CommentAction = {
+  $type: 'CommentAction',
+  name: 'Example CommentAction'
+}
+
+// Use semantic patterns
+await $.CommentAction.create(item)
+const result = await $.CommentAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org CommentAction](https://schema.org/CommentAction)
+- [CommentAction Properties](https://schema.org/CommentAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/AutoWash",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "AutoWash",
+  "description": "A car wash business.",
+  "subClassOf": [
+    "AutomotiveBusiness"
+  ],
+  "title": "AutoWash"
+}

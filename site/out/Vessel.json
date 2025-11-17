@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Vessel",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Vessel",
+  "description": "A component of the human body circulatory system comprised of an intricate network of hollow tubes that transport blood throughout the entire body.",
+  "subClassOf": [
+    "AnatomicalStructure"
+  ],
+  "title": "Vessel"
+}

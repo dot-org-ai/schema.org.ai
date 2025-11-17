@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/CivicStructure",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "CivicStructure",
+  "description": "A public structure, such as a town hall or concert hall.",
+  "subClassOf": [
+    "Place"
+  ],
+  "title": "CivicStructure"
+}

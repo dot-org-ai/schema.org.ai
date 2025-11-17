@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConfirmAction - schema.org.ai</title>
+  <meta name="description" content="The act of notifying someone that a future event/action is going to happen as expected.\">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="ConfirmAction.json">JSON</a>
+    <a href="ConfirmAction.md">Markdown</a>
+  </nav>
+
+  <h1>ConfirmAction</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/ConfirmAction</code></p>
+    <p><strong>Subclass of:</strong> <a href="InformAction.html">InformAction</a></p>
+    <p><strong>Description:</strong> The act of notifying someone that a future event/action is going to happen as expected.\</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# ConfirmAction
+
+The act of notifying someone that a future event/action is going to happen as expected.\
+\
+Related actions:\
+\
+* CancelAction: The antonym of ConfirmAction.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Action](Action.mdx) > [InteractAction](InteractAction.mdx) > [CommunicateAction](CommunicateAction.mdx) > [InformAction](InformAction.mdx) > **ConfirmAction**
+
+
+
+## Properties
+
+See [Schema.org ConfirmAction properties](https://schema.org/ConfirmAction#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { ConfirmAction } from 'schema.org.ai'
+
+// Create a ConfirmAction
+const item: ConfirmAction = {
+  $type: 'ConfirmAction',
+  name: 'Example ConfirmAction'
+}
+
+// Use semantic patterns
+await $.ConfirmAction.create(item)
+const result = await $.ConfirmAction.get('item-id')
+```
+
+## Resources
+
+- [Schema.org ConfirmAction](https://schema.org/ConfirmAction)
+- [ConfirmAction Properties](https://schema.org/ConfirmAction#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

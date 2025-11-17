@@ -1,0 +1,41 @@
+
+
+# TVEpisode
+
+A TV episode which can be part of a series or season.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > [Episode](Episode.mdx) > **TVEpisode**
+
+
+
+## Properties
+
+See [Schema.org TVEpisode properties](https://schema.org/TVEpisode#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { TVEpisode } from 'schema.org.ai'
+
+// Create a TVEpisode
+const item: TVEpisode = {
+  $type: 'TVEpisode',
+  name: 'Example TVEpisode'
+}
+
+// Use semantic patterns
+await $.TVEpisode.create(item)
+const result = await $.TVEpisode.get('item-id')
+```
+
+## Resources
+
+- [Schema.org TVEpisode](https://schema.org/TVEpisode)
+- [TVEpisode Properties](https://schema.org/TVEpisode#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

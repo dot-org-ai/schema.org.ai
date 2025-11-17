@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Volcano",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Volcano",
+  "description": "A volcano, like Fujisan.",
+  "subClassOf": [
+    "Landform"
+  ],
+  "title": "Volcano"
+}

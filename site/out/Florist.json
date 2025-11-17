@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Florist",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Florist",
+  "description": "A florist.",
+  "subClassOf": [
+    "Store"
+  ],
+  "title": "Florist"
+}

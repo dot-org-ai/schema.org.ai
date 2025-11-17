@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhysicalTherapy - schema.org.ai</title>
+  <meta name="description" content="A process of progressive physical care and rehabilitation aimed at improving a health condition.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thing.html">Thing</a>
+    <a href="PhysicalTherapy.json">JSON</a>
+    <a href="PhysicalTherapy.md">Markdown</a>
+  </nav>
+
+  <h1>PhysicalTherapy</h1>
+
+  <div class="metadata">
+    <p><strong>Type:</strong> Class</p>
+    <p><strong>ID:</strong> <code>https://schema.org.ai/PhysicalTherapy</code></p>
+    <p><strong>Subclass of:</strong> <a href="MedicalTherapy.html">MedicalTherapy</a></p>
+    <p><strong>Description:</strong> A process of progressive physical care and rehabilitation aimed at improving a health condition.</p>
+  </div>
+
+  <div class="content">
+    <h2>Details</h2>
+    <pre>
+
+# PhysicalTherapy
+
+A process of progressive physical care and rehabilitation aimed at improving a health condition.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [MedicalEntity](MedicalEntity.mdx) > [MedicalProcedure](MedicalProcedure.mdx) > [TherapeuticProcedure](TherapeuticProcedure.mdx) > [MedicalTherapy](MedicalTherapy.mdx) > **PhysicalTherapy**
+
+
+
+## Properties
+
+See [Schema.org PhysicalTherapy properties](https://schema.org/PhysicalTherapy#properties)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PhysicalTherapy } from 'schema.org.ai'
+
+// Create a PhysicalTherapy
+const item: PhysicalTherapy = {
+  $type: 'PhysicalTherapy',
+  name: 'Example PhysicalTherapy'
+}
+
+// Use semantic patterns
+await $.PhysicalTherapy.create(item)
+const result = await $.PhysicalTherapy.get('item-id')
+```
+
+## Resources
+
+- [Schema.org PhysicalTherapy](https://schema.org/PhysicalTherapy)
+- [PhysicalTherapy Properties](https://schema.org/PhysicalTherapy#properties)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+</pre>
+  </div>
+</body>
+</html>

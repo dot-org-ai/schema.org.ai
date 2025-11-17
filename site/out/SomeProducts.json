@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/SomeProducts",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "SomeProducts",
+  "description": "A placeholder for multiple similar products of the same kind.",
+  "subClassOf": [
+    "Product"
+  ],
+  "title": "SomeProducts"
+}

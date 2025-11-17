@@ -1,0 +1,11 @@
+{
+  "$id": "https://schema.org.ai/Painting",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "Painting",
+  "description": "A painting.",
+  "subClassOf": [
+    "CreativeWork"
+  ],
+  "title": "Painting"
+}

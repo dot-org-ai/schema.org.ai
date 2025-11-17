@@ -1,0 +1,12 @@
+{
+  "$id": "https://schema.org.ai/PoliceStation",
+  "$context": "https://schema.org",
+  "$type": "Class",
+  "name": "PoliceStation",
+  "description": "A police station.",
+  "subClassOf": [
+    "CivicStructure",
+    "EmergencyService"
+  ],
+  "title": "PoliceStation"
+}
