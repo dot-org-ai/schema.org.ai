@@ -59,11 +59,11 @@ schema.org.ai extends the base Schema.org vocabulary with modern AI, web, and di
 
 ### Business-as-Code Concepts
 
-- **`DigitalWorker`** - Autonomous digital workers/agents in business processes
-- **`APIEndpoint`** - RESTful API endpoints and services
-- **`WebhookEndpoint`** - Webhook receivers for event-driven architecture
-- **`MCPServer`** - Model Context Protocol servers
-- **`SDKPackage`** - Software Development Kit packages
+- **`API`** - RESTful API endpoints and services
+- **`Webhook`** - Webhook receivers for event-driven architecture
+- **`MCP`** - Model Context Protocol servers
+- **`SDK`** - Software Development Kit packages
+- **`CLI`** - Command-line interface tools
 
 ## Structure
 
