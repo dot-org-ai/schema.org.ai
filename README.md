@@ -40,30 +40,31 @@ schema.org.ai extends the base Schema.org vocabulary with modern AI, web, and di
 
 ### AI & Autonomous Agent Types
 
-- **`Agent`** - Autonomous AI agents
-- **`Tool`** - Tools that agents can use
-- **`Prompt`** - AI prompts and prompt templates
-- **`Model`** - AI/ML models
-- **`Workflow`** - Autonomous workflow definitions
-- **`Capability`** - Agent capabilities and skills
+- **[`Agent`](things/Agent.mdx)** - Autonomous AI agents
+- **[`Tool`](things/Tool.mdx)** - Tools that agents can use
+- **[`Generation`](things/Generation.mdx)** - AI generation instances and outputs
+- **[`Prompt`](things/Prompt.mdx)** - AI prompts and prompt templates
+- **[`Model`](things/Model.mdx)** - AI/ML models
+- **[`Workflow`](things/Workflow.mdx)** - Autonomous workflow definitions
+- **[`Capability`](things/Capability.mdx)** - Agent capabilities and skills
 
 ### Modern Web & Landing Page Types
 
-- **`LandingPage`** - Marketing landing pages optimized for conversion
-- **`HeroSection`** - Hero sections with prominent CTAs
-- **`WPHero`** - WordPress hero sections/blocks
-- **`FeatureSection`** - Product/service feature highlights
-- **`CTASection`** - Call-to-action sections
-- **`TestimonialSection`** - Customer testimonials and social proof
-- **`PricingSection`** - Pricing tables and plans
+- **[`LandingPage`](things/LandingPage.mdx)** - Marketing landing pages optimized for conversion
+- **[`HeroSection`](things/HeroSection.mdx)** - Hero sections with prominent CTAs
+- **[`WPHero`](things/WPHero.mdx)** - WordPress hero sections/blocks
+- **[`FeatureSection`](things/FeatureSection.mdx)** - Product/service feature highlights
+- **[`CTASection`](things/CTASection.mdx)** - Call-to-action sections
+- **[`TestimonialSection`](things/TestimonialSection.mdx)** - Customer testimonials and social proof
+- **[`PricingSection`](things/PricingSection.mdx)** - Pricing tables and plans
 
 ### Business-as-Code Concepts
 
-- **`API`** - API endpoints and services (REST, RPC, GraphQL)
-- **`Webhook`** - Webhook receivers for event-driven architecture
-- **`MCP`** - Model Context Protocol servers (RPC-based)
-- **`SDK`** - Software Development Kit packages
-- **`CLI`** - Command-line interface tools
+- **[`API`](things/API.mdx)** - API endpoints and services (REST, RPC, GraphQL)
+- **[`Webhook`](things/Webhook.mdx)** - Webhook receivers for event-driven architecture
+- **[`MCP`](things/MCP.mdx)** - Model Context Protocol servers (RPC-based)
+- **[`SDK`](things/SDK.mdx)** - Software Development Kit packages
+- **[`CLI`](things/CLI.mdx)** - Command-line interface tools
 
 ## Structure
 
