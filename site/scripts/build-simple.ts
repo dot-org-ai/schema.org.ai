@@ -124,12 +124,14 @@ async function buildSite() {
 /* Pico CSS Documentation Layout */
 
 /* Main Grid Layout - inspired by Pico CSS docs */
-main {
-  display: grid;
+main.container-fluid {
+  display: grid !important;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   grid-template-areas: "body";
   gap: 2rem;
+  max-width: 100% !important;
+  padding: 0 !important;
 }
 
 /* Documentation Menu (Sidebar) */
@@ -294,7 +296,7 @@ aside#documentation-menu header p {
 
 /* Large screens (≥1024px) - Two column layout with sidebar */
 @media (min-width: 1024px) {
-  main {
+  main.container-fluid {
     grid-template-columns: 16rem 1fr;
     grid-template-areas:
       "menu body";
@@ -304,7 +306,7 @@ aside#documentation-menu header p {
 
 /* Extra large screens (≥1280px) - Wider gaps */
 @media (min-width: 1280px) {
-  main {
+  main.container-fluid {
     grid-template-columns: 18rem 1fr;
     gap: 4rem;
   }
