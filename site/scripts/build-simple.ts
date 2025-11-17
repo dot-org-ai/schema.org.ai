@@ -120,135 +120,207 @@ async function buildSite() {
 
   // Copy shared custom CSS (minimal overrides for Pico CSS)
   const customCSS = `
-/* Custom overrides for Pico CSS */
-body {
-  margin: 0;
-  padding: 0;
-}
+/* Pico CSS Documentation Layout */
 
-.page-container {
+/* Main Grid Layout - inspired by Pico CSS docs */
+main {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 0;
-  min-height: 100vh;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "body";
+  gap: 2rem;
 }
 
-aside {
+/* Documentation Menu (Sidebar) */
+aside#documentation-menu {
+  grid-area: menu;
   position: sticky;
   top: 0;
+  align-self: start;
   height: 100vh;
   overflow-y: auto;
-  background: var(--pico-background-color);
+  padding: var(--pico-block-spacing-vertical) 0;
   border-right: 1px solid var(--pico-muted-border-color);
-  padding: 1rem;
 }
 
-aside nav ul {
-  padding-left: 0;
+aside#documentation-menu nav {
+  padding-right: var(--pico-block-spacing-horizontal);
+}
+
+aside#documentation-menu nav > ul {
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 
-aside nav li {
-  margin: 0;
+aside#documentation-menu li {
+  margin-bottom: 0;
 }
 
-aside nav details {
-  margin: 0;
+aside#documentation-menu details {
+  margin-bottom: 0.5rem;
 }
 
-aside nav details summary {
+aside#documentation-menu summary {
+  padding: 0.5rem 0;
   cursor: pointer;
-  padding: 0.25rem 0;
   list-style: none;
+  user-select: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
-aside nav details summary::-webkit-details-marker {
+aside#documentation-menu summary::-webkit-details-marker {
   display: none;
 }
 
-aside nav details summary::before {
+aside#documentation-menu summary::before {
   content: '▶';
   display: inline-block;
+  width: 1rem;
   margin-right: 0.5rem;
-  transition: transform 0.2s;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 
-aside nav details[open] summary::before {
+aside#documentation-menu details[open] > summary::before {
   transform: rotate(90deg);
 }
 
-aside nav a {
+aside#documentation-menu a {
+  display: block;
+  padding: 0.5rem 0 0.5rem 1.5rem;
   text-decoration: none;
   color: var(--pico-color);
-  padding: 0.25rem 0.5rem;
-  display: inline-block;
+  transition: background-color 0.2s ease;
   border-radius: var(--pico-border-radius);
+  margin: 0.125rem 0;
 }
 
-aside nav a:hover {
-  background: var(--pico-secondary-hover);
+aside#documentation-menu a:hover {
+  background-color: var(--pico-secondary-hover);
 }
 
-aside nav a[aria-current="page"] {
-  background: var(--pico-primary);
+aside#documentation-menu a[aria-current="page"] {
+  background-color: var(--pico-primary);
   color: var(--pico-primary-inverse);
   font-weight: 600;
 }
 
-aside nav ul ul {
-  padding-left: 1rem;
+aside#documentation-menu ul ul {
+  padding-left: 0;
   margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
-main.content-with-sidebar {
-  padding: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+aside#documentation-menu header {
+  padding: 0 var(--pico-block-spacing-horizontal) var(--pico-block-spacing-vertical);
+  border-bottom: 1px solid var(--pico-muted-border-color);
+  margin-bottom: var(--pico-block-spacing-vertical);
 }
 
+aside#documentation-menu header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+aside#documentation-menu header p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--pico-muted-color);
+}
+
+/* Main Content Area */
+#main-body {
+  grid-area: body;
+  padding: var(--pico-block-spacing-vertical) var(--pico-block-spacing-horizontal);
+  max-width: 65ch;
+}
+
+#main-body nav {
+  margin-bottom: var(--pico-block-spacing-vertical);
+}
+
+/* Metadata Card */
 .metadata {
   background: var(--pico-card-background-color);
-  padding: 1.5rem;
+  padding: var(--pico-block-spacing-vertical) var(--pico-block-spacing-horizontal);
   border-radius: var(--pico-border-radius);
-  margin: 2rem 0;
+  margin: var(--pico-block-spacing-vertical) 0;
   border-left: 4px solid var(--pico-primary);
 }
+
 .metadata p {
   margin: 0.5rem 0;
 }
+
+/* Type Cards for Index Page */
+.types {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
 .type-card {
   background: var(--pico-card-background-color);
   border: 1px solid var(--pico-muted-border-color);
-  padding: 1.5rem;
+  padding: var(--pico-block-spacing-vertical) var(--pico-block-spacing-horizontal);
   border-radius: var(--pico-border-radius);
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s ease;
 }
+
 .type-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .type-card h3 {
   margin: 0 0 0.5rem 0;
 }
+
 .type-card p {
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
   color: var(--pico-muted-color);
 }
+
 .links {
   font-size: 0.85rem;
   color: var(--pico-muted-color);
 }
 
-@media (max-width: 768px) {
-  .page-container {
-    grid-template-columns: 1fr;
+/* Large screens (≥1024px) - Two column layout with sidebar */
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 16rem 1fr;
+    grid-template-areas:
+      "menu body";
+    gap: 3rem;
   }
-  aside {
+}
+
+/* Extra large screens (≥1280px) - Wider gaps */
+@media (min-width: 1280px) {
+  main {
+    grid-template-columns: 18rem 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Mobile - Stack vertically */
+@media (max-width: 1023px) {
+  aside#documentation-menu {
     position: relative;
     height: auto;
     border-right: none;
     border-bottom: 1px solid var(--pico-muted-border-color);
+    padding-bottom: var(--pico-block-spacing-vertical);
+  }
+
+  #main-body {
+    max-width: 100%;
   }
 }
 `
@@ -343,13 +415,11 @@ function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, si
   <link rel="stylesheet" href="custom.css">
 </head>
 <body>
-  <div class="page-container">
-    <aside>
+  <main class="container-fluid">
+    <aside id="documentation-menu">
       <header>
-        <hgroup>
-          <h2><a href="index.html" style="text-decoration: none; color: inherit;">schema.org.ai</a></h2>
-          <p>Schema.org Types</p>
-        </hgroup>
+        <h2><a href="index.html" style="text-decoration: none; color: inherit;">schema.org.ai</a></h2>
+        <p>Schema.org Types</p>
       </header>
       <nav>
         <ul>
@@ -358,8 +428,8 @@ function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, si
       </nav>
     </aside>
 
-    <main class="content-with-sidebar">
-      <nav>
+    <section id="main-body">
+      <nav aria-label="breadcrumb">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="${slug}.json">JSON</a></li>
@@ -380,8 +450,8 @@ function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, si
         <h2>Details</h2>
         <pre><code>${markdown}</code></pre>
       </article>
-    </main>
-  </div>
+    </section>
+  </main>
 </body>
 </html>`
 }
