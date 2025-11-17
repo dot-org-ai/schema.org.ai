@@ -29,6 +29,7 @@ The schema.org.ai ontology extends Schema.org vocabulary by:
 3. **TypeScript Type Definitions**: Providing type-safe interfaces for all Schema.org types
 4. **Hierarchical Navigation**: Building complete parent-child relationships and breadcrumb navigation
 5. **SDK Integration**: Enabling seamless integration with sdk.do and the .org.ai ecosystem
+6. **AI-Native Extensions**: Adding new types and properties for autonomous agents, digital scoring, modern web concepts, and Business-as-Code patterns (see README.md for complete list)
 
 ## Our License
 
