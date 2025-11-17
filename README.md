@@ -59,9 +59,9 @@ schema.org.ai extends the base Schema.org vocabulary with modern AI, web, and di
 
 ### Business-as-Code Concepts
 
-- **`API`** - RESTful API endpoints and services
+- **`API`** - API endpoints and services (REST, RPC, GraphQL)
 - **`Webhook`** - Webhook receivers for event-driven architecture
-- **`MCP`** - Model Context Protocol servers
+- **`MCP`** - Model Context Protocol servers (RPC-based)
 - **`SDK`** - Software Development Kit packages
 - **`CLI`** - Command-line interface tools
 
