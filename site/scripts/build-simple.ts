@@ -70,7 +70,7 @@ function buildHierarchy(types: any[]): TypeNode {
 function generateSidebarHTML(node: TypeNode, currentSlug: string, ancestorSlugs: Set<string>, level: number = 0): string {
   const isCurrentPage = node.slug === currentSlug
   const hasChildren = node.children.length > 0
-  const shouldBeOpen = ancestorSlugs.has(node.slug) || isCurrentPage
+  const shouldBeOpen = ancestorSlugs.has(node.slug)
 
   if (!hasChildren) {
     // Leaf node - just a link
@@ -122,11 +122,15 @@ async function buildSite() {
   const customCSS = `
 /* Custom overrides for Pico CSS */
 body {
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 0;
-  max-width: 100%;
-  padding: 0;
+  min-height: 100vh;
 }
 
 aside {
@@ -237,7 +241,7 @@ main.content-with-sidebar {
 }
 
 @media (max-width: 768px) {
-  body {
+  .page-container {
     grid-template-columns: 1fr;
   }
   aside {
@@ -339,43 +343,45 @@ function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, si
   <link rel="stylesheet" href="custom.css">
 </head>
 <body>
-  <aside>
-    <header>
-      <hgroup>
-        <h2><a href="index.html" style="text-decoration: none; color: inherit;">schema.org.ai</a></h2>
-        <p>Schema.org Types</p>
-      </hgroup>
-    </header>
-    <nav>
-      <ul>
-        ${sidebarHTML}
-      </ul>
-    </nav>
-  </aside>
+  <div class="page-container">
+    <aside>
+      <header>
+        <hgroup>
+          <h2><a href="index.html" style="text-decoration: none; color: inherit;">schema.org.ai</a></h2>
+          <p>Schema.org Types</p>
+        </hgroup>
+      </header>
+      <nav>
+        <ul>
+          ${sidebarHTML}
+        </ul>
+      </nav>
+    </aside>
 
-  <main class="content-with-sidebar">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="${slug}.json">JSON</a></li>
-        <li><a href="${slug}.md">Markdown</a></li>
-      </ul>
-    </nav>
+    <main class="content-with-sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="${slug}.json">JSON</a></li>
+          <li><a href="${slug}.md">Markdown</a></li>
+        </ul>
+      </nav>
 
-    <h1>${metadata.name}</h1>
+      <h1>${metadata.name}</h1>
 
-    <article class="metadata">
-      <p><strong>Type:</strong> ${metadata.$type}</p>
-      <p><strong>ID:</strong> <code>${metadata.$id}</code></p>
-      <p><strong>Subclass of:</strong> ${subClassOfHTML}</p>
-      <p><strong>Description:</strong> ${metadata.description}</p>
-    </article>
+      <article class="metadata">
+        <p><strong>Type:</strong> ${metadata.$type}</p>
+        <p><strong>ID:</strong> <code>${metadata.$id}</code></p>
+        <p><strong>Subclass of:</strong> ${subClassOfHTML}</p>
+        <p><strong>Description:</strong> ${metadata.description}</p>
+      </article>
 
-    <article class="content">
-      <h2>Details</h2>
-      <pre><code>${markdown}</code></pre>
-    </article>
-  </main>
+      <article class="content">
+        <h2>Details</h2>
+        <pre><code>${markdown}</code></pre>
+      </article>
+    </main>
+  </div>
 </body>
 </html>`
 }
