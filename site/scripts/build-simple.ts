@@ -8,6 +8,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
+import { marked } from 'marked'
 
 interface TypeMetadata {
   $id: string
@@ -373,7 +374,7 @@ aside#documentation-menu header p {
     // Save HTML with sidebar
     const ancestorSlugs = getAncestorSlugs(allTypes, slug)
     const sidebarHTML = generateSidebarHTML(hierarchy, slug, ancestorSlugs)
-    const html = generateHTML(metadata, mdContent, slug, sidebarHTML)
+    const html = await generateHTML(metadata, mdContent, slug, sidebarHTML)
     await fs.writeFile(
       path.join(outDir, `${slug}.html`),
       html
@@ -397,12 +398,15 @@ aside#documentation-menu header p {
   console.log(`✅ Output directory: ${outDir}`)
 }
 
-function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, sidebarHTML: string): string {
+async function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, sidebarHTML: string): Promise<string> {
   const subClassOfHTML = metadata.subClassOf
     ? Array.isArray(metadata.subClassOf)
       ? metadata.subClassOf.map(c => `<a href="${c}.html">${c}</a>`).join(', ')
       : `<a href="${metadata.subClassOf}.html">${metadata.subClassOf}</a>`
     : 'None'
+
+  // Convert .mdx links to .html in markdown content
+  const htmlContent = await marked(markdown.replace(/\.mdx/g, '.html'))
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -447,8 +451,7 @@ function generateHTML(metadata: TypeMetadata, markdown: string, slug: string, si
       </article>
 
       <article class="content">
-        <h2>Details</h2>
-        <pre><code>${markdown}</code></pre>
+        ${htmlContent}
       </article>
     </section>
   </main>
