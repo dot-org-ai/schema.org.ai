@@ -1,0 +1,353 @@
+---
+$id: https://schema.org.ai/Task
+$context: https://schema.org.ai
+$type: Class
+name: Task
+description: A specific unit of work or activity that needs to be performed to accomplish a goal or complete a process.
+subClassOf:
+  - https://schema.org/Thing
+digital: 0.6
+---
+
+[Thing](Thing.mdx)
+
+# Task
+
+A specific unit of work or activity that needs to be performed to accomplish a goal or complete a process. Tasks are the atomic units of work within processes and workflows, and form the foundation of the tasks.org.ai ontology.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Task" | - |
+| `$id` | URL | Unique identifier for the task | Thing |
+| `name` | Text | The name of the task | Thing |
+| `description` | Text | Description of what the task accomplishes | Thing |
+| `identifier` | Text or PropertyValue | Task identifier (e.g., O*NET code) | Thing |
+| `url` | URL | URL to task documentation | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score | Thing |
+| `process` | Process | Parent process containing this task | Task |
+| `occupation` | Occupation | Occupation that performs this task | Task |
+| `skill` | Skill[] | Skills required to perform the task | Task |
+| `tool` | Tool[] | Tools used to complete the task | Task |
+| `input` | Thing[] | Required inputs | Task |
+| `output` | Thing[] | Expected outputs | Task |
+| `duration` | Duration | Typical task duration | Task |
+| `difficulty` | Text | Task difficulty level | Task |
+| `frequency` | Text | How often the task is performed | Task |
+| `priority` | Number | Task priority (1-5) | Task |
+| `status` | Text | Current status | Task |
+| `assignee` | Person or Agent | Who is assigned to the task | Task |
+| `dueDate` | Date | Task due date | Task |
+| `creator` | Person or Organization | The entity that created the task | Thing |
+
+## Types
+
+The following types extend Task:
+
+- **WorkTask**: General work tasks
+- **ProjectTask**: Project-specific tasks
+- **MaintenanceTask**: Recurring maintenance tasks
+- **AutomatedTask**: Tasks performed by agents or automation
+- **ManualTask**: Tasks requiring human intervention
+
+## Examples
+
+### Example 1: Code Review Task
+
+```typescript
+import { $ } from 'sdk.do'
+
+const codeReviewTask = {
+  $type: 'Task',
+  $id: 'https://platform.do/tasks/code-review-pr-123',
+  name: 'Review Pull Request #123',
+  description: 'Review code changes, check for security issues, and provide feedback',
+  digital: 1.0,
+  process: {
+    $type: 'Process',
+    $id: 'https://process.org.ai/review.Pull.Request',
+    name: 'Review Pull Request'
+  },
+  skill: [
+    {
+      $type: 'Skill',
+      name: 'Code Review',
+      description: 'Ability to review code for quality and security'
+    },
+    {
+      $type: 'Skill',
+      name: 'TypeScript',
+      description: 'Proficiency in TypeScript language'
+    },
+    {
+      $type: 'Skill',
+      name: 'Security Analysis',
+      description: 'Knowledge of common security vulnerabilities'
+    }
+  ],
+  tool: [
+    {
+      $type: 'Tool',
+      name: 'GitHub',
+      url: 'https://github.com'
+    },
+    {
+      $type: 'Tool',
+      name: 'ESLint',
+      description: 'JavaScript/TypeScript linter'
+    }
+  ],
+  assignee: {
+    $type: 'Agent',
+    $id: 'https://Cody.do',
+    name: 'Cody'
+  },
+  input: [
+    {
+      $type: 'Thing',
+      name: 'Pull Request',
+      description: 'GitHub PR with code changes'
+    }
+  ],
+  output: [
+    {
+      $type: 'Thing',
+      name: 'Code Review Comments',
+      description: 'Detailed review feedback'
+    }
+  ],
+  duration: 'PT30M',
+  priority: 2,
+  status: 'in_progress',
+  dueDate: '2025-01-18T17:00:00Z'
+}
+
+await $.Task.create(codeReviewTask)
+```
+
+### Example 2: Customer Onboarding Task
+
+```typescript
+import { $ } from 'sdk.do'
+
+const onboardingTask = {
+  $type: 'Task',
+  $id: 'https://platform.do/tasks/onboard-customer-xyz',
+  name: 'Onboard New Customer - XYZ Corp',
+  description: 'Set up workspace, configure settings, and schedule kickoff call',
+  digital: 0.8,
+  process: {
+    $type: 'Process',
+    $id: 'https://process.org.ai/onboard.Customer',
+    name: 'Onboard Customer'
+  },
+  occupation: {
+    $type: 'Occupation',
+    name: 'Customer Success Manager',
+    identifier: '13-1011.00'
+  },
+  skill: [
+    {
+      $type: 'Skill',
+      name: 'Customer Relationship Management',
+      description: 'Building and maintaining customer relationships'
+    },
+    {
+      $type: 'Skill',
+      name: 'Technical Configuration',
+      description: 'Setting up software and technical systems'
+    },
+    {
+      $type: 'Skill',
+      name: 'Communication',
+      description: 'Clear verbal and written communication'
+    }
+  ],
+  tool: [
+    {
+      $type: 'Tool',
+      name: 'Platform Admin API',
+      url: 'https://api.platform.do'
+    },
+    {
+      $type: 'Tool',
+      name: 'Calendar',
+      description: 'Scheduling system'
+    }
+  ],
+  assignee: {
+    $type: 'Person',
+    name: 'Sarah Johnson',
+    jobTitle: 'Customer Success Manager'
+  },
+  input: [
+    {
+      $type: 'Thing',
+      name: 'Customer Registration',
+      description: 'New customer signup information'
+    }
+  ],
+  output: [
+    {
+      $type: 'Thing',
+      name: 'Configured Workspace',
+      description: 'Fully set up customer workspace'
+    },
+    {
+      $type: 'Thing',
+      name: 'Scheduled Kickoff Call',
+      description: 'Calendar invite for onboarding call'
+    }
+  ],
+  duration: 'PT2H',
+  difficulty: 'medium',
+  frequency: 'per-customer',
+  priority: 1,
+  status: 'pending',
+  dueDate: '2025-01-19T12:00:00Z'
+}
+
+await $.Task.create(onboardingTask)
+```
+
+### Example 3: Data Analysis Task (O*NET-based)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const analysisTask = {
+  $type: 'Task',
+  $id: 'https://tasks.org.ai/analyze.Data.for.Patterns',
+  name: 'Analyze data to identify patterns and trends',
+  description: 'Use statistical methods and tools to identify meaningful patterns, correlations, and trends in datasets',
+  digital: 0.9,
+  identifier: 'O*NET:15-2051.00-T1', // Data Scientists task
+  occupation: {
+    $type: 'Occupation',
+    name: 'Data Scientist',
+    identifier: '15-2051.00'
+  },
+  skill: [
+    {
+      $type: 'Skill',
+      name: 'Statistical Analysis',
+      description: 'Applying statistical methods to data'
+    },
+    {
+      $type: 'Skill',
+      name: 'Python Programming',
+      description: 'Writing Python code for data analysis'
+    },
+    {
+      $type: 'Skill',
+      name: 'Data Visualization',
+      description: 'Creating charts and visualizations'
+    },
+    {
+      $type: 'Skill',
+      name: 'Critical Thinking',
+      description: 'Interpreting results and drawing conclusions'
+    }
+  ],
+  tool: [
+    {
+      $type: 'Tool',
+      name: 'Python',
+      description: 'Programming language with data science libraries'
+    },
+    {
+      $type: 'Tool',
+      name: 'Pandas',
+      description: 'Data manipulation library'
+    },
+    {
+      $type: 'Tool',
+      name: 'Jupyter Notebook',
+      description: 'Interactive analysis environment'
+    }
+  ],
+  input: [
+    {
+      $type: 'Thing',
+      name: 'Raw Dataset',
+      description: 'Unprocessed data for analysis'
+    },
+    {
+      $type: 'Thing',
+      name: 'Analysis Requirements',
+      description: 'Questions to answer and patterns to investigate'
+    }
+  ],
+  output: [
+    {
+      $type: 'Thing',
+      name: 'Analysis Report',
+      description: 'Documented findings with visualizations'
+    },
+    {
+      $type: 'Thing',
+      name: 'Insights',
+      description: 'Actionable insights and recommendations'
+    }
+  ],
+  duration: 'P2D',
+  difficulty: 'high',
+  frequency: 'weekly'
+}
+
+await $.Task.create(analysisTask)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Task, Process, Occupation, Skill } from 'schema.org.ai'
+
+// Create a task
+const task: Task = {
+  $type: 'Task',
+  $id: 'https://myorg.do/tasks/my-task',
+  name: 'My Task',
+  description: 'A task that needs to be done',
+  digital: 0.7,
+  status: 'pending'
+}
+
+await $.Task.create(task)
+
+// Query tasks by status
+const pendingTasks = await $.Task.find({
+  status: 'pending'
+})
+
+// Find tasks for an occupation
+const csmTasks = await $.Task.find({
+  'occupation.name': 'Customer Success Manager'
+})
+
+// Find highly digital tasks
+const digitalTasks = await $.Task.find({
+  digital: { $gte: 0.8 }
+})
+
+// Assign task to agent
+await $.Task.update(task.$id, {
+  assignee: {
+    $type: 'Agent',
+    $id: 'https://MyAgent.do'
+  },
+  status: 'assigned'
+})
+```
+
+## Resources
+
+- [Schema.org Thing](https://schema.org/Thing)
+- [O*NET Task Statements](https://tasks.org.ai)
+- [Task Management](https://docs.platform.do/tasks)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
