@@ -1,0 +1,31 @@
+---
+$id: https://schema.org/handlingTime
+$context: https://schema.org
+$type: Property
+name: handlingTime
+description: "The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup. In the context of ShippingDel"
+title: handlingTime
+---
+
+# handlingTime
+
+The typical delay between the receipt of the order and the goods either leaving the warehouse or being prepared for pickup, in case the delivery method is on site pickup.<br/><br/>
+
+In the context of <a class="localLink" href="/ShippingDeliveryTime">ShippingDeliveryTime</a>, Typical properties: minValue, maxValue, unitCode (d for DAY).  This is by common convention assumed to mean business days (if a unitCode is used, coded as "d"), i.e. only counting days when the business normally operates.<br/><br/>
+
+In the context of <a class="localLink" href="/ShippingService">ShippingService</a>, use the <a class="localLink" href="/ServicePeriod">ServicePeriod</a> format, that contains the same information in a structured form, with cut-off time, business days and duration.
+
+## Used on types
+
+- [ShippingDeliveryTime](ShippingDeliveryTime.html)
+- [ShippingService](ShippingService.html)
+
+## Expected types
+
+- [QuantitativeValue](QuantitativeValue.html)
+- [ServicePeriod](ServicePeriod.html)
+
+## Resources
+
+- [Schema.org handlingTime](https://schema.org/handlingTime)
+

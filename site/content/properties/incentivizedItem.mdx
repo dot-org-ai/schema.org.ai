@@ -1,0 +1,46 @@
+---
+$id: https://schema.org/incentivizedItem
+$context: https://schema.org
+$type: Property
+name: incentivizedItem
+description: "The type or specific product(s) and/or service(s) being incentivized. DefinedTermSets are used for product and service categories such as the United Nations Standard Products and Services Code: { \"@ty"
+title: incentivizedItem
+---
+
+# incentivizedItem
+
+The type or specific product(s) and/or service(s) being incentivized.<br/><br/>
+
+DefinedTermSets are used for product and service categories such as the United Nations Standard Products and Services Code:<br/><br/>
+
+<pre><code>{
+    "@type": "DefinedTerm",
+    "inDefinedTermSet": "https://www.unspsc.org/",
+    "termCode": "261315XX",
+    "name": "Photovoltaic module"
+}
+</code></pre>
+
+For a specific product or service, use the Product type:<br/><br/>
+
+<pre><code>{
+    "@type": "Product",
+    "name": "Kenmore White 17" Microwave",
+}
+</code></pre>
+
+For multiple different incentivized items, use multiple <a class="localLink" href="/DefinedTerm">DefinedTerm</a> or <a class="localLink" href="/Product">Product</a>.
+
+## Used on types
+
+- [FinancialIncentive](FinancialIncentive.html)
+
+## Expected types
+
+- [DefinedTerm](DefinedTerm.html)
+- [Product](Product.html)
+
+## Resources
+
+- [Schema.org incentivizedItem](https://schema.org/incentivizedItem)
+

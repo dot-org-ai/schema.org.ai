@@ -113,6 +113,7 @@ function getAncestorSlugs(types: any[], currentSlug: string): Set<string> {
 
 async function buildSite() {
   const docsDir = path.join(process.cwd(), 'content/docs')
+  const propsDir = path.join(process.cwd(), 'content/properties')
   const outDir = path.join(process.cwd(), 'out')
 
   // Clean and create output directory
@@ -397,6 +398,58 @@ aside#documentation-menu header p {
   console.log(`   - ${files.length} HTML files`)
   console.log(`   - ${files.length} MD files`)
   console.log(`   - ${files.length} JSON files`)
+
+  // Process properties
+  const propFiles = await glob('*.mdx', { cwd: propsDir })
+  console.log(`Found ${propFiles.length} property MDX files`)
+
+  const allProperties: any[] = []
+
+  for (const file of propFiles) {
+    const filePath = path.join(propsDir, file)
+    const content = await fs.readFile(filePath, 'utf-8')
+    const { data, content: mdContent } = matter(content)
+
+    const slug = file.replace('.mdx', '')
+    const metadata = data as TypeMetadata
+
+    // Save JSON
+    await fs.writeFile(
+      path.join(outDir, `${slug}.json`),
+      JSON.stringify(metadata, null, 2)
+    )
+
+    // Save MD (clean markdown)
+    await fs.writeFile(
+      path.join(outDir, `${slug}.md`),
+      mdContent
+    )
+
+    // Save HTML (properties don't have sidebar, simpler layout)
+    const htmlContent = await marked(mdContent.replace(/\.mdx/g, '.html'))
+    const html = await generatePropertyHTML(metadata, htmlContent, slug)
+    await fs.writeFile(
+      path.join(outDir, `${slug}.html`),
+      html
+    )
+
+    allProperties.push({
+      slug,
+      name: metadata.name,
+      description: metadata.description
+    })
+  }
+
+  // Save properties.json for search
+  await fs.writeFile(
+    path.join(outDir, 'properties.json'),
+    JSON.stringify(allProperties, null, 2)
+  )
+
+  console.log(`✅ Generated ${propFiles.length} properties`)
+  console.log(`   - ${propFiles.length} HTML files`)
+  console.log(`   - ${propFiles.length} MD files`)
+  console.log(`   - ${propFiles.length} JSON files`)
   console.log(`✅ Output directory: ${outDir}`)
 }
 
@@ -456,6 +509,48 @@ async function generateHTML(metadata: TypeMetadata, markdown: string, slug: stri
         ${htmlContent}
       </article>
     </section>
+  </main>
+</body>
+</html>`
+}
+
+async function generatePropertyHTML(metadata: TypeMetadata, htmlContent: string, slug: string): Promise<string> {
+  const subPropertyOfHTML = (metadata as any).subPropertyOf
+    ? `<a href="${(metadata as any).subPropertyOf}.html">${(metadata as any).subPropertyOf}</a>`
+    : 'None'
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${metadata.title || metadata.name} - schema.org.ai</title>
+  <meta name="description" content="${metadata.description}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+  <main class="container">
+    <nav aria-label="breadcrumb">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="${slug}.json">JSON</a></li>
+        <li><a href="${slug}.md">Markdown</a></li>
+      </ul>
+    </nav>
+
+    <h1>${metadata.name}</h1>
+
+    <article class="metadata">
+      <p><strong>Type:</strong> ${metadata.$type}</p>
+      <p><strong>ID:</strong> <code>${metadata.$id}</code></p>
+      ${(metadata as any).subPropertyOf ? `<p><strong>Subproperty of:</strong> ${subPropertyOfHTML}</p>` : ''}
+      <p><strong>Description:</strong> ${metadata.description}</p>
+    </article>
+
+    <article class="content">
+      ${htmlContent}
+    </article>
   </main>
 </body>
 </html>`

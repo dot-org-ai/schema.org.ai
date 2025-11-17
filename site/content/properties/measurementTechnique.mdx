@@ -1,0 +1,39 @@
+---
+$id: https://schema.org/measurementTechnique
+$context: https://schema.org
+$type: Property
+name: measurementTechnique
+description: "A technique, method or technology used in an Observation, StatisticalVariable or Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s) (f"
+title: measurementTechnique
+---
+
+# measurementTechnique
+
+A technique, method or technology used in an <a class="localLink" href="/Observation">Observation</a>, <a class="localLink" href="/StatisticalVariable">StatisticalVariable</a> or <a class="localLink" href="/Dataset">Dataset</a> (or <a class="localLink" href="/DataDownload">DataDownload</a>, <a class="localLink" href="/DataCatalog">DataCatalog</a>), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using <a class="localLink" href="/variableMeasured">variableMeasured</a>; for <a class="localLink" href="/Observation">Observation</a>, a <a class="localLink" href="/StatisticalVariable">StatisticalVariable</a>). Often but not necessarily each <a class="localLink" href="/variableMeasured">variableMeasured</a> will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and "knowledge graphs". In that case the subproperty of <a class="localLink" href="/variableMeasured">variableMeasured</a> called <a class="localLink" href="/measuredProperty">measuredProperty</a> is applicable.<br/><br/>
+
+The <a class="localLink" href="/measurementTechnique">measurementTechnique</a> property helps when extra clarification is needed about how a <a class="localLink" href="/measuredProperty">measuredProperty</a> was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery. <br/><br/>
+
+For example, if <a class="localLink" href="/variableMeasured">variableMeasured</a> is: molecule concentration, <a class="localLink" href="/measurementTechnique">measurementTechnique</a> could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence". If the <a class="localLink" href="/variableMeasured">variableMeasured</a> is "depression rating", the <a class="localLink" href="/measurementTechnique">measurementTechnique</a> could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory". <br/><br/>
+
+If there are several <a class="localLink" href="/variableMeasured">variableMeasured</a> properties recorded for some given data object, use a <a class="localLink" href="/PropertyValue">PropertyValue</a> for each <a class="localLink" href="/variableMeasured">variableMeasured</a> and attach the corresponding <a class="localLink" href="/measurementTechnique">measurementTechnique</a>. The value can also be from an enumeration, organized as a <a class="localLink" href="/MeasurementMetholdEnumeration">MeasurementMetholdEnumeration</a>.
+
+## Used on types
+
+- [DataCatalog](DataCatalog.html)
+- [DataDownload](DataDownload.html)
+- [Dataset](Dataset.html)
+- [Observation](Observation.html)
+- [PropertyValue](PropertyValue.html)
+- [StatisticalVariable](StatisticalVariable.html)
+
+## Expected types
+
+- [DefinedTerm](DefinedTerm.html)
+- [MeasurementMethodEnum](MeasurementMethodEnum.html)
+- [Text](Text.html)
+- [URL](URL.html)
+
+## Resources
+
+- [Schema.org measurementTechnique](https://schema.org/measurementTechnique)
+

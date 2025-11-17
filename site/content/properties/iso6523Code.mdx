@@ -1,0 +1,25 @@
+---
+$id: https://schema.org/iso6523Code
+$context: https://schema.org
+$type: Property
+name: iso6523Code
+description: "An organization identifier as defined in ISO 6523(-1). The identifier should be in the XXXX:YYYYYY:ZZZ or XXXX:YYYYYYformat. Where XXXX is a 4 digit ICD (International Code Designator), YYYYYY is an O"
+title: iso6523Code
+---
+
+# iso6523Code
+
+An organization identifier as defined in <a href="https://en.wikipedia.org/wiki/ISO/IEC_6523">ISO 6523(-1)</a>. The identifier should be in the <code>XXXX:YYYYYY:ZZZ</code> or <code>XXXX:YYYYYY</code>format. Where <code>XXXX</code> is a 4 digit <em>ICD</em> (International Code Designator), <code>YYYYYY</code> is an <em>OID</em> (Organization Identifier) with all formatting characters (dots, dashes, spaces) removed with a maximal length of 35 characters, and <code>ZZZ</code> is an optional OPI (Organization Part Identifier) with a maximum length of 35 characters. The various components (ICD, OID, OPI) are joined with a colon character (ASCII <code>0x3a</code>). Note that many existing organization identifiers defined as attributes like <a href="https://schema.org/leiCode">leiCode</a> (<code>0199</code>), <a href="https://schema.org/duns">duns</a> (<code>0060</code>) or <a href="https://schema.org/globalLocationNumber">GLN</a> (<code>0088</code>) can be expressed using ISO-6523. If possible, ISO-6523 codes should be preferred to populating <a href="https://schema.org/vatID">vatID</a> or <a href="https://schema.org/taxID">taxID</a>, as ISO identifiers are less ambiguous.
+
+## Used on types
+
+- [Organization](Organization.html)
+
+## Expected types
+
+- [Text](Text.html)
+
+## Resources
+
+- [Schema.org iso6523Code](https://schema.org/iso6523Code)
+
