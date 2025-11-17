@@ -1,0 +1,264 @@
+---
+$id: https://schema.org.ai/HeroSection
+$context: https://schema.org.ai
+$type: Class
+name: HeroSection
+description: A prominent hero section with headline, subtitle, CTA buttons, and hero image or video. Typically the first section visitors see on a landing page.
+subClassOf: ["WebPageElement"]
+digital: 1.0
+properties:
+  title:
+    type: Text
+    description: Main headline text
+  subtitle:
+    type: Text
+    description: Supporting subtitle or description
+  cta:
+    type: Action
+    description: Primary call-to-action button
+  secondaryCta:
+    type: Action
+    description: Optional secondary CTA
+  image:
+    type: URL
+    description: Hero image URL
+  backgroundVideo:
+    type: URL
+    description: Optional background video URL
+  badge:
+    type: Text
+    description: Small badge or label (e.g., "New", "Limited Time")
+  layout:
+    type: Text
+    description: Layout style (centered, split, fullscreen, etc.)
+---
+
+# HeroSection
+
+A prominent hero section with headline, subtitle, CTA buttons, and hero image or video. Typically the first section visitors see on a landing page.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx) > [WebPageElement](WebPageElement.mdx) > **HeroSection**
+
+## Properties
+
+### Core Properties
+
+- **title** (Text): Main headline text
+- **subtitle** (Text): Supporting subtitle or description
+- **cta** (Action): Primary call-to-action button
+- **secondaryCta** (Action): Optional secondary CTA
+- **image** (URL): Hero image URL
+- **backgroundVideo** (URL): Optional background video URL
+- **badge** (Text): Small badge or label (e.g., "New", "Limited Time")
+- **layout** (Text): Layout style (centered, split, fullscreen, etc.)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { HeroSection } from 'schema.org.ai'
+
+// Create a HeroSection
+const item: HeroSection = {
+  $type: 'HeroSection',
+  title: 'Build Better Products Faster',
+  subtitle: 'The all-in-one platform for modern product teams',
+  cta: { text: 'Start Free Trial', url: '/signup' },
+  image: '/hero-product.jpg'
+}
+
+// Use semantic patterns
+await $.HeroSection.create(item)
+const result = await $.HeroSection.get('item-id')
+```
+
+## mdxui Integration
+
+```typescript
+import { HeroSection } from 'mdxui'
+
+const hero = {
+  $type: 'HeroSection',
+  title: 'Build Better Products Faster',
+  subtitle: 'The all-in-one platform for modern product teams',
+  cta: { text: 'Start Free Trial', url: '/signup' },
+  secondaryCta: { text: 'Watch Demo', url: '/demo' },
+  image: '/hero-product.jpg',
+  badge: 'Trusted by 10,000+ teams'
+}
+
+// mdxui automatically renders based on $type
+<HeroSection {...hero} />
+```
+
+## Example 1: SaaS Product Hero
+
+```typescript
+const saasHero: HeroSection = {
+  $type: 'HeroSection',
+  $context: 'https://schema.org.ai',
+  layout: 'split',
+  badge: '🚀 Now with AI-powered insights',
+  title: 'Ship Products Customers Love',
+  subtitle: 'All-in-one product management platform trusted by 10,000+ teams worldwide',
+  cta: {
+    text: 'Start Free Trial',
+    url: '/signup',
+    style: 'primary',
+    size: 'large',
+    trackingId: 'hero-cta-primary'
+  },
+  secondaryCta: {
+    text: 'Watch 2-min Demo',
+    url: '/demo',
+    style: 'secondary',
+    size: 'large',
+    icon: 'play',
+    trackingId: 'hero-cta-secondary'
+  },
+  image: '/images/hero-dashboard.png',
+  imageAlt: 'Product dashboard showing task management and analytics',
+  stats: [
+    { value: '10,000+', label: 'Teams' },
+    { value: '4.9/5', label: 'Rating' },
+    { value: '99.9%', label: 'Uptime' }
+  ],
+  socialProof: {
+    type: 'logos',
+    title: 'Trusted by leading companies',
+    logos: [
+      { name: 'Google', url: '/logos/google.svg' },
+      { name: 'Microsoft', url: '/logos/microsoft.svg' },
+      { name: 'Amazon', url: '/logos/amazon.svg' }
+    ]
+  }
+}
+```
+
+## Example 2: E-commerce Product Hero
+
+```typescript
+const productHero: HeroSection = {
+  $type: 'HeroSection',
+  $context: 'https://schema.org.ai',
+  layout: 'fullscreen',
+  badge: '🎉 Limited Edition',
+  title: 'Wireless Freedom, Premium Sound',
+  subtitle: 'Experience studio-quality audio with 40dB active noise cancellation and 30-hour battery life',
+  cta: {
+    text: 'Buy Now - $299',
+    url: '/cart/add?product=headphones-pro',
+    style: 'primary',
+    size: 'large',
+    icon: 'shopping-cart'
+  },
+  secondaryCta: {
+    text: 'Learn More',
+    url: '#features',
+    style: 'ghost',
+    size: 'large',
+    scrollTo: 'features'
+  },
+  image: '/products/headphones-hero.jpg',
+  backgroundVideo: '/videos/product-showcase.mp4',
+  imageAlt: 'Premium wireless headphones in midnight black',
+  features: [
+    { icon: 'headphones', text: '40dB ANC' },
+    { icon: 'battery', text: '30hr Battery' },
+    { icon: 'award', text: 'Hi-Res Certified' }
+  ],
+  availability: {
+    inStock: true,
+    shipping: 'Free 2-day shipping',
+    returns: '30-day returns'
+  },
+  pricing: {
+    price: 299,
+    originalPrice: 349,
+    discount: '15% off',
+    currency: 'USD'
+  }
+}
+```
+
+## Example 3: Portfolio/Personal Brand Hero
+
+```typescript
+const portfolioHero: HeroSection = {
+  $type: 'HeroSection',
+  $context: 'https://schema.org.ai',
+  layout: 'centered',
+  badge: '✨ Available for Select Projects',
+  title: 'Design That Tells Stories',
+  subtitle: 'Award-winning creative director specializing in brand identity and digital experiences',
+  cta: {
+    text: 'View Portfolio',
+    url: '#work',
+    style: 'primary',
+    size: 'large',
+    scrollTo: 'portfolio'
+  },
+  secondaryCta: {
+    text: 'Get in Touch',
+    url: '/contact',
+    style: 'secondary',
+    size: 'large',
+    icon: 'mail'
+  },
+  image: '/images/profile-creative.jpg',
+  imageAlt: 'Creative workspace with design tools',
+  backgroundGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  stats: [
+    { value: '15+', label: 'Years Experience' },
+    { value: '200+', label: 'Projects Completed' },
+    { value: '50+', label: 'Happy Clients' }
+  ],
+  awards: [
+    { name: 'Awwwards SOTD', year: 2024 },
+    { name: 'CSS Design Awards', year: 2023 },
+    { name: 'FWA', year: 2023 }
+  ],
+  socialLinks: [
+    { platform: 'dribbble', url: 'https://dribbble.com/username' },
+    { platform: 'behance', url: 'https://behance.net/username' },
+    { platform: 'linkedin', url: 'https://linkedin.com/in/username' }
+  ]
+}
+```
+
+## Layout Variations
+
+### Centered Layout
+- Title and subtitle centered
+- CTA buttons centered below
+- Optional hero image below or as background
+- Best for: Simple, focused messaging
+
+### Split Layout
+- Content on left, image on right (or reversed)
+- Balanced visual hierarchy
+- Best for: SaaS products, B2B services
+
+### Fullscreen Layout
+- Full viewport height
+- Background video or image
+- Overlay text and CTAs
+- Best for: E-commerce, visual products
+
+### Minimal Layout
+- Clean, text-focused design
+- Subtle hero image or none
+- Emphasis on typography
+- Best for: Portfolios, personal brands
+
+## Resources
+
+- [Schema.org WebPageElement](https://schema.org/WebPageElement)
+- [mdxui HeroSection Documentation](https://mdxui.dev/components/hero-section)
+- [Hero Section Best Practices](https://schema.org.ai/guides/hero-sections)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,512 @@
+---
+$id: https://schema.org.ai/CTASection
+$context: https://schema.org.ai
+$type: Class
+name: CTASection
+description: A call-to-action section designed to drive conversions with compelling copy, prominent buttons, and optional supporting elements like features or social proof.
+subClassOf: ["WebPageElement"]
+digital: 1.0
+properties:
+  title:
+    type: Text
+    description: Main CTA headline
+  subtitle:
+    type: Text
+    description: Supporting text or value proposition
+  cta:
+    type: Action
+    description: Primary call-to-action button
+  secondaryCta:
+    type: Action
+    description: Optional secondary CTA
+  features:
+    type: Array
+    description: Optional list of key features or benefits
+  layout:
+    type: Text
+    description: Layout style (centered, split, banner, etc.)
+  backgroundColor:
+    type: Text
+    description: Background color or gradient
+---
+
+# CTASection
+
+A call-to-action section designed to drive conversions with compelling copy, prominent buttons, and optional supporting elements like features or social proof.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx) > [WebPageElement](WebPageElement.mdx) > **CTASection**
+
+## Properties
+
+### Core Properties
+
+- **title** (Text): Main CTA headline
+- **subtitle** (Text): Supporting text or value proposition
+- **cta** (Action): Primary call-to-action button
+- **secondaryCta** (Action): Optional secondary CTA
+- **features** (Array): Optional list of key features or benefits
+- **layout** (Text): Layout style (centered, split, banner, etc.)
+- **backgroundColor** (Text): Background color or gradient
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { CTASection } from 'schema.org.ai'
+
+// Create a CTASection
+const item: CTASection = {
+  $type: 'CTASection',
+  title: 'Ready to Get Started?',
+  subtitle: 'Join thousands of teams already using our platform',
+  cta: { text: 'Start Free Trial', url: '/signup' },
+  layout: 'centered'
+}
+
+// Use semantic patterns
+await $.CTASection.create(item)
+const result = await $.CTASection.get('item-id')
+```
+
+## mdxui Integration
+
+```typescript
+import { CTASection } from 'mdxui'
+
+const cta = {
+  $type: 'CTASection',
+  title: 'Ready to Transform Your Workflow?',
+  subtitle: 'Start your 14-day free trial. No credit card required.',
+  cta: { text: 'Get Started Free', url: '/signup' },
+  secondaryCta: { text: 'Talk to Sales', url: '/contact' }
+}
+
+// mdxui automatically renders based on $type
+<CTASection {...cta} />
+```
+
+## Example 1: SaaS Free Trial CTA
+
+```typescript
+const freeTrialCTA: CTASection = {
+  $type: 'CTASection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Start Building Better Products Today',
+  subtitle: 'Join 10,000+ teams that ship faster with our platform',
+
+  layout: 'centered',
+  backgroundColor: 'gradient-blue-purple',
+
+  cta: {
+    text: 'Start Free 14-Day Trial',
+    url: '/signup',
+    style: 'primary',
+    size: 'large',
+    icon: 'arrow-right'
+  },
+
+  secondaryCta: {
+    text: 'Schedule a Demo',
+    url: '/demo',
+    style: 'secondary',
+    size: 'large',
+    icon: 'calendar'
+  },
+
+  features: [
+    { icon: 'check', text: 'No credit card required' },
+    { icon: 'check', text: 'Full access to all features' },
+    { icon: 'check', text: 'Cancel anytime' }
+  ],
+
+  socialProof: {
+    type: 'stats',
+    items: [
+      { value: '10,000+', label: 'Active Teams' },
+      { value: '4.9/5', label: 'Average Rating' },
+      { value: '99.9%', label: 'Uptime SLA' }
+    ]
+  },
+
+  trustBadges: [
+    { image: '/badges/soc2.svg', alt: 'SOC 2 Certified' },
+    { image: '/badges/gdpr.svg', alt: 'GDPR Compliant' },
+    { image: '/badges/iso27001.svg', alt: 'ISO 27001' }
+  ]
+}
+```
+
+## Example 2: E-commerce Product Purchase CTA
+
+```typescript
+const purchaseCTA: CTASection = {
+  $type: 'CTASection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Experience Audio Excellence',
+  subtitle: 'Limited time offer - Save $50 on Premium Wireless Headphones',
+
+  layout: 'split',
+  backgroundColor: 'dark',
+
+  badge: '🎉 Limited Time - Save $50',
+
+  cta: {
+    text: 'Buy Now - $299',
+    url: '/cart/add?product=headphones-pro',
+    style: 'primary',
+    size: 'large',
+    woocommerce: {
+      product_id: 123,
+      add_to_cart: true
+    }
+  },
+
+  secondaryCta: {
+    text: 'Add to Wishlist',
+    url: '/wishlist/add?product=123',
+    style: 'ghost',
+    icon: 'heart'
+  },
+
+  features: [
+    { icon: 'truck', text: 'Free 2-day shipping' },
+    { icon: 'refresh', text: '30-day returns' },
+    { icon: 'shield', text: '2-year warranty' },
+    { icon: 'credit-card', text: 'Interest-free payments available' }
+  ],
+
+  pricing: {
+    originalPrice: 349,
+    currentPrice: 299,
+    savings: 50,
+    currency: 'USD',
+    financing: {
+      available: true,
+      terms: 'or 4 interest-free payments of $74.75'
+    }
+  },
+
+  urgency: {
+    type: 'countdown',
+    endDate: '2024-12-31T23:59:59',
+    message: 'Sale ends in:',
+    showTimer: true
+  },
+
+  image: '/products/headphones-cta.jpg',
+  imageAlt: 'Premium wireless headphones',
+  imagePosition: 'right'
+}
+```
+
+## Example 3: Newsletter Signup CTA
+
+```typescript
+const newsletterCTA: CTASection = {
+  $type: 'CTASection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Stay in the Loop',
+  subtitle: 'Get weekly insights, tips, and exclusive content delivered to your inbox',
+
+  layout: 'banner',
+  backgroundColor: 'light-gray',
+
+  cta: {
+    text: 'Subscribe',
+    url: '/newsletter/subscribe',
+    style: 'primary',
+    size: 'medium',
+    type: 'submit',
+    formAction: true
+  },
+
+  form: {
+    action: '/api/newsletter/subscribe',
+    method: 'POST',
+    fields: [
+      {
+        name: 'email',
+        type: 'email',
+        placeholder: 'Enter your email',
+        required: true,
+        validation: {
+          pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
+          message: 'Please enter a valid email address'
+        }
+      },
+      {
+        name: 'consent',
+        type: 'checkbox',
+        label: 'I agree to receive marketing emails',
+        required: true
+      }
+    ],
+    successMessage: 'Thanks for subscribing! Check your email for confirmation.',
+    errorMessage: 'Something went wrong. Please try again.'
+  },
+
+  features: [
+    { icon: 'mail', text: 'Weekly newsletter' },
+    { icon: 'gift', text: 'Exclusive content' },
+    { icon: 'users', text: 'Join 50,000+ subscribers' }
+  ],
+
+  privacy: {
+    text: 'We respect your privacy. Unsubscribe anytime.',
+    link: '/privacy',
+    linkText: 'View Privacy Policy'
+  },
+
+  socialProof: {
+    type: 'subscriber_count',
+    count: 50000,
+    text: 'Join 50,000+ subscribers'
+  }
+}
+```
+
+## Example 4: Contact Sales CTA
+
+```typescript
+const contactSalesCTA: CTASection = {
+  $type: 'CTASection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Ready to Scale Your Business?',
+  subtitle: 'Talk to our team about custom enterprise solutions',
+
+  layout: 'split',
+  backgroundColor: 'white',
+
+  cta: {
+    text: 'Contact Sales',
+    url: '/contact-sales',
+    style: 'primary',
+    size: 'large',
+    icon: 'message-circle'
+  },
+
+  secondaryCta: {
+    text: 'View Pricing',
+    url: '/pricing',
+    style: 'secondary',
+    size: 'large'
+  },
+
+  features: [
+    { icon: 'users', text: 'Dedicated account manager' },
+    { icon: 'shield', text: 'Enterprise security & compliance' },
+    { icon: 'settings', text: 'Custom integrations' },
+    { icon: 'headphones', text: '24/7 priority support' },
+    { icon: 'trending-up', text: 'Volume discounts available' },
+    { icon: 'award', text: 'SLA guarantees' }
+  ],
+
+  testimonial: {
+    quote: 'Switching to this platform was the best decision we made. Their enterprise support is outstanding.',
+    author: 'Sarah Chen',
+    role: 'VP of Engineering',
+    company: 'TechCorp',
+    avatar: '/avatars/sarah.jpg',
+    companyLogo: '/logos/techcorp.svg'
+  },
+
+  trustedBy: {
+    title: 'Trusted by industry leaders',
+    logos: [
+      { name: 'Google', url: '/logos/google.svg' },
+      { name: 'Microsoft', url: '/logos/microsoft.svg' },
+      { name: 'Amazon', url: '/logos/amazon.svg' },
+      { name: 'Meta', url: '/logos/meta.svg' }
+    ]
+  },
+
+  image: '/images/enterprise-team.jpg',
+  imageAlt: 'Enterprise team collaboration',
+  imagePosition: 'right'
+}
+```
+
+## Example 5: App Download CTA
+
+```typescript
+const appDownloadCTA: CTASection = {
+  $type: 'CTASection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Get the App',
+  subtitle: 'Stay productive on the go with our mobile apps',
+
+  layout: 'centered',
+  backgroundColor: 'gradient-dark',
+
+  badge: 'Now available on iOS and Android',
+
+  cta: [
+    {
+      text: 'Download on the App Store',
+      url: 'https://apps.apple.com/app/id123456',
+      style: 'app-store',
+      icon: 'apple',
+      platform: 'ios'
+    },
+    {
+      text: 'Get it on Google Play',
+      url: 'https://play.google.com/store/apps/details?id=com.example',
+      style: 'google-play',
+      icon: 'play',
+      platform: 'android'
+    }
+  ],
+
+  features: [
+    { icon: 'smartphone', text: 'Native iOS & Android apps' },
+    { icon: 'wifi-off', text: 'Offline mode' },
+    { icon: 'bell', text: 'Push notifications' },
+    { icon: 'lock', text: 'Biometric authentication' }
+  ],
+
+  socialProof: {
+    type: 'app_rating',
+    rating: 4.8,
+    reviewCount: 12500,
+    text: 'Rated 4.8/5 by 12,500+ users'
+  },
+
+  qrCode: {
+    show: true,
+    url: 'https://example.com/app',
+    label: 'Scan to download'
+  },
+
+  screenshots: [
+    { url: '/screenshots/app-1.jpg', alt: 'App home screen' },
+    { url: '/screenshots/app-2.jpg', alt: 'Task management' },
+    { url: '/screenshots/app-3.jpg', alt: 'Analytics dashboard' }
+  ]
+}
+```
+
+## Example 6: Event Registration CTA
+
+```typescript
+const eventRegistrationCTA: CTASection = {
+  $type: 'CTASection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Join Us at Summit 2024',
+  subtitle: 'The premier conference for product leaders and innovators',
+
+  layout: 'split',
+  backgroundColor: 'gradient-purple',
+
+  badge: '🎫 Early Bird Pricing - Save 30%',
+
+  cta: {
+    text: 'Register Now',
+    url: '/events/summit-2024/register',
+    style: 'primary',
+    size: 'large'
+  },
+
+  secondaryCta: {
+    text: 'View Speakers',
+    url: '/events/summit-2024/speakers',
+    style: 'secondary',
+    size: 'large'
+  },
+
+  eventDetails: {
+    date: '2024-06-15',
+    dateFormatted: 'June 15-17, 2024',
+    location: 'San Francisco, CA',
+    venue: 'Moscone Center',
+    format: 'In-person & Virtual'
+  },
+
+  features: [
+    { icon: 'users', text: '50+ industry speakers' },
+    { icon: 'video', text: 'Live and on-demand sessions' },
+    { icon: 'coffee', text: 'Networking events' },
+    { icon: 'gift', text: 'Exclusive swag and giveaways' }
+  ],
+
+  pricing: {
+    earlyBird: {
+      price: 299,
+      deadline: '2024-04-30',
+      savings: 30,
+      badge: 'Save 30%'
+    },
+    regular: {
+      price: 429,
+      startDate: '2024-05-01'
+    },
+    virtual: {
+      price: 99,
+      description: 'Access all virtual sessions'
+    }
+  },
+
+  speakers: [
+    {
+      name: 'Jane Doe',
+      role: 'CEO, TechCorp',
+      avatar: '/speakers/jane.jpg'
+    },
+    {
+      name: 'John Smith',
+      role: 'VP Product, StartupCo',
+      avatar: '/speakers/john.jpg'
+    }
+  ],
+
+  urgency: {
+    type: 'countdown',
+    endDate: '2024-04-30T23:59:59',
+    message: 'Early bird pricing ends in:',
+    showTimer: true
+  }
+}
+```
+
+## Layout Options
+
+### Centered Layout
+- Title and CTA centered
+- Symmetrical design
+- Focus on headline and button
+- Best for: Simple, direct CTAs
+
+### Split Layout
+- Content on one side, image on other
+- More visual weight
+- Room for additional information
+- Best for: Product CTAs, feature highlights
+
+### Banner Layout
+- Horizontal bar design
+- Compact presentation
+- Often sticky or fixed
+- Best for: Newsletter signups, announcements
+
+### Fullwidth Layout
+- Edge-to-edge design
+- Background image or gradient
+- Immersive experience
+- Best for: Hero CTAs, event registrations
+
+## Resources
+
+- [Schema.org WebPageElement](https://schema.org/WebPageElement)
+- [mdxui CTASection Documentation](https://mdxui.dev/components/cta-section)
+- [CTA Best Practices](https://schema.org.ai/guides/cta-sections)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

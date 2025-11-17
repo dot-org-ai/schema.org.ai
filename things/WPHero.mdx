@@ -1,0 +1,444 @@
+---
+$id: https://schema.org.ai/WPHero
+$context: https://schema.org.ai
+$type: Class
+name: WPHero
+description: WordPress-specific hero section component compatible with Gutenberg blocks and classic themes. Extends HeroSection with WordPress-specific metadata and block attributes.
+subClassOf: ["HeroSection"]
+digital: 1.0
+properties:
+  blockAttributes:
+    type: Object
+    description: Gutenberg block attributes and settings
+  shortcode:
+    type: Text
+    description: WordPress shortcode representation
+  themeSupport:
+    type: Array
+    description: Required theme features (e.g., post-thumbnails, custom-logo)
+  customFields:
+    type: Object
+    description: Advanced Custom Fields (ACF) data
+  featured_media:
+    type: Number
+    description: WordPress media library attachment ID
+---
+
+# WPHero
+
+WordPress-specific hero section component compatible with Gutenberg blocks and classic themes. Extends HeroSection with WordPress-specific metadata and block attributes.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx) > [WebPageElement](WebPageElement.mdx) > [HeroSection](HeroSection.mdx) > **WPHero**
+
+## Properties
+
+### WordPress-Specific Properties
+
+- **blockAttributes** (Object): Gutenberg block attributes and settings
+- **shortcode** (Text): WordPress shortcode representation
+- **themeSupport** (Array): Required theme features
+- **customFields** (Object): Advanced Custom Fields (ACF) data
+- **featured_media** (Number): WordPress media library attachment ID
+
+### Inherited from HeroSection
+
+- **title** (Text): Main headline text
+- **subtitle** (Text): Supporting subtitle or description
+- **cta** (Action): Primary call-to-action button
+- **secondaryCta** (Action): Optional secondary CTA
+- **image** (URL): Hero image URL
+- **backgroundVideo** (URL): Optional background video URL
+- **badge** (Text): Small badge or label
+- **layout** (Text): Layout style
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { WPHero } from 'schema.org.ai'
+
+// Create a WPHero
+const item: WPHero = {
+  $type: 'WPHero',
+  title: 'Welcome to Our Site',
+  subtitle: 'Discover amazing content',
+  cta: { text: 'Get Started', url: '/start' },
+  featured_media: 123,
+  blockAttributes: {
+    align: 'full',
+    className: 'hero-custom'
+  }
+}
+
+// Use semantic patterns
+await $.WPHero.create(item)
+const result = await $.WPHero.get('item-id')
+```
+
+## mdxui Integration with WordPress
+
+```typescript
+import { WPHero } from 'mdxui'
+
+const hero = {
+  $type: 'WPHero',
+  title: 'Build Better Websites',
+  subtitle: 'The modern WordPress experience',
+  cta: { text: 'Start Building', url: '/get-started' },
+  featured_media: 456,
+  blockAttributes: {
+    align: 'full',
+    backgroundColor: 'primary'
+  }
+}
+
+// Renders as WordPress Gutenberg block or theme component
+<WPHero {...hero} />
+```
+
+## Example 1: Gutenberg Block Hero
+
+```typescript
+const gutenbergHero: WPHero = {
+  $type: 'WPHero',
+  $context: 'https://schema.org.ai',
+
+  // Content
+  title: 'Transform Your Digital Presence',
+  subtitle: 'Professional WordPress development and design services',
+  badge: 'Limited Time Offer',
+
+  // CTAs
+  cta: {
+    text: 'Start Your Project',
+    url: '/contact',
+    style: 'primary'
+  },
+  secondaryCta: {
+    text: 'View Portfolio',
+    url: '/portfolio',
+    style: 'secondary'
+  },
+
+  // WordPress Media Library
+  featured_media: 789,
+  image: 'https://example.com/wp-content/uploads/2024/hero-image.jpg',
+  imageAlt: 'Modern website design on multiple devices',
+
+  // Gutenberg Block Attributes
+  blockAttributes: {
+    align: 'full',
+    className: 'wp-block-custom-hero has-overlay',
+    backgroundColor: 'dark-blue',
+    textColor: 'white',
+    gradient: 'vivid-cyan-blue-to-vivid-purple',
+    overlayOpacity: 50,
+    focalPoint: { x: 0.5, y: 0.3 },
+    minHeight: 600,
+    contentPosition: 'center center',
+    isDark: true,
+    anchor: 'hero-section'
+  },
+
+  // Block Settings
+  blockSettings: {
+    supports: {
+      align: ['wide', 'full'],
+      anchor: true,
+      color: {
+        background: true,
+        text: true,
+        gradients: true
+      },
+      spacing: {
+        padding: true,
+        margin: true
+      }
+    }
+  },
+
+  // Layout
+  layout: 'centered',
+
+  // Theme Support Requirements
+  themeSupport: [
+    'post-thumbnails',
+    'custom-logo',
+    'align-wide',
+    'responsive-embeds',
+    'editor-styles'
+  ]
+}
+```
+
+## Example 2: Classic Theme with ACF
+
+```typescript
+const acfHero: WPHero = {
+  $type: 'WPHero',
+  $context: 'https://schema.org.ai',
+
+  // Content
+  title: 'Premium WordPress Themes',
+  subtitle: 'Beautiful, fast, and customizable themes for every need',
+  badge: 'New Release',
+
+  // CTAs
+  cta: {
+    text: 'Browse Themes',
+    url: '/themes',
+    style: 'primary',
+    icon: 'arrow-right'
+  },
+
+  // Media
+  featured_media: 456,
+  image: '/wp-content/uploads/hero-themes.jpg',
+  backgroundVideo: '/wp-content/uploads/hero-background.mp4',
+
+  // Advanced Custom Fields
+  customFields: {
+    hero_style: 'split',
+    enable_parallax: true,
+    overlay_color: '#000000',
+    overlay_opacity: 0.3,
+
+    // Animation settings
+    animation: {
+      enabled: true,
+      type: 'fade-up',
+      duration: 800,
+      delay: 200
+    },
+
+    // Stats/metrics
+    stats: [
+      {
+        value: '50,000+',
+        label: 'Active Installs',
+        icon: 'download'
+      },
+      {
+        value: '4.9/5',
+        label: 'Rating',
+        icon: 'star'
+      },
+      {
+        value: '24/7',
+        label: 'Support',
+        icon: 'headphones'
+      }
+    ],
+
+    // Trust badges
+    trust_badges: [
+      {
+        image: '/wp-content/uploads/badge-wordpress-vip.png',
+        alt: 'WordPress VIP Partner'
+      },
+      {
+        image: '/wp-content/uploads/badge-envato-elite.png',
+        alt: 'Envato Elite Author'
+      }
+    ]
+  },
+
+  // Shortcode for classic themes
+  shortcode: '[wphero title="Premium WordPress Themes" subtitle="Beautiful, fast, and customizable" cta="Browse Themes" cta_url="/themes" featured_media="456"]',
+
+  // Layout
+  layout: 'split',
+
+  // Additional WordPress metadata
+  postMeta: {
+    _hero_enabled: true,
+    _hero_position: 'before_content',
+    _hero_fullwidth: true
+  }
+}
+```
+
+## Example 3: WooCommerce Product Launch Hero
+
+```typescript
+const wooCommerceHero: WPHero = {
+  $type: 'WPHero',
+  $context: 'https://schema.org.ai',
+
+  // Product Launch Content
+  title: 'Introducing the Ultimate WordPress Plugin Bundle',
+  subtitle: 'Everything you need to build professional WordPress sites',
+  badge: '🎉 Launch Sale - 50% Off',
+
+  // CTAs with WooCommerce integration
+  cta: {
+    text: 'Buy Now - $99',
+    url: '/?add-to-cart=123',
+    style: 'primary',
+    size: 'large',
+    woocommerce: {
+      product_id: 123,
+      add_to_cart: true,
+      quantity: 1
+    }
+  },
+  secondaryCta: {
+    text: 'See What\'s Included',
+    url: '#features',
+    style: 'secondary',
+    scrollTo: 'features'
+  },
+
+  // WordPress Media
+  featured_media: 999,
+  image: '/wp-content/uploads/plugin-bundle-hero.jpg',
+
+  // Gutenberg Block Attributes
+  blockAttributes: {
+    align: 'full',
+    className: 'woocommerce-hero product-launch',
+    backgroundColor: 'dark',
+    textColor: 'white'
+  },
+
+  // WooCommerce-specific ACF
+  customFields: {
+    woocommerce_integration: {
+      show_price: true,
+      show_stock: true,
+      show_rating: true,
+      show_sale_badge: true
+    },
+
+    product_highlights: [
+      {
+        title: '15 Premium Plugins',
+        description: 'Everything from SEO to security',
+        icon: 'puzzle-piece'
+      },
+      {
+        title: 'Lifetime Updates',
+        description: 'Never pay for updates again',
+        icon: 'refresh'
+      },
+      {
+        title: 'Priority Support',
+        description: 'Get help when you need it',
+        icon: 'headset'
+      }
+    ],
+
+    countdown_timer: {
+      enabled: true,
+      end_date: '2024-12-31T23:59:59',
+      text: 'Sale ends in:'
+    },
+
+    social_proof: {
+      type: 'sales_count',
+      text: 'Join 5,000+ happy customers',
+      show_recent_sales: true
+    }
+  },
+
+  // Layout
+  layout: 'centered',
+
+  // Schema.org Product Integration
+  product: {
+    '@type': 'Product',
+    name: 'Ultimate WordPress Plugin Bundle',
+    offers: {
+      '@type': 'Offer',
+      price: 99,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      validThrough: '2024-12-31'
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: 4.9,
+      reviewCount: 547
+    }
+  }
+}
+```
+
+## WordPress Integration Methods
+
+### 1. Gutenberg Block
+```javascript
+// JavaScript for registering WPHero block
+import { registerBlockType } from '@wordpress/blocks'
+import { WPHero } from 'mdxui'
+
+registerBlockType('custom/wp-hero', {
+  title: 'Hero Section',
+  icon: 'cover-image',
+  category: 'layout',
+  attributes: {
+    title: { type: 'string' },
+    subtitle: { type: 'string' },
+    ctaText: { type: 'string' },
+    ctaUrl: { type: 'string' },
+    mediaId: { type: 'number' }
+  },
+  edit: ({ attributes, setAttributes }) => {
+    return <WPHero {...attributes} />
+  },
+  save: ({ attributes }) => {
+    return <WPHero {...attributes} />
+  }
+})
+```
+
+### 2. Classic Theme Template
+```php
+<?php
+// PHP for classic theme integration
+$hero_data = [
+  '$type' => 'WPHero',
+  'title' => get_field('hero_title'),
+  'subtitle' => get_field('hero_subtitle'),
+  'cta' => [
+    'text' => get_field('cta_text'),
+    'url' => get_field('cta_url')
+  ],
+  'featured_media' => get_post_thumbnail_id(),
+  'image' => get_the_post_thumbnail_url()
+];
+
+// Render with mdxui or custom template
+echo render_wphero($hero_data);
+?>
+```
+
+### 3. Shortcode
+```php
+// Shortcode registration
+function wphero_shortcode($atts) {
+  $data = shortcode_atts([
+    'title' => '',
+    'subtitle' => '',
+    'cta' => '',
+    'cta_url' => '',
+    'featured_media' => 0
+  ], $atts);
+
+  return render_wphero($data);
+}
+add_shortcode('wphero', 'wphero_shortcode');
+```
+
+## Resources
+
+- [WordPress Gutenberg Handbook](https://developer.wordpress.org/block-editor/)
+- [Advanced Custom Fields Documentation](https://advancedcustomfields.com/resources/)
+- [Schema.org HeroSection](https://schema.org.ai/HeroSection)
+- [mdxui WordPress Integration](https://mdxui.dev/wordpress)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

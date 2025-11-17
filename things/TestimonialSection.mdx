@@ -1,0 +1,523 @@
+---
+$id: https://schema.org.ai/TestimonialSection
+$context: https://schema.org.ai
+$type: Class
+name: TestimonialSection
+description: A section displaying customer testimonials, reviews, and social proof to build trust and credibility. Supports multiple layout styles including grid, carousel, masonry, and featured layouts.
+subClassOf: ["WebPageElement"]
+digital: 1.0
+properties:
+  title:
+    type: Text
+    description: Section title
+  subtitle:
+    type: Text
+    description: Optional section subtitle
+  items:
+    type: Array
+    description: Array of testimonial items with quote, author, company, avatar
+  layout:
+    type: Text
+    description: Layout style (grid, carousel, masonry, featured, etc.)
+  rating:
+    type: Number
+    description: Overall aggregate rating
+---
+
+# TestimonialSection
+
+A section displaying customer testimonials, reviews, and social proof to build trust and credibility. Supports multiple layout styles including grid, carousel, masonry, and featured layouts.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx) > [WebPageElement](WebPageElement.mdx) > **TestimonialSection**
+
+## Properties
+
+### Core Properties
+
+- **title** (Text): Section title
+- **subtitle** (Text): Optional section subtitle
+- **items** (Array): Array of testimonial items
+- **layout** (Text): Layout style (grid, carousel, masonry, featured, etc.)
+- **rating** (Number): Overall aggregate rating
+
+### Testimonial Item Properties
+
+Each item in the `items` array can include:
+- **quote** (Text): The testimonial text
+- **author** (Text): Author name
+- **role** (Text): Author's job title
+- **company** (Text): Author's company
+- **avatar** (URL): Author's profile photo
+- **companyLogo** (URL): Company logo
+- **rating** (Number): Star rating (1-5)
+- **verified** (Boolean): Verified purchase/customer badge
+- **date** (Date): Testimonial date
+- **image** (URL): Optional product/project image
+- **video** (URL): Optional video testimonial
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { TestimonialSection } from 'schema.org.ai'
+
+// Create a TestimonialSection
+const item: TestimonialSection = {
+  $type: 'TestimonialSection',
+  title: 'What Our Customers Say',
+  layout: 'grid',
+  items: [
+    {
+      quote: 'This product changed everything for us.',
+      author: 'Jane Smith',
+      role: 'CEO',
+      company: 'TechCorp',
+      avatar: '/avatars/jane.jpg',
+      rating: 5
+    }
+  ]
+}
+
+// Use semantic patterns
+await $.TestimonialSection.create(item)
+const result = await $.TestimonialSection.get('item-id')
+```
+
+## mdxui Integration
+
+```typescript
+import { TestimonialSection } from 'mdxui'
+
+const testimonials = {
+  $type: 'TestimonialSection',
+  title: 'Loved by Teams Worldwide',
+  layout: 'carousel',
+  items: [
+    {
+      quote: 'Best tool we have ever used!',
+      author: 'John Doe',
+      company: 'StartupCo',
+      rating: 5
+    }
+  ]
+}
+
+// mdxui automatically renders based on $type
+<TestimonialSection {...testimonials} />
+```
+
+## Example 1: SaaS Customer Testimonials (Grid Layout)
+
+```typescript
+const saasTestimonials: TestimonialSection = {
+  $type: 'TestimonialSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Trusted by Product Teams Worldwide',
+  subtitle: 'See why 10,000+ teams love using our platform',
+
+  layout: 'grid',
+  columns: 3,
+
+  rating: 4.9,
+  reviewCount: 2547,
+
+  items: [
+    {
+      quote: 'This platform completely transformed how we ship products. We went from monthly releases to weekly releases, and our team collaboration has never been better.',
+      author: 'Sarah Chen',
+      role: 'VP of Product',
+      company: 'TechStartup Inc',
+      avatar: '/avatars/sarah-chen.jpg',
+      companyLogo: '/logos/techstartup.svg',
+      rating: 5,
+      verified: true,
+      date: '2024-10-15',
+      metrics: {
+        before: 'Monthly releases',
+        after: 'Weekly releases',
+        improvement: '4x faster'
+      }
+    },
+    {
+      quote: 'The best project management tool we have used. The interface is intuitive, the features are powerful, and the support team is incredibly responsive.',
+      author: 'Michael Rodriguez',
+      role: 'Engineering Manager',
+      company: 'DevCorp',
+      avatar: '/avatars/michael-rodriguez.jpg',
+      companyLogo: '/logos/devcorp.svg',
+      rating: 5,
+      verified: true,
+      date: '2024-10-12',
+      highlights: [
+        'Intuitive interface',
+        'Powerful features',
+        'Responsive support'
+      ]
+    },
+    {
+      quote: 'We tried every project management tool out there. This is the only one that our entire team actually enjoys using. The ROI was clear within the first month.',
+      author: 'Emily Watson',
+      role: 'Head of Operations',
+      company: 'GrowthCo',
+      avatar: '/avatars/emily-watson.jpg',
+      companyLogo: '/logos/growthco.svg',
+      rating: 5,
+      verified: true,
+      date: '2024-10-08',
+      roi: {
+        timeframe: '1 month',
+        metric: 'Team productivity',
+        improvement: '40% increase'
+      }
+    },
+    {
+      quote: 'Finally, a tool that scales with our needs. From our first 5-person team to 50+ people across multiple departments, it just works.',
+      author: 'David Kim',
+      role: 'CTO',
+      company: 'ScaleUp',
+      avatar: '/avatars/david-kim.jpg',
+      companyLogo: '/logos/scaleup.svg',
+      rating: 5,
+      verified: true,
+      date: '2024-10-05',
+      journey: {
+        start: '5 people',
+        current: '50+ people',
+        departments: 'Multiple'
+      }
+    },
+    {
+      quote: 'The analytics and reporting features give us insights we never had before. Data-driven decisions have become part of our DNA.',
+      author: 'Lisa Park',
+      role: 'Product Manager',
+      company: 'DataTech',
+      avatar: '/avatars/lisa-park.jpg',
+      companyLogo: '/logos/datatech.svg',
+      rating: 5,
+      verified: true,
+      date: '2024-09-28'
+    },
+    {
+      quote: 'Switching from our old tool was seamless. The migration support and onboarding made it easy for our entire 30-person team.',
+      author: 'James Wilson',
+      role: 'Director of Engineering',
+      company: 'CloudStart',
+      avatar: '/avatars/james-wilson.jpg',
+      companyLogo: '/logos/cloudstart.svg',
+      rating: 5,
+      verified: true,
+      date: '2024-09-20'
+    }
+  ],
+
+  cta: {
+    text: 'Start Your Free Trial',
+    url: '/signup',
+    style: 'primary'
+  },
+
+  stats: {
+    averageRating: 4.9,
+    totalReviews: 2547,
+    fiveStarPercentage: 94,
+    sources: ['G2', 'Capterra', 'Product Hunt']
+  }
+}
+```
+
+## Example 2: E-commerce Product Reviews (Carousel Layout)
+
+```typescript
+const productReviews: TestimonialSection = {
+  $type: 'TestimonialSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'What Customers Are Saying',
+  subtitle: 'Real reviews from verified purchasers',
+
+  layout: 'carousel',
+  autoplay: true,
+  autoplaySpeed: 5000,
+
+  rating: 4.8,
+  reviewCount: 1523,
+
+  items: [
+    {
+      quote: 'These are hands down the best headphones I have ever owned. The sound quality is phenomenal, and the noise cancellation actually works.',
+      author: 'Alex Thompson',
+      location: 'San Francisco, CA',
+      avatar: '/avatars/alex-thompson.jpg',
+      rating: 5,
+      verified: true,
+      purchaseDate: '2024-09-15',
+      verifiedPurchase: true,
+      helpful: 142,
+      image: '/reviews/headphones-1.jpg',
+      pros: [
+        'Amazing sound quality',
+        'Effective noise cancellation',
+        'Comfortable for long sessions'
+      ],
+      cons: [
+        'Price is a bit high'
+      ]
+    },
+    {
+      quote: 'Worth every penny. I use these daily for work calls, music, and travel. The battery life is incredible - I only charge them once a week.',
+      author: 'Maria Garcia',
+      location: 'Austin, TX',
+      avatar: '/avatars/maria-garcia.jpg',
+      rating: 5,
+      verified: true,
+      purchaseDate: '2024-09-08',
+      verifiedPurchase: true,
+      helpful: 98,
+      useCases: [
+        'Work calls',
+        'Music listening',
+        'Travel'
+      ],
+      batteryExperience: 'Charges once per week'
+    },
+    {
+      quote: 'As a music producer, I am very picky about audio quality. These exceeded my expectations. The clarity and separation are studio-grade.',
+      author: 'Jordan Lee',
+      role: 'Music Producer',
+      location: 'Nashville, TN',
+      avatar: '/avatars/jordan-lee.jpg',
+      rating: 5,
+      verified: true,
+      purchaseDate: '2024-08-22',
+      verifiedPurchase: true,
+      helpful: 187,
+      expertise: 'Professional audio',
+      comparison: 'Better than my $500 studio headphones'
+    },
+    {
+      quote: 'Perfect for my daily commute. The ANC blocks out all the subway noise, and the transparency mode is great when I need to hear announcements.',
+      author: 'Taylor Brown',
+      location: 'New York, NY',
+      avatar: '/avatars/taylor-brown.jpg',
+      rating: 5,
+      verified: true,
+      purchaseDate: '2024-08-15',
+      verifiedPurchase: true,
+      helpful: 76,
+      useCase: 'Daily commute',
+      features: [
+        'ANC blocks subway noise',
+        'Transparency mode for awareness'
+      ]
+    },
+    {
+      quote: 'I was skeptical about the price, but after using them for a month, I understand why they cost what they do. Premium build and sound.',
+      author: 'Chris Martinez',
+      location: 'Chicago, IL',
+      avatar: '/avatars/chris-martinez.jpg',
+      rating: 4,
+      verified: true,
+      purchaseDate: '2024-07-30',
+      verifiedPurchase: true,
+      helpful: 54,
+      valueAssessment: 'Worth the premium price after one month of use'
+    }
+  ],
+
+  filterOptions: {
+    rating: [5, 4, 3, 2, 1],
+    verified: true,
+    sortBy: ['most_recent', 'most_helpful', 'highest_rating', 'lowest_rating']
+  },
+
+  cta: {
+    text: 'Read All Reviews',
+    url: '/products/headphones/reviews',
+    style: 'secondary'
+  },
+
+  schema: {
+    '@type': 'Product',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: 4.8,
+      reviewCount: 1523,
+      bestRating: 5,
+      worstRating: 1
+    }
+  }
+}
+```
+
+## Example 3: Agency Case Study Testimonials (Featured Layout)
+
+```typescript
+const caseStudyTestimonials: TestimonialSection = {
+  $type: 'TestimonialSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Client Success Stories',
+  subtitle: 'See how we have helped brands grow and succeed',
+
+  layout: 'featured',
+
+  items: [
+    {
+      quote: 'Working with this agency transformed our entire brand. We saw a 300% increase in conversions within 3 months of launching the new website.',
+      author: 'Jennifer Martinez',
+      role: 'CEO & Founder',
+      company: 'TechVentures',
+      avatar: '/avatars/jennifer-martinez.jpg',
+      companyLogo: '/logos/techventures.svg',
+      rating: 5,
+      featured: true,
+
+      caseStudy: {
+        title: 'TechVentures Brand Transformation',
+        industry: 'SaaS',
+        challenge: 'Outdated brand identity and low conversion rates',
+        solution: 'Complete brand redesign and conversion-optimized website',
+        results: [
+          { metric: 'Conversions', improvement: '300%', timeframe: '3 months' },
+          { metric: 'Brand Recognition', improvement: '250%', timeframe: '6 months' },
+          { metric: 'Lead Quality', improvement: '180%', timeframe: '3 months' }
+        ],
+        services: [
+          'Brand Strategy',
+          'Visual Identity',
+          'Website Design & Development',
+          'Conversion Optimization'
+        ],
+        timeline: '12 weeks',
+        budget: '$75,000',
+        link: '/case-studies/techventures',
+        images: [
+          '/case-studies/techventures-before.jpg',
+          '/case-studies/techventures-after.jpg',
+          '/case-studies/techventures-detail.jpg'
+        ]
+      },
+
+      video: {
+        url: '/videos/testimonials/techventures.mp4',
+        thumbnail: '/videos/thumbnails/techventures.jpg',
+        duration: '2:45'
+      }
+    },
+    {
+      quote: 'They did not just design a website - they created a complete digital experience that our customers love. Our customer satisfaction scores went through the roof.',
+      author: 'Ryan Thompson',
+      role: 'Marketing Director',
+      company: 'FashionCo',
+      avatar: '/avatars/ryan-thompson.jpg',
+      companyLogo: '/logos/fashionco.svg',
+      rating: 5,
+
+      caseStudy: {
+        title: 'FashionCo E-commerce Transformation',
+        industry: 'E-commerce',
+        challenge: 'Low customer engagement and high cart abandonment',
+        solution: 'Custom e-commerce platform with personalized experiences',
+        results: [
+          { metric: 'Customer Satisfaction', improvement: '95%', score: '4.8/5' },
+          { metric: 'Cart Abandonment', improvement: '-60%', timeframe: '2 months' },
+          { metric: 'Average Order Value', improvement: '45%', timeframe: '4 months' }
+        ],
+        services: [
+          'UX Research',
+          'E-commerce Design',
+          'Custom Development',
+          'Personalization Engine'
+        ],
+        timeline: '16 weeks',
+        link: '/case-studies/fashionco',
+        images: [
+          '/case-studies/fashionco-1.jpg',
+          '/case-studies/fashionco-2.jpg'
+        ]
+      }
+    },
+    {
+      quote: 'The strategy they developed helped us define our market position and messaging. We now have clarity on who we are and how to communicate our value.',
+      author: 'Samantha Lee',
+      role: 'VP of Marketing',
+      company: 'HealthTech',
+      avatar: '/avatars/samantha-lee.jpg',
+      companyLogo: '/logos/healthtech.svg',
+      rating: 5,
+
+      caseStudy: {
+        title: 'HealthTech Market Positioning',
+        industry: 'Healthcare',
+        challenge: 'Unclear positioning in competitive market',
+        solution: 'Brand strategy and messaging framework',
+        results: [
+          { metric: 'Brand Clarity', improvement: 'Achieved clear differentiation' },
+          { metric: 'Marketing Efficiency', improvement: '70%', timeframe: '6 months' },
+          { metric: 'Sales Cycle', improvement: '-40%', timeframe: '6 months' }
+        ],
+        services: [
+          'Market Research',
+          'Brand Strategy',
+          'Messaging Framework',
+          'Go-to-Market Plan'
+        ],
+        timeline: '8 weeks',
+        link: '/case-studies/healthtech'
+      }
+    }
+  ],
+
+  cta: {
+    text: 'View All Case Studies',
+    url: '/case-studies',
+    style: 'primary'
+  }
+}
+```
+
+## Layout Options
+
+### Grid Layout
+- Multiple columns (2-4)
+- Equal-height cards
+- Good for many testimonials
+- Best for: Variety of customer voices
+
+### Carousel Layout
+- Horizontal scrolling
+- Auto-play option
+- Focus on one at a time
+- Best for: Product reviews, featured quotes
+
+### Masonry Layout
+- Pinterest-style layout
+- Variable heights
+- Visually dynamic
+- Best for: Mixed content lengths, images
+
+### Featured Layout
+- Large, prominent testimonials
+- Rich case study content
+- Deep-dive format
+- Best for: Detailed success stories, B2B
+
+### List Layout
+- Vertical stacking
+- Simple presentation
+- Easy to scan
+- Best for: Short quotes, high volume
+
+## Resources
+
+- [Schema.org Review](https://schema.org/Review)
+- [Schema.org AggregateRating](https://schema.org/AggregateRating)
+- [mdxui TestimonialSection Documentation](https://mdxui.dev/components/testimonial-section)
+- [Social Proof Best Practices](https://schema.org.ai/guides/social-proof)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

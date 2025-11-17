@@ -1,0 +1,473 @@
+---
+$id: https://schema.org.ai/FeatureSection
+$context: https://schema.org.ai
+$type: Class
+name: FeatureSection
+description: A section highlighting product or service features with icons, images, titles, and descriptions. Supports grid, list, and alternating layouts.
+subClassOf: ["WebPageElement"]
+digital: 1.0
+properties:
+  title:
+    type: Text
+    description: Section title
+  subtitle:
+    type: Text
+    description: Optional section subtitle
+  items:
+    type: Array
+    description: Array of feature items with title, description, icon/image
+  layout:
+    type: Text
+    description: Layout style (grid, list, alternating, cards, etc.)
+  columns:
+    type: Number
+    description: Number of columns for grid layout
+---
+
+# FeatureSection
+
+A section highlighting product or service features with icons, images, titles, and descriptions. Supports grid, list, and alternating layouts.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx) > [WebPageElement](WebPageElement.mdx) > **FeatureSection**
+
+## Properties
+
+### Core Properties
+
+- **title** (Text): Section title
+- **subtitle** (Text): Optional section subtitle
+- **items** (Array): Array of feature items with title, description, icon/image
+- **layout** (Text): Layout style (grid, list, alternating, cards, etc.)
+- **columns** (Number): Number of columns for grid layout
+
+### Feature Item Properties
+
+Each item in the `items` array can include:
+- **title** (Text): Feature title
+- **description** (Text): Feature description
+- **icon** (Text): Icon identifier (e.g., 'users', 'chart', 'shield')
+- **image** (URL): Feature image or screenshot
+- **link** (URL): Optional link to learn more
+- **badge** (Text): Optional badge or label
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { FeatureSection } from 'schema.org.ai'
+
+// Create a FeatureSection
+const item: FeatureSection = {
+  $type: 'FeatureSection',
+  title: 'Everything You Need',
+  layout: 'grid',
+  columns: 3,
+  items: [
+    {
+      title: 'Fast Performance',
+      description: 'Lightning-fast load times',
+      icon: 'zap'
+    },
+    {
+      title: 'Secure by Default',
+      description: 'Enterprise-grade security',
+      icon: 'shield'
+    },
+    {
+      title: 'Easy to Use',
+      description: 'Intuitive interface',
+      icon: 'smile'
+    }
+  ]
+}
+
+// Use semantic patterns
+await $.FeatureSection.create(item)
+const result = await $.FeatureSection.get('item-id')
+```
+
+## mdxui Integration
+
+```typescript
+import { FeatureSection } from 'mdxui'
+
+const features = {
+  $type: 'FeatureSection',
+  title: 'Why Choose Us',
+  subtitle: 'Everything you need to succeed',
+  layout: 'grid',
+  columns: 3,
+  items: [
+    { title: 'Fast', description: 'Lightning-fast performance', icon: 'zap' },
+    { title: 'Secure', description: 'Bank-level security', icon: 'shield' },
+    { title: 'Scalable', description: 'Grows with your business', icon: 'trending-up' }
+  ]
+}
+
+// mdxui automatically renders based on $type
+<FeatureSection {...features} />
+```
+
+## Example 1: SaaS Product Features (Grid Layout)
+
+```typescript
+const saasFeatures: FeatureSection = {
+  $type: 'FeatureSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Everything Your Team Needs',
+  subtitle: 'Powerful features to help you work smarter, not harder',
+
+  layout: 'grid',
+  columns: 3,
+
+  items: [
+    {
+      title: 'Real-time Collaboration',
+      description: 'Work together seamlessly with your team. See changes as they happen and communicate in context.',
+      icon: 'users',
+      features: [
+        'Live cursors',
+        'In-line comments',
+        'Activity feed',
+        'Mention teammates'
+      ]
+    },
+    {
+      title: 'Advanced Analytics',
+      description: 'Make data-driven decisions with powerful analytics and reporting tools built for product teams.',
+      icon: 'bar-chart-2',
+      features: [
+        'Custom dashboards',
+        'Real-time metrics',
+        'Export reports',
+        'Data visualization'
+      ]
+    },
+    {
+      title: 'API Integrations',
+      description: 'Connect with the tools you already use. 100+ pre-built integrations and a powerful REST API.',
+      icon: 'plug',
+      features: [
+        'Slack & Teams',
+        'GitHub & GitLab',
+        'Jira & Linear',
+        'Custom webhooks'
+      ],
+      link: '/integrations',
+      linkText: 'View all integrations'
+    },
+    {
+      title: 'Security & Compliance',
+      description: 'Enterprise-grade security with SOC 2 Type II, GDPR, and HIPAA compliance included.',
+      icon: 'shield',
+      features: [
+        'SSO & SAML',
+        '256-bit encryption',
+        'Audit logs',
+        'Role-based access'
+      ],
+      badge: 'SOC 2 Certified'
+    },
+    {
+      title: 'Automation & Workflows',
+      description: 'Automate repetitive tasks and create custom workflows to streamline your processes.',
+      icon: 'zap',
+      features: [
+        'No-code builder',
+        'Custom triggers',
+        'Conditional logic',
+        'Scheduled tasks'
+      ]
+    },
+    {
+      title: 'Mobile Apps',
+      description: 'Stay productive on the go with native iOS and Android apps that sync instantly.',
+      icon: 'smartphone',
+      features: [
+        'Offline mode',
+        'Push notifications',
+        'Touch ID / Face ID',
+        'Dark mode'
+      ],
+      link: '/mobile',
+      linkText: 'Download apps'
+    }
+  ],
+
+  cta: {
+    text: 'Start Free Trial',
+    url: '/signup',
+    style: 'primary'
+  }
+}
+```
+
+## Example 2: E-commerce Product Features (Alternating Layout)
+
+```typescript
+const productFeatures: FeatureSection = {
+  $type: 'FeatureSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Engineered for Excellence',
+  subtitle: 'Every detail designed to deliver the ultimate experience',
+
+  layout: 'alternating',
+
+  items: [
+    {
+      title: 'Active Noise Cancellation',
+      description: 'Immerse yourself in pure sound with industry-leading 40dB noise reduction. Our advanced ANC technology adapts to your environment, blocking out distractions so you can focus on what matters.',
+      image: '/images/feature-anc.jpg',
+      imageAlt: 'Noise cancellation visualization with sound waves',
+      imagePosition: 'right',
+      features: [
+        '40dB noise reduction',
+        'Adaptive ANC technology',
+        'Transparency mode',
+        'Wind noise reduction'
+      ],
+      specs: {
+        'Noise Reduction': '40dB',
+        'Microphones': '6 external + 2 internal',
+        'Modes': '3 (ANC, Transparency, Off)'
+      }
+    },
+    {
+      title: 'All-Day Battery Life',
+      description: 'Up to 30 hours of continuous playback with ANC on. Quick charge feature gives you 3 hours of listening time from just 5 minutes of charging.',
+      image: '/images/feature-battery.jpg',
+      imageAlt: 'Battery indicator showing full charge',
+      imagePosition: 'left',
+      features: [
+        '30 hours with ANC',
+        '40 hours without ANC',
+        'Quick charge (5 min = 3 hours)',
+        'USB-C fast charging'
+      ],
+      specs: {
+        'Playback Time': '30 hours (ANC on)',
+        'Charge Time': '2 hours (full charge)',
+        'Quick Charge': '5 min = 3 hours'
+      },
+      badge: 'Industry Leading'
+    },
+    {
+      title: 'Premium Audio Quality',
+      description: 'Experience studio-quality sound with custom 40mm drivers and Hi-Res Audio certification. Supports LDAC, AAC, and SBC codecs for the best possible wireless audio.',
+      image: '/images/feature-audio.jpg',
+      imageAlt: 'Audio waveform visualization',
+      imagePosition: 'right',
+      features: [
+        'Hi-Res Audio certified',
+        '40mm custom drivers',
+        'LDAC codec support',
+        'Spatial audio with head tracking'
+      ],
+      specs: {
+        'Driver Size': '40mm',
+        'Frequency Response': '4Hz - 40,000Hz',
+        'Codecs': 'LDAC, AAC, SBC'
+      }
+    },
+    {
+      title: 'Premium Comfort',
+      description: 'Luxurious memory foam ear cushions and adjustable headband designed for all-day wear. Weighing just 250g, you will forget you are wearing them.',
+      image: '/images/feature-comfort.jpg',
+      imageAlt: 'Close-up of memory foam ear cushions',
+      imagePosition: 'left',
+      features: [
+        'Memory foam ear cushions',
+        'Adjustable headband',
+        'Lightweight (250g)',
+        'Foldable design'
+      ],
+      materials: [
+        'Protein leather ear cups',
+        'Aluminum frame',
+        'Recycled plastic components'
+      ]
+    }
+  ]
+}
+```
+
+## Example 3: Agency Services (Card Layout)
+
+```typescript
+const agencyFeatures: FeatureSection = {
+  $type: 'FeatureSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Our Services',
+  subtitle: 'Full-service digital agency specializing in brand and digital experiences',
+
+  layout: 'cards',
+  columns: 2,
+
+  items: [
+    {
+      title: 'Brand Strategy & Identity',
+      description: 'We create memorable brands that resonate with your audience and stand the test of time.',
+      icon: 'palette',
+      image: '/images/service-brand.jpg',
+      services: [
+        'Brand positioning & strategy',
+        'Logo & visual identity',
+        'Brand guidelines',
+        'Brand voice & messaging'
+      ],
+      deliverables: [
+        'Brand strategy document',
+        'Logo package (all formats)',
+        'Brand style guide',
+        'Marketing templates'
+      ],
+      timeline: '4-6 weeks',
+      pricing: 'Starting at $15,000',
+      link: '/services/branding',
+      linkText: 'Learn more about branding',
+      caseStudies: [
+        { title: 'TechStartup Rebrand', url: '/case-studies/tech-startup' },
+        { title: 'Retail Brand Launch', url: '/case-studies/retail-brand' }
+      ]
+    },
+    {
+      title: 'Web Design & Development',
+      description: 'Beautiful, fast, and conversion-optimized websites built with modern technologies.',
+      icon: 'monitor',
+      image: '/images/service-web.jpg',
+      services: [
+        'UI/UX design',
+        'Responsive web development',
+        'E-commerce platforms',
+        'Web application development'
+      ],
+      technologies: [
+        'React / Next.js',
+        'WordPress / Headless CMS',
+        'Shopify / WooCommerce',
+        'Node.js / Cloudflare'
+      ],
+      deliverables: [
+        'Figma design files',
+        'Production-ready code',
+        'CMS integration',
+        'Performance optimization'
+      ],
+      timeline: '8-12 weeks',
+      pricing: 'Starting at $25,000',
+      link: '/services/web-development',
+      badge: 'Most Popular'
+    },
+    {
+      title: 'Digital Marketing',
+      description: 'Data-driven marketing strategies that drive traffic, engagement, and conversions.',
+      icon: 'trending-up',
+      image: '/images/service-marketing.jpg',
+      services: [
+        'SEO & content strategy',
+        'Paid advertising (Google, Meta)',
+        'Email marketing',
+        'Social media management'
+      ],
+      channels: [
+        'Google Ads',
+        'Facebook & Instagram',
+        'LinkedIn',
+        'Email campaigns'
+      ],
+      deliverables: [
+        'Marketing strategy',
+        'Campaign setup & management',
+        'Monthly performance reports',
+        'A/B testing & optimization'
+      ],
+      timeline: 'Ongoing (6-month minimum)',
+      pricing: 'Starting at $5,000/month',
+      link: '/services/marketing'
+    },
+    {
+      title: 'Content Creation',
+      description: 'Compelling content that tells your story and engages your audience across all channels.',
+      icon: 'edit',
+      image: '/images/service-content.jpg',
+      services: [
+        'Content strategy',
+        'Copywriting',
+        'Photography & videography',
+        'Motion graphics & animation'
+      ],
+      contentTypes: [
+        'Blog posts & articles',
+        'Product photography',
+        'Promotional videos',
+        'Social media content'
+      ],
+      deliverables: [
+        'Content calendar',
+        'Original content',
+        'Asset library',
+        'Distribution strategy'
+      ],
+      timeline: 'Ongoing (3-month minimum)',
+      pricing: 'Starting at $3,000/month',
+      link: '/services/content'
+    }
+  ],
+
+  cta: {
+    text: 'Schedule a Consultation',
+    url: '/contact',
+    style: 'primary'
+  },
+
+  footer: {
+    text: 'Not sure which service is right for you?',
+    cta: {
+      text: 'Let\'s Talk',
+      url: '/contact',
+      style: 'secondary'
+    }
+  }
+}
+```
+
+## Layout Options
+
+### Grid Layout
+- Multiple columns (2, 3, or 4)
+- Equal-height cards
+- Icon or image per feature
+- Best for: Multiple features with similar weight
+
+### Alternating Layout
+- Large image alternating left/right
+- Detailed descriptions
+- Specs and technical details
+- Best for: Product features, in-depth explanations
+
+### Cards Layout
+- Elevated card design
+- Rich content per card
+- Call-to-action per card
+- Best for: Services, offerings, tiered features
+
+### List Layout
+- Vertical list with icons
+- Simple and scannable
+- Compact presentation
+- Best for: Benefits, checklist items
+
+## Resources
+
+- [Schema.org WebPageElement](https://schema.org/WebPageElement)
+- [mdxui FeatureSection Documentation](https://mdxui.dev/components/feature-section)
+- [Feature Section Best Practices](https://schema.org.ai/guides/feature-sections)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

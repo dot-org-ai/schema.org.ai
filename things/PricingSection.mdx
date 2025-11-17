@@ -1,0 +1,597 @@
+---
+$id: https://schema.org.ai/PricingSection
+$context: https://schema.org.ai
+$type: Class
+name: PricingSection
+description: A section displaying pricing plans, subscription tiers, and product pricing with features, CTAs, and comparison capabilities. Supports various pricing models including subscription, one-time, freemium, and enterprise.
+subClassOf: ["WebPageElement"]
+digital: 1.0
+properties:
+  title:
+    type: Text
+    description: Section title
+  subtitle:
+    type: Text
+    description: Optional section subtitle
+  plans:
+    type: Array
+    description: Array of pricing plans/tiers
+  billingCycle:
+    type: Text
+    description: Billing cycle (monthly, annual, one-time, etc.)
+  currency:
+    type: Text
+    description: Currency code (USD, EUR, etc.)
+  layout:
+    type: Text
+    description: Layout style (cards, table, comparison, etc.)
+---
+
+# PricingSection
+
+A section displaying pricing plans, subscription tiers, and product pricing with features, CTAs, and comparison capabilities. Supports various pricing models including subscription, one-time, freemium, and enterprise.
+
+## Type Hierarchy
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx) > [WebPageElement](WebPageElement.mdx) > **PricingSection**
+
+## Properties
+
+### Core Properties
+
+- **title** (Text): Section title
+- **subtitle** (Text): Optional section subtitle
+- **plans** (Array): Array of pricing plans/tiers
+- **billingCycle** (Text): Billing cycle (monthly, annual, one-time, etc.)
+- **currency** (Text): Currency code (USD, EUR, etc.)
+- **layout** (Text): Layout style (cards, table, comparison, etc.)
+
+### Pricing Plan Properties
+
+Each plan in the `plans` array can include:
+- **name** (Text): Plan name (e.g., "Starter", "Pro", "Enterprise")
+- **price** (Number|Text): Price (number or "custom", "contact", etc.)
+- **description** (Text): Short plan description
+- **features** (Array): List of features included
+- **cta** (Action): Call-to-action button
+- **featured** (Boolean): Highlight as recommended/popular
+- **badge** (Text): Badge label (e.g., "Most Popular", "Best Value")
+- **billingDetails** (Object): Billing specifics (annual savings, etc.)
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { PricingSection } from 'schema.org.ai'
+
+// Create a PricingSection
+const item: PricingSection = {
+  $type: 'PricingSection',
+  title: 'Simple, Transparent Pricing',
+  billingCycle: 'monthly',
+  currency: 'USD',
+  plans: [
+    {
+      name: 'Starter',
+      price: 29,
+      features: ['10 users', 'Basic features'],
+      cta: { text: 'Start Free', url: '/signup' }
+    },
+    {
+      name: 'Pro',
+      price: 99,
+      features: ['Unlimited users', 'Advanced features'],
+      cta: { text: 'Get Started', url: '/signup' },
+      featured: true
+    }
+  ]
+}
+
+// Use semantic patterns
+await $.PricingSection.create(item)
+const result = await $.PricingSection.get('item-id')
+```
+
+## mdxui Integration
+
+```typescript
+import { PricingSection } from 'mdxui'
+
+const pricing = {
+  $type: 'PricingSection',
+  title: 'Choose Your Plan',
+  billingCycle: 'monthly',
+  plans: [
+    { name: 'Free', price: 0, features: ['Basic features'], cta: { text: 'Get Started', url: '/signup' } },
+    { name: 'Pro', price: 49, features: ['All features'], featured: true, cta: { text: 'Start Trial', url: '/trial' } }
+  ]
+}
+
+// mdxui automatically renders based on $type
+<PricingSection {...pricing} />
+```
+
+## Example 1: SaaS Subscription Pricing (Card Layout)
+
+```typescript
+const saasSubscription: PricingSection = {
+  $type: 'PricingSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Choose Your Plan',
+  subtitle: 'Start free, upgrade as you grow. No credit card required.',
+
+  layout: 'cards',
+  billingCycle: 'monthly',
+  currency: 'USD',
+
+  billingToggle: {
+    enabled: true,
+    options: ['monthly', 'annual'],
+    defaultOption: 'monthly',
+    annualDiscount: 20,
+    message: 'Save 20% with annual billing'
+  },
+
+  plans: [
+    {
+      name: 'Free',
+      price: 0,
+      description: 'Perfect for individuals and small teams',
+      features: [
+        { text: '5 team members', included: true },
+        { text: '10 projects', included: true },
+        { text: 'Basic features', included: true },
+        { text: 'Community support', included: true },
+        { text: 'Advanced analytics', included: false },
+        { text: 'Custom integrations', included: false },
+        { text: 'Priority support', included: false }
+      ],
+      limitations: [
+        '5GB storage',
+        'Basic templates only',
+        'Standard security'
+      ],
+      cta: {
+        text: 'Get Started Free',
+        url: '/signup?plan=free',
+        style: 'secondary'
+      },
+      popular: false
+    },
+    {
+      name: 'Pro',
+      price: 49,
+      priceAnnual: 470,
+      description: 'For growing teams that need more power',
+      badge: 'Most Popular',
+      featured: true,
+      features: [
+        { text: 'Unlimited team members', included: true },
+        { text: 'Unlimited projects', included: true },
+        { text: 'All features', included: true },
+        { text: 'Priority support', included: true },
+        { text: 'Advanced analytics', included: true },
+        { text: 'Custom integrations', included: true },
+        { text: 'SSO & SAML', included: false }
+      ],
+      benefits: [
+        '100GB storage',
+        'Premium templates',
+        'Advanced security',
+        'API access'
+      ],
+      cta: {
+        text: 'Start 14-Day Free Trial',
+        url: '/signup?plan=pro',
+        style: 'primary'
+      },
+      popular: true,
+      savings: {
+        monthly: 49,
+        annual: 470,
+        annualSavings: 118,
+        annualSavingsPercent: 20
+      }
+    },
+    {
+      name: 'Enterprise',
+      price: 'custom',
+      description: 'For large organizations with custom needs',
+      badge: 'Contact Sales',
+      features: [
+        { text: 'Everything in Pro', included: true },
+        { text: 'Dedicated account manager', included: true },
+        { text: 'SSO & SAML', included: true },
+        { text: 'Advanced security', included: true },
+        { text: 'SLA guarantee (99.9%)', included: true },
+        { text: 'Custom integrations', included: true },
+        { text: 'On-premise deployment', included: true }
+      ],
+      benefits: [
+        'Unlimited storage',
+        'White-label options',
+        'Custom contracts',
+        'Volume discounts'
+      ],
+      cta: {
+        text: 'Contact Sales',
+        url: '/contact-sales',
+        style: 'secondary'
+      },
+      popular: false
+    }
+  ],
+
+  faq: [
+    {
+      question: 'Can I change plans later?',
+      answer: 'Yes, you can upgrade or downgrade at any time. Changes take effect immediately.'
+    },
+    {
+      question: 'What payment methods do you accept?',
+      answer: 'We accept all major credit cards, PayPal, and wire transfers for Enterprise plans.'
+    },
+    {
+      question: 'Is there a discount for annual billing?',
+      answer: 'Yes, save 20% when you choose annual billing. You can switch at any time.'
+    },
+    {
+      question: 'What happens when I reach my limit?',
+      answer: 'We will notify you before you reach your limit. You can upgrade or purchase add-ons.'
+    }
+  ],
+
+  trustedBy: {
+    text: 'Trusted by 10,000+ teams worldwide',
+    logos: [
+      { name: 'Google', url: '/logos/google.svg' },
+      { name: 'Microsoft', url: '/logos/microsoft.svg' },
+      { name: 'Amazon', url: '/logos/amazon.svg' }
+    ]
+  },
+
+  moneyBackGuarantee: {
+    enabled: true,
+    days: 30,
+    text: '30-day money-back guarantee'
+  }
+}
+```
+
+## Example 2: E-commerce Product Pricing (Simple Layout)
+
+```typescript
+const productPricing: PricingSection = {
+  $type: 'PricingSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Choose Your Color',
+  subtitle: 'Premium Wireless Headphones - Limited Time Offer',
+
+  layout: 'simple',
+  currency: 'USD',
+
+  badge: '🎉 Save $50 - Limited Time',
+
+  plans: [
+    {
+      name: 'Midnight Black',
+      price: 299,
+      originalPrice: 349,
+      discount: 50,
+      discountPercent: 14,
+      image: '/products/headphones-black.jpg',
+      imageAlt: 'Premium wireless headphones in midnight black',
+      inStock: true,
+      stockCount: 47,
+      features: [
+        '40dB Active Noise Cancellation',
+        '30-hour battery life',
+        'Hi-Res Audio certified',
+        'USB-C fast charging'
+      ],
+      cta: {
+        text: 'Add to Cart',
+        url: '/cart/add?product=headphones&color=black',
+        style: 'primary',
+        icon: 'shopping-cart'
+      },
+      popular: true
+    },
+    {
+      name: 'Moonlight Silver',
+      price: 299,
+      originalPrice: 349,
+      discount: 50,
+      discountPercent: 14,
+      image: '/products/headphones-silver.jpg',
+      imageAlt: 'Premium wireless headphones in moonlight silver',
+      inStock: true,
+      stockCount: 23,
+      badge: 'Limited Edition',
+      features: [
+        '40dB Active Noise Cancellation',
+        '30-hour battery life',
+        'Hi-Res Audio certified',
+        'USB-C fast charging'
+      ],
+      cta: {
+        text: 'Add to Cart',
+        url: '/cart/add?product=headphones&color=silver',
+        style: 'primary',
+        icon: 'shopping-cart'
+      },
+      popular: false
+    },
+    {
+      name: 'Ocean Blue',
+      price: 299,
+      originalPrice: 349,
+      discount: 50,
+      discountPercent: 14,
+      image: '/products/headphones-blue.jpg',
+      imageAlt: 'Premium wireless headphones in ocean blue',
+      inStock: false,
+      restockDate: '2024-12-15',
+      features: [
+        '40dB Active Noise Cancellation',
+        '30-hour battery life',
+        'Hi-Res Audio certified',
+        'USB-C fast charging'
+      ],
+      cta: {
+        text: 'Notify When Available',
+        url: '/notify?product=headphones&color=blue',
+        style: 'secondary',
+        icon: 'bell'
+      },
+      popular: false
+    }
+  ],
+
+  benefits: [
+    { icon: 'truck', text: 'Free 2-day shipping' },
+    { icon: 'refresh', text: '30-day returns' },
+    { icon: 'shield', text: '2-year warranty' },
+    { icon: 'credit-card', text: 'Interest-free payments' }
+  ],
+
+  financing: {
+    available: true,
+    provider: 'Affirm',
+    terms: 'or 4 interest-free payments of $74.75',
+    minAmount: 50
+  },
+
+  urgency: {
+    type: 'countdown',
+    endDate: '2024-12-31T23:59:59',
+    message: 'Sale ends in:',
+    showTimer: true
+  },
+
+  schema: {
+    '@type': 'Product',
+    name: 'Premium Wireless Headphones',
+    offers: {
+      '@type': 'Offer',
+      price: 299,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      priceValidUntil: '2024-12-31'
+    }
+  }
+}
+```
+
+## Example 3: Service Packages (Comparison Table Layout)
+
+```typescript
+const servicePackages: PricingSection = {
+  $type: 'PricingSection',
+  $context: 'https://schema.org.ai',
+
+  title: 'Website Design Packages',
+  subtitle: 'Choose the package that fits your needs and budget',
+
+  layout: 'comparison',
+  currency: 'USD',
+
+  plans: [
+    {
+      name: 'Essential',
+      price: 5000,
+      billingType: 'one-time',
+      description: 'Perfect for small businesses and startups',
+      timeline: '4-6 weeks',
+      features: [
+        { category: 'Design', text: 'Up to 5 pages', included: true },
+        { category: 'Design', text: 'Mobile responsive', included: true },
+        { category: 'Design', text: 'Stock images', included: true },
+        { category: 'Design', text: 'Custom illustrations', included: false },
+        { category: 'Development', text: 'HTML/CSS', included: true },
+        { category: 'Development', text: 'Contact form', included: true },
+        { category: 'Development', text: 'CMS integration', included: false },
+        { category: 'Development', text: 'E-commerce', included: false },
+        { category: 'SEO', text: 'Basic SEO', included: true },
+        { category: 'SEO', text: 'Advanced SEO', included: false },
+        { category: 'Support', text: '30 days support', included: true },
+        { category: 'Support', text: '90 days support', included: false }
+      ],
+      deliverables: [
+        'Figma design files',
+        'Production-ready code',
+        'Basic training',
+        'Documentation'
+      ],
+      cta: {
+        text: 'Get Started',
+        url: '/contact?package=essential',
+        style: 'secondary'
+      }
+    },
+    {
+      name: 'Professional',
+      price: 12000,
+      billingType: 'one-time',
+      description: 'For businesses that need more features and customization',
+      timeline: '8-10 weeks',
+      badge: 'Most Popular',
+      featured: true,
+      features: [
+        { category: 'Design', text: 'Up to 15 pages', included: true },
+        { category: 'Design', text: 'Mobile responsive', included: true },
+        { category: 'Design', text: 'Stock images', included: true },
+        { category: 'Design', text: 'Custom illustrations', included: true },
+        { category: 'Development', text: 'HTML/CSS/JavaScript', included: true },
+        { category: 'Development', text: 'Advanced forms', included: true },
+        { category: 'Development', text: 'CMS integration', included: true },
+        { category: 'Development', text: 'E-commerce', included: false },
+        { category: 'SEO', text: 'Basic SEO', included: true },
+        { category: 'SEO', text: 'Advanced SEO', included: true },
+        { category: 'Support', text: '90 days support', included: true },
+        { category: 'Support', text: 'Priority support', included: true }
+      ],
+      deliverables: [
+        'Figma design files',
+        'Production-ready code',
+        'CMS setup & training',
+        'Documentation',
+        'Performance optimization',
+        'Analytics setup'
+      ],
+      cta: {
+        text: 'Get Started',
+        url: '/contact?package=professional',
+        style: 'primary'
+      },
+      popular: true
+    },
+    {
+      name: 'Enterprise',
+      price: 25000,
+      billingType: 'one-time',
+      description: 'Full-featured solution for large organizations',
+      timeline: '12-16 weeks',
+      badge: 'Custom Solution',
+      features: [
+        { category: 'Design', text: 'Unlimited pages', included: true },
+        { category: 'Design', text: 'Mobile responsive', included: true },
+        { category: 'Design', text: 'Professional photography', included: true },
+        { category: 'Design', text: 'Custom illustrations', included: true },
+        { category: 'Development', text: 'Custom web application', included: true },
+        { category: 'Development', text: 'Advanced forms', included: true },
+        { category: 'Development', text: 'Headless CMS', included: true },
+        { category: 'Development', text: 'E-commerce platform', included: true },
+        { category: 'SEO', text: 'Comprehensive SEO', included: true },
+        { category: 'SEO', text: 'Technical SEO audit', included: true },
+        { category: 'Support', text: '1 year support', included: true },
+        { category: 'Support', text: 'Dedicated account manager', included: true }
+      ],
+      deliverables: [
+        'Complete design system',
+        'Production-ready code',
+        'CMS/Platform setup',
+        'Comprehensive training',
+        'Documentation',
+        'Performance optimization',
+        'Security audit',
+        'Analytics & tracking',
+        'Marketing integration'
+      ],
+      addOns: [
+        { name: 'Additional pages', price: 500 },
+        { name: 'Custom integrations', price: 2000 },
+        { name: 'Ongoing maintenance', price: '1500/month' }
+      ],
+      cta: {
+        text: 'Schedule Consultation',
+        url: '/contact?package=enterprise',
+        style: 'secondary'
+      }
+    }
+  ],
+
+  comparisonFeatures: {
+    categories: ['Design', 'Development', 'SEO', 'Support'],
+    showCategory: true,
+    collapsible: true
+  },
+
+  footer: {
+    text: 'Need something custom?',
+    cta: {
+      text: 'Contact Us',
+      url: '/contact',
+      style: 'link'
+    }
+  },
+
+  paymentOptions: {
+    methods: ['Credit Card', 'Bank Transfer', 'PayPal'],
+    depositRequired: true,
+    depositPercent: 50,
+    milestonePayments: true
+  }
+}
+```
+
+## Layout Options
+
+### Cards Layout
+- Side-by-side pricing cards
+- Clear visual separation
+- Featured/popular highlight
+- Best for: 2-4 pricing tiers
+
+### Comparison Table Layout
+- Detailed feature comparison
+- Side-by-side columns
+- Category grouping
+- Best for: Complex feature sets, B2B
+
+### Simple Layout
+- Single product with variations
+- Focus on one offering
+- Color/size options
+- Best for: E-commerce, single products
+
+### Toggle Layout
+- Monthly vs Annual toggle
+- Dynamic pricing update
+- Savings calculator
+- Best for: Subscription services
+
+## Pricing Models
+
+### Freemium
+- Free tier with limitations
+- Paid tiers for more features
+- Clear upgrade path
+
+### Subscription
+- Recurring billing (monthly/annual)
+- Multiple tiers
+- Feature-based differentiation
+
+### One-Time Purchase
+- Single payment
+- Lifetime access
+- Optional add-ons
+
+### Enterprise/Custom
+- Contact sales
+- Custom pricing
+- Negotiated contracts
+
+## Resources
+
+- [Schema.org Offer](https://schema.org/Offer)
+- [Schema.org PriceSpecification](https://schema.org/PriceSpecification)
+- [mdxui PricingSection Documentation](https://mdxui.dev/components/pricing-section)
+- [Pricing Page Best Practices](https://schema.org.ai/guides/pricing-pages)
+
+## License
+
+This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
