@@ -1,709 +1,717 @@
 [
   {
     "text": "Thing",
-    "url": "/types/Thing",
+    "url": "/Thing",
     "items": [
       {
         "text": "Action",
-        "url": "/types/Action",
+        "url": "/Action",
         "items": [
           {
             "text": "AchieveAction",
-            "url": "/types/AchieveAction"
+            "url": "/AchieveAction"
           },
           {
             "text": "ConsumeAction",
-            "url": "/types/ConsumeAction"
+            "url": "/ConsumeAction"
           },
           {
             "text": "ControlAction",
-            "url": "/types/ControlAction"
+            "url": "/ControlAction"
           },
           {
             "text": "CreateAction",
-            "url": "/types/CreateAction"
+            "url": "/CreateAction"
           },
           {
             "text": "FindAction",
-            "url": "/types/FindAction"
+            "url": "/FindAction"
           },
           {
             "text": "InteractAction",
-            "url": "/types/InteractAction"
+            "url": "/InteractAction"
           },
           {
             "text": "MoveAction",
-            "url": "/types/MoveAction"
+            "url": "/MoveAction"
           },
           {
             "text": "OrganizeAction",
-            "url": "/types/OrganizeAction"
+            "url": "/OrganizeAction"
           },
           {
             "text": "PlayAction",
-            "url": "/types/PlayAction"
+            "url": "/PlayAction"
           },
           {
             "text": "SearchAction",
-            "url": "/types/SearchAction"
+            "url": "/SearchAction"
           },
           {
             "text": "SeekToAction",
-            "url": "/types/SeekToAction"
+            "url": "/SeekToAction"
           },
           {
             "text": "SolveMathAction",
-            "url": "/types/SolveMathAction"
+            "url": "/SolveMathAction"
           },
           {
             "text": "TradeAction",
-            "url": "/types/TradeAction"
+            "url": "/TradeAction"
           },
           {
             "text": "TransferAction",
-            "url": "/types/TransferAction"
+            "url": "/TransferAction"
           },
           {
             "text": "UpdateAction",
-            "url": "/types/UpdateAction"
+            "url": "/UpdateAction"
           }
         ]
       },
       {
         "text": "BioChemEntity",
-        "url": "/types/BioChemEntity",
+        "url": "/BioChemEntity",
         "items": [
           {
             "text": "Gene",
-            "url": "/types/Gene"
+            "url": "/Gene"
           },
           {
             "text": "MolecularEntity",
-            "url": "/types/MolecularEntity"
+            "url": "/MolecularEntity"
           },
           {
             "text": "Protein",
-            "url": "/types/Protein"
+            "url": "/Protein"
           }
         ]
       },
       {
         "text": "CreativeWork",
-        "url": "/types/CreativeWork",
+        "url": "/CreativeWork",
         "items": [
           {
             "text": "AmpStory",
-            "url": "/types/AmpStory"
+            "url": "/AmpStory"
           },
           {
             "text": "ArchiveComponent",
-            "url": "/types/ArchiveComponent"
+            "url": "/ArchiveComponent"
           },
           {
             "text": "Article",
-            "url": "/types/Article"
+            "url": "/Article"
           },
           {
             "text": "Atlas",
-            "url": "/types/Atlas"
+            "url": "/Atlas"
           },
           {
             "text": "Blog",
-            "url": "/types/Blog"
+            "url": "/Blog"
           },
           {
             "text": "Book",
-            "url": "/types/Book"
+            "url": "/Book"
           },
           {
             "text": "Certification",
-            "url": "/types/Certification"
+            "url": "/Certification"
           },
           {
             "text": "Chapter",
-            "url": "/types/Chapter"
+            "url": "/Chapter"
           },
           {
             "text": "Claim",
-            "url": "/types/Claim"
+            "url": "/Claim"
           },
           {
             "text": "Clip",
-            "url": "/types/Clip"
+            "url": "/Clip"
           },
           {
             "text": "Code",
-            "url": "/types/Code"
+            "url": "/Code"
           },
           {
             "text": "Collection",
-            "url": "/types/Collection"
+            "url": "/Collection"
           },
           {
             "text": "ComicStory",
-            "url": "/types/ComicStory"
+            "url": "/ComicStory"
           },
           {
             "text": "Conversation",
-            "url": "/types/Conversation"
+            "url": "/Conversation"
           },
           {
             "text": "Course",
-            "url": "/types/Course"
+            "url": "/Course"
           },
           {
             "text": "CreativeWorkSeason",
-            "url": "/types/CreativeWorkSeason"
+            "url": "/CreativeWorkSeason"
           },
           {
             "text": "CreativeWorkSeries",
-            "url": "/types/CreativeWorkSeries"
+            "url": "/CreativeWorkSeries"
           },
           {
             "text": "DataCatalog",
-            "url": "/types/DataCatalog"
+            "url": "/DataCatalog"
           },
           {
             "text": "Dataset",
-            "url": "/types/Dataset"
+            "url": "/Dataset"
           },
           {
             "text": "DefinedTermSet",
-            "url": "/types/DefinedTermSet"
+            "url": "/DefinedTermSet"
           },
           {
             "text": "Diet",
-            "url": "/types/Diet"
+            "url": "/Diet"
           },
           {
             "text": "DigitalDocument",
-            "url": "/types/DigitalDocument"
+            "url": "/DigitalDocument"
           },
           {
             "text": "Drawing",
-            "url": "/types/Drawing"
+            "url": "/Drawing"
           },
           {
             "text": "EducationalOccupationalCredential",
-            "url": "/types/EducationalOccupationalCredential"
+            "url": "/EducationalOccupationalCredential"
           },
           {
             "text": "Episode",
-            "url": "/types/Episode"
+            "url": "/Episode"
           },
           {
             "text": "ExercisePlan",
-            "url": "/types/ExercisePlan"
+            "url": "/ExercisePlan"
           },
           {
             "text": "Game",
-            "url": "/types/Game"
+            "url": "/Game"
+          },
+          {
+            "text": "Guide",
+            "url": "/Guide"
           },
           {
             "text": "HowTo",
-            "url": "/types/HowTo"
+            "url": "/HowTo"
           },
           {
             "text": "HowToDirection",
-            "url": "/types/HowToDirection"
+            "url": "/HowToDirection"
           },
           {
             "text": "HowToSection",
-            "url": "/types/HowToSection"
+            "url": "/HowToSection"
           },
           {
             "text": "HowToStep",
-            "url": "/types/HowToStep"
+            "url": "/HowToStep"
           },
           {
             "text": "HyperToc",
-            "url": "/types/HyperToc"
+            "url": "/HyperToc"
           },
           {
             "text": "HyperTocEntry",
-            "url": "/types/HyperTocEntry"
+            "url": "/HyperTocEntry"
           },
           {
             "text": "LearningResource",
-            "url": "/types/LearningResource"
+            "url": "/LearningResource"
           },
           {
             "text": "Legislation",
-            "url": "/types/Legislation"
+            "url": "/Legislation"
           },
           {
             "text": "Manuscript",
-            "url": "/types/Manuscript"
+            "url": "/Manuscript"
           },
           {
             "text": "Map",
-            "url": "/types/Map"
+            "url": "/Map"
           },
           {
             "text": "MathSolver",
-            "url": "/types/MathSolver"
+            "url": "/MathSolver"
           },
           {
             "text": "MediaReviewItem",
-            "url": "/types/MediaReviewItem"
+            "url": "/MediaReviewItem"
           },
           {
             "text": "Menu",
-            "url": "/types/Menu"
+            "url": "/Menu"
           },
           {
             "text": "Message",
-            "url": "/types/Message"
+            "url": "/Message"
           },
           {
             "text": "Movie",
-            "url": "/types/Movie"
+            "url": "/Movie"
           },
           {
             "text": "MusicComposition",
-            "url": "/types/MusicComposition"
+            "url": "/MusicComposition"
           },
           {
             "text": "MusicPlaylist",
-            "url": "/types/MusicPlaylist"
+            "url": "/MusicPlaylist"
           },
           {
             "text": "MusicRecording",
-            "url": "/types/MusicRecording"
+            "url": "/MusicRecording"
           },
           {
             "text": "Painting",
-            "url": "/types/Painting"
+            "url": "/Painting"
           },
           {
             "text": "Photograph",
-            "url": "/types/Photograph"
+            "url": "/Photograph"
           },
           {
             "text": "Play",
-            "url": "/types/Play"
+            "url": "/Play"
           },
           {
             "text": "Poster",
-            "url": "/types/Poster"
+            "url": "/Poster"
           },
           {
             "text": "PublicationIssue",
-            "url": "/types/PublicationIssue"
+            "url": "/PublicationIssue"
           },
           {
             "text": "PublicationVolume",
-            "url": "/types/PublicationVolume"
+            "url": "/PublicationVolume"
           },
           {
             "text": "Quotation",
-            "url": "/types/Quotation"
+            "url": "/Quotation"
           },
           {
             "text": "Review",
-            "url": "/types/Review"
+            "url": "/Review"
           },
           {
             "text": "Sculpture",
-            "url": "/types/Sculpture"
+            "url": "/Sculpture"
           },
           {
             "text": "Season",
-            "url": "/types/Season"
+            "url": "/Season"
           },
           {
             "text": "SheetMusic",
-            "url": "/types/SheetMusic"
+            "url": "/SheetMusic"
           },
           {
             "text": "ShortStory",
-            "url": "/types/ShortStory"
+            "url": "/ShortStory"
           },
           {
             "text": "SoftwareApplication",
-            "url": "/types/SoftwareApplication"
+            "url": "/SoftwareApplication"
           },
           {
             "text": "SoftwareSourceCode",
-            "url": "/types/SoftwareSourceCode"
+            "url": "/SoftwareSourceCode"
+          },
+          {
+            "text": "SpecialAnnouncement",
+            "url": "/SpecialAnnouncement"
           },
           {
             "text": "Statement",
-            "url": "/types/Statement"
+            "url": "/Statement"
           },
           {
             "text": "TVSeason",
-            "url": "/types/TVSeason"
+            "url": "/TVSeason"
           },
           {
             "text": "TVSeries",
-            "url": "/types/TVSeries"
+            "url": "/TVSeries"
           },
           {
             "text": "Thesis",
-            "url": "/types/Thesis"
+            "url": "/Thesis"
           },
           {
             "text": "VisualArtwork",
-            "url": "/types/VisualArtwork"
+            "url": "/VisualArtwork"
           },
           {
             "text": "WebContent",
-            "url": "/types/WebContent"
+            "url": "/WebContent"
           },
           {
             "text": "WebPage",
-            "url": "/types/WebPage"
+            "url": "/WebPage"
           },
           {
             "text": "WebPageElement",
-            "url": "/types/WebPageElement"
+            "url": "/WebPageElement"
           },
           {
             "text": "WebSite",
-            "url": "/types/WebSite"
+            "url": "/WebSite"
           }
         ]
       },
       {
         "text": "Event",
-        "url": "/types/Event",
+        "url": "/Event",
         "items": [
           {
             "text": "BusinessEvent",
-            "url": "/types/BusinessEvent"
+            "url": "/BusinessEvent"
           },
           {
             "text": "ComedyEvent",
-            "url": "/types/ComedyEvent"
+            "url": "/ComedyEvent"
           },
           {
             "text": "CourseInstance",
-            "url": "/types/CourseInstance"
+            "url": "/CourseInstance"
           },
           {
             "text": "DanceEvent",
-            "url": "/types/DanceEvent"
+            "url": "/DanceEvent"
           },
           {
             "text": "DeliveryEvent",
-            "url": "/types/DeliveryEvent"
+            "url": "/DeliveryEvent"
           },
           {
             "text": "EducationEvent",
-            "url": "/types/EducationEvent"
+            "url": "/EducationEvent"
           },
           {
             "text": "EventSeries",
-            "url": "/types/EventSeries"
+            "url": "/EventSeries"
           },
           {
             "text": "ExhibitionEvent",
-            "url": "/types/ExhibitionEvent"
+            "url": "/ExhibitionEvent"
           },
           {
             "text": "Festival",
-            "url": "/types/Festival"
+            "url": "/Festival"
           },
           {
             "text": "FoodEvent",
-            "url": "/types/FoodEvent"
+            "url": "/FoodEvent"
           },
           {
             "text": "Hackathon",
-            "url": "/types/Hackathon"
+            "url": "/Hackathon"
           },
           {
             "text": "LiteraryEvent",
-            "url": "/types/LiteraryEvent"
+            "url": "/LiteraryEvent"
           },
           {
             "text": "MusicEvent",
-            "url": "/types/MusicEvent"
+            "url": "/MusicEvent"
           },
           {
             "text": "PublicationEvent",
-            "url": "/types/PublicationEvent"
+            "url": "/PublicationEvent"
           },
           {
             "text": "SaleEvent",
-            "url": "/types/SaleEvent"
+            "url": "/SaleEvent"
           },
           {
             "text": "ScreeningEvent",
-            "url": "/types/ScreeningEvent"
+            "url": "/ScreeningEvent"
           },
           {
             "text": "SocialEvent",
-            "url": "/types/SocialEvent"
+            "url": "/SocialEvent"
           },
           {
             "text": "SportsEvent",
-            "url": "/types/SportsEvent"
+            "url": "/SportsEvent"
           },
           {
             "text": "TheaterEvent",
-            "url": "/types/TheaterEvent"
+            "url": "/TheaterEvent"
           },
           {
             "text": "UserInteraction",
-            "url": "/types/UserInteraction"
+            "url": "/UserInteraction"
           },
           {
             "text": "VisualArtsEvent",
-            "url": "/types/VisualArtsEvent"
+            "url": "/VisualArtsEvent"
           }
         ]
       },
       {
         "text": "MedicalEntity",
-        "url": "/types/MedicalEntity",
+        "url": "/MedicalEntity",
         "items": [
           {
             "text": "AnatomicalStructure",
-            "url": "/types/AnatomicalStructure"
+            "url": "/AnatomicalStructure"
           },
           {
             "text": "AnatomicalSystem",
-            "url": "/types/AnatomicalSystem"
+            "url": "/AnatomicalSystem"
           },
           {
             "text": "DrugClass",
-            "url": "/types/DrugClass"
+            "url": "/DrugClass"
           },
           {
             "text": "LifestyleModification",
-            "url": "/types/LifestyleModification"
+            "url": "/LifestyleModification"
           },
           {
             "text": "MedicalCause",
-            "url": "/types/MedicalCause"
+            "url": "/MedicalCause"
           },
           {
             "text": "MedicalCondition",
-            "url": "/types/MedicalCondition"
+            "url": "/MedicalCondition"
           },
           {
             "text": "MedicalContraindication",
-            "url": "/types/MedicalContraindication"
+            "url": "/MedicalContraindication"
           },
           {
             "text": "MedicalDevice",
-            "url": "/types/MedicalDevice"
+            "url": "/MedicalDevice"
           },
           {
             "text": "MedicalGuideline",
-            "url": "/types/MedicalGuideline"
+            "url": "/MedicalGuideline"
           },
           {
             "text": "MedicalIndication",
-            "url": "/types/MedicalIndication"
+            "url": "/MedicalIndication"
           },
           {
             "text": "MedicalProcedure",
-            "url": "/types/MedicalProcedure"
+            "url": "/MedicalProcedure"
           },
           {
             "text": "MedicalRiskEstimator",
-            "url": "/types/MedicalRiskEstimator"
+            "url": "/MedicalRiskEstimator"
           },
           {
             "text": "MedicalStudy",
-            "url": "/types/MedicalStudy"
+            "url": "/MedicalStudy"
           },
           {
             "text": "MedicalTest",
-            "url": "/types/MedicalTest"
+            "url": "/MedicalTest"
           },
           {
             "text": "Substance",
-            "url": "/types/Substance"
+            "url": "/Substance"
           },
           {
             "text": "SuperficialAnatomy",
-            "url": "/types/SuperficialAnatomy"
+            "url": "/SuperficialAnatomy"
           }
         ]
       },
       {
         "text": "Organization",
-        "url": "/types/Organization",
+        "url": "/Organization",
         "items": [
           {
             "text": "Airline",
-            "url": "/types/Airline"
+            "url": "/Airline"
           },
           {
             "text": "Consortium",
-            "url": "/types/Consortium"
+            "url": "/Consortium"
           },
           {
             "text": "Cooperative",
-            "url": "/types/Cooperative"
+            "url": "/Cooperative"
           },
           {
             "text": "Corporation",
-            "url": "/types/Corporation"
+            "url": "/Corporation"
           },
           {
             "text": "EducationalOrganization",
-            "url": "/types/EducationalOrganization"
+            "url": "/EducationalOrganization"
           },
           {
             "text": "FundingScheme",
-            "url": "/types/FundingScheme"
+            "url": "/FundingScheme"
           },
           {
             "text": "GovernmentOrganization",
-            "url": "/types/GovernmentOrganization"
+            "url": "/GovernmentOrganization"
           },
           {
             "text": "LibrarySystem",
-            "url": "/types/LibrarySystem"
+            "url": "/LibrarySystem"
           },
           {
             "text": "LocalBusiness",
-            "url": "/types/LocalBusiness"
+            "url": "/LocalBusiness"
           },
           {
             "text": "MedicalOrganization",
-            "url": "/types/MedicalOrganization"
+            "url": "/MedicalOrganization"
           },
           {
             "text": "NGO",
-            "url": "/types/NGO"
+            "url": "/NGO"
           },
           {
             "text": "NewsMediaOrganization",
-            "url": "/types/NewsMediaOrganization"
+            "url": "/NewsMediaOrganization"
           },
           {
             "text": "OnlineBusiness",
-            "url": "/types/OnlineBusiness"
+            "url": "/OnlineBusiness"
           },
           {
             "text": "PerformingGroup",
-            "url": "/types/PerformingGroup"
+            "url": "/PerformingGroup"
           },
           {
             "text": "PoliticalParty",
-            "url": "/types/PoliticalParty"
+            "url": "/PoliticalParty"
           },
           {
             "text": "Project",
-            "url": "/types/Project"
+            "url": "/Project"
           },
           {
             "text": "ResearchOrganization",
-            "url": "/types/ResearchOrganization"
+            "url": "/ResearchOrganization"
           },
           {
             "text": "SearchRescueOrganization",
-            "url": "/types/SearchRescueOrganization"
+            "url": "/SearchRescueOrganization"
           },
           {
             "text": "SportsOrganization",
-            "url": "/types/SportsOrganization"
+            "url": "/SportsOrganization"
           },
           {
             "text": "WorkersUnion",
-            "url": "/types/WorkersUnion"
+            "url": "/WorkersUnion"
           }
         ]
       },
       {
         "text": "Person",
-        "url": "/types/Person",
+        "url": "/Person",
         "items": [
           {
             "text": "Patient",
-            "url": "/types/Patient"
+            "url": "/Patient"
           }
         ]
       },
       {
         "text": "Place",
-        "url": "/types/Place",
+        "url": "/Place",
         "items": [
           {
             "text": "Accommodation",
-            "url": "/types/Accommodation"
+            "url": "/Accommodation"
           },
           {
             "text": "AdministrativeArea",
-            "url": "/types/AdministrativeArea"
+            "url": "/AdministrativeArea"
           },
           {
             "text": "CivicStructure",
-            "url": "/types/CivicStructure"
+            "url": "/CivicStructure"
           },
           {
             "text": "Landform",
-            "url": "/types/Landform"
+            "url": "/Landform"
           },
           {
             "text": "LandmarksOrHistoricalBuildings",
-            "url": "/types/LandmarksOrHistoricalBuildings"
+            "url": "/LandmarksOrHistoricalBuildings"
           },
           {
             "text": "LocalBusiness",
-            "url": "/types/LocalBusiness"
+            "url": "/LocalBusiness"
           },
           {
             "text": "Residence",
-            "url": "/types/Residence"
+            "url": "/Residence"
           },
           {
             "text": "TouristAttraction",
-            "url": "/types/TouristAttraction"
+            "url": "/TouristAttraction"
           },
           {
             "text": "TouristDestination",
-            "url": "/types/TouristDestination"
+            "url": "/TouristDestination"
           }
         ]
       },
       {
         "text": "Product",
-        "url": "/types/Product",
+        "url": "/Product",
         "items": [
           {
             "text": "DietarySupplement",
-            "url": "/types/DietarySupplement"
+            "url": "/DietarySupplement"
           },
           {
             "text": "Drug",
-            "url": "/types/Drug"
+            "url": "/Drug"
           },
           {
             "text": "IndividualProduct",
-            "url": "/types/IndividualProduct"
+            "url": "/IndividualProduct"
           },
           {
             "text": "ProductCollection",
-            "url": "/types/ProductCollection"
+            "url": "/ProductCollection"
           },
           {
             "text": "ProductGroup",
-            "url": "/types/ProductGroup"
+            "url": "/ProductGroup"
           },
           {
             "text": "ProductModel",
-            "url": "/types/ProductModel"
+            "url": "/ProductModel"
           },
           {
             "text": "SomeProducts",
-            "url": "/types/SomeProducts"
+            "url": "/SomeProducts"
           },
           {
             "text": "Vehicle",
-            "url": "/types/Vehicle"
+            "url": "/Vehicle"
           }
         ]
       },
       {
         "text": "Taxon",
-        "url": "/types/Taxon"
+        "url": "/Taxon"
       }
     ]
   }

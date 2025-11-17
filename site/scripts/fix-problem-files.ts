@@ -9,7 +9,7 @@ import path from 'path'
 const files = ['Accommodation.mdx', 'MediaEnumeration.mdx', 'Room.mdx']
 
 async function fixFile(filename: string) {
-  const filePath = path.join(__dirname, '../content/docs/types', filename)
+  const filePath = path.join(__dirname, '../content/docs', filename)
   let content = await fs.readFile(filePath, 'utf-8')
 
   // Replace escaped quotes in descriptions

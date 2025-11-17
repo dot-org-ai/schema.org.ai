@@ -79,7 +79,7 @@ function buildSidebarTree(
 
   const item: SidebarItem = {
     text: typeName,
-    url: `/types/${typeName}`
+    url: `/${typeName}`
   }
 
   // Only include children up to maxDepth to avoid overly nested sidebar
@@ -138,7 +138,7 @@ async function generateSidebarConfig(types: Map<string, TypeMetadata>, outputPat
   const sidebar: SidebarItem[] = [
     {
       text: 'Thing',
-      url: '/types/Thing',
+      url: '/Thing',
       items: rootChildren
         .map(child => buildSidebarTree(child, types, 1, 2))
         .filter((item): item is SidebarItem => item !== null)
@@ -151,7 +151,7 @@ async function generateSidebarConfig(types: Map<string, TypeMetadata>, outputPat
 }
 
 async function main() {
-  const typesDir = path.join(__dirname, '../content/docs/types')
+  const typesDir = path.join(__dirname, '../content/docs')
 
   console.log('Loading all Schema.org types...')
   const types = await loadAllTypes(typesDir)

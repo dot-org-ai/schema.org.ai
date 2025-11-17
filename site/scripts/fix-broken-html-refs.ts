@@ -25,7 +25,7 @@ async function fixBrokenHtml(filePath: string): Promise<boolean> {
 }
 
 async function main() {
-  const typesDir = path.join(__dirname, '../content/docs/types')
+  const typesDir = path.join(__dirname, '../content/docs')
   const files = await fs.readdir(typesDir)
 
   let fixedCount = 0

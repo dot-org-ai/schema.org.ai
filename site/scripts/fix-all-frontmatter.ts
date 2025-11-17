@@ -107,7 +107,7 @@ function parseValue(value: string): any {
 }
 
 async function main() {
-  const typesDir = path.join(__dirname, '../content/docs/types')
+  const typesDir = path.join(__dirname, '../content/docs')
   const files = await fs.readdir(typesDir)
 
   let fixedCount = 0

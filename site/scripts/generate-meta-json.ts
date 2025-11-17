@@ -168,7 +168,7 @@ async function generateRootMeta(types: Map<string, TypeMetadata>, outputDir: str
 }
 
 async function main() {
-  const typesDir = path.join(__dirname, '../content/docs/types')
+  const typesDir = path.join(__dirname, '../content/docs')
 
   console.log('Loading all Schema.org types...')
   const types = await loadAllTypes(typesDir)
