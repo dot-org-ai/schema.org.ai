@@ -1,0 +1,407 @@
+---
+$id: https://schema.org.ai/Skill
+$context: https://schema.org.ai
+$type: Class
+name: Skill
+description: A learned ability, competency, or capability required to perform tasks and occupations, based on O*NET skills taxonomy.
+subClassOf:
+  - https://schema.org/Thing
+digital: 0.5
+---
+
+[Thing](Thing.mdx)
+
+# Skill
+
+A learned ability, competency, or capability required to perform tasks and occupations. Skills represent the knowledge, abilities, and competencies that enable individuals and agents to execute work effectively. This schema integrates with O*NET skills taxonomy for standardized skill classification.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Skill" | - |
+| `$id` | URL | Unique identifier for the skill | Thing |
+| `name` | Text | The name of the skill | Thing |
+| `description` | Text | Description of the skill and its application | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the skill | Thing |
+| `url` | URL | URL with skill information | Thing |
+| `image` | URL or ImageObject | Image representing the skill | Thing |
+| `digital` | Number (0.0-1.0) | Digital relevance score (varies by skill) | Thing |
+| `skillType` | Text | Type of skill (technical, soft, cognitive, physical) | Skill |
+| `proficiencyLevel` | Text or Number | Required proficiency level (beginner, intermediate, advanced, expert) or 1-5 scale | Skill |
+| `onetCode` | Text | O*NET skill element code | Skill |
+| `skillCategory` | Text | O*NET category (Basic Skills, Cross-Functional Skills, etc.) | Skill |
+| `relatedOccupations` | Occupation[] | Occupations that require this skill | Skill |
+| `relatedTasks` | Task[] | Tasks that utilize this skill | Skill |
+| `prerequisites` | Skill[] | Skills that are prerequisites for learning this skill | Skill |
+| `relatedSkills` | Skill[] | Related or complementary skills | Skill |
+| `learningResources` | CreativeWork[] | Resources for learning this skill | Skill |
+| `assessmentCriteria` | Text | Criteria for assessing skill proficiency | Skill |
+| `demandLevel` | Number | Market demand level (0.0-1.0) | Skill |
+| `creator` | Person or Organization | The entity that defined this skill | Thing |
+
+## Types
+
+The following types extend Skill:
+
+- **TechnicalSkill**: Programming languages, tools, technologies
+- **SoftSkill**: Communication, leadership, teamwork
+- **CognitiveSkill**: Critical thinking, problem solving, learning
+- **DigitalSkill**: Digital tools and technology competencies
+
+## Examples
+
+### Example 1: Programming Skill (Python)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const pythonSkill = {
+  $type: 'Skill',
+  $id: 'https://skills.org.ai/programming/python',
+  name: 'Python Programming',
+  description: 'Ability to write, debug, and maintain software applications using the Python programming language, including knowledge of standard libraries, frameworks, and best practices.',
+  digital: 1.0,
+  skillType: 'technical',
+  proficiencyLevel: 'advanced',
+  onetCode: '2.B.5.a', // Programming (O*NET element)
+  skillCategory: 'Technical Skills',
+  relatedOccupations: [
+    {
+      $type: 'Occupation',
+      name: 'Software Developers',
+      onetCode: '15-1252.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Data Scientists',
+      onetCode: '15-2051.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Computer Systems Analysts',
+      onetCode: '15-1211.00'
+    }
+  ],
+  relatedTasks: [
+    {
+      $type: 'Task',
+      name: 'Develop web applications using Django or Flask',
+      taskId: 'task-web-dev-python'
+    },
+    {
+      $type: 'Task',
+      name: 'Build data pipelines and ETL processes',
+      taskId: 'task-data-pipeline'
+    },
+    {
+      $type: 'Task',
+      name: 'Create machine learning models using scikit-learn',
+      taskId: 'task-ml-models'
+    }
+  ],
+  prerequisites: [
+    {
+      $type: 'Skill',
+      name: 'Basic Programming Concepts',
+      skillType: 'technical'
+    },
+    {
+      $type: 'Skill',
+      name: 'Algorithm Design',
+      skillType: 'cognitive'
+    }
+  ],
+  relatedSkills: [
+    {
+      $type: 'Skill',
+      name: 'JavaScript Programming',
+      $id: 'https://skills.org.ai/programming/javascript'
+    },
+    {
+      $type: 'Skill',
+      name: 'SQL Database Management',
+      $id: 'https://skills.org.ai/database/sql'
+    },
+    {
+      $type: 'Skill',
+      name: 'Git Version Control',
+      $id: 'https://skills.org.ai/tools/git'
+    }
+  ],
+  learningResources: [
+    {
+      $type: 'Course',
+      name: 'Python for Everybody',
+      url: 'https://www.py4e.com'
+    },
+    {
+      $type: 'Book',
+      name: 'Fluent Python',
+      author: 'Luciano Ramalho'
+    }
+  ],
+  assessmentCriteria: 'Can independently design, implement, test, and deploy Python applications with clean, maintainable code following PEP 8 standards',
+  demandLevel: 0.95,
+  creator: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  }
+}
+
+await $.Skill.create(pythonSkill)
+```
+
+### Example 2: Soft Skill (Communication)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const communicationSkill = {
+  $type: 'Skill',
+  $id: 'https://skills.org.ai/soft/communication',
+  name: 'Effective Communication',
+  description: 'Ability to clearly convey information, ideas, and feedback to others through verbal, written, and visual means. Includes active listening, presentation skills, and adapting communication style to audience.',
+  digital: 0.4,
+  skillType: 'soft',
+  proficiencyLevel: 'expert',
+  onetCode: '2.A.1.a', // Oral Comprehension and Expression
+  skillCategory: 'Cross-Functional Skills',
+  relatedOccupations: [
+    {
+      $type: 'Occupation',
+      name: 'Public Relations Managers',
+      onetCode: '11-2031.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Training and Development Specialists',
+      onetCode: '13-1151.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Sales Representatives',
+      onetCode: '41-4011.00'
+    }
+  ],
+  relatedTasks: [
+    {
+      $type: 'Task',
+      name: 'Present project updates to stakeholders',
+      taskId: 'task-stakeholder-presentation'
+    },
+    {
+      $type: 'Task',
+      name: 'Write clear technical documentation',
+      taskId: 'task-documentation'
+    },
+    {
+      $type: 'Task',
+      name: 'Facilitate team meetings and discussions',
+      taskId: 'task-facilitation'
+    }
+  ],
+  prerequisites: [
+    {
+      $type: 'Skill',
+      name: 'Active Listening',
+      skillType: 'soft'
+    },
+    {
+      $type: 'Skill',
+      name: 'Empathy',
+      skillType: 'soft'
+    }
+  ],
+  relatedSkills: [
+    {
+      $type: 'Skill',
+      name: 'Collaboration',
+      $id: 'https://skills.org.ai/soft/collaboration'
+    },
+    {
+      $type: 'Skill',
+      name: 'Emotional Intelligence',
+      $id: 'https://skills.org.ai/soft/emotional-intelligence'
+    },
+    {
+      $type: 'Skill',
+      name: 'Conflict Resolution',
+      $id: 'https://skills.org.ai/soft/conflict-resolution'
+    }
+  ],
+  learningResources: [
+    {
+      $type: 'Course',
+      name: 'Crucial Conversations',
+      url: 'https://cruciallearning.com'
+    },
+    {
+      $type: 'Book',
+      name: 'Nonviolent Communication',
+      author: 'Marshall Rosenberg'
+    }
+  ],
+  assessmentCriteria: 'Can effectively communicate complex ideas to diverse audiences, adapt communication style based on context, and facilitate productive discussions',
+  demandLevel: 0.98,
+  creator: {
+    $type: 'Organization',
+    name: 'O*NET Resource Center',
+    url: 'https://www.onetcenter.org'
+  }
+}
+
+await $.Skill.create(communicationSkill)
+```
+
+### Example 3: Cognitive Skill (Critical Thinking)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const criticalThinkingSkill = {
+  $type: 'Skill',
+  $id: 'https://skills.org.ai/cognitive/critical-thinking',
+  name: 'Critical Thinking',
+  description: 'Ability to analyze information objectively, evaluate multiple perspectives, identify patterns and relationships, make logical inferences, and solve complex problems through reasoning and evidence-based decision making.',
+  digital: 0.6,
+  skillType: 'cognitive',
+  proficiencyLevel: 'advanced',
+  onetCode: '2.A.2.a', // Deductive Reasoning
+  skillCategory: 'Cognitive Abilities',
+  relatedOccupations: [
+    {
+      $type: 'Occupation',
+      name: 'Management Analysts',
+      onetCode: '13-1111.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Computer Systems Analysts',
+      onetCode: '15-1211.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Financial Analysts',
+      onetCode: '13-2051.00'
+    }
+  ],
+  relatedTasks: [
+    {
+      $type: 'Task',
+      name: 'Analyze business problems and recommend solutions',
+      taskId: 'task-problem-analysis'
+    },
+    {
+      $type: 'Task',
+      name: 'Evaluate alternative approaches and trade-offs',
+      taskId: 'task-evaluation'
+    },
+    {
+      $type: 'Task',
+      name: 'Debug complex software issues',
+      taskId: 'task-debugging'
+    }
+  ],
+  prerequisites: [
+    {
+      $type: 'Skill',
+      name: 'Analytical Thinking',
+      skillType: 'cognitive'
+    },
+    {
+      $type: 'Skill',
+      name: 'Information Synthesis',
+      skillType: 'cognitive'
+    }
+  ],
+  relatedSkills: [
+    {
+      $type: 'Skill',
+      name: 'Problem Solving',
+      $id: 'https://skills.org.ai/cognitive/problem-solving'
+    },
+    {
+      $type: 'Skill',
+      name: 'Decision Making',
+      $id: 'https://skills.org.ai/cognitive/decision-making'
+    },
+    {
+      $type: 'Skill',
+      name: 'Systems Thinking',
+      $id: 'https://skills.org.ai/cognitive/systems-thinking'
+    }
+  ],
+  learningResources: [
+    {
+      $type: 'Course',
+      name: 'Introduction to Logic and Critical Thinking',
+      url: 'https://open.umn.edu/opentextbooks/textbooks/introduction-to-logic-and-critical-thinking'
+    },
+    {
+      $type: 'Book',
+      name: 'Thinking, Fast and Slow',
+      author: 'Daniel Kahneman'
+    }
+  ],
+  assessmentCriteria: 'Can systematically analyze complex problems, identify underlying assumptions, evaluate evidence quality, and develop well-reasoned solutions',
+  demandLevel: 0.92,
+  creator: {
+    $type: 'Organization',
+    name: 'O*NET Resource Center',
+    url: 'https://www.onetcenter.org'
+  }
+}
+
+await $.Skill.create(criticalThinkingSkill)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Skill, Person, Occupation } from 'schema.org.ai'
+
+// Create a skill
+const skill: Skill = {
+  $type: 'Skill',
+  $id: 'https://skills.org.ai/programming/typescript',
+  name: 'TypeScript Programming',
+  skillType: 'technical',
+  digital: 1.0
+}
+
+await $.Skill.create(skill)
+
+// Associate skill with a person
+const person: Person = {
+  $type: 'Person',
+  name: 'Jane Developer',
+  skills: [skill]
+}
+
+await $.Person.create(person)
+
+// Query skills by type
+const technicalSkills = await $.Skill.find({
+  skillType: 'technical',
+  digital: { $gte: 0.8 }
+})
+
+// Find skills for an occupation
+const occupation = await $.Occupation.get('15-1252.00')
+const requiredSkills = await $.Skill.find({
+  relatedOccupations: { onetCode: occupation.onetCode }
+})
+```
+
+## Resources
+
+- [O*NET Skills Search](https://www.onetonline.org/find/descriptor/browse/Skills/)
+- [Schema.org Thing](https://schema.org/Thing)
+- [skills.org.ai Documentation](https://docs.skills.org.ai)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

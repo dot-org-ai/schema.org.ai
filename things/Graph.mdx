@@ -1,0 +1,415 @@
+---
+$id: https://schema.org.ai/Graph
+$context: https://schema.org.ai
+$type: Class
+name: Graph
+description: A graph structure representing nodes and edges that encode relationships and knowledge in a structured, queryable format. Used for knowledge graphs, business process graphs, and semantic networks.
+subClassOf:
+  - https://schema.org/Thing
+digital: 1.0
+---
+
+[Thing](Thing.mdx)
+
+# Graph
+
+A graph structure representing nodes (vertices) and edges (relationships) that encode knowledge, relationships, and processes in a structured, queryable format. Graphs enable semantic representation of complex domains, support graph-based reasoning, and integrate with GraphDL and MDXLD for Business-as-Code applications.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Graph" | - |
+| `$id` | URL | Unique identifier for the graph | Thing |
+| `name` | Text | The name of the graph | Thing |
+| `description` | Text | Description of the graph's purpose and content | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the graph | Thing |
+| `url` | URL | URL endpoint for the graph | Thing |
+| `image` | URL or ImageObject | Visual representation of the graph | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score (1.0 for digital graphs) | Thing |
+| `nodes` | Thing[] or Node[] | Nodes (vertices) in the graph | Graph |
+| `edges` | Edge[] | Edges (relationships) in the graph | Graph |
+| `schema` | URL or Schema | The schema or ontology defining the graph structure | Graph |
+| `queryLanguage` | Text | Query language(s) supported (SPARQL, GraphQL, Cypher, Gremlin) | Graph |
+| `graphType` | Text | Type of graph (directed, undirected, property, knowledge, semantic) | Graph |
+| `nodeCount` | Number | Total number of nodes in the graph | Graph |
+| `edgeCount` | Number | Total number of edges in the graph | Graph |
+| `namespace` | URL | Namespace prefix for graph URIs | Graph |
+| `tripleStore` | URL | Triple store or graph database endpoint | Graph |
+| `format` | Text | Serialization format (RDF/XML, Turtle, JSON-LD, GraphML) | Graph |
+| `version` | Text | Graph version | Graph |
+| `creator` | Person or Organization | The entity that created the graph | Thing |
+
+## Types
+
+The following types extend Graph:
+
+- **KnowledgeGraph**: Semantic knowledge representation graphs
+- **PropertyGraph**: Graphs with properties on nodes and edges
+- **SemanticGraph**: RDF-based semantic networks
+- **ProcessGraph**: Business process and workflow graphs
+
+## Examples
+
+### Example 1: Business Knowledge Graph
+
+```typescript
+import { $ } from 'sdk.do'
+
+const businessKG = {
+  $type: 'Graph',
+  $id: 'https://graph.org.ai/business-knowledge',
+  name: 'Business Domain Knowledge Graph',
+  description: 'Knowledge graph representing business entities, relationships, and processes across the .do platform ecosystem',
+  digital: 1.0,
+  graphType: 'knowledge',
+  queryLanguage: 'SPARQL',
+  schema: 'https://schema.org.ai',
+  namespace: 'https://graph.org.ai/',
+  format: 'JSON-LD',
+  nodes: [
+    {
+      $type: 'Organization',
+      $id: 'https://platform.do',
+      name: '.do Platform',
+      industry: {
+        $type: 'Industry',
+        naicsCode: '511210',
+        name: 'Software Publishers'
+      }
+    },
+    {
+      $type: 'Person',
+      $id: 'https://people.do/nathan',
+      name: 'Nathan Clevenger',
+      jobTitle: 'CEO',
+      worksFor: 'https://platform.do'
+    },
+    {
+      $type: 'Product',
+      $id: 'https://products.do/sdk',
+      name: 'Business-as-Code SDK',
+      manufacturer: 'https://platform.do'
+    }
+  ],
+  edges: [
+    {
+      $type: 'Edge',
+      subject: 'https://people.do/nathan',
+      predicate: 'worksFor',
+      object: 'https://platform.do',
+      edgeType: 'employment'
+    },
+    {
+      $type: 'Edge',
+      subject: 'https://platform.do',
+      predicate: 'produces',
+      object: 'https://products.do/sdk',
+      edgeType: 'production'
+    },
+    {
+      $type: 'Edge',
+      subject: 'https://platform.do',
+      predicate: 'belongsToIndustry',
+      object: 'https://industries.org.ai/511210',
+      edgeType: 'classification'
+    }
+  ],
+  nodeCount: 1247,
+  edgeCount: 3891,
+  tripleStore: 'https://api.platform.do/sparql',
+  version: '2.1.0',
+  creator: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  }
+}
+
+await $.Graph.create(businessKG)
+
+// Query the graph using SPARQL
+const query = `
+  PREFIX schema: <https://schema.org.ai/>
+  SELECT ?person ?title ?company
+  WHERE {
+    ?person a schema:Person ;
+            schema:jobTitle ?title ;
+            schema:worksFor ?company .
+    ?company a schema:Organization .
+  }
+`
+
+const results = await $.Graph.query(businessKG.$id, query)
+```
+
+### Example 2: Semantic Ontology Graph (GraphDL Integration)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const ontologyGraph = {
+  $type: 'Graph',
+  $id: 'https://graph.org.ai/schema-ontology',
+  name: 'Schema.org.ai Ontology Graph',
+  description: 'Complete ontology graph of schema.org.ai vocabulary including all classes, properties, and relationships',
+  digital: 1.0,
+  graphType: 'semantic',
+  queryLanguage: 'GraphQL',
+  schema: 'https://schema.org.ai',
+  namespace: 'https://schema.org.ai/',
+  format: 'Turtle',
+  nodes: [
+    {
+      $type: 'Class',
+      $id: 'https://schema.org.ai/Thing',
+      name: 'Thing',
+      description: 'The most generic type of item'
+    },
+    {
+      $type: 'Class',
+      $id: 'https://schema.org.ai/Agent',
+      name: 'Agent',
+      subClassOf: 'https://schema.org.ai/Thing'
+    },
+    {
+      $type: 'Class',
+      $id: 'https://schema.org.ai/Tool',
+      name: 'Tool',
+      subClassOf: 'https://schema.org.ai/Thing'
+    },
+    {
+      $type: 'Property',
+      $id: 'https://schema.org.ai/capability',
+      name: 'capability',
+      domain: 'https://schema.org.ai/Agent',
+      range: 'https://schema.org.ai/Capability'
+    }
+  ],
+  edges: [
+    {
+      $type: 'Edge',
+      subject: 'https://schema.org.ai/Agent',
+      predicate: 'subClassOf',
+      object: 'https://schema.org.ai/Thing',
+      edgeType: 'inheritance'
+    },
+    {
+      $type: 'Edge',
+      subject: 'https://schema.org.ai/Tool',
+      predicate: 'subClassOf',
+      object: 'https://schema.org.ai/Thing',
+      edgeType: 'inheritance'
+    },
+    {
+      $type: 'Edge',
+      subject: 'https://schema.org.ai/Agent',
+      predicate: 'hasProperty',
+      object: 'https://schema.org.ai/capability',
+      edgeType: 'property'
+    }
+  ],
+  nodeCount: 342,
+  edgeCount: 1089,
+  tripleStore: 'https://api.schema.org.ai/graphql',
+  version: '1.0.0',
+  creator: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  }
+}
+
+await $.Graph.create(ontologyGraph)
+
+// Query using GraphQL
+const graphqlQuery = `
+  query GetAgentProperties {
+    class(id: "https://schema.org.ai/Agent") {
+      name
+      properties {
+        name
+        range
+        description
+      }
+      subClasses {
+        name
+      }
+    }
+  }
+`
+
+const result = await $.Graph.query(ontologyGraph.$id, graphqlQuery, 'graphql')
+```
+
+### Example 3: Business Process Graph
+
+```typescript
+import { $ } from 'sdk.do'
+
+const processGraph = {
+  $type: 'Graph',
+  $id: 'https://graph.org.ai/customer-onboarding',
+  name: 'Customer Onboarding Process Graph',
+  description: 'End-to-end customer onboarding workflow represented as a directed graph with tasks, decisions, and transitions',
+  digital: 1.0,
+  graphType: 'directed',
+  queryLanguage: 'Cypher',
+  schema: 'https://schema.org.ai/Workflow',
+  namespace: 'https://workflows.do/',
+  format: 'GraphML',
+  nodes: [
+    {
+      $type: 'Task',
+      $id: 'https://workflows.do/tasks/signup',
+      name: 'User Signup',
+      taskType: 'entry',
+      estimatedDuration: 'PT5M'
+    },
+    {
+      $type: 'Task',
+      $id: 'https://workflows.do/tasks/email-verification',
+      name: 'Email Verification',
+      taskType: 'automated',
+      estimatedDuration: 'PT2M'
+    },
+    {
+      $type: 'Task',
+      $id: 'https://workflows.do/tasks/profile-setup',
+      name: 'Profile Setup',
+      taskType: 'user',
+      estimatedDuration: 'PT10M'
+    },
+    {
+      $type: 'Task',
+      $id: 'https://workflows.do/tasks/payment-setup',
+      name: 'Payment Method Setup',
+      taskType: 'user',
+      estimatedDuration: 'PT5M'
+    },
+    {
+      $type: 'Task',
+      $id: 'https://workflows.do/tasks/welcome-email',
+      name: 'Send Welcome Email',
+      taskType: 'automated',
+      estimatedDuration: 'PT1M'
+    }
+  ],
+  edges: [
+    {
+      $type: 'Edge',
+      subject: 'https://workflows.do/tasks/signup',
+      predicate: 'next',
+      object: 'https://workflows.do/tasks/email-verification',
+      edgeType: 'transition',
+      condition: 'signup_complete'
+    },
+    {
+      $type: 'Edge',
+      subject: 'https://workflows.do/tasks/email-verification',
+      predicate: 'next',
+      object: 'https://workflows.do/tasks/profile-setup',
+      edgeType: 'transition',
+      condition: 'email_verified'
+    },
+    {
+      $type: 'Edge',
+      subject: 'https://workflows.do/tasks/profile-setup',
+      predicate: 'next',
+      object: 'https://workflows.do/tasks/payment-setup',
+      edgeType: 'transition',
+      condition: 'profile_complete'
+    },
+    {
+      $type: 'Edge',
+      subject: 'https://workflows.do/tasks/payment-setup',
+      predicate: 'next',
+      object: 'https://workflows.do/tasks/welcome-email',
+      edgeType: 'transition',
+      condition: 'payment_configured'
+    }
+  ],
+  nodeCount: 5,
+  edgeCount: 4,
+  tripleStore: 'https://api.workflows.do/cypher',
+  version: '1.2.0',
+  creator: {
+    $type: 'Organization',
+    name: '.do Platform Team',
+    url: 'https://platform.do'
+  }
+}
+
+await $.Graph.create(processGraph)
+
+// Query using Cypher
+const cypherQuery = `
+  MATCH (start:Task {taskType: 'entry'})-[r:next*]->(end:Task)
+  RETURN start.name, collect(end.name) as path
+`
+
+const paths = await $.Graph.query(processGraph.$id, cypherQuery, 'cypher')
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Graph, Node, Edge } from 'schema.org.ai'
+
+// Create a graph
+const graph: Graph = {
+  $type: 'Graph',
+  $id: 'https://graph.org.ai/my-graph',
+  name: 'My Knowledge Graph',
+  graphType: 'property',
+  queryLanguage: 'GraphQL',
+  digital: 1.0
+}
+
+await $.Graph.create(graph)
+
+// Add nodes to the graph
+await $.Graph.addNode(graph.$id, {
+  $type: 'Organization',
+  $id: 'https://example.com',
+  name: 'Example Company'
+})
+
+// Add edges between nodes
+await $.Graph.addEdge(graph.$id, {
+  subject: 'https://person.example.com',
+  predicate: 'worksFor',
+  object: 'https://example.com'
+})
+
+// Query the graph
+const results = await $.Graph.query(graph.$id, `
+  query {
+    organizations {
+      name
+      employees {
+        name
+        skills
+      }
+    }
+  }
+`)
+
+// Export graph in different formats
+const jsonLD = await $.Graph.export(graph.$id, 'json-ld')
+const turtle = await $.Graph.export(graph.$id, 'turtle')
+```
+
+## Resources
+
+- [GraphDL Documentation](https://docs.platform.do/graphdl)
+- [MDXLD Specification](https://docs.platform.do/mdxld)
+- [Schema.org Thing](https://schema.org/Thing)
+- [graph.org.ai Documentation](https://docs.graph.org.ai)
+- [RDF Primer](https://www.w3.org/TR/rdf11-primer/)
+- [Property Graph Model](https://neo4j.com/developer/graph-database/)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

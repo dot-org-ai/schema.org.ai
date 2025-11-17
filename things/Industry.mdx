@@ -1,0 +1,277 @@
+---
+$id: https://schema.org.ai/Industry
+$context: https://schema.org.ai
+$type: Class
+name: Industry
+description: An industry classification based on NAICS (North American Industry Classification System) that categorizes businesses by their primary economic activity.
+subClassOf:
+  - https://schema.org/Thing
+digital: 0.3
+---
+
+[Thing](Thing.mdx)
+
+# Industry
+
+An industry classification based on NAICS (North American Industry Classification System) that categorizes businesses by their primary economic activity. Industries provide standardized taxonomy for business classification, market analysis, and economic research.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Industry" | - |
+| `$id` | URL | Unique identifier for the industry | Thing |
+| `name` | Text | The name of the industry | Thing |
+| `description` | Text | Description of the industry's scope and characteristics | Thing |
+| `identifier` | Text or PropertyValue | An identifier for the industry | Thing |
+| `url` | URL | URL with industry information | Thing |
+| `image` | URL or ImageObject | Image representing the industry | Thing |
+| `digital` | Number (0.0-1.0) | Digital maturity score (varies by industry) | Thing |
+| `naicsCode` | Text | NAICS classification code (2-6 digits) | Industry |
+| `sector` | Text | Sector level (2-digit NAICS) | Industry |
+| `subsector` | Text | Subsector level (3-digit NAICS) | Industry |
+| `industryGroup` | Text | Industry group level (4-digit NAICS) | Industry |
+| `naicsIndustry` | Text | NAICS industry level (5-digit) | Industry |
+| `nationalIndustry` | Text | National industry level (6-digit NAICS) | Industry |
+| `parentIndustry` | Industry | The parent industry in the NAICS hierarchy | Industry |
+| `childIndustries` | Industry[] | Child industries in the NAICS hierarchy | Industry |
+| `relatedOccupations` | Occupation[] | Common occupations in this industry | Industry |
+| `marketSize` | MonetaryAmount | Estimated market size | Industry |
+| `growthRate` | Number | Annual growth rate percentage | Industry |
+| `creator` | Person or Organization | The entity that defined this classification | Thing |
+
+## Types
+
+The following types extend Industry:
+
+- **TechnologyIndustry**: Information technology and software industries
+- **ManufacturingIndustry**: Manufacturing and production industries
+- **ServiceIndustry**: Service-based industries
+- **FinanceIndustry**: Financial services industries
+
+## Examples
+
+### Example 1: Information Technology Sector (51)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const informationTech = {
+  $type: 'Industry',
+  $id: 'https://industries.org.ai/51',
+  name: 'Information',
+  description: 'Publishing industries (except Internet); motion picture and sound recording industries; broadcasting (except Internet); telecommunications; data processing, hosting, and related services; and other information services',
+  digital: 0.95,
+  naicsCode: '51',
+  sector: '51',
+  subsector: null,
+  industryGroup: null,
+  childIndustries: [
+    {
+      $type: 'Industry',
+      $id: 'https://industries.org.ai/511',
+      name: 'Publishing Industries (except Internet)',
+      naicsCode: '511',
+      sector: '51',
+      subsector: '511'
+    },
+    {
+      $type: 'Industry',
+      $id: 'https://industries.org.ai/517',
+      name: 'Telecommunications',
+      naicsCode: '517',
+      sector: '51',
+      subsector: '517',
+      digital: 0.98
+    },
+    {
+      $type: 'Industry',
+      $id: 'https://industries.org.ai/518',
+      name: 'Data Processing, Hosting, and Related Services',
+      naicsCode: '518',
+      sector: '51',
+      subsector: '518',
+      digital: 1.0
+    }
+  ],
+  marketSize: {
+    $type: 'MonetaryAmount',
+    value: 1800000000000,
+    currency: 'USD'
+  },
+  growthRate: 5.2,
+  creator: {
+    $type: 'Organization',
+    name: 'U.S. Census Bureau',
+    url: 'https://www.census.gov/naics/'
+  }
+}
+
+await $.Industry.create(informationTech)
+```
+
+### Example 2: Software Publishers (511210)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const softwarePublishers = {
+  $type: 'Industry',
+  $id: 'https://industries.org.ai/511210',
+  name: 'Software Publishers',
+  description: 'Establishments primarily engaged in computer software publishing or publishing and reproduction. Establishments in this industry carry out operations necessary for producing and distributing computer software, such as designing, providing documentation, assisting in installation, and providing support services to software purchasers.',
+  digital: 1.0,
+  naicsCode: '511210',
+  sector: '51',
+  subsector: '511',
+  industryGroup: '5112',
+  naicsIndustry: '51121',
+  nationalIndustry: '511210',
+  parentIndustry: {
+    $type: 'Industry',
+    $id: 'https://industries.org.ai/5112',
+    name: 'Software Publishers',
+    naicsCode: '5112',
+    sector: '51',
+    subsector: '511',
+    industryGroup: '5112'
+  },
+  relatedOccupations: [
+    {
+      $type: 'Occupation',
+      name: 'Software Developers',
+      onetCode: '15-1252.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Computer Systems Analysts',
+      onetCode: '15-1211.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Product Managers',
+      onetCode: '11-2021.00'
+    }
+  ],
+  marketSize: {
+    $type: 'MonetaryAmount',
+    value: 487000000000,
+    currency: 'USD'
+  },
+  growthRate: 11.7,
+  creator: {
+    $type: 'Organization',
+    name: 'U.S. Census Bureau',
+    url: 'https://www.census.gov/naics/'
+  }
+}
+
+await $.Industry.create(softwarePublishers)
+```
+
+### Example 3: Manufacturing - Computer and Peripheral Equipment (334110)
+
+```typescript
+import { $ } from 'sdk.do'
+
+const computerManufacturing = {
+  $type: 'Industry',
+  $id: 'https://industries.org.ai/334110',
+  name: 'Computer and Peripheral Equipment Manufacturing',
+  description: 'Establishments primarily engaged in manufacturing and/or assembling electronic computers, such as mainframes, personal computers, workstations, laptops, and computer servers; and computer peripheral equipment, such as storage devices, printers, monitors, input/output devices, and terminals.',
+  digital: 0.85,
+  naicsCode: '334110',
+  sector: '31-33',
+  subsector: '334',
+  industryGroup: '3341',
+  naicsIndustry: '33411',
+  nationalIndustry: '334110',
+  parentIndustry: {
+    $type: 'Industry',
+    $id: 'https://industries.org.ai/3341',
+    name: 'Computer and Peripheral Equipment Manufacturing',
+    naicsCode: '3341',
+    sector: '31-33',
+    subsector: '334',
+    industryGroup: '3341'
+  },
+  relatedOccupations: [
+    {
+      $type: 'Occupation',
+      name: 'Computer Hardware Engineers',
+      onetCode: '17-2061.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Industrial Engineers',
+      onetCode: '17-2112.00'
+    },
+    {
+      $type: 'Occupation',
+      name: 'Electronics Engineers',
+      onetCode: '17-2072.00'
+    }
+  ],
+  marketSize: {
+    $type: 'MonetaryAmount',
+    value: 79000000000,
+    currency: 'USD'
+  },
+  growthRate: 3.1,
+  creator: {
+    $type: 'Organization',
+    name: 'U.S. Census Bureau',
+    url: 'https://www.census.gov/naics/'
+  }
+}
+
+await $.Industry.create(computerManufacturing)
+```
+
+## Usage in Business-as-Code
+
+```typescript
+import { $ } from 'sdk.do'
+import type { Industry, Organization } from 'schema.org.ai'
+
+// Create an industry
+const industry: Industry = {
+  $type: 'Industry',
+  $id: 'https://industries.org.ai/54151',
+  name: 'Computer Systems Design and Related Services',
+  naicsCode: '54151',
+  digital: 0.92
+}
+
+await $.Industry.create(industry)
+
+// Tag an organization with its industry
+const company: Organization = {
+  $type: 'Organization',
+  name: 'Acme Software',
+  industry: industry
+}
+
+await $.Organization.create(company)
+
+// Query industries by digital maturity
+const digitalIndustries = await $.Industry.find({
+  digital: { $gte: 0.8 }
+})
+
+// Get industry hierarchy
+const sector = await $.Industry.get('https://industries.org.ai/51')
+const childIndustries = await $.Industry.find({
+  parentIndustry: sector
+})
+```
+
+## Resources
+
+- [NAICS Official Website](https://www.census.gov/naics/)
+- [Schema.org Thing](https://schema.org/Thing)
+- [industries.org.ai Documentation](https://docs.industries.org.ai)
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
