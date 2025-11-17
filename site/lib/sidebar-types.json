@@ -1,0 +1,710 @@
+[
+  {
+    "text": "Thing",
+    "url": "/types/Thing",
+    "items": [
+      {
+        "text": "Action",
+        "url": "/types/Action",
+        "items": [
+          {
+            "text": "AchieveAction",
+            "url": "/types/AchieveAction"
+          },
+          {
+            "text": "ConsumeAction",
+            "url": "/types/ConsumeAction"
+          },
+          {
+            "text": "ControlAction",
+            "url": "/types/ControlAction"
+          },
+          {
+            "text": "CreateAction",
+            "url": "/types/CreateAction"
+          },
+          {
+            "text": "FindAction",
+            "url": "/types/FindAction"
+          },
+          {
+            "text": "InteractAction",
+            "url": "/types/InteractAction"
+          },
+          {
+            "text": "MoveAction",
+            "url": "/types/MoveAction"
+          },
+          {
+            "text": "OrganizeAction",
+            "url": "/types/OrganizeAction"
+          },
+          {
+            "text": "PlayAction",
+            "url": "/types/PlayAction"
+          },
+          {
+            "text": "SearchAction",
+            "url": "/types/SearchAction"
+          },
+          {
+            "text": "SeekToAction",
+            "url": "/types/SeekToAction"
+          },
+          {
+            "text": "SolveMathAction",
+            "url": "/types/SolveMathAction"
+          },
+          {
+            "text": "TradeAction",
+            "url": "/types/TradeAction"
+          },
+          {
+            "text": "TransferAction",
+            "url": "/types/TransferAction"
+          },
+          {
+            "text": "UpdateAction",
+            "url": "/types/UpdateAction"
+          }
+        ]
+      },
+      {
+        "text": "BioChemEntity",
+        "url": "/types/BioChemEntity",
+        "items": [
+          {
+            "text": "Gene",
+            "url": "/types/Gene"
+          },
+          {
+            "text": "MolecularEntity",
+            "url": "/types/MolecularEntity"
+          },
+          {
+            "text": "Protein",
+            "url": "/types/Protein"
+          }
+        ]
+      },
+      {
+        "text": "CreativeWork",
+        "url": "/types/CreativeWork",
+        "items": [
+          {
+            "text": "AmpStory",
+            "url": "/types/AmpStory"
+          },
+          {
+            "text": "ArchiveComponent",
+            "url": "/types/ArchiveComponent"
+          },
+          {
+            "text": "Article",
+            "url": "/types/Article"
+          },
+          {
+            "text": "Atlas",
+            "url": "/types/Atlas"
+          },
+          {
+            "text": "Blog",
+            "url": "/types/Blog"
+          },
+          {
+            "text": "Book",
+            "url": "/types/Book"
+          },
+          {
+            "text": "Certification",
+            "url": "/types/Certification"
+          },
+          {
+            "text": "Chapter",
+            "url": "/types/Chapter"
+          },
+          {
+            "text": "Claim",
+            "url": "/types/Claim"
+          },
+          {
+            "text": "Clip",
+            "url": "/types/Clip"
+          },
+          {
+            "text": "Code",
+            "url": "/types/Code"
+          },
+          {
+            "text": "Collection",
+            "url": "/types/Collection"
+          },
+          {
+            "text": "ComicStory",
+            "url": "/types/ComicStory"
+          },
+          {
+            "text": "Conversation",
+            "url": "/types/Conversation"
+          },
+          {
+            "text": "Course",
+            "url": "/types/Course"
+          },
+          {
+            "text": "CreativeWorkSeason",
+            "url": "/types/CreativeWorkSeason"
+          },
+          {
+            "text": "CreativeWorkSeries",
+            "url": "/types/CreativeWorkSeries"
+          },
+          {
+            "text": "DataCatalog",
+            "url": "/types/DataCatalog"
+          },
+          {
+            "text": "Dataset",
+            "url": "/types/Dataset"
+          },
+          {
+            "text": "DefinedTermSet",
+            "url": "/types/DefinedTermSet"
+          },
+          {
+            "text": "Diet",
+            "url": "/types/Diet"
+          },
+          {
+            "text": "DigitalDocument",
+            "url": "/types/DigitalDocument"
+          },
+          {
+            "text": "Drawing",
+            "url": "/types/Drawing"
+          },
+          {
+            "text": "EducationalOccupationalCredential",
+            "url": "/types/EducationalOccupationalCredential"
+          },
+          {
+            "text": "Episode",
+            "url": "/types/Episode"
+          },
+          {
+            "text": "ExercisePlan",
+            "url": "/types/ExercisePlan"
+          },
+          {
+            "text": "Game",
+            "url": "/types/Game"
+          },
+          {
+            "text": "HowTo",
+            "url": "/types/HowTo"
+          },
+          {
+            "text": "HowToDirection",
+            "url": "/types/HowToDirection"
+          },
+          {
+            "text": "HowToSection",
+            "url": "/types/HowToSection"
+          },
+          {
+            "text": "HowToStep",
+            "url": "/types/HowToStep"
+          },
+          {
+            "text": "HyperToc",
+            "url": "/types/HyperToc"
+          },
+          {
+            "text": "HyperTocEntry",
+            "url": "/types/HyperTocEntry"
+          },
+          {
+            "text": "LearningResource",
+            "url": "/types/LearningResource"
+          },
+          {
+            "text": "Legislation",
+            "url": "/types/Legislation"
+          },
+          {
+            "text": "Manuscript",
+            "url": "/types/Manuscript"
+          },
+          {
+            "text": "Map",
+            "url": "/types/Map"
+          },
+          {
+            "text": "MathSolver",
+            "url": "/types/MathSolver"
+          },
+          {
+            "text": "MediaReviewItem",
+            "url": "/types/MediaReviewItem"
+          },
+          {
+            "text": "Menu",
+            "url": "/types/Menu"
+          },
+          {
+            "text": "Message",
+            "url": "/types/Message"
+          },
+          {
+            "text": "Movie",
+            "url": "/types/Movie"
+          },
+          {
+            "text": "MusicComposition",
+            "url": "/types/MusicComposition"
+          },
+          {
+            "text": "MusicPlaylist",
+            "url": "/types/MusicPlaylist"
+          },
+          {
+            "text": "MusicRecording",
+            "url": "/types/MusicRecording"
+          },
+          {
+            "text": "Painting",
+            "url": "/types/Painting"
+          },
+          {
+            "text": "Photograph",
+            "url": "/types/Photograph"
+          },
+          {
+            "text": "Play",
+            "url": "/types/Play"
+          },
+          {
+            "text": "Poster",
+            "url": "/types/Poster"
+          },
+          {
+            "text": "PublicationIssue",
+            "url": "/types/PublicationIssue"
+          },
+          {
+            "text": "PublicationVolume",
+            "url": "/types/PublicationVolume"
+          },
+          {
+            "text": "Quotation",
+            "url": "/types/Quotation"
+          },
+          {
+            "text": "Review",
+            "url": "/types/Review"
+          },
+          {
+            "text": "Sculpture",
+            "url": "/types/Sculpture"
+          },
+          {
+            "text": "Season",
+            "url": "/types/Season"
+          },
+          {
+            "text": "SheetMusic",
+            "url": "/types/SheetMusic"
+          },
+          {
+            "text": "ShortStory",
+            "url": "/types/ShortStory"
+          },
+          {
+            "text": "SoftwareApplication",
+            "url": "/types/SoftwareApplication"
+          },
+          {
+            "text": "SoftwareSourceCode",
+            "url": "/types/SoftwareSourceCode"
+          },
+          {
+            "text": "Statement",
+            "url": "/types/Statement"
+          },
+          {
+            "text": "TVSeason",
+            "url": "/types/TVSeason"
+          },
+          {
+            "text": "TVSeries",
+            "url": "/types/TVSeries"
+          },
+          {
+            "text": "Thesis",
+            "url": "/types/Thesis"
+          },
+          {
+            "text": "VisualArtwork",
+            "url": "/types/VisualArtwork"
+          },
+          {
+            "text": "WebContent",
+            "url": "/types/WebContent"
+          },
+          {
+            "text": "WebPage",
+            "url": "/types/WebPage"
+          },
+          {
+            "text": "WebPageElement",
+            "url": "/types/WebPageElement"
+          },
+          {
+            "text": "WebSite",
+            "url": "/types/WebSite"
+          }
+        ]
+      },
+      {
+        "text": "Event",
+        "url": "/types/Event",
+        "items": [
+          {
+            "text": "BusinessEvent",
+            "url": "/types/BusinessEvent"
+          },
+          {
+            "text": "ComedyEvent",
+            "url": "/types/ComedyEvent"
+          },
+          {
+            "text": "CourseInstance",
+            "url": "/types/CourseInstance"
+          },
+          {
+            "text": "DanceEvent",
+            "url": "/types/DanceEvent"
+          },
+          {
+            "text": "DeliveryEvent",
+            "url": "/types/DeliveryEvent"
+          },
+          {
+            "text": "EducationEvent",
+            "url": "/types/EducationEvent"
+          },
+          {
+            "text": "EventSeries",
+            "url": "/types/EventSeries"
+          },
+          {
+            "text": "ExhibitionEvent",
+            "url": "/types/ExhibitionEvent"
+          },
+          {
+            "text": "Festival",
+            "url": "/types/Festival"
+          },
+          {
+            "text": "FoodEvent",
+            "url": "/types/FoodEvent"
+          },
+          {
+            "text": "Hackathon",
+            "url": "/types/Hackathon"
+          },
+          {
+            "text": "LiteraryEvent",
+            "url": "/types/LiteraryEvent"
+          },
+          {
+            "text": "MusicEvent",
+            "url": "/types/MusicEvent"
+          },
+          {
+            "text": "PublicationEvent",
+            "url": "/types/PublicationEvent"
+          },
+          {
+            "text": "SaleEvent",
+            "url": "/types/SaleEvent"
+          },
+          {
+            "text": "ScreeningEvent",
+            "url": "/types/ScreeningEvent"
+          },
+          {
+            "text": "SocialEvent",
+            "url": "/types/SocialEvent"
+          },
+          {
+            "text": "SportsEvent",
+            "url": "/types/SportsEvent"
+          },
+          {
+            "text": "TheaterEvent",
+            "url": "/types/TheaterEvent"
+          },
+          {
+            "text": "UserInteraction",
+            "url": "/types/UserInteraction"
+          },
+          {
+            "text": "VisualArtsEvent",
+            "url": "/types/VisualArtsEvent"
+          }
+        ]
+      },
+      {
+        "text": "MedicalEntity",
+        "url": "/types/MedicalEntity",
+        "items": [
+          {
+            "text": "AnatomicalStructure",
+            "url": "/types/AnatomicalStructure"
+          },
+          {
+            "text": "AnatomicalSystem",
+            "url": "/types/AnatomicalSystem"
+          },
+          {
+            "text": "DrugClass",
+            "url": "/types/DrugClass"
+          },
+          {
+            "text": "LifestyleModification",
+            "url": "/types/LifestyleModification"
+          },
+          {
+            "text": "MedicalCause",
+            "url": "/types/MedicalCause"
+          },
+          {
+            "text": "MedicalCondition",
+            "url": "/types/MedicalCondition"
+          },
+          {
+            "text": "MedicalContraindication",
+            "url": "/types/MedicalContraindication"
+          },
+          {
+            "text": "MedicalDevice",
+            "url": "/types/MedicalDevice"
+          },
+          {
+            "text": "MedicalGuideline",
+            "url": "/types/MedicalGuideline"
+          },
+          {
+            "text": "MedicalIndication",
+            "url": "/types/MedicalIndication"
+          },
+          {
+            "text": "MedicalProcedure",
+            "url": "/types/MedicalProcedure"
+          },
+          {
+            "text": "MedicalRiskEstimator",
+            "url": "/types/MedicalRiskEstimator"
+          },
+          {
+            "text": "MedicalStudy",
+            "url": "/types/MedicalStudy"
+          },
+          {
+            "text": "MedicalTest",
+            "url": "/types/MedicalTest"
+          },
+          {
+            "text": "Substance",
+            "url": "/types/Substance"
+          },
+          {
+            "text": "SuperficialAnatomy",
+            "url": "/types/SuperficialAnatomy"
+          }
+        ]
+      },
+      {
+        "text": "Organization",
+        "url": "/types/Organization",
+        "items": [
+          {
+            "text": "Airline",
+            "url": "/types/Airline"
+          },
+          {
+            "text": "Consortium",
+            "url": "/types/Consortium"
+          },
+          {
+            "text": "Cooperative",
+            "url": "/types/Cooperative"
+          },
+          {
+            "text": "Corporation",
+            "url": "/types/Corporation"
+          },
+          {
+            "text": "EducationalOrganization",
+            "url": "/types/EducationalOrganization"
+          },
+          {
+            "text": "FundingScheme",
+            "url": "/types/FundingScheme"
+          },
+          {
+            "text": "GovernmentOrganization",
+            "url": "/types/GovernmentOrganization"
+          },
+          {
+            "text": "LibrarySystem",
+            "url": "/types/LibrarySystem"
+          },
+          {
+            "text": "LocalBusiness",
+            "url": "/types/LocalBusiness"
+          },
+          {
+            "text": "MedicalOrganization",
+            "url": "/types/MedicalOrganization"
+          },
+          {
+            "text": "NGO",
+            "url": "/types/NGO"
+          },
+          {
+            "text": "NewsMediaOrganization",
+            "url": "/types/NewsMediaOrganization"
+          },
+          {
+            "text": "OnlineBusiness",
+            "url": "/types/OnlineBusiness"
+          },
+          {
+            "text": "PerformingGroup",
+            "url": "/types/PerformingGroup"
+          },
+          {
+            "text": "PoliticalParty",
+            "url": "/types/PoliticalParty"
+          },
+          {
+            "text": "Project",
+            "url": "/types/Project"
+          },
+          {
+            "text": "ResearchOrganization",
+            "url": "/types/ResearchOrganization"
+          },
+          {
+            "text": "SearchRescueOrganization",
+            "url": "/types/SearchRescueOrganization"
+          },
+          {
+            "text": "SportsOrganization",
+            "url": "/types/SportsOrganization"
+          },
+          {
+            "text": "WorkersUnion",
+            "url": "/types/WorkersUnion"
+          }
+        ]
+      },
+      {
+        "text": "Person",
+        "url": "/types/Person",
+        "items": [
+          {
+            "text": "Patient",
+            "url": "/types/Patient"
+          }
+        ]
+      },
+      {
+        "text": "Place",
+        "url": "/types/Place",
+        "items": [
+          {
+            "text": "Accommodation",
+            "url": "/types/Accommodation"
+          },
+          {
+            "text": "AdministrativeArea",
+            "url": "/types/AdministrativeArea"
+          },
+          {
+            "text": "CivicStructure",
+            "url": "/types/CivicStructure"
+          },
+          {
+            "text": "Landform",
+            "url": "/types/Landform"
+          },
+          {
+            "text": "LandmarksOrHistoricalBuildings",
+            "url": "/types/LandmarksOrHistoricalBuildings"
+          },
+          {
+            "text": "LocalBusiness",
+            "url": "/types/LocalBusiness"
+          },
+          {
+            "text": "Residence",
+            "url": "/types/Residence"
+          },
+          {
+            "text": "TouristAttraction",
+            "url": "/types/TouristAttraction"
+          },
+          {
+            "text": "TouristDestination",
+            "url": "/types/TouristDestination"
+          }
+        ]
+      },
+      {
+        "text": "Product",
+        "url": "/types/Product",
+        "items": [
+          {
+            "text": "DietarySupplement",
+            "url": "/types/DietarySupplement"
+          },
+          {
+            "text": "Drug",
+            "url": "/types/Drug"
+          },
+          {
+            "text": "IndividualProduct",
+            "url": "/types/IndividualProduct"
+          },
+          {
+            "text": "ProductCollection",
+            "url": "/types/ProductCollection"
+          },
+          {
+            "text": "ProductGroup",
+            "url": "/types/ProductGroup"
+          },
+          {
+            "text": "ProductModel",
+            "url": "/types/ProductModel"
+          },
+          {
+            "text": "SomeProducts",
+            "url": "/types/SomeProducts"
+          },
+          {
+            "text": "Vehicle",
+            "url": "/types/Vehicle"
+          }
+        ]
+      },
+      {
+        "text": "Taxon",
+        "url": "/types/Taxon"
+      }
+    ]
+  }
+]

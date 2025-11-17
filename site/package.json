@@ -1,0 +1,48 @@
+{
+  "name": "example-next-mdx",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "NODE_OPTIONS='--max-old-space-size=6144' next build",
+    "dev": "next dev",
+    "start": "next start",
+    "postinstall": "fumadocs-mdx",
+    "generate-meta": "tsx scripts/generate-sidebar-hierarchy.ts",
+    "fix-frontmatter": "tsx scripts/fix-all-frontmatter.ts && tsx scripts/clean-mdx-html.ts && tsx scripts/fix-broken-html-refs.ts"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "fumadocs-core": "16.0.3",
+    "fumadocs-mdx": "13.0.1",
+    "fumadocs-ui": "16.0.3",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.546.0",
+    "next": "16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.15",
+    "@types/js-yaml": "^4.0.9",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^24.9.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "js-yaml": "^4.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.15",
+    "tsx": "^4.20.6",
+    "tw-animate-css": "^1.4.0",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
+}
