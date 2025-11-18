@@ -1,21 +1,8 @@
 ---
 $id: https://schema.org.ai
-$context: https://schema.org
-$type: SoftwareSourceCode
+$context: https://schema.org.ai
 name: schema.org.ai
-description: Schema.org vocabulary with 920 types plus AI-native extensions for Business-as-Code
-programmingLanguage: TypeScript
 license: CC-BY-SA-4.0
-author:
-  $type: Organization
-  name: .do Platform Team
-  url: https://platform.do
-sourceOrganization:
-  $type: Organization
-  name: Schema.org Community
-  url: https://schema.org
-version: 1.0.0
-datePublished: 2025-01-17
 ---
 
 # schema.org.ai
