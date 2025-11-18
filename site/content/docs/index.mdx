@@ -1,54 +1,31 @@
 ---
-title: Schema.org Types
-description: Browse all 878 Schema.org types organized by inheritance hierarchy
+title: Hello World
+description: Your favourite docs framework.
+icon: Rocket
 ---
 
+Hey there! Fumadocs is a docs framework that works on Waku!
 
-# Schema.org Types
+## Heading
 
-Welcome to the complete Schema.org type hierarchy. All 878 types are organized by their inheritance relationships.
+Hello World!
 
-## Root Type
+<Cards>
+  <Card title="Learn more about Waku" href="https://waku.gg" />
+  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+</Cards>
 
-All Schema.org types inherit from [Thing](Thing), the most generic type.
+### CodeBlock
 
-## Top-Level Categories
+```ts
+console.log('Hello World');
+```
 
-The main categories directly under Thing are:
+#### Table
 
-- **[Action](Action)** - Actions performed by agents
-- **[BioChemEntity](BioChemEntity)** - Biological and chemical entities
-- **[CreativeWork](CreativeWork)** - Creative works (books, movies, software, etc.)
-- **[Event](Event)** - Events happening at specific times and locations
-- **[MedicalEntity](MedicalEntity)** - Medical and health-related entities
-- **[Organization](Organization)** - Organizations (schools, companies, NGOs, etc.)
-- **[Person](Person)** - People (alive, dead, undead, or fictional)
-- **[Place](Place)** - Physical locations and geographic entities
-- **[Product](Product)** - Products and services
-- **[Taxon](Taxon)** - Biological classification units
-
-## Navigation
-
-Use the sidebar to browse types by their inheritance hierarchy. Each type page shows:
-
-- **Type Hierarchy** - The inheritance chain from Thing
-- **Direct Subclasses** - Types that directly inherit from this type
-- **Properties** - Links to Schema.org property documentation
-- **Usage Examples** - Business-as-Code SDK examples
-
-## Extensions
-
-schema.org.ai includes AI-native extensions:
-
-- **[Agent](Agent)** - Autonomous AI agents
-- **[Tool](Tool)** - Tools that agents can use
-- **[Generation](Generation)** - AI generation outputs
-- **[Workflow](Workflow)** - Autonomous workflow definitions
-- **[MCP](MCP)** - Model Context Protocol servers
-- **[API](API)** - API endpoints (REST, RPC, GraphQL)
-
-## Resources
-
-- [Schema.org Official Site](https://schema.org)
-- [GitHub Repository](https://github.com/dot-org-ai/schema.org.ai)
-- [NPM Package](https://www.npmjs.com/package/schema.org.ai)
+| Head                            | Description                         |
+| ------------------------------- | ----------------------------------- |
+| `hello`                         | Hello World                         |
+| very **important**              | Hey                                 |
+| _Surprisingly_                  | Fumadocs                            |
+| very long text that looks weird | hello world hello world hello world |

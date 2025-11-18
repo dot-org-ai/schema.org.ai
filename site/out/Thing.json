@@ -1,9 +1,0 @@
-{
-  "$id": "https://schema.org.ai/Thing",
-  "$context": "https://schema.org",
-  "$type": "Class",
-  "name": "Thing",
-  "description": "The most generic type of item.",
-  "subClassOf": [],
-  "title": "Thing"
-}

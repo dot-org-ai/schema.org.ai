@@ -1,9 +1,0 @@
-{
-  "$id": "https://schema.org.ai/Date",
-  "$context": "https://schema.org",
-  "$type": "Class",
-  "name": "Date",
-  "description": "A date value in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
-  "subClassOf": [],
-  "title": "Date"
-}

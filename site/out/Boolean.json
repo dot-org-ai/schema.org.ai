@@ -1,9 +1,0 @@
-{
-  "$id": "https://schema.org.ai/Boolean",
-  "$context": "https://schema.org",
-  "$type": "Class",
-  "name": "Boolean",
-  "description": "Boolean: True or False.",
-  "subClassOf": [],
-  "title": "Boolean"
-}
