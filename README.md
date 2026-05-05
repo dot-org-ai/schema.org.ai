@@ -17,6 +17,21 @@ This repository contains MDX documentation for all Schema.org types, organized h
 
 **Data Source**: [Schema.org](https://schema.org) (CC BY-SA 3.0)
 
+## npm package
+
+```bash
+pnpm add schema.org.ai
+```
+
+```ts
+import type { Person, Agent, Organization, ThingRef } from 'schema.org.ai'
+```
+
+The 0.1.x series ships hand-authored TypeScript types for the load-bearing
+Things — `Thing`, `ThingRef`, `Person`, `Agent`, `Organization`, plus the
+Agent-adjacent `Capability`, `Tool`, `Model`, `Workflow`. The full 871-type
+export, codegened from `things/*.mdx`, is targeted for 1.0.0.
+
 ## Extensions to Schema.org
 
 schema.org.ai extends the base Schema.org vocabulary with modern AI, web, and digital concepts:

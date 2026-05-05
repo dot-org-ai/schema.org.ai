@@ -1,0 +1,53 @@
+{
+  "name": "schema.org.ai",
+  "version": "0.1.0",
+  "description": "Schema.org vocabulary plus the .org.ai superset (Agent, Tool, Capability, Model, …) as TypeScript types.",
+  "license": "CC-BY-SA-4.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "extensions.jsonld",
+    "README.md",
+    "ATTRIBUTION.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build && pnpm typecheck"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dot-org-ai/schema.org.ai.git"
+  },
+  "homepage": "https://schema.org.ai",
+  "bugs": "https://github.com/dot-org-ai/schema.org.ai/issues",
+  "keywords": [
+    "schema.org",
+    "ontology",
+    "json-ld",
+    "ai-agents",
+    "business-as-code",
+    "mdxld"
+  ]
+}
