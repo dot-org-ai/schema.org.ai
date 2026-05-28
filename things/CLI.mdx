@@ -1,0 +1,95 @@
+---
+$id: https://schema.org.ai/CLI
+$context: https://schema.org.ai
+$type: Class
+name: CLI
+description: A Command-Line Interface tool that exposes operations as terminal commands.
+subClassOf:
+  - https://schema.org/SoftwareApplication
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [SoftwareApplication](https://schema.org/SoftwareApplication)
+
+# CLI
+
+A Command-Line Interface tool — an executable binary that exposes operations as terminal commands. CLIs are the developer-facing counterpart to SDKs: same underlying API, different interaction modality. AI agents increasingly use CLIs because they're scriptable, composable via pipes, and well-documented through `--help`.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "CLI" | - |
+| `name` | Text | CLI name | Thing |
+| `description` | Text | What the CLI does | Thing |
+| `binary` | Text | Executable name (e.g. "gh", "wrangler") | CLI |
+| `installer` | Text | Install command (e.g. "brew install gh") | CLI |
+| `runtime` | Text | "Node" / "Python" / "Go" / "Native" | CLI |
+| `commands` | Capability[] | Available subcommands | CLI |
+| `version` | Text | Current version | CLI |
+| `documentationUrl` | URL | CLI docs | CLI |
+| `wraps` | API | API that the CLI exposes | CLI |
+| `digital` | Number | 1.0 | Thing |
+
+## Examples
+
+### Example 1: GitHub CLI
+
+```typescript
+import type { CLI } from 'schema.org.ai'
+
+const ghCLI: CLI = {
+  $type: 'CLI',
+  $id: 'https://schema.org.ai/CLI/gh',
+  name: 'GitHub CLI',
+  description: 'Manage GitHub issues, PRs, releases from the terminal.',
+  binary: 'gh',
+  installer: 'brew install gh',
+  runtime: 'Go',
+  commands: ['gh issue create', 'gh pr view', 'gh release create', 'gh repo clone'],
+  documentationUrl: 'https://cli.github.com/manual/',
+  wraps: 'https://schema.org.ai/API/GitHub',
+}
+```
+
+### Example 2: Cloudflare Wrangler
+
+```typescript
+const wranglerCLI: CLI = {
+  $type: 'CLI',
+  name: 'Wrangler',
+  binary: 'wrangler',
+  installer: 'npm install -g wrangler',
+  runtime: 'Node',
+  commands: ['wrangler deploy', 'wrangler r2 object put', 'wrangler dev', 'wrangler tail'],
+  documentationUrl: 'https://developers.cloudflare.com/workers/wrangler/',
+}
+```
+
+### Example 3: Agent-friendly CLI
+
+```typescript
+const claudeCodeCLI: CLI = {
+  $type: 'CLI',
+  name: 'Claude Code',
+  description: 'Agentic coding assistant in the terminal.',
+  binary: 'claude',
+  installer: 'npm install -g @anthropic-ai/claude-code',
+  runtime: 'Node',
+  commands: ['claude', 'claude /loop', 'claude /code-review', 'claude /prototype'],
+}
+```
+
+## Related
+
+- **[SDK](SDK.mdx)**: programmatic counterpart for in-app usage
+- **[API](API.mdx)**: underlying interface; CLI is one consumption modality
+
+## Resources
+
+- [Schema.org SoftwareApplication](https://schema.org/SoftwareApplication)
+- [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/CLI.

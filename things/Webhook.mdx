@@ -1,0 +1,91 @@
+---
+$id: https://schema.org.ai/Webhook
+$context: https://schema.org.ai
+$type: Class
+name: Webhook
+description: An event-driven HTTP endpoint that receives notifications when an event occurs in an external system.
+subClassOf:
+  - https://schema.org/WebAPI
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [WebAPI](https://schema.org/WebAPI)
+
+# Webhook
+
+An event-driven HTTP endpoint that receives notifications when an event occurs in an external system. The inverse of an API: instead of pulling data, the source pushes events to the Webhook's URL. AI-era Webhooks include typed payload schemas, event-name declarations, and replay/retry semantics so Agents can subscribe to and react to events.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Webhook" | - |
+| `name` | Text | Webhook name | Thing |
+| `description` | Text | What event(s) this receives | Thing |
+| `url` | URL | The endpoint that receives event POSTs | Thing |
+| `event` | Text | Event name(s) this webhook handles (e.g. "payment.succeeded") | Webhook |
+| `payloadSchema` | URL | JSON Schema URL for the payload shape | Webhook |
+| `secret` | Text | Shared secret for signature verification | Webhook |
+| `signatureHeader` | Text | HTTP header carrying the signature (e.g. "Stripe-Signature") | Webhook |
+| `retryPolicy` | Text | Retry behavior (e.g. "exponential backoff, max 5 attempts") | Webhook |
+| `digital` | Number | 1.0 | Thing |
+
+## Examples
+
+### Example 1: Stripe webhook
+
+```typescript
+import type { Webhook } from 'schema.org.ai'
+
+const stripePaymentWebhook: Webhook = {
+  $type: 'Webhook',
+  $id: 'https://schema.org.ai/Webhook/Stripe.PaymentSucceeded',
+  name: 'Stripe Payment Succeeded',
+  url: 'https://my-app.com/webhooks/stripe',
+  event: 'payment_intent.succeeded',
+  payloadSchema: 'https://stripe.com/docs/api/events/payment_intent.succeeded',
+  signatureHeader: 'Stripe-Signature',
+  retryPolicy: 'exponential backoff, max 24h',
+}
+```
+
+### Example 2: GitHub push webhook
+
+```typescript
+const githubPushHook: Webhook = {
+  $type: 'Webhook',
+  name: 'GitHub Push',
+  url: 'https://ci.example.com/hooks/github',
+  event: 'push',
+  payloadSchema: 'https://docs.github.com/webhooks/push',
+  signatureHeader: 'X-Hub-Signature-256',
+}
+```
+
+### Example 3: Agent-handled webhook
+
+```typescript
+const orderProcessingHook: Webhook = {
+  $type: 'Webhook',
+  name: 'Order Created → Processing Agent',
+  url: 'https://orders.do/webhooks/shopify',
+  event: 'orders/create',
+  // Routes to an Agent that handles the order
+  description: 'Routes Shopify order events to the OrderProcessing Agent for fulfillment.',
+}
+```
+
+## Related
+
+- **[API](API.mdx)**: pull-inverse of webhook
+- **[Agent](Agent.mdx)**: an Agent can subscribe to webhooks to react to events
+- **[Workflow](Workflow.mdx)**: a Workflow can be triggered by a webhook event
+
+## Resources
+
+- [Schema.org WebAPI](https://schema.org/WebAPI)
+- [Webhooks.fyi](https://webhooks.fyi/) — webhook security and design patterns
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Webhook.

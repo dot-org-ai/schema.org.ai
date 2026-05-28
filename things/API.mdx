@@ -1,0 +1,93 @@
+---
+$id: https://schema.org.ai/API
+$context: https://schema.org.ai
+$type: Class
+name: API
+description: A programmatic interface (REST, RPC, GraphQL) for accessing a service. Distinct from schema:WebAPI by including richer operation typing.
+subClassOf:
+  - https://schema.org/WebAPI
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [WebAPI](https://schema.org/WebAPI)
+
+# API
+
+A programmatic interface for accessing a service — typically a REST, gRPC, or GraphQL endpoint. APIs expose typed Operations (each a Capability) that AI agents and applications can invoke. The AI-era extension over schema:WebAPI adds richer operation typing, OpenAPI binding, and auth-method declarations so Agents can autonomously discover and use APIs.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "API" | - |
+| `name` | Text | Human-readable API name | Thing |
+| `description` | Text | What the API does | Thing |
+| `baseUrl` | URL | Root URL for API requests | API |
+| `protocol` | Text | "REST" / "GraphQL" / "gRPC" / "JSON-RPC" | API |
+| `openAPIUrl` | URL | OpenAPI 3.x spec URL | API |
+| `auth` | Text | "OAuth2" / "APIKey" / "Bearer" / "None" | API |
+| `operations` | Capability[] | Available operations | API |
+| `provider` | Organization | API provider | WebAPI |
+| `digital` | Number | 1.0 (APIs are fully digital) | Thing |
+
+## Examples
+
+### Example 1: REST API
+
+```typescript
+import type { API } from 'schema.org.ai'
+
+const stripeAPI: API = {
+  $type: 'API',
+  $id: 'https://schema.org.ai/API/Stripe',
+  name: 'Stripe API',
+  description: 'Payment processing API.',
+  baseUrl: 'https://api.stripe.com/v1',
+  protocol: 'REST',
+  openAPIUrl: 'https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.json',
+  auth: 'Bearer',
+  operations: ['Charges.Create', 'Customers.Retrieve', 'Subscriptions.List'],
+}
+```
+
+### Example 2: GraphQL API
+
+```typescript
+const githubAPI: API = {
+  $type: 'API',
+  name: 'GitHub GraphQL API',
+  baseUrl: 'https://api.github.com/graphql',
+  protocol: 'GraphQL',
+  auth: 'Bearer',
+  description: 'Repository, issues, PR access via GraphQL.',
+}
+```
+
+### Example 3: AI-Native API (MCP-compatible)
+
+```typescript
+const supabaseAPI: API = {
+  $type: 'API',
+  name: 'Supabase Data API',
+  baseUrl: 'https://my-project.supabase.co/rest/v1',
+  protocol: 'REST',
+  auth: 'APIKey',
+  operations: ['Table.Select', 'Table.Insert', 'Function.Invoke'],
+}
+```
+
+## Related
+
+- **[Webhook](Webhook.mdx)**: event-driven inverse — Webhook receives, API exposes
+- **[MCP](MCP.mdx)**: AI-native protocol for tool/resource exposure
+- **[SDK](SDK.mdx)**: client library wrapping an API
+- **[Tool](Tool.mdx)**: an API operation becomes a Capability becomes a Tool
+
+## Resources
+
+- [Schema.org WebAPI](https://schema.org/WebAPI)
+- [OpenAPI Initiative](https://www.openapis.org/)
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/API.

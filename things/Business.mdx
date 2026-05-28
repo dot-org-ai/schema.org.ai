@@ -1,0 +1,117 @@
+---
+$id: https://schema.org.ai/Business
+$context: https://schema.org.ai
+$type: Class
+name: Business
+description: A business entity represented as Business-as-Code — its agents, processes, KPIs, and workflows codified as a runnable system.
+subClassOf:
+  - https://schema.org/Organization
+digital: 0.8
+---
+
+[Thing](Thing.mdx) > [Organization](https://schema.org/Organization)
+
+# Business
+
+A business entity expressed as **Business-as-Code** — its agents, processes, KPIs, financial rails, and workflows codified as a runnable system. The unifying type for AI-native ventures where the business itself is software: definitions of *who* (agents, roles), *what* (offerings, products), *how* (processes, workflows), and *measured by* (goals, KPIs) live as typed code, not in spreadsheets or wikis.
+
+Distinct from schema:Organization (which describes an organizational entity from the outside) by carrying the runtime artifacts that make the business autonomous-capable.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Business" | - |
+| `name` | Text | Business name | Thing |
+| `description` | Text | What the business does | Thing |
+| `url` | URL | Primary marketing site | Thing |
+| `businessType` | CompanyType | Industry/model archetype (e.g. AccountingFirm) | Business |
+| `agents` | Agent[] | Roster of agents employed by the business | Business |
+| `processes` | Process[] | Codified business processes | Business |
+| `workflows` | Workflow[] | Multi-step automations | Business |
+| `kpis` | Goal[] | Measured outcomes (revenue, retention, etc.) | Business |
+| `offerings` | Service[] / Product[] | What the business sells | Business |
+| `financialRails` | Text | Payment/billing infrastructure (e.g. "Stripe Connect") | Business |
+| `digital` | Number | 0.8 by default (varies per business's automation level) | Thing |
+
+## Subtypes
+
+- **AutonomousBusiness**: A business where the entire operational stack is agent-driven (no human in core loops).
+- **AIOperatedBusiness**: A business with significant agentic automation but humans in oversight roles.
+
+## Examples
+
+### Example 1: Solo AI-operated business
+
+```typescript
+import type { Business } from 'schema.org.ai'
+
+const ledgerLoop: Business = {
+  $type: 'Business',
+  $id: 'https://schema.org.ai/Business/LedgerLoop',
+  name: 'Ledger Loop',
+  description: 'AI bookkeeping for accounting firms.',
+  url: 'https://ledgerloop.svcs.st',
+  businessType: 'https://schema.org.ai/CompanyType/AccountingFirm',
+  agents: [
+    'https://schema.org.ai/Agent/Sally-AIBookkeeper',
+    'https://schema.org.ai/Agent/Quinn-AccountManager',
+  ],
+  processes: [
+    'https://schema.org.ai/Process/ReconcileBankStatements',
+    'https://schema.org.ai/Process/CategorizeTransactions',
+  ],
+  workflows: ['https://schema.org.ai/Workflow/MonthlyClose'],
+  kpis: [
+    { $type: 'Goal', name: 'MRR', target: 100000 },
+    { $type: 'Goal', name: 'Customer retention', target: 0.95 },
+  ],
+  offerings: ['https://schema.org.ai/Service/Bookkeeping'],
+  financialRails: 'Stripe Connect',
+  digital: 0.95,
+}
+```
+
+### Example 2: A SaaS Business
+
+```typescript
+const acme: Business = {
+  $type: 'Business',
+  name: 'Acme Analytics',
+  businessType: 'https://schema.org.ai/CompanyType/SaaS-Vendor',
+  agents: ['CustomerSupport', 'SalesAgent', 'OnboardingAgent'],
+  offerings: ['https://schema.org.ai/Product/Acme-Dashboard'],
+  digital: 0.7,
+}
+```
+
+### Example 3: An enterprise transformation
+
+```typescript
+const transformingFirm: Business = {
+  $type: 'Business',
+  name: 'Old-School Accounting Firm (transitioning)',
+  businessType: 'https://schema.org.ai/CompanyType/AccountingFirm',
+  agents: ['BookkeepingAssistant'],
+  processes: [], // none codified yet
+  digital: 0.3,
+  description: 'Legacy firm beginning to introduce AI-augmented workflows.',
+}
+```
+
+## Related
+
+- **[CompanyType](CompanyType.mdx)**: the archetype that a Business instantiates
+- **[Agent](Agent.mdx)**: a Business employs Agents
+- **[Process](Process.mdx)**: a Business runs Processes
+- **[Workflow](Workflow.mdx)**: a Business orchestrates Workflows
+- **[Service](https://schema.org/Service)** / **[Product](https://schema.org/Product)**: a Business sells these
+
+## Resources
+
+- [Schema.org Organization](https://schema.org/Organization)
+- Business-as-Code: see the constellation's `business-as-code` package and book
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Business.

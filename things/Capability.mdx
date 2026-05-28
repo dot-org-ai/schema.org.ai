@@ -1,0 +1,91 @@
+---
+$id: https://schema.org.ai/Capability
+$context: https://schema.org.ai
+$type: Class
+name: Capability
+description: A skill or operation that an Agent possesses or a Tool exposes. The unit of "what something can do."
+subClassOf:
+  - https://schema.org/Intangible
+digital: 0.9
+---
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx)
+
+# Capability
+
+A capability or skill that an Agent possesses or a Tool exposes — the atomic unit of "what something can do." Capabilities are typed, named, optionally parameterized, and composable. The same Capability can be exposed by multiple Tools or possessed by multiple Agents.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Capability" | - |
+| `$id` | URL | Unique identifier for the capability | Thing |
+| `name` | Text | The capability's name (e.g. "SendEmail") | Thing |
+| `description` | Text | What the capability does | Thing |
+| `inputs` | PropertyValue[] | Named input parameters with types | Capability |
+| `outputs` | PropertyValue[] | Named output values with types | Capability |
+| `provider` | Tool or Agent | What exposes or possesses this capability | Capability |
+| `requires` | Capability[] | Other capabilities this one depends on | Capability |
+| `category` | Text | Coarse category (e.g. "communication", "data", "compute") | Capability |
+| `digital` | Number | 0.0–1.0 digital maturity | Thing |
+
+## Subtypes
+
+- **AISkill**: A capability provided by an AI model (reasoning, summarization, classification).
+- **Operation**: A capability provided by a Tool's API (e.g. `Slack.SendMessage`).
+- **Skill**: A capability inherent to a human or agent (e.g. "fluent in Spanish").
+
+## Examples
+
+### Example 1: A Tool-provided capability
+
+```typescript
+import type { Capability } from 'schema.org.ai'
+
+const sendSlackMessage: Capability = {
+  $type: 'Capability',
+  $id: 'https://schema.org.ai/Capability/Slack.SendMessage',
+  name: 'Send Slack Message',
+  description: 'Posts a message to a Slack channel via the Slack Web API.',
+  category: 'communication',
+  inputs: [
+    { name: 'channel', value: 'string (channel ID or #name)' },
+    { name: 'text', value: 'string' },
+  ],
+  outputs: [{ name: 'ts', value: 'message timestamp' }],
+}
+```
+
+### Example 2: A capability composed of others
+
+```typescript
+const summarizeDocument: Capability = {
+  $type: 'Capability',
+  name: 'Summarize Document',
+  description: 'Reads a document and returns a short summary.',
+  category: 'reasoning',
+  requires: ['ReadFile', 'GenerateText'],
+  inputs: [{ name: 'path', value: 'string' }],
+  outputs: [{ name: 'summary', value: 'string (≤ 200 words)' }],
+}
+```
+
+### Example 3: An Agent's possessed capability
+
+```typescript
+const codingAgent = {
+  $type: 'Agent',
+  name: 'Cody',
+  capabilities: ['WriteCode', 'RunTests', 'OpenPR'],
+}
+```
+
+## Resources
+
+- [Schema.org Intangible](https://schema.org/Intangible)
+- [Edit on GitHub](https://github.com/dot-org-ai/schema.org.ai/edit/main/things/Capability.mdx)
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Capability.

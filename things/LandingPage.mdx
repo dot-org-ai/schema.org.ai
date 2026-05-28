@@ -1,0 +1,106 @@
+---
+$id: https://schema.org.ai/LandingPage
+$context: https://schema.org.ai
+$type: Class
+name: LandingPage
+description: A conversion-optimized marketing landing page with structured sections (hero, features, testimonials, pricing, CTAs).
+subClassOf:
+  - https://schema.org/WebPage
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [WebPage](https://schema.org/WebPage)
+
+# LandingPage
+
+A conversion-optimized marketing landing page — a single-purpose webpage designed to convert visitors into a specific action (sign up, request demo, buy now). Distinct from generic WebPage by carrying typed sections (hero, features, pricing, CTAs), variant attributes for A/B testing, and conversion-tracking semantics.
+
+In Business-as-Code, every Startup has at least one LandingPage; the cascade emits LandingPage definitions as composable token-driven content.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "LandingPage" | - |
+| `name` | Text | Page name (for internal reference) | Thing |
+| `description` | Text | What the page is selling | Thing |
+| `url` | URL | The page's canonical URL | Thing |
+| `headline` | Text | The primary H1 / hero headline | LandingPage |
+| `subheadline` | Text | Supporting sub-headline | LandingPage |
+| `sections` | Section[] | Ordered sections (Hero, Features, Pricing, FAQ, CTA, etc.) | LandingPage |
+| `primaryCta` | Action | Main conversion action | LandingPage |
+| `secondaryCta` | Action | Secondary action (e.g. "Learn more") | LandingPage |
+| `audience` | Audience | Target audience profile | LandingPage |
+| `experiments` | Text[] | Active A/B experiment IDs | LandingPage |
+| `digital` | Number | 1.0 | Thing |
+
+## Sections (subtypes)
+
+A LandingPage composes ordered Sections:
+
+- **HeroSection**: Headline, subheadline, primary CTA, optional video/image
+- **FeatureSection**: Grid or list of capabilities
+- **TestimonialSection**: Customer quotes / social proof
+- **PricingSection**: Tiers and prices
+- **FAQSection**: Q&A entries
+- **CTASection**: Final conversion ask
+
+## Examples
+
+### Example 1: A SaaS landing
+
+```typescript
+import type { LandingPage } from 'schema.org.ai'
+
+const saasLanding: LandingPage = {
+  $type: 'LandingPage',
+  $id: 'https://schema.org.ai/LandingPage/acme-bookkeeping',
+  name: 'Acme Bookkeeping — Home',
+  url: 'https://acme.bookkeeping/',
+  headline: 'Stop reconciling. Start scaling.',
+  subheadline: 'AI bookkeeping for accounting firms. Live in 24 hours.',
+  primaryCta: { $type: 'Action', name: 'Start free trial', url: '/signup' },
+  secondaryCta: { $type: 'Action', name: 'Book a demo', url: '/demo' },
+  audience: { audienceType: 'Accounting firms (5-50 staff)' },
+  sections: ['HeroSection', 'FeatureSection', 'TestimonialSection', 'PricingSection', 'CTASection'],
+}
+```
+
+### Example 2: An agent service landing
+
+```typescript
+const agentServiceLanding: LandingPage = {
+  $type: 'LandingPage',
+  name: 'Priya — Product Marketing Agent',
+  url: 'https://priya.do',
+  headline: 'Hire Priya for $99/month.',
+  subheadline: 'A product marketer who never sleeps.',
+  primaryCta: { $type: 'Action', name: 'Hire Priya', url: '/checkout' },
+}
+```
+
+### Example 3: A multi-variant experiment
+
+```typescript
+const variantLanding: LandingPage = {
+  $type: 'LandingPage',
+  name: 'Pricing Page (Q1 Test)',
+  url: 'https://acme.bookkeeping/pricing',
+  experiments: ['exp-pricing-anchor-2026q1'],
+  // Each section can carry data-v="variant" attributes wired through the `e` analytics snippet
+}
+```
+
+## Related
+
+- **[Business](Business.mdx)**: a Business operates LandingPages for its products/services
+- **[Action](https://schema.org/Action)**: CTAs are Actions
+
+## Resources
+
+- [Schema.org WebPage](https://schema.org/WebPage)
+- Conversion-tracking via the `e` analytics snippet (see headless.ly observability stack)
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/LandingPage.

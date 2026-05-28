@@ -1,0 +1,95 @@
+---
+$id: https://schema.org.ai/MCP
+$context: https://schema.org.ai
+$type: Class
+name: MCP
+description: A Model Context Protocol server that exposes Tools and Resources to AI models. The agent-native equivalent of a typed API for LLMs.
+subClassOf:
+  - https://schema.org/WebAPI
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [WebAPI](https://schema.org/WebAPI)
+
+# MCP
+
+A Model Context Protocol server — the AI-agent-native protocol for exposing Tools, Resources, and Prompts to language models. Created by Anthropic and adopted across the AI ecosystem, MCP standardizes how Agents discover and invoke external capabilities. Unlike a generic API, MCP servers are designed for LLM consumption: typed tool definitions, structured resources, and prompt templates.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "MCP" | - |
+| `name` | Text | MCP server name | Thing |
+| `description` | Text | What the server exposes | Thing |
+| `transport` | Text | "stdio" / "http" / "sse" — transport mechanism | MCP |
+| `endpoint` | URL or Text | URL (for http/sse) or command (for stdio) | MCP |
+| `tools` | Tool[] | Tools the server exposes | MCP |
+| `resources` | Resource[] | Resources the server exposes (URI templates) | MCP |
+| `prompts` | Prompt[] | Prompt templates the server provides | MCP |
+| `protocolVersion` | Text | MCP protocol version (e.g. "2024-11-05") | MCP |
+| `auth` | Text | Auth method, if any | MCP |
+| `digital` | Number | 1.0 | Thing |
+
+## Examples
+
+### Example 1: Filesystem MCP server (stdio)
+
+```typescript
+import type { MCP } from 'schema.org.ai'
+
+const filesystemMCP: MCP = {
+  $type: 'MCP',
+  $id: 'https://schema.org.ai/MCP/Filesystem',
+  name: '@modelcontextprotocol/server-filesystem',
+  description: 'Read, write, and search local files. Stdio-based.',
+  transport: 'stdio',
+  endpoint: 'npx -y @modelcontextprotocol/server-filesystem /allowed/path',
+  tools: ['read_file', 'write_file', 'list_directory', 'search_files'],
+  resources: ['file:///<path>'],
+  protocolVersion: '2024-11-05',
+}
+```
+
+### Example 2: HTTP MCP server
+
+```typescript
+const browserMCP: MCP = {
+  $type: 'MCP',
+  name: 'Browser Automation MCP',
+  description: 'Headless browser tools for agents — navigate, screenshot, click, type.',
+  transport: 'http',
+  endpoint: 'https://mcp.browser.do',
+  tools: ['navigate', 'click', 'type', 'screenshot', 'extract_text'],
+  protocolVersion: '2024-11-05',
+  auth: 'Bearer',
+}
+```
+
+### Example 3: Database MCP server
+
+```typescript
+const databaseMCP: MCP = {
+  $type: 'MCP',
+  name: 'Postgres MCP',
+  transport: 'stdio',
+  endpoint: 'npx -y @modelcontextprotocol/server-postgres postgresql://...',
+  tools: ['query', 'list_tables', 'describe_table'],
+  resources: ['postgres://<table>'],
+}
+```
+
+## Related
+
+- **[Tool](Tool.mdx)**: MCP servers expose Tools
+- **[API](API.mdx)**: generic API; MCP is the AI-agent-native variant
+- **[Agent](Agent.mdx)**: Agents are the primary MCP consumers
+
+## Resources
+
+- [Model Context Protocol specification](https://spec.modelcontextprotocol.io/)
+- [MCP server registry](https://github.com/modelcontextprotocol/servers)
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/MCP.

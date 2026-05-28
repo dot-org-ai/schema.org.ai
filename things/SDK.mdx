@@ -1,0 +1,90 @@
+---
+$id: https://schema.org.ai/SDK
+$context: https://schema.org.ai
+$type: Class
+name: SDK
+description: A Software Development Kit — a language-specific library that wraps an API or platform for in-application consumption.
+subClassOf:
+  - https://schema.org/SoftwareApplication
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [SoftwareApplication](https://schema.org/SoftwareApplication)
+
+# SDK
+
+A Software Development Kit — a language-specific library that wraps an API or platform so developers can use it idiomatically from within their applications. SDKs provide typed clients, ergonomic helpers, and language-conventional patterns (async/await, generators, classes) that raw API calls don't.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "SDK" | - |
+| `name` | Text | SDK name | Thing |
+| `description` | Text | What the SDK wraps | Thing |
+| `language` | Text | "TypeScript" / "Python" / "Go" / etc. | SDK |
+| `package` | Text | Package identifier (e.g. "@anthropic-ai/sdk", "anthropic") | SDK |
+| `version` | Text | Current version (semver) | SDK |
+| `installer` | Text | Install command (e.g. "npm install @anthropic-ai/sdk") | SDK |
+| `wraps` | API | The API this SDK provides access to | SDK |
+| `documentationUrl` | URL | SDK docs | SDK |
+| `repositoryUrl` | URL | Source repo | SDK |
+| `digital` | Number | 1.0 | Thing |
+
+## Examples
+
+### Example 1: Anthropic TypeScript SDK
+
+```typescript
+import type { SDK } from 'schema.org.ai'
+
+const anthropicTSSDK: SDK = {
+  $type: 'SDK',
+  $id: 'https://schema.org.ai/SDK/anthropic-ai-sdk',
+  name: '@anthropic-ai/sdk',
+  description: 'Official TypeScript SDK for the Anthropic API.',
+  language: 'TypeScript',
+  package: '@anthropic-ai/sdk',
+  version: '0.30.x',
+  installer: 'npm install @anthropic-ai/sdk',
+  wraps: 'https://schema.org.ai/API/Anthropic',
+  documentationUrl: 'https://docs.anthropic.com/en/api',
+  repositoryUrl: 'https://github.com/anthropics/anthropic-sdk-typescript',
+}
+```
+
+### Example 2: Python SDK
+
+```typescript
+const stripePythonSDK: SDK = {
+  $type: 'SDK',
+  name: 'stripe-python',
+  language: 'Python',
+  package: 'stripe',
+  installer: 'pip install stripe',
+  wraps: 'https://schema.org.ai/API/Stripe',
+}
+```
+
+### Example 3: Multi-language SDK family
+
+```typescript
+const platformSDKs: SDK[] = [
+  { $type: 'SDK', name: 'platform.do/sdk-ts', language: 'TypeScript', package: '@platform.do/sdk' },
+  { $type: 'SDK', name: 'platform.do/sdk-py', language: 'Python', package: 'platform-do' },
+  { $type: 'SDK', name: 'platform.do/sdk-go', language: 'Go', package: 'go.platform.do/sdk' },
+]
+```
+
+## Related
+
+- **[API](API.mdx)**: the underlying programmatic interface an SDK wraps
+- **[CLI](CLI.mdx)**: command-line counterpart for the same platform
+
+## Resources
+
+- [Schema.org SoftwareApplication](https://schema.org/SoftwareApplication)
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/SDK.
