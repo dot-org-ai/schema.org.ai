@@ -1,0 +1,93 @@
+---
+$id: https://schema.org.ai/Industry
+$context: https://schema.org.ai
+$type: Class
+name: Industry
+description: An industry classification — typically a NAICS-coded sector of economic activity. The taxonomic category that groups businesses by what they produce.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 0.5
+---
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx)
+
+# Industry
+
+A canonical Industry — a taxonomic classification of economic activity, typically anchored to a standards body's industry code (NAICS in North America, ISIC globally, SIC legacy). Distinct from a specific [Business](Business.mdx) (which is an *instance* of an Organization operating within an Industry) and from a [CompanyType](CompanyType.mdx) (which is a more specific archetype derived from Industry × business model × regulatory regime).
+
+Industry is the broadest dimension in the Business-as-Code cascade. Two soybean farms in different countries belong to the same Industry; same NAICS code 111110. Industry exists *before* and *outside* any particular company.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Industry" | - |
+| `name` | Text | Industry name (e.g. "Soybean Farming") | Thing |
+| `description` | Text | What the industry produces | Thing |
+| `code` | Text | NAICS/ISIC/SIC code (e.g. "111110") | Industry |
+| `codeSystem` | Text | Coding system: "NAICS-2022", "ISIC-Rev4", "SIC", etc. | Industry |
+| `parentIndustry` | Industry | More-general industry (e.g. Oilseed Farming for Soybean Farming) | Industry |
+| `childIndustries` | Industry[] | More-specific industries within this one | Industry |
+| `sameAs` | URL[] | Wikipedia / Wikidata / official-classification URLs | Thing |
+| `companyTypes` | CompanyType[] | Archetype companies within this industry | Industry |
+
+## Examples
+
+### Example 1: NAICS Industry
+
+```typescript
+import type { Industry } from 'schema.org.ai'
+
+const soybeanFarming: Industry = {
+  $type: 'Industry',
+  $id: 'https://industries.org.ai/Soybean_Farming',
+  name: 'Soybean Farming',
+  description: 'Farming establishments primarily engaged in growing soybeans.',
+  code: '111110',
+  codeSystem: 'NAICS-2022',
+  parentIndustry: 'https://industries.org.ai/Oilseed_Farming',
+  sameAs: [
+    'https://www.census.gov/naics/?input=111110',
+    'https://en.wikipedia.org/wiki/Soybean',
+  ],
+}
+```
+
+### Example 2: Software publishing
+
+```typescript
+const softwarePublishing: Industry = {
+  $type: 'Industry',
+  name: 'Software Publishers',
+  code: '513210',
+  codeSystem: 'NAICS-2022',
+  childIndustries: ['https://industries.org.ai/SaaS_Vendors'],
+}
+```
+
+### Example 3: As a Business's parent classification
+
+```typescript
+const acme = {
+  $type: 'Business',
+  name: 'Acme Analytics',
+  industry: 'https://industries.org.ai/Software_Publishers',
+  // Acme is an *instance* of an Organization within this Industry
+}
+```
+
+## Related
+
+- **[CompanyType](CompanyType.mdx)** — derived archetype, more specific than Industry
+- **[Business](Business.mdx)** — an instance operating within an Industry
+- **[Occupation](Occupation.mdx)** — work performed in this industry
+
+## Resources
+
+- [NAICS — U.S. Census Bureau](https://www.census.gov/naics/) — primary source for codes
+- [ISIC — UN Statistics](https://unstats.un.org/unsd/classifications/Econ/isic) — international counterpart
+- [Atlas: industries.org.ai](https://industries.org.ai/) — instance catalog of all canonical Industries
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Industry.

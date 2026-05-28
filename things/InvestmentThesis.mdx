@@ -1,0 +1,121 @@
+---
+$id: https://schema.org.ai/InvestmentThesis
+$context: https://schema.org.ai
+$type: Class
+name: InvestmentThesis
+description: An investment or strategic thesis — a structured argument for a particular approach to building (e.g. Service-as-Software, Agent, Headless SaaS).
+subClassOf:
+  - https://schema.org/CreativeWork
+digital: 0.7
+---
+
+[Thing](Thing.mdx) > [CreativeWork](https://schema.org/CreativeWork)
+
+# InvestmentThesis
+
+An InvestmentThesis is a structured argument for a particular *approach to building* — the answer to "how should this problem be solved as a business?" Named `InvestmentThesis` (not `Thesis`) to avoid collision with schema:Thesis (academic dissertation).
+
+Three primary AI-era InvestmentTheses stack:
+
+- **Service-as-Software** (top, outcome-as-product) — sell the result, not the tool
+- **Agent** (mid, named worker) — sell a digital worker that does the job
+- **Headless SaaS** (bottom, primitives for builders) — sell the API/CLI/SDK others build on
+
+InvestmentTheses are stackable: a [Startup](https://explore.startups.studio/Startups) selling Service-as-Software (top) may compose an Agent (mid) which depends on Headless SaaS primitives (bottom). The Thesis determines packaging, pricing, GTM, and which competitors matter.
+
+Distinct from a Strategy (which is firm-specific). An InvestmentThesis is a *category* of strategic approach that many firms can adopt.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "InvestmentThesis" | - |
+| `name` | Text | Thesis name (e.g. "Service-as-Software") | Thing |
+| `description` | Text | The strategic argument | Thing |
+| `tier` | Text | "Top" / "Mid" / "Bottom" — the stacking layer | InvestmentThesis |
+| `argument` | Text | The core 1-paragraph case | InvestmentThesis |
+| `evidenceFor` | Text[] | Recent wins / case studies that support the thesis | InvestmentThesis |
+| `counterArguments` | Text[] | Where the thesis is weakest | InvestmentThesis |
+| `composesWith` | InvestmentThesis[] | Other Theses this stacks with | InvestmentThesis |
+| `examples` | Thing[] | Startups exemplifying this Thesis | InvestmentThesis |
+
+## Examples
+
+### Example 1: Service-as-Software thesis
+
+```typescript
+import type { InvestmentThesis } from 'schema.org.ai'
+
+const serviceAsSoftware: InvestmentThesis = {
+  $type: 'InvestmentThesis',
+  $id: 'https://theses.org.ai/Service-as-Software',
+  name: 'Service-as-Software',
+  tier: 'Top',
+  argument: 'Buyers want outcomes, not tools. Charge for the outcome (reconciled books, qualified leads, deployed websites) — the AI under the hood is incidental. Margin comes from automation; lock-in comes from being the system of record.',
+  evidenceFor: [
+    'Pilot.com — $200M+ ARR selling bookkeeping outcomes, not bookkeeping software',
+    'Harvey.ai — selling legal research outcomes to BigLaw',
+    'Clay — selling pipeline outcomes, not contact data',
+  ],
+  counterArguments: [
+    'High-touch onboarding limits scale',
+    'Margin pressure if competitors race to lower outcome prices',
+  ],
+  composesWith: [
+    'https://theses.org.ai/Agent',
+    'https://theses.org.ai/Headless_SaaS',
+  ],
+}
+```
+
+### Example 2: Agent thesis
+
+```typescript
+const agent: InvestmentThesis = {
+  $type: 'InvestmentThesis',
+  name: 'Agent',
+  tier: 'Mid',
+  argument: 'Sell a named AI worker — give them an identity, a job description, a domain. The buyer relates to the agent as they would to a contractor: hire them, give them tasks, fire them if it does not work out. The agent runs on real infrastructure; the buyer never sees it.',
+  evidenceFor: [
+    'Management.Studio — hire Priya/Quinn/Cody as managed-service agents',
+    'Cognosys — agent-as-employee SaaS for SMBs',
+  ],
+  composesWith: [
+    'https://theses.org.ai/Service-as-Software',
+    'https://theses.org.ai/Headless_SaaS',
+  ],
+}
+```
+
+### Example 3: Headless SaaS thesis
+
+```typescript
+const headlessSaaS: InvestmentThesis = {
+  $type: 'InvestmentThesis',
+  name: 'Headless SaaS',
+  tier: 'Bottom',
+  argument: 'Build the API/CLI/SDK primitives that AI agents and humans both consume. Charge per-call or per-resource. Margin is high because no UX; lock-in comes from API surface and data gravity.',
+  evidenceFor: ['Stripe', 'Twilio', 'Cloudflare Workers', 'Anthropic API'],
+  counterArguments: [
+    'Pure API plays often need ecosystem investment (docs, integrations) to drive adoption',
+  ],
+}
+```
+
+## Disambiguation
+
+- This type is `schemaai:InvestmentThesis` — the strategic/business argument
+- `schema:Thesis` (academic dissertation) is a different concept; see [Thesis](Thesis.mdx) for the schema.org mirror
+
+## Related
+
+- **[Opportunity](Opportunity.mdx)** — Opportunity = Problem × InvestmentThesis
+- **[Business](Business.mdx)** — Businesses pick an InvestmentThesis (or stack of Theses)
+
+## Resources
+
+- [Atlas: explore.startups.studio](https://explore.startups.studio/explore) — InvestmentThesis exploration
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/InvestmentThesis.

@@ -1,0 +1,104 @@
+---
+$id: https://schema.org.ai/Opportunity
+$context: https://schema.org.ai
+$type: Class
+name: Opportunity
+description: A market opportunity — a Problem coupled with a Thesis approach and target ICP, scoped to a buildable solution space.
+subClassOf:
+  - https://schema.org/Thing
+digital: 0.5
+---
+
+[Thing](Thing.mdx)
+
+# Opportunity
+
+An Opportunity is the where-to-build artifact in the Business-as-Code cascade: a [Problem](Problem.mdx) coupled with a [Thesis](Thesis.mdx) approach (Service-as-Software / Agent / Headless SaaS) and a target ICP, scoped to a buildable solution space.
+
+Opportunities are not yet Startups — they're the addressable hypothesis-space cell. Multiple [Startups](https://explore.startups.studio/Startups) can compete in the same Opportunity, each with different differentiation (tier, wedge, GTM, brand). The Combinator generates Startups from Opportunities.
+
+Distinct from a Lead (a specific prospect) or from a Deal (a specific commercial engagement) — an Opportunity is the typed market space.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Opportunity" | - |
+| `name` | Text | Opportunity name (e.g. "AI Bookkeeping for Small Accounting Firms") | Thing |
+| `description` | Text | The solution space being built into | Thing |
+| `problem` | Problem | The Problem this Opportunity addresses | Opportunity |
+| `thesis` | Thesis | The strategic approach (Service-as-Software / Agent / Headless SaaS) | Opportunity |
+| `icp` | Text | The target ICP (Coordinate reference) | Opportunity |
+| `tam` | Text | Total addressable market estimate | Opportunity |
+| `sam` | Text | Serviceable addressable market | Opportunity |
+| `incumbents` | Organization[] | Existing players in this space | Opportunity |
+| `wedge` | Text | The crisp first-foothold pitch | Opportunity |
+| `candidateStartups` | Thing[] | Startups exploring this Opportunity | Opportunity |
+
+## Examples
+
+### Example 1: AI Bookkeeping for Small Accounting Firms
+
+```typescript
+import type { Opportunity } from 'schema.org.ai'
+
+const aiBookkeepingForFirms: Opportunity = {
+  $type: 'Opportunity',
+  $id: 'https://opportunities.org.ai/AI_Bookkeeping_for_Accounting_Firms',
+  name: 'AI Bookkeeping for Small Accounting Firms',
+  description: 'Replace junior-bookkeeper time on reconciliations with an AI service that handles ledger maintenance + AR/AP + bank reconciliation for client engagements.',
+  problem: 'https://problems.org.ai/Reconcile_Bank_Statements',
+  thesis: 'https://theses.org.ai/Service-as-Software',
+  icp: 'https://companytypes.org.ai/Accounting_Firm × revenue $1M-$25M',
+  tam: '$8B (US small/mid accounting firm bookkeeping spend)',
+  sam: '$1.2B (firms ≤50 staff)',
+  incumbents: ['Bench', 'Pilot', 'Botkeeper'],
+  wedge: 'White-labeled AI bookkeeping that the firm sells as their own to clients — they keep the relationship, we handle the work.',
+  candidateStartups: [
+    'https://startups.studio/Startups/LedgerLoop',
+    'https://startups.studio/Startups/Ledgerly',
+  ],
+}
+```
+
+### Example 2: AI SDR for Outbound Sales
+
+```typescript
+const aiSDR: Opportunity = {
+  $type: 'Opportunity',
+  name: 'AI SDR for B2B Outbound',
+  problem: 'https://problems.org.ai/SDR_Headcount_Cost',
+  thesis: 'https://theses.org.ai/Agent',
+  icp: 'https://companytypes.org.ai/SaaS_Vendor × Sales team',
+  tam: '$30B (B2B sales development)',
+  incumbents: ['Outreach', 'Apollo', 'Lavender'],
+  wedge: 'Fully autonomous SDR — no humans in the prospecting loop; outcomes-based pricing.',
+}
+```
+
+### Example 3: Headless SaaS approach to same Problem
+
+```typescript
+const headlessReconciliation: Opportunity = {
+  $type: 'Opportunity',
+  name: 'Reconciliation-as-an-API for Embedded Finance',
+  problem: 'https://problems.org.ai/Reconcile_Bank_Statements',  // same Problem as Example 1
+  thesis: 'https://theses.org.ai/Headless_SaaS',                  // different Thesis
+  icp: 'https://companytypes.org.ai/Fintech_Embedded × Developer',
+  wedge: 'API-first reconciliation engine that fintechs embed in their own products.',
+}
+```
+
+## Related
+
+- **[Problem](Problem.mdx)** — the pain Opportunity addresses
+- **[Thesis](Thesis.mdx)** — strategic approach (Opportunity = Problem × Thesis)
+- **[Market](Market.mdx)** — the competitive field within which Opportunities exist
+
+## Resources
+
+- [Atlas: explore.startups.studio](https://explore.startups.studio/explore) — Opportunity discovery surface
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Opportunity.

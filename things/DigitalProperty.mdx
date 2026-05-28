@@ -1,0 +1,98 @@
+---
+$id: https://schema.org.ai/DigitalProperty
+$context: https://schema.org.ai
+$type: Class
+name: DigitalProperty
+description: A digital property — a website, app, API, deployed agent, or any addressable entity with a stable digital presence.
+subClassOf:
+  - https://schema.org/Thing
+digital: 1.0
+---
+
+[Thing](Thing.mdx)
+
+# DigitalProperty
+
+A digital property is the unifying type for things-with-URLs — addressable entities that have a stable digital presence and can be referenced, linked, or transacted with via a URL. Websites, web apps, API endpoints, deployed AI agents, mobile apps, Cloudflare Workers, datasets — all are DigitalProperties.
+
+Distinct from the scalar `digital` property (a 0.0–1.0 maturity score on any Thing). DigitalProperty is *the type for entities that are themselves digital*; `digital` is *a measurement of how digital any Thing is*. Both can coexist on the same Thing: an Agent (DigitalProperty) has `digital: 1.0`; a hybrid Business may be a DigitalProperty with `digital: 0.6` because its core operations span digital and physical.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "DigitalProperty" or a subtype | - |
+| `$id` | URL | The canonical URL of the property | Thing |
+| `name` | Text | Display name | Thing |
+| `description` | Text | What this property is/does | Thing |
+| `url` | URL | The serving URL (may differ from `$id`) | Thing |
+| `owner` | Person or Organization | Who owns the property | DigitalProperty |
+| `provider` | Organization | Hosting/serving provider | DigitalProperty |
+| `tld` | Text | Top-level domain (e.g. "do", "org.ai", "studio") | DigitalProperty |
+| `monetized` | Boolean | Whether the property generates revenue | DigitalProperty |
+| `digital` | Number | 0.0–1.0 — typically 1.0 for DigitalProperty | Thing |
+
+## Subtypes
+
+- **[LandingPage](LandingPage.mdx)** — conversion-optimized marketing page
+- **[API](API.mdx)** — programmatic interface
+- **[Agent](Agent.mdx)** — deployed autonomous agent
+- **[SDK](SDK.mdx)** / **[CLI](CLI.mdx)** — packaged client artifacts
+
+## Examples
+
+### Example 1: A deployed agent
+
+```typescript
+import type { DigitalProperty } from 'schema.org.ai'
+
+const priyaAgent: DigitalProperty = {
+  $type: ['Agent', 'DigitalProperty'],
+  $id: 'https://schema.org.ai/Agent/Priya',
+  name: 'Priya — Product Marketing Agent',
+  url: 'https://priya.do',
+  owner: 'https://platform.do',
+  provider: 'https://workers.do',
+  tld: 'do',
+  monetized: true,
+  digital: 1.0,
+}
+```
+
+### Example 2: A canonical-reference subdomain
+
+```typescript
+const schemaOrgAi: DigitalProperty = {
+  $type: 'DigitalProperty',
+  $id: 'https://schema.org.ai',
+  name: 'schema.org.ai',
+  description: 'Canonical AI-era superset of schema.org.',
+  tld: 'org.ai',
+  monetized: false,  // ads in sidebar but not the purpose
+  digital: 1.0,
+}
+```
+
+### Example 3: A Business as a portfolio of DigitalProperties
+
+```typescript
+const acmeBusiness = {
+  $type: 'Business',
+  name: 'Acme Analytics',
+  properties: [
+    'https://acme.io',                  // marketing site
+    'https://app.acme.io',              // SaaS app
+    'https://api.acme.io',              // public API
+    'https://docs.acme.io',             // documentation
+  ],
+}
+```
+
+## Related
+
+- **[Thing](Thing.mdx)** — base type
+- **[Business](Business.mdx)** — Businesses own and operate DigitalProperties
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/DigitalProperty.

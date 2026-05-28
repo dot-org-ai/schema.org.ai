@@ -1,0 +1,109 @@
+---
+$id: https://schema.org.ai/Market
+$context: https://schema.org.ai
+$type: Class
+name: Market
+description: A market — the competitive field of incumbents, substitutes, and status-quo solutions addressing a Problem.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 0.4
+---
+
+[Thing](Thing.mdx) > [Intangible](Intangible.mdx)
+
+# Market
+
+A Market is the competitive landscape addressing a particular [Problem](Problem.mdx) or [Opportunity](Opportunity.mdx) — the typed field of incumbents, substitutes, and status-quo workarounds.
+
+Distinct from [schema:Place](https://schema.org/Place) (geographic). A Market in the canonical sense is *a competitive landscape*, not a geographic region. "The US bookkeeping software market" is a competitive landscape; "the Pacific Northwest" is a Place.
+
+Markets carry the *Position* axis: the differentiated quadrants that competitors occupy. A 2×2 with one axis being "AI-native vs incumbent" and another being "vertical vs horizontal" is one common Position framework.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Market" | - |
+| `name` | Text | Market name (e.g. "Small Business Bookkeeping Software Market") | Thing |
+| `description` | Text | What the Market addresses | Thing |
+| `addresses` | Problem | The Problem this Market is structured around | Market |
+| `incumbents` | Organization[] | Established players | Market |
+| `entrants` | Organization[] | Newer entrants challenging incumbents | Market |
+| `statusQuo` | Text | How the ICP solves the problem WITHOUT a vendor (manual, in-house) | Market |
+| `tam` | Text | Total addressable market | Market |
+| `growthRate` | Text | Annual growth | Market |
+| `positions` | Text[] | Differentiated competitive positions (e.g. "vertical-AI-native", "horizontal-incumbent") | Market |
+| `disruptionScore` | Number | 0.0–1.0 — how AI-disruptable the Market is | Market |
+
+## Examples
+
+### Example 1: Small business bookkeeping software market
+
+```typescript
+import type { Market } from 'schema.org.ai'
+
+const sbBookkeepingMarket: Market = {
+  $type: 'Market',
+  $id: 'https://markets.org.ai/Small_Business_Bookkeeping_Software',
+  name: 'Small Business Bookkeeping Software Market',
+  description: 'Vendors selling bookkeeping and accounting software to small businesses (< 100 employees) in North America.',
+  addresses: 'https://problems.org.ai/Manual_Bookkeeping_Burden',
+  incumbents: ['Intuit (QuickBooks)', 'Sage', 'Xero', 'FreshBooks'],
+  entrants: ['Pilot', 'Bench', 'Botkeeper', 'LedgerLoop'],
+  statusQuo: 'Spreadsheets + manual paper-checking by an in-house or contracted bookkeeper',
+  tam: '$24B (US small business bookkeeping spend)',
+  growthRate: '6-8% annually',
+  positions: [
+    'Horizontal incumbent (QuickBooks)',
+    'Horizontal challenger (Xero)',
+    'AI-native service-as-software (Pilot, Bench)',
+    'Vertical AI service-as-software (LedgerLoop for accounting firms)',
+  ],
+  disruptionScore: 0.85,
+}
+```
+
+### Example 2: CRM market
+
+```typescript
+const crmMarket: Market = {
+  $type: 'Market',
+  name: 'B2B CRM Market',
+  incumbents: ['Salesforce', 'HubSpot', 'Microsoft Dynamics'],
+  entrants: ['Attio', 'Clay', 'Pipedrive'],
+  statusQuo: 'Excel + email',
+  tam: '$98B (global CRM)',
+  growthRate: '12% annually',
+  disruptionScore: 0.7,
+}
+```
+
+### Example 3: Newly forming AI agent market
+
+```typescript
+const aiAgentServicesMarket: Market = {
+  $type: 'Market',
+  name: 'AI Agent Services Market (managed)',
+  description: 'Sellers of fully-managed AI agents as a service to non-technical buyers.',
+  incumbents: [],  // category is too new
+  entrants: ['Management.Studio', 'Cognosys', 'Lindy'],
+  statusQuo: 'Hiring human contractors via Upwork/Fiverr',
+  tam: 'TBD ($400B human services TAM as ceiling)',
+  growthRate: 'pre-formation',
+  disruptionScore: 1.0,
+}
+```
+
+## Related
+
+- **[Problem](Problem.mdx)** — Market addresses Problems
+- **[Opportunity](Opportunity.mdx)** — Opportunities scope to a Market position
+- **[Business](Business.mdx)** — Businesses compete within Markets
+
+## Resources
+
+- [Atlas: explore.startups.studio](https://explore.startups.studio/explore) — Market discovery
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Market.

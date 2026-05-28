@@ -1,0 +1,96 @@
+---
+$id: https://schema.org.ai/CompanyType
+$context: https://schema.org.ai
+$type: Class
+name: CompanyType
+description: A company archetype derived from Industry × business model × regulatory regime. More specific than Industry; more general than a specific Business.
+subClassOf:
+  - https://schema.org/Organization
+digital: 0.7
+---
+
+[Thing](Thing.mdx) > [Organization](https://schema.org/Organization)
+
+# CompanyType
+
+A CompanyType is a canonical *archetype* of a company — distinct from a specific [Business](Business.mdx) instance (Acme Accounting Co.) and from an [Industry](Industry.mdx) (which is broader and just classifies activity). CompanyTypes encode three derivation axes:
+
+1. **Industry** — NAICS sector
+2. **Business model** — fee-for-service / subscription / marketplace / etc.
+3. **Regulatory regime** — licensed / unlicensed / regulated-jurisdictional
+
+Examples: Accounting Firm (Industry: Accounting, Tax Preparation; Model: fee-for-service; Regime: licensed CPA). Plumbing Contractor (Industry: Plumbing/HVAC; Model: project-based; Regime: licensed trade). Boutique Hotel (Industry: Traveler Accommodation; Model: room-night; Regime: hospitality-licensed).
+
+CompanyType is the addressable archetype that downstream cascade content (Problems, Opportunities, Startups) reasons about — "what problems do Accounting Firms have?" generates differently than "what problems does Acme Accounting have?"
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "CompanyType" | - |
+| `name` | Text | Archetype name (e.g. "Accounting Firm") | Thing |
+| `description` | Text | What this archetype does | Thing |
+| `industry` | Industry | NAICS-anchored parent industry | CompanyType |
+| `businessModel` | Text | "fee-for-service" / "subscription" / "marketplace" / "advertising" / "transaction" / etc. | CompanyType |
+| `regulatoryRegime` | Text | "licensed" / "unlicensed" / "regulated-jurisdictional" / "self-regulated" | CompanyType |
+| `departments` | Department[] | Typical functional departments | CompanyType |
+| `jobTypes` | JobType[] | Common role archetypes | CompanyType |
+| `revenueRange` | Text | Typical annual revenue order-of-magnitude | CompanyType |
+
+## Examples
+
+### Example 1: Accounting Firm
+
+```typescript
+import type { CompanyType } from 'schema.org.ai'
+
+const accountingFirm: CompanyType = {
+  $type: 'CompanyType',
+  $id: 'https://companytypes.org.ai/Accounting_Firm',
+  name: 'Accounting Firm',
+  description: 'Professional services firm providing accounting, tax, and audit services to clients.',
+  industry: 'https://industries.org.ai/Accounting_Tax_Preparation',
+  businessModel: 'fee-for-service',
+  regulatoryRegime: 'licensed',
+  departments: ['Tax', 'Audit', 'Advisory'],
+  jobTypes: ['Staff_Bookkeeper', 'Tax_Manager', 'Audit_Partner'],
+  revenueRange: '$500K–$50M',
+}
+```
+
+### Example 2: SaaS Vendor
+
+```typescript
+const saasVendor: CompanyType = {
+  $type: 'CompanyType',
+  name: 'SaaS Vendor',
+  industry: 'https://industries.org.ai/Software_Publishers',
+  businessModel: 'subscription',
+  regulatoryRegime: 'unlicensed',
+  departments: ['Engineering', 'Product', 'Sales', 'Customer_Success'],
+}
+```
+
+### Example 3: Boutique Hotel
+
+```typescript
+const boutiqueHotel: CompanyType = {
+  $type: 'CompanyType',
+  name: 'Boutique Hotel',
+  industry: 'https://industries.org.ai/Hotels_Motels',
+  businessModel: 'room-night',
+  regulatoryRegime: 'hospitality-licensed',
+  departments: ['Front_Desk', 'Housekeeping', 'Food_and_Beverage'],
+}
+```
+
+## Related
+
+- **[Industry](Industry.mdx)** — broader; CompanyType derives from Industry × model × regime
+- **[Business](Business.mdx)** — instance; a Business is an instance of a CompanyType
+- **[JobType](JobType.mdx)** — role-within-CompanyType derived from Occupation
+- **[Department](Department.mdx)** — functional sub-org within a CompanyType
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/CompanyType.

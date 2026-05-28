@@ -1,0 +1,104 @@
+---
+$id: https://schema.org.ai/Department
+$context: https://schema.org.ai
+$type: Class
+name: Department
+description: A functional department within a CompanyType (e.g. Tax, Engineering, Sales). Groups related JobTypes and Tasks.
+subClassOf:
+  - https://schema.org/Organization
+digital: 0.5
+---
+
+[Thing](Thing.mdx) > [Organization](https://schema.org/Organization)
+
+# Department
+
+A Department is a functional grouping within a [CompanyType](CompanyType.mdx) or [Business](Business.mdx) — Tax, Audit, Engineering, Sales, Customer Success, Operations, Finance, HR, Legal, Marketing. Departments group related [JobTypes](JobType.mdx) and [Tasks](Task.mdx) by what they accomplish.
+
+Subtype of schema:Organization because departments are sub-organizations within a larger Organization. Each Department has its own JobTypes, processes, and KPIs but operates within the parent's governance and strategy.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Department" | - |
+| `name` | Text | Department name (e.g. "Tax") | Thing |
+| `description` | Text | What this department does | Thing |
+| `parentOrganization` | Organization | Parent Business or CompanyType | Department |
+| `jobTypes` | JobType[] | Roles within this department | Department |
+| `processes` | Process[] | Business processes owned by this department | Department |
+| `tasks` | Task[] | Tasks performed by this department | Department |
+| `kpis` | Goal[] | Department-specific KPIs | Department |
+| `head` | JobType | Department head role | Department |
+
+## Examples
+
+### Example 1: Tax department at an Accounting Firm
+
+```typescript
+import type { Department } from 'schema.org.ai'
+
+const taxDept: Department = {
+  $type: 'Department',
+  $id: 'https://departments.org.ai/Tax',
+  name: 'Tax',
+  description: 'Department responsible for client tax preparation, planning, and compliance.',
+  parentOrganization: 'https://companytypes.org.ai/Accounting_Firm',
+  jobTypes: [
+    'https://jobtypes.org.ai/Tax_Manager',
+    'https://jobtypes.org.ai/Tax_Senior',
+    'https://jobtypes.org.ai/Tax_Staff',
+  ],
+  processes: [
+    'https://processes.org.ai/Prepare_Individual_Tax_Returns',
+    'https://processes.org.ai/Quarterly_Estimated_Payments',
+  ],
+  head: 'https://jobtypes.org.ai/Tax_Partner',
+}
+```
+
+### Example 2: Engineering at a SaaS Vendor
+
+```typescript
+const engineering: Department = {
+  $type: 'Department',
+  name: 'Engineering',
+  parentOrganization: 'https://companytypes.org.ai/SaaS_Vendor',
+  jobTypes: [
+    'https://jobtypes.org.ai/Senior_Backend_Engineer',
+    'https://jobtypes.org.ai/Frontend_Engineer',
+    'https://jobtypes.org.ai/Engineering_Manager',
+  ],
+  kpis: [
+    { name: 'Deployment frequency', target: 'daily' },
+    { name: 'Mean time to recovery', target: '< 1 hour' },
+  ],
+  head: 'https://jobtypes.org.ai/VP_of_Engineering',
+}
+```
+
+### Example 3: Customer Success
+
+```typescript
+const cs: Department = {
+  $type: 'Department',
+  name: 'Customer Success',
+  parentOrganization: 'https://companytypes.org.ai/SaaS_Vendor',
+  jobTypes: ['https://jobtypes.org.ai/Customer_Success_Manager'],
+  kpis: [
+    { name: 'Net Revenue Retention', target: 1.15 },
+    { name: 'Customer Health Score', target: '> 80' },
+  ],
+}
+```
+
+## Related
+
+- **[CompanyType](CompanyType.mdx)** — Departments exist within CompanyTypes
+- **[Business](Business.mdx)** — Departments exist within Businesses
+- **[JobType](JobType.mdx)** — Roles within a Department
+- **[Process](Process.mdx)** — Business processes owned by Departments
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Department.

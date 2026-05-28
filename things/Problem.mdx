@@ -1,0 +1,99 @@
+---
+$id: https://schema.org.ai/Problem
+$context: https://schema.org.ai
+$type: Class
+name: Problem
+description: A canonical market problem — pain exposed by a sufficiently-pinned Ideal Customer Profile. Addressable so candidate Solutions can be enumerated.
+subClassOf:
+  - https://schema.org/Thing
+digital: 0.5
+---
+
+[Thing](Thing.mdx)
+
+# Problem
+
+A canonical market Problem — the pain a sufficiently-pinned Ideal Customer Profile (ICP) exposes. Addressable as a typed entity so multiple candidate Solutions can be enumerated under one Problem, separated by competitive differentiator × Position.
+
+Distinct from schema:Issue (content-issue/dispute) — a Problem is a market problem. Distinct from Bug (software defect). Problems are the demand-side currency of the Business-as-Code cascade: identify a sharp Problem with a clear ICP, and Solutions / Startups follow.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Problem" | - |
+| `name` | Text | Problem statement (e.g. "Manual bank reconciliation eats junior staff time") | Thing |
+| `description` | Text | What the pain is | Thing |
+| `icp` | Text | The ICP that exposes this Problem (Coordinate or text) | Problem |
+| `surfaceTask` | Task | The Task that most surfaces this Problem | Problem |
+| `costOfStatusQuo` | Text | What the Problem costs today (in time, money, risk) | Problem |
+| `currentWorkaround` | Text | How the ICP solves it today | Problem |
+| `severity` | Number | 0.0–1.0 — how acute the pain is | Problem |
+| `urgency` | Number | 0.0–1.0 — how time-pressured solving it is | Problem |
+| `candidateSolutions` | Thing[] | Candidate Solutions (Coordinate references) | Problem |
+
+## Examples
+
+### Example 1: Bookkeeping reconciliation pain
+
+```typescript
+import type { Problem } from 'schema.org.ai'
+
+const reconciliationPain: Problem = {
+  $type: 'Problem',
+  $id: 'https://problems.org.ai/Reconcile_Bank_Statements',
+  name: 'Manual bank reconciliation eats junior staff time at small accounting firms',
+  icp: 'https://companytypes.org.ai/Accounting_Firm × https://jobtypes.org.ai/Staff_Bookkeeper',
+  surfaceTask: 'https://tasks.org.ai/Reconcile_Bank_Statements',
+  costOfStatusQuo: '~30% of staff bookkeeper time, $45K-$65K per bookkeeper annually',
+  currentWorkaround: 'QuickBooks bank feeds + manual exception handling',
+  severity: 0.7,
+  urgency: 0.5,
+}
+```
+
+### Example 2: A SaaS Vendor's Problem
+
+```typescript
+const customerHealthVisibility: Problem = {
+  $type: 'Problem',
+  name: 'Customer Success teams lack early-warning signals of churn',
+  icp: 'https://companytypes.org.ai/SaaS_Vendor × https://jobtypes.org.ai/Customer_Success_Manager',
+  costOfStatusQuo: 'Churn discovered too late to save; 15-20% annual gross churn',
+  currentWorkaround: 'Manual quarterly health checks; Salesforce custom fields',
+  severity: 0.8,
+  urgency: 0.7,
+}
+```
+
+### Example 3: Cross-ICP Problem with multiple Solutions
+
+```typescript
+const documentReviewBacklog: Problem = {
+  $type: 'Problem',
+  name: 'Lawyers spend 30+ hours/week on document review for contracts',
+  icp: 'https://companytypes.org.ai/Law_Firm × https://jobtypes.org.ai/Associate',
+  candidateSolutions: [
+    'https://startups.studio/Startups/Harvey',
+    'https://startups.studio/Startups/Spellbook',
+    // ... other contract-review AI Startups
+  ],
+  severity: 0.9,
+  urgency: 0.6,
+}
+```
+
+## Related
+
+- **[Opportunity](Opportunity.mdx)** — a Problem × Thesis-approach pair becomes an Opportunity
+- **[Market](Market.mdx)** — competitive landscape addressing the Problem
+- **[Thesis](Thesis.mdx)** — strategic approach to solving Problems
+- **[Task](Task.mdx)** — Tasks are where Problems most often surface
+
+## Resources
+
+- [Atlas: explore.startups.studio](https://explore.startups.studio/explore) — discovery surface where Problems are generated from ICPs
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Problem.

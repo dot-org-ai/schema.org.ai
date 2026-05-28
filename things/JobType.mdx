@@ -1,0 +1,112 @@
+---
+$id: https://schema.org.ai/JobType
+$context: https://schema.org.ai
+$type: Class
+name: JobType
+description: A role archetype within a CompanyType — derived from Occupation × CompanyType. More specific than schema:Occupation; less specific than a particular Job posting.
+subClassOf:
+  - https://schema.org/Occupation
+digital: 0.5
+---
+
+[Thing](Thing.mdx) > [Occupation](https://schema.org/Occupation)
+
+# JobType
+
+A JobType is a specific role *within* a [CompanyType](CompanyType.mdx) — derived from the cross-product of [Occupation](https://schema.org/Occupation) (what work is done) and CompanyType (where it's done). Sits between the abstract Occupation and a concrete Job posting.
+
+Examples:
+- **Occupation**: Bookkeeper (O\*NET 43-3031.00)
+- **CompanyType**: Accounting Firm
+- **JobType**: Staff Bookkeeper at an Accounting Firm
+
+Same Occupation can map to many JobTypes — "Bookkeeper at a Small Business" vs "Staff Bookkeeper at an Accounting Firm" vs "AR/AP Specialist at a Manufacturer" — each has different responsibilities, tools, KPIs even though the underlying Occupation is one.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "JobType" | - |
+| `name` | Text | Role-archetype name (e.g. "Staff Bookkeeper") | Thing |
+| `description` | Text | What the role does in this context | Thing |
+| `occupation` | Occupation | Parent O*NET occupation | JobType |
+| `companyType` | CompanyType | Parent CompanyType | JobType |
+| `department` | Department | Functional area | JobType |
+| `tasks` | Task[] | Typical tasks performed | JobType |
+| `skills` | Skill[] | Required skills | Occupation |
+| `salaryRange` | Text | Typical salary band | JobType |
+| `seniority` | Text | "Entry" / "Mid" / "Senior" / "Manager" / "Director" / "Executive" | JobType |
+
+## Examples
+
+### Example 1: Staff Bookkeeper at an Accounting Firm
+
+```typescript
+import type { JobType } from 'schema.org.ai'
+
+const staffBookkeeper: JobType = {
+  $type: 'JobType',
+  $id: 'https://jobtypes.org.ai/Staff_Bookkeeper',
+  name: 'Staff Bookkeeper',
+  description: 'Entry-level role at an accounting firm responsible for ledger maintenance, reconciliations, and AP/AR for client engagements.',
+  occupation: 'https://occupations.org.ai/Bookkeeping_Accounting_and_Auditing_Clerks',
+  companyType: 'https://companytypes.org.ai/Accounting_Firm',
+  department: 'https://departments.org.ai/Tax',
+  seniority: 'Entry',
+  salaryRange: '$42K-$55K',
+  tasks: [
+    'https://tasks.org.ai/Reconcile_Bank_Statements',
+    'https://tasks.org.ai/Process_Invoices',
+    'https://tasks.org.ai/Maintain_General_Ledger',
+  ],
+}
+```
+
+### Example 2: Sales Engineer at a SaaS Vendor
+
+```typescript
+const saasSE: JobType = {
+  $type: 'JobType',
+  name: 'Sales Engineer',
+  occupation: 'https://occupations.org.ai/Sales_Engineers',
+  companyType: 'https://companytypes.org.ai/SaaS_Vendor',
+  department: 'https://departments.org.ai/Sales',
+  seniority: 'Mid',
+}
+```
+
+### Example 3: Same Occupation, different JobTypes
+
+```typescript
+// schema:Occupation: Software Developer (15-1252.00)
+// Different JobTypes derived from it:
+
+const seniorBackend: JobType = {
+  $type: 'JobType',
+  name: 'Senior Backend Engineer',
+  occupation: 'https://occupations.org.ai/Software_Developers',
+  companyType: 'https://companytypes.org.ai/SaaS_Vendor',
+  department: 'https://departments.org.ai/Engineering',
+  seniority: 'Senior',
+}
+
+const embeddedFirmware: JobType = {
+  $type: 'JobType',
+  name: 'Embedded Firmware Engineer',
+  occupation: 'https://occupations.org.ai/Software_Developers',
+  companyType: 'https://companytypes.org.ai/Hardware_Manufacturer',
+  department: 'https://departments.org.ai/Engineering',
+  seniority: 'Mid',
+}
+```
+
+## Related
+
+- **[Occupation](https://schema.org/Occupation)** — parent type (broader than JobType)
+- **[CompanyType](CompanyType.mdx)** — JobTypes exist within CompanyTypes
+- **[Department](Department.mdx)** — functional grouping
+- **[Task](Task.mdx)** — work performed in this role
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/JobType.

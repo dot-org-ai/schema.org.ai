@@ -176,9 +176,9 @@
     },
     {
       "@type": "rdfs:Class",
-      "@id": "schemaai:Thesis",
-      "rdfs:label": "Thesis",
-      "rdfs:comment": "An investment or strategic thesis — a structured argument for a particular approach to building (e.g. Service-as-Software, Agent, Headless SaaS). Stackable: one Thesis composes a Solution from primitives at lower-layer Theses.",
+      "@id": "schemaai:InvestmentThesis",
+      "rdfs:label": "InvestmentThesis",
+      "rdfs:comment": "An investment or strategic thesis — a structured argument for a particular approach to building (e.g. Service-as-Software, Agent, Headless SaaS). Stackable: one Thesis composes a Solution from primitives at lower-layer Theses. Named `InvestmentThesis` (not `Thesis`) to avoid collision with schema:Thesis (academic dissertation).",
       "rdfs:subClassOf": { "@id": "schema:CreativeWork" }
     },
     {

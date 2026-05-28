@@ -1,0 +1,104 @@
+---
+$id: https://schema.org.ai/Task
+$context: https://schema.org.ai
+$type: Class
+name: Task
+description: A granular unit of work — typically an O*NET task statement. The typed work unit itself, addressable as canonical reference. Distinct from schema:Action (the act of performing).
+subClassOf:
+  - https://schema.org/Action
+digital: 0.6
+---
+
+[Thing](Thing.mdx) > [Action](https://schema.org/Action)
+
+# Task
+
+A Task is a granular unit of work — typically anchored to an [O\*NET](https://www.onetonline.org/) task statement or a comparable imperative work-action description. The typed unit of work itself, addressable as canonical reference.
+
+Distinct from [schema:Action](https://schema.org/Action) (which is *the act* of performing) — a Task is the *typed work itself*. Reconciling bank statements is a Task; the specific bank reconciliation Sally did on Tuesday is an Action that instantiates that Task.
+
+Tasks are where AI disruption analysis lives in the cascade. "What tasks will AI replace?" is the most-trafficked SEO surface in the constellation. Each canonical Task page on `tasks.org.ai` documents the work, the typical performer JobTypes, the tools used, the disruption potential, and the candidate AI Solutions.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Task" | - |
+| `name` | Text | Imperative task statement (e.g. "Reconcile bank statements") | Thing |
+| `description` | Text | What the task involves | Thing |
+| `onetCode` | Text | O*NET task ID (e.g. "43-3031.00-T-7") | Task |
+| `performedBy` | JobType[] | Roles that typically perform this task | Task |
+| `tools` | Tool[] | Tools used to perform the task | Task |
+| `skills` | Skill[] | Skills required | Task |
+| `process` | Process | Higher-level Process this task is part of | Task |
+| `automationPotential` | Number | 0.0–1.0 — how AI-automatable the task is | Task |
+| `frequency` | Text | "Daily" / "Weekly" / "Monthly" / "As needed" | Task |
+| `duration` | Text | Typical time-to-complete (e.g. "15-30 minutes") | Task |
+
+## Examples
+
+### Example 1: Reconcile bank statements
+
+```typescript
+import type { Task } from 'schema.org.ai'
+
+const reconcileBankStatements: Task = {
+  $type: 'Task',
+  $id: 'https://tasks.org.ai/Reconcile_Bank_Statements',
+  name: 'Reconcile bank statements',
+  description: 'Match transactions in the general ledger against the bank account statement, identifying and investigating discrepancies.',
+  onetCode: '43-3031.00-T-7',
+  performedBy: [
+    'https://jobtypes.org.ai/Staff_Bookkeeper',
+    'https://jobtypes.org.ai/Accounting_Clerk',
+  ],
+  tools: ['https://tools.org.ai/QuickBooks', 'https://tools.org.ai/Excel'],
+  process: 'https://processes.org.ai/Monthly_Close',
+  automationPotential: 0.95,
+  frequency: 'Monthly',
+  duration: '30-90 minutes per account',
+}
+```
+
+### Example 2: Write unit tests
+
+```typescript
+const writeUnitTests: Task = {
+  $type: 'Task',
+  name: 'Write unit tests for new features',
+  performedBy: ['https://jobtypes.org.ai/Software_Engineer'],
+  tools: ['https://tools.org.ai/Vitest', 'https://tools.org.ai/Jest'],
+  automationPotential: 0.7,
+  frequency: 'Per feature',
+}
+```
+
+### Example 3: Conduct quarterly business review
+
+```typescript
+const qbr: Task = {
+  $type: 'Task',
+  name: 'Conduct quarterly business review with customer',
+  performedBy: ['https://jobtypes.org.ai/Customer_Success_Manager'],
+  automationPotential: 0.3,  // partial — agenda + data prep automatable, conversation not
+  frequency: 'Quarterly',
+  duration: '60-90 minutes',
+}
+```
+
+## Related
+
+- **[Action](https://schema.org/Action)** — parent type (Task is a typed Action category)
+- **[Process](Process.mdx)** — Tasks compose into Processes
+- **[JobType](JobType.mdx)** — performs Tasks
+- **[Tool](Tool.mdx)** — used to perform Tasks
+- **[Problem](Problem.mdx)** — pain that surfaces around Tasks ICPs find difficult
+
+## Resources
+
+- [O*NET Task statements](https://www.onetonline.org/) — primary source (~19K task statements)
+- [Atlas: tasks.org.ai](https://tasks.org.ai/) — instance catalog of all canonical Tasks
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Task.
