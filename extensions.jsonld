@@ -105,6 +105,83 @@
       "rdfs:subClassOf": { "@id": "schema:Organization" }
     },
     {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:DigitalProperty",
+      "rdfs:label": "DigitalProperty",
+      "rdfs:comment": "A digital property — a website, app, API, deployed agent, or any addressable entity with a stable digital presence. The unifying type for things that have URLs and are accessible in the digital realm.",
+      "rdfs:subClassOf": { "@id": "schema:Thing" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Industry",
+      "rdfs:label": "Industry",
+      "rdfs:comment": "An industry classification (e.g. NAICS-coded sector of economic activity). The taxonomic category that groups businesses by what they produce. Distinct from schema:Organization (which is an instance of a Business operating within an Industry).",
+      "rdfs:subClassOf": { "@id": "schema:Intangible" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:CompanyType",
+      "rdfs:label": "CompanyType",
+      "rdfs:comment": "A company archetype derived from Industry × business model × regulatory regime. More specific than Industry (which is a NAICS-coded sector) and more general than a specific Business. Examples: Accounting Firm, Plumbing Contractor, Boutique Hotel.",
+      "rdfs:subClassOf": { "@id": "schema:Organization" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:JobType",
+      "rdfs:label": "JobType",
+      "rdfs:comment": "A job-type archetype — a specific role within a CompanyType. Derived from Occupation × CompanyType. Examples: Staff Bookkeeper at an Accounting Firm, Service Plumber at a Plumbing Contractor. More specific than schema:Occupation.",
+      "rdfs:subClassOf": { "@id": "schema:Occupation" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Department",
+      "rdfs:label": "Department",
+      "rdfs:comment": "A functional department within a CompanyType (e.g. Tax, Audit, Engineering). Groups related JobTypes and Tasks. Subtype of Organization because departments are sub-organizations.",
+      "rdfs:subClassOf": { "@id": "schema:Organization" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Task",
+      "rdfs:label": "Task",
+      "rdfs:comment": "A granular unit of work — typically an O*NET task statement or comparable imperative work action. Distinct from schema:Action (the act of performing) — a Task is the typed unit of work itself, addressable as canonical reference.",
+      "rdfs:subClassOf": { "@id": "schema:Action" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Process",
+      "rdfs:label": "Process",
+      "rdfs:comment": "A cross-functional business process — typically an APQC-coded multi-step operation (e.g. Manage Accounts Payable, Onboard New Customer). Distinct from schema:HowTo (which is consumer-facing instructions) — a Process is the typed enterprise operation.",
+      "rdfs:subClassOf": { "@id": "schema:HowTo" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Problem",
+      "rdfs:label": "Problem",
+      "rdfs:comment": "A canonical Problem — pain exposed by a sufficiently-pinned Ideal Customer Profile. Addressable so multiple candidate Solutions can be enumerated. Distinct from schema:Issue (which is a content issue) — a Problem is a market problem.",
+      "rdfs:subClassOf": { "@id": "schema:Thing" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Opportunity",
+      "rdfs:label": "Opportunity",
+      "rdfs:comment": "A market opportunity — a Problem coupled with a Thesis approach and target ICP, scoped to a buildable solution space. The 'where to build' artifact in startup discovery.",
+      "rdfs:subClassOf": { "@id": "schema:Thing" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Market",
+      "rdfs:label": "Market",
+      "rdfs:comment": "A market — the competitive field of incumbents, substitutes, and status-quo solutions addressing a Problem. Distinct from schema:Place (geographic) — a Market is a competitive landscape.",
+      "rdfs:subClassOf": { "@id": "schema:Intangible" }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Thesis",
+      "rdfs:label": "Thesis",
+      "rdfs:comment": "An investment or strategic thesis — a structured argument for a particular approach to building (e.g. Service-as-Software, Agent, Headless SaaS). Stackable: one Thesis composes a Solution from primitives at lower-layer Theses.",
+      "rdfs:subClassOf": { "@id": "schema:CreativeWork" }
+    },
+    {
       "@type": "rdf:Property",
       "@id": "schemaai:digital",
       "rdfs:label": "digital",
