@@ -1,0 +1,60 @@
+{
+  "_comment": "Policy input for the schema.org.ai context-document generator (ADR 0002 R1-R4). Hand-edit THIS file to change policy; never hand-edit generated outputs under site/public/. Regenerate with `pnpm run gen:context`.",
+
+  "schemaVersion": "0.1.0",
+  "bindingIri": "https://schema.org.ai",
+  "schemaOrg": "https://schema.org/",
+  "schemaAi": "https://schema.org.ai/",
+
+  "release": "01",
+
+  "pendingConfirmation": {
+    "_comment": "ADR 0002 R3 flags Product/Offer/Service (and Company) as bucket calls that Nathan confirms at profile ADMISSION. The generator MUST NOT silently admit these as extension. Until confirmed, each is held: if it exists in the schema.org mirror it is served as BORROW (the safe, non-authoritative default, mapping to the schema.org IRI); if it has no schema.org counterpart of that name (e.g. Company) it is omitted from the profile entirely. Listed prominently in every generated output header, profile.json, and the PR body.",
+    "wouldBeExtension": ["Product", "Offer", "Service", "Company"],
+    "borderlineNoted": ["Business"],
+    "borderlineReason": "Business is homed at schema.org.ai (native today) but subClassOf schema:Organization is structurally the same clean-mint-synonym pattern R3 uses to call Company an EXTENSION. Kept native pending Nathan's call; flagged so the Company decision can be made consistently for Business."
+  },
+
+  "borrowSeed": {
+    "_comment": "Blessed BORROW terms (ADR 0002 R3): schema.org terms admitted into the extensional profile and mapped to their canonical schema.org IRI. The 871-type things/ mirror is NOT admitted wholesale (R3 demotes it to provenance-stamped courtesy docs); only these blessed terms plus any schema.org parent structurally referenced by a native (subClassOf/domain/range) enter the profile. Seed rationale: Person/BlogPosting are live atlas emissions cited in ADR 0002; the rest are the schema.org base types our natives lean on or that authors routinely reach for.",
+    "terms": [
+      "Person",
+      "BlogPosting",
+      "Thing",
+      "Organization",
+      "Article",
+      "CreativeWork",
+      "WebPage",
+      "WebSite",
+      "ImageObject",
+      "Place",
+      "Event",
+      "Occupation",
+      "Action",
+      "HowTo",
+      "Intangible"
+    ]
+  },
+
+  "venueOverlay": {
+    "_comment": "ADR 0002 R4 — first venue overlay context (fast clock) for startups.studio. EXTENDS schema.org.ai; may add terms but may NEVER redefine a base term (non-contradiction invariant, enforced by the generator). Venue-homed IRIs are LEASES (no durability promise). Prefer property-extension over type-subclassing at the venue seam.",
+    "venueId": "https://startups.studio",
+    "venueIri": "https://startups.studio/",
+    "nativeTypes": {
+      "Playbook": {
+        "comment": "ADR 0002 R4's named example alpha type ('startups.studio/Playbook — dereferenceable from day one'). A venue-native, repeatable go-to-market/build recipe the cascade iterates; genuinely new concept the base layer lacks, so it is a venue-homed type (a lease).",
+        "subClassOf": "https://schema.org/CreativeWork"
+      },
+      "LaunchSpec": {
+        "comment": "Venue-native alpha type: the launch specification the studio cascade currently emits per Startup (bands, positioning, offer scaffold). New concept the base lacks; venue-homed lease pending graduation evidence (R5).",
+        "subClassOf": "https://schema.org/CreativeWork"
+      }
+    },
+    "nativeProperties": {
+      "launchSpec": {
+        "comment": "ADR 0002 R4 'property extension over type subclassing': rather than subclass a canon type, the venue keeps $type at the canon IRI (e.g. schema.org.ai/Opportunity) and adds this venue-homed PROPERTY. Graduating it later is a context-document diff, not an IRI move.",
+        "range": "https://startups.studio/LaunchSpec"
+      }
+    }
+  }
+}

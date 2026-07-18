@@ -1,0 +1,16 @@
+{
+  "_generated": {
+    "WARNING": "IMMUTABLE RELEASE SNAPSHOT — DO NOT EDIT OR REGENERATE. ADR 0002 R1 out-of-band versioning. Once committed, releases/* never changes. `pnpm run check:context` verifies this file against its recorded sha256."
+  },
+  "release": "01",
+  "$id": "https://schema.org.ai/releases/01",
+  "schemaVersion": "0.1.0",
+  "status": "immutable",
+  "sha256": "38797fe71721af5683fddc5c5282de8e8b2332b15ea3aede1289f024766e5ece",
+  "generatedFrom": [
+    "things/*.mdx  (natives/extensions where $context=https://schema.org.ai; borrow pointers where $context=https://schema.org)",
+    "extensions.jsonld  (structured projection of the native/extension MDX Things)",
+    "generator/config.json  (policy: borrowSeed, pendingConfirmation, venueOverlay)"
+  ],
+  "spec": "ADR 0002 R1"
+}

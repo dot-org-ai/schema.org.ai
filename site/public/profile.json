@@ -1,0 +1,322 @@
+{
+  "_generated": {
+    "WARNING": "GENERATED FILE — DO NOT EDIT BY HAND.",
+    "regenerate": "pnpm run gen:context",
+    "ciCheck": "pnpm run check:context  (regenerates and diffs; hand-edits fail CI)",
+    "source": [
+      "things/*.mdx  (natives/extensions where $context=https://schema.org.ai; borrow pointers where $context=https://schema.org)",
+      "extensions.jsonld  (structured projection of the native/extension MDX Things)",
+      "generator/config.json  (policy: borrowSeed, pendingConfirmation, venueOverlay)"
+    ],
+    "spec": "ADR 0002 (dot-org-ai/org.ai) R1-R4",
+    "profile": "ADR 0002 R3 three-bucket profile is EXTENSIONAL: a term mapped to a https://schema.org.ai/* IRI is native (or an admitted extension); a term mapped to a https://schema.org/* IRI is borrow. Full per-term census: ./profile.json",
+    "pendingNathanConfirmation": {
+      "note": "These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted.",
+      "heldAsBorrow": [
+        "Offer",
+        "Product",
+        "Service"
+      ],
+      "omitted": [
+        "Company"
+      ],
+      "borderlineNoted": [
+        "Business"
+      ]
+    }
+  },
+  "$id": "https://schema.org.ai/profile",
+  "schemaVersion": "0.1.0",
+  "spec": "ADR 0002 R3",
+  "census": {
+    "native": 25,
+    "nativeProperties": 9,
+    "borrow": 23,
+    "extensionAdmitted": 0,
+    "extensionPending": [
+      "Company",
+      "Offer",
+      "Product",
+      "Service"
+    ]
+  },
+  "buckets": {
+    "native": [
+      {
+        "term": "API",
+        "iri": "https://schema.org.ai/API"
+      },
+      {
+        "term": "Agent",
+        "iri": "https://schema.org.ai/Agent"
+      },
+      {
+        "term": "Business",
+        "iri": "https://schema.org.ai/Business"
+      },
+      {
+        "term": "CLI",
+        "iri": "https://schema.org.ai/CLI"
+      },
+      {
+        "term": "Capability",
+        "iri": "https://schema.org.ai/Capability"
+      },
+      {
+        "term": "CompanyType",
+        "iri": "https://schema.org.ai/CompanyType"
+      },
+      {
+        "term": "Department",
+        "iri": "https://schema.org.ai/Department"
+      },
+      {
+        "term": "DigitalProperty",
+        "iri": "https://schema.org.ai/DigitalProperty"
+      },
+      {
+        "term": "Generation",
+        "iri": "https://schema.org.ai/Generation"
+      },
+      {
+        "term": "Industry",
+        "iri": "https://schema.org.ai/Industry"
+      },
+      {
+        "term": "InvestmentThesis",
+        "iri": "https://schema.org.ai/InvestmentThesis"
+      },
+      {
+        "term": "JobType",
+        "iri": "https://schema.org.ai/JobType"
+      },
+      {
+        "term": "LandingPage",
+        "iri": "https://schema.org.ai/LandingPage"
+      },
+      {
+        "term": "MCP",
+        "iri": "https://schema.org.ai/MCP"
+      },
+      {
+        "term": "Market",
+        "iri": "https://schema.org.ai/Market"
+      },
+      {
+        "term": "Model",
+        "iri": "https://schema.org.ai/Model"
+      },
+      {
+        "term": "Opportunity",
+        "iri": "https://schema.org.ai/Opportunity"
+      },
+      {
+        "term": "Problem",
+        "iri": "https://schema.org.ai/Problem"
+      },
+      {
+        "term": "Process",
+        "iri": "https://schema.org.ai/Process"
+      },
+      {
+        "term": "Prompt",
+        "iri": "https://schema.org.ai/Prompt"
+      },
+      {
+        "term": "SDK",
+        "iri": "https://schema.org.ai/SDK"
+      },
+      {
+        "term": "Task",
+        "iri": "https://schema.org.ai/Task"
+      },
+      {
+        "term": "Tool",
+        "iri": "https://schema.org.ai/Tool"
+      },
+      {
+        "term": "Webhook",
+        "iri": "https://schema.org.ai/Webhook"
+      },
+      {
+        "term": "Workflow",
+        "iri": "https://schema.org.ai/Workflow"
+      }
+    ],
+    "nativeProperties": [
+      {
+        "term": "capability",
+        "iri": "https://schema.org.ai/capability",
+        "objectProperty": true
+      },
+      {
+        "term": "digital",
+        "iri": "https://schema.org.ai/digital",
+        "objectProperty": false
+      },
+      {
+        "term": "goal",
+        "iri": "https://schema.org.ai/goal",
+        "objectProperty": false
+      },
+      {
+        "term": "model",
+        "iri": "https://schema.org.ai/model",
+        "objectProperty": true
+      },
+      {
+        "term": "prompt",
+        "iri": "https://schema.org.ai/prompt",
+        "objectProperty": true
+      },
+      {
+        "term": "temperature",
+        "iri": "https://schema.org.ai/temperature",
+        "objectProperty": false
+      },
+      {
+        "term": "tokens",
+        "iri": "https://schema.org.ai/tokens",
+        "objectProperty": false
+      },
+      {
+        "term": "tool",
+        "iri": "https://schema.org.ai/tool",
+        "objectProperty": true
+      },
+      {
+        "term": "workflow",
+        "iri": "https://schema.org.ai/workflow",
+        "objectProperty": true
+      }
+    ],
+    "borrow": [
+      {
+        "term": "Action",
+        "iri": "https://schema.org/Action"
+      },
+      {
+        "term": "Article",
+        "iri": "https://schema.org/Article"
+      },
+      {
+        "term": "BlogPosting",
+        "iri": "https://schema.org/BlogPosting"
+      },
+      {
+        "term": "CreativeWork",
+        "iri": "https://schema.org/CreativeWork"
+      },
+      {
+        "term": "Event",
+        "iri": "https://schema.org/Event"
+      },
+      {
+        "term": "HowTo",
+        "iri": "https://schema.org/HowTo"
+      },
+      {
+        "term": "ImageObject",
+        "iri": "https://schema.org/ImageObject"
+      },
+      {
+        "term": "Intangible",
+        "iri": "https://schema.org/Intangible"
+      },
+      {
+        "term": "Integer",
+        "iri": "https://schema.org/Integer"
+      },
+      {
+        "term": "Number",
+        "iri": "https://schema.org/Number"
+      },
+      {
+        "term": "Occupation",
+        "iri": "https://schema.org/Occupation"
+      },
+      {
+        "term": "Offer",
+        "iri": "https://schema.org/Offer"
+      },
+      {
+        "term": "Organization",
+        "iri": "https://schema.org/Organization"
+      },
+      {
+        "term": "Person",
+        "iri": "https://schema.org/Person"
+      },
+      {
+        "term": "Place",
+        "iri": "https://schema.org/Place"
+      },
+      {
+        "term": "Product",
+        "iri": "https://schema.org/Product"
+      },
+      {
+        "term": "Service",
+        "iri": "https://schema.org/Service"
+      },
+      {
+        "term": "SoftwareApplication",
+        "iri": "https://schema.org/SoftwareApplication"
+      },
+      {
+        "term": "Text",
+        "iri": "https://schema.org/Text"
+      },
+      {
+        "term": "Thing",
+        "iri": "https://schema.org/Thing"
+      },
+      {
+        "term": "WebAPI",
+        "iri": "https://schema.org/WebAPI"
+      },
+      {
+        "term": "WebPage",
+        "iri": "https://schema.org/WebPage"
+      },
+      {
+        "term": "WebSite",
+        "iri": "https://schema.org/WebSite"
+      }
+    ],
+    "extension": [],
+    "extensionPending": [
+      {
+        "term": "Company",
+        "status": "omitted",
+        "wouldBeIri": "https://schema.org.ai/Company",
+        "borrowIri": null
+      },
+      {
+        "term": "Offer",
+        "status": "held-as-borrow",
+        "wouldBeIri": "https://schema.org.ai/Offer",
+        "borrowIri": "https://schema.org/Offer"
+      },
+      {
+        "term": "Product",
+        "status": "held-as-borrow",
+        "wouldBeIri": "https://schema.org.ai/Product",
+        "borrowIri": "https://schema.org/Product"
+      },
+      {
+        "term": "Service",
+        "status": "held-as-borrow",
+        "wouldBeIri": "https://schema.org.ai/Service",
+        "borrowIri": "https://schema.org/Service"
+      }
+    ],
+    "borderlineNoted": [
+      {
+        "term": "Business",
+        "currentBucket": "native",
+        "reason": "Business is homed at schema.org.ai (native today) but subClassOf schema:Organization is structurally the same clean-mint-synonym pattern R3 uses to call Company an EXTENSION. Kept native pending Nathan's call; flagged so the Company decision can be made consistently for Business."
+      }
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "_generated": {
+    "WARNING": "GENERATED FILE — DO NOT EDIT BY HAND.",
+    "regenerate": "pnpm run gen:context",
+    "ciCheck": "pnpm run check:context  (regenerates and diffs; hand-edits fail CI)",
+    "source": [
+      "things/*.mdx  (natives/extensions where $context=https://schema.org.ai; borrow pointers where $context=https://schema.org)",
+      "extensions.jsonld  (structured projection of the native/extension MDX Things)",
+      "generator/config.json  (policy: borrowSeed, pendingConfirmation, venueOverlay)"
+    ],
+    "spec": "ADR 0002 (dot-org-ai/org.ai) R1-R4",
+    "profile": "ADR 0002 R3 three-bucket profile is EXTENSIONAL: a term mapped to a https://schema.org.ai/* IRI is native (or an admitted extension); a term mapped to a https://schema.org/* IRI is borrow. Full per-term census: ./profile.json",
+    "pendingNathanConfirmation": {
+      "note": "These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted.",
+      "heldAsBorrow": [
+        "Offer",
+        "Product",
+        "Service"
+      ],
+      "omitted": [
+        "Company"
+      ],
+      "borderlineNoted": [
+        "Business"
+      ]
+    }
+  },
+  "$id": "https://schema.org.ai",
+  "$type": "schemaai:Profile",
+  "name": "schema.org.ai",
+  "description": "The schema.org.ai context document — the extensional native/borrow/extension profile (ADR 0002 R3) layered over schema.org (R4 slow clock). Bind with \"@context\": \"https://schema.org.ai\" (stable, unversioned — R1).",
+  "schemaVersion": "0.1.0",
+  "@context": {
+    "$id": "@id",
+    "$type": "@type",
+    "@version": 1.1,
+    "API": "https://schema.org.ai/API",
+    "Action": "https://schema.org/Action",
+    "Agent": "https://schema.org.ai/Agent",
+    "Article": "https://schema.org/Article",
+    "BlogPosting": "https://schema.org/BlogPosting",
+    "Business": "https://schema.org.ai/Business",
+    "CLI": "https://schema.org.ai/CLI",
+    "Capability": "https://schema.org.ai/Capability",
+    "CompanyType": "https://schema.org.ai/CompanyType",
+    "CreativeWork": "https://schema.org/CreativeWork",
+    "Department": "https://schema.org.ai/Department",
+    "DigitalProperty": "https://schema.org.ai/DigitalProperty",
+    "Event": "https://schema.org/Event",
+    "Generation": "https://schema.org.ai/Generation",
+    "HowTo": "https://schema.org/HowTo",
+    "ImageObject": "https://schema.org/ImageObject",
+    "Industry": "https://schema.org.ai/Industry",
+    "Intangible": "https://schema.org/Intangible",
+    "Integer": "https://schema.org/Integer",
+    "InvestmentThesis": "https://schema.org.ai/InvestmentThesis",
+    "JobType": "https://schema.org.ai/JobType",
+    "LandingPage": "https://schema.org.ai/LandingPage",
+    "MCP": "https://schema.org.ai/MCP",
+    "Market": "https://schema.org.ai/Market",
+    "Model": "https://schema.org.ai/Model",
+    "Number": "https://schema.org/Number",
+    "Occupation": "https://schema.org/Occupation",
+    "Offer": "https://schema.org/Offer",
+    "Opportunity": "https://schema.org.ai/Opportunity",
+    "Organization": "https://schema.org/Organization",
+    "Person": "https://schema.org/Person",
+    "Place": "https://schema.org/Place",
+    "Problem": "https://schema.org.ai/Problem",
+    "Process": "https://schema.org.ai/Process",
+    "Product": "https://schema.org/Product",
+    "Prompt": "https://schema.org.ai/Prompt",
+    "SDK": "https://schema.org.ai/SDK",
+    "Service": "https://schema.org/Service",
+    "SoftwareApplication": "https://schema.org/SoftwareApplication",
+    "Task": "https://schema.org.ai/Task",
+    "Text": "https://schema.org/Text",
+    "Thing": "https://schema.org/Thing",
+    "Tool": "https://schema.org.ai/Tool",
+    "WebAPI": "https://schema.org/WebAPI",
+    "WebPage": "https://schema.org/WebPage",
+    "WebSite": "https://schema.org/WebSite",
+    "Webhook": "https://schema.org.ai/Webhook",
+    "Workflow": "https://schema.org.ai/Workflow",
+    "capability": {
+      "@id": "https://schema.org.ai/capability",
+      "@type": "@id"
+    },
+    "digital": {
+      "@id": "https://schema.org.ai/digital"
+    },
+    "goal": {
+      "@id": "https://schema.org.ai/goal"
+    },
+    "model": {
+      "@id": "https://schema.org.ai/model",
+      "@type": "@id"
+    },
+    "prompt": {
+      "@id": "https://schema.org.ai/prompt",
+      "@type": "@id"
+    },
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/",
+    "temperature": {
+      "@id": "https://schema.org.ai/temperature"
+    },
+    "tokens": {
+      "@id": "https://schema.org.ai/tokens"
+    },
+    "tool": {
+      "@id": "https://schema.org.ai/tool",
+      "@type": "@id"
+    },
+    "workflow": {
+      "@id": "https://schema.org.ai/workflow",
+      "@type": "@id"
+    }
+  }
+}

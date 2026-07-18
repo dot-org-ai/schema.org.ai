@@ -1,0 +1,35 @@
+name: check:context
+
+# ADR 0002 R1-R4 CI gate. The context documents under site/public/ are GENERATED
+# (generator/build-context.mjs). This workflow regenerates from source and fails
+# if the committed outputs drift (hand-edit / stale generator), if a frozen
+# releases/* snapshot was altered, or if the venue overlay redefines a base term.
+
+on:
+  pull_request:
+    paths:
+      - 'things/**'
+      - 'extensions.jsonld'
+      - 'generator/**'
+      - 'site/public/**'
+      - '.github/workflows/check-context.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No dependencies: the generator and its vendored @mdxld/jsonld slice are
+      # zero-dep, pure Node ESM.
+      - name: check:context
+        run: node generator/check-context.mjs
