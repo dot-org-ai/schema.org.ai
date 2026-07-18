@@ -1,0 +1,33 @@
+---
+$id: https://schema.org.ai/Startup
+$context: https://schema.org.ai
+$type: Class
+name: Startup
+description: A startup company threading the lifecycle stages idea → validating → building → scaling → established, with pitch, industry, and its ICPs.
+subClassOf:
+  - https://schema.org/Organization
+digital: 0.9
+---
+
+[Thing](Thing.mdx) > [Organization](https://schema.org/Organization)
+
+# Startup
+
+A Startup is a startup company with an explicit lifecycle stage — `idea`, `validating`, `building`, `scaling`, or `established` — plus its elevator pitch, industry, founding date, and the [ICP](ICP.mdx)s it targets.
+
+In the G1–G5 ladder, a Startup is the unit a venue mints (G4: brand + offer stamped onto an abstract artifact) and tenants operate (G5). It is the flagship native type of the vocabulary and a live atlas emission.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Startup" | - |
+| `$id` | URL | Unique identifier for the startup | Thing |
+| `name` | Text | Startup name | Thing |
+| `description` | Text | Description of the startup | Thing |
+| `stage` | Text | Lifecycle stage (`idea` \| `validating` \| `building` \| `scaling` \| `established`) | Startup |
+| `pitch` | Text | Elevator pitch | Startup |
+| `founded` | Date | Date founded | Startup |
+| `website` | URL | Website URL | Startup |
+| `industry` | Text | Industry/sector | Startup |
+| `icps` | ICP[] | Ideal Customer Profiles for this startup | Startup |

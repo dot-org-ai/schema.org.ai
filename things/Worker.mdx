@@ -1,0 +1,28 @@
+---
+$id: https://schema.org.ai/Worker
+$context: https://schema.org.ai
+$type: Class
+name: Worker
+description: The base work-executor type over the agent/human duality — Worker { type agent | human } with status, capabilities, and current task.
+subClassOf:
+  - https://schema.org/Thing
+digital: 0.8
+---
+
+[Thing](Thing.mdx)
+
+# Worker
+
+A Worker is the base type for anything that executes work: `Worker { type: 'agent' | 'human' }` with a status, a set of capabilities, and a reference to its current task. [Agent](Agent.mdx)s and humans are both Workers — the interface over them is uniform (`notify` / `ask` / `approve` / `decide` / `do`), which is what lets a [Role](Role.mdx) be filled by either kind and a [Team](Team.mdx) mix both.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Worker" (or a subtype: Agent, Human) | - |
+| `$id` | URL | Unique identifier for the worker | Thing |
+| `name` | Text | Worker name | Thing |
+| `type` | Text | `agent` \| `human` | Worker |
+| `status` | Text | Worker status | Worker |
+| `capabilities` | Text[] | What the worker can do | Worker |
+| `currentTask` | Task | Reference to the current task | Worker |

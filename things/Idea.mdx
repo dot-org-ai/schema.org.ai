@@ -1,0 +1,30 @@
+---
+$id: https://schema.org.ai/Idea
+$context: https://schema.org.ai
+$type: Class
+name: Idea
+description: A business concept with a name, an elevator pitch, and a lifecycle status, validated through Hypotheses on its way to becoming a Startup.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 0.7
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# Idea
+
+An Idea is a business concept: a name, an elevator pitch ("TodoAI uses AI to prioritize your tasks automatically"), an optional longer description, and a lifecycle status from raw onward. Ideas are validated through their [Hypothesis](Hypothesis.mdx) list — evidence, not conviction — on the way to becoming a [Startup](Startup.mdx).
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Idea" | - |
+| `$id` | URL | Unique identifier for the idea | Thing |
+| `name` | Text | Idea name | Thing |
+| `pitch` | Text | Elevator pitch | Idea |
+| `description` | Text | Detailed description | Idea |
+| `status` | Text | Current lifecycle status | Idea |
+| `tags` | Text[] | Tags for categorization | Idea |
+| `startup` | Startup | The startup this idea belongs to | Idea |
+| `hypotheses` | Hypothesis[] | Hypotheses validating this idea | Idea |

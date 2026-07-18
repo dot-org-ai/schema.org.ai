@@ -1,0 +1,38 @@
+---
+$id: https://schema.org.ai/ICP
+$context: https://schema.org.ai
+$type: Class
+name: ICP
+description: An Ideal Customer Profile in the as/at/are/using/to framework — who they are, where they work, their current situation, what they use today, and the outcome they want.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 0.7
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# ICP
+
+An ICP (Ideal Customer Profile) describes the ideal customer for a [Startup](Startup.mdx) using the structured **as/at/are/using/to** framework:
+
+- **as** — persona/role description (who they are)
+- **at** — company/context description (where they work)
+- **are** — current state and pain points (their situation)
+- **using** — current solutions (what they use today)
+- **to** — desired outcome / job to be done (what they want to achieve)
+
+The framework forces a startup to articulate its target customer concretely enough to drive product and marketing decisions.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "ICP" | - |
+| `$id` | URL | Unique identifier for the profile | Thing |
+| `name` | Text | Profile name | Thing |
+| `as` | Text | Persona/role — who they are | ICP |
+| `at` | Text | Company/context — where they work | ICP |
+| `are` | Text | Current state / pain points | ICP |
+| `using` | Text | Current solutions | ICP |
+| `to` | Text | Desired outcome / job to be done | ICP |
+| `startup` | Startup | The startup this ICP belongs to | ICP |

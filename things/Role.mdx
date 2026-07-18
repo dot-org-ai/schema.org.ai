@@ -1,0 +1,35 @@
+---
+$id: https://schema.org.ai/Role
+$context: https://schema.org.ai
+$type: Class
+name: Role
+description: A job role definition — a named position/function with required skills, responsibilities, permissions, tool grants, delegation/approval/escalation edges, and a preferred worker type (agent or human).
+digital: 0.8
+---
+
+[Thing](Thing.mdx)
+
+# Role
+
+A Role is a job role definition: a named position or function with the skills it requires, the responsibilities it carries, the permissions and tools it is granted, what it can handle, delegate, and approve, whom it escalates and reports to, and the preferred worker type (`agent` or `human`) to fill it.
+
+Per the ADR 0002 R3 bucket ruling, Role is **native and shadows**: [schema.org/Role](https://schema.org/Role) is a reified edge-qualifier (a way of annotating a relationship between two other things) — a different concept that happens to share the name. The context term `Role` maps to this type; schema.org's Role stays reachable by its full IRI.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Role" | - |
+| `$id` | URL | Unique identifier for the role | Thing |
+| `name` | Text | Role name | Thing |
+| `description` | Text | Role description | Thing |
+| `skills` | Text[] | Skills required for this role | Role |
+| `permissions` | Text[] | Permissions granted to this role | Role |
+| `tools` | Text[] | Tools available to this role | Role |
+| `responsibilities` | Text[] | List of responsibilities | Role |
+| `canHandle` | Text[] | Task types this role can handle | Role |
+| `canDelegate` | Text[] | Task types this role can delegate | Role |
+| `canApprove` | Text[] | Request types this role can approve | Role |
+| `escalateTo` | Role | Role to escalate issues to | Role |
+| `reportsTo` | Role | Role this role reports to | Role |
+| `workerType` | Text | Preferred worker type (`agent` \| `human`) | Role |

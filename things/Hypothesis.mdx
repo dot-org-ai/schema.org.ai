@@ -1,0 +1,33 @@
+---
+$id: https://schema.org.ai/Hypothesis
+$context: https://schema.org.ai
+$type: Class
+name: Hypothesis
+description: A testable assumption with evidence collection — a statement, the metric it moves, a target value, testing status, and collected evidence.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 0.7
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# Hypothesis
+
+A Hypothesis is a testable assumption that can be validated or invalidated: a statement ("Users will pay $10/month for AI task prioritization"), the metric it moves (`conversion_rate`), the target value to hit, the current testing status, and the evidence collected along the way.
+
+Hypotheses are the validation units behind an [Idea](Idea.mdx) — an idea graduates by having its hypotheses tested against real evidence, not by conviction.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Hypothesis" | - |
+| `$id` | URL | Unique identifier for the hypothesis | Thing |
+| `statement` | Text | The hypothesis statement to test | Hypothesis |
+| `metric` | Text | Metric to measure | Hypothesis |
+| `target` | Number | Target value to achieve | Hypothesis |
+| `status` | Text | Current testing status | Hypothesis |
+| `baseline` | Number | Baseline value before the experiment | Hypothesis |
+| `deadline` | Date | Deadline for testing | Hypothesis |
+| `evidence` | Evidence[] | Collected evidence | Hypothesis |
+| `idea` | Idea | The idea this hypothesis validates | Hypothesis |

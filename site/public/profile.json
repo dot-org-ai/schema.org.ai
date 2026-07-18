@@ -29,10 +29,10 @@
   "schemaVersion": "0.1.0",
   "spec": "ADR 0002 R3",
   "census": {
-    "native": 25,
+    "native": 32,
     "nativeProperties": 9,
     "borrow": 23,
-    "extensionAdmitted": 0,
+    "extensionAdmitted": 1,
     "extensionPending": [
       "Company",
       "Offer",
@@ -79,12 +79,28 @@
         "iri": "https://schema.org.ai/Generation"
       },
       {
+        "term": "Hypothesis",
+        "iri": "https://schema.org.ai/Hypothesis"
+      },
+      {
+        "term": "ICP",
+        "iri": "https://schema.org.ai/ICP"
+      },
+      {
+        "term": "Idea",
+        "iri": "https://schema.org.ai/Idea"
+      },
+      {
         "term": "Industry",
         "iri": "https://schema.org.ai/Industry"
       },
       {
         "term": "InvestmentThesis",
         "iri": "https://schema.org.ai/InvestmentThesis"
+      },
+      {
+        "term": "JTBD",
+        "iri": "https://schema.org.ai/JTBD"
       },
       {
         "term": "JobType",
@@ -123,8 +139,16 @@
         "iri": "https://schema.org.ai/Prompt"
       },
       {
+        "term": "Role",
+        "iri": "https://schema.org.ai/Role"
+      },
+      {
         "term": "SDK",
         "iri": "https://schema.org.ai/SDK"
+      },
+      {
+        "term": "Startup",
+        "iri": "https://schema.org.ai/Startup"
       },
       {
         "term": "Task",
@@ -137,6 +161,10 @@
       {
         "term": "Webhook",
         "iri": "https://schema.org.ai/Webhook"
+      },
+      {
+        "term": "Worker",
+        "iri": "https://schema.org.ai/Worker"
       },
       {
         "term": "Workflow",
@@ -284,7 +312,13 @@
         "iri": "https://schema.org/WebSite"
       }
     ],
-    "extension": [],
+    "extension": [
+      {
+        "term": "Team",
+        "iri": "https://schema.org.ai/Team",
+        "subClassOf": "https://schema.org/Organization"
+      }
+    ],
     "extensionPending": [
       {
         "term": "Company",

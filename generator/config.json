@@ -6,7 +6,13 @@
   "schemaOrg": "https://schema.org/",
   "schemaAi": "https://schema.org.ai/",
 
-  "release": "01",
+  "release": null,
+  "_releaseComment": "F6 (2026-07-18 consistency review): releases/NN is WRITE-ONCE (ADR 0002 R1), so no snapshot is frozen until the profile is admission-complete (the Product/Offer/Service/Company calls + any errata). Set to \"01\" at publish time; null skips release emission entirely.",
+
+  "admittedExtensions": {
+    "_comment": "ADR 0002 R3 admitted EXTENSIONS (per the Task/Role/Team bucket rulings riding org.ai#6): schema.org.ai-homed types declaring subClassOf a schema.org counterpart, admitted by ratified ruling — never silently. Keys are term names; the subClassOf edge lives in extensions.jsonld as usual.",
+    "terms": ["Team"]
+  },
 
   "pendingConfirmation": {
     "_comment": "ADR 0002 R3 flags Product/Offer/Service (and Company) as bucket calls that Nathan confirms at profile ADMISSION. The generator MUST NOT silently admit these as extension. Until confirmed, each is held: if it exists in the schema.org mirror it is served as BORROW (the safe, non-authoritative default, mapping to the schema.org IRI); if it has no schema.org counterpart of that name (e.g. Company) it is omitted from the profile entirely. Listed prominently in every generated output header, profile.json, and the PR body.",

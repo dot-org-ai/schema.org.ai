@@ -1,0 +1,32 @@
+---
+$id: https://schema.org.ai/Team
+$context: https://schema.org.ai
+$type: Class
+name: Team
+description: A team — a named group of workers (agents and humans) with members, an optional lead, goals, and communication channels.
+subClassOf:
+  - https://schema.org/Organization
+digital: 0.8
+---
+
+[Thing](Thing.mdx) > [Organization](https://schema.org/Organization)
+
+# Team
+
+A Team is a named group of workers — agents and humans together — with a member roster, an optional lead, shared goals, communication channels, and shared context.
+
+Per the ADR 0002 R3 bucket ruling, Team is an **admitted extension**: `subClassOf` [schema:Organization](https://schema.org/Organization), because schema.org has no generic Team type. Crawlers walking the subclass edge still understand the parent type.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Team" | - |
+| `$id` | URL | Unique identifier for the team | Thing |
+| `name` | Text | Team name | Thing |
+| `description` | Text | Team description | Thing |
+| `members` | Worker[] | List of team members (agents and humans) | Team |
+| `lead` | Worker | Team lead | Team |
+| `goals` | URL[] | Team goals (as URLs to Goal entities) | Team |
+| `channels` | Channel[] | Communication channels | Team |
+| `contacts` | Map | Contact information (channel → address) | Team |

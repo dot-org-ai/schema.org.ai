@@ -1,0 +1,38 @@
+---
+$id: https://schema.org.ai/JTBD
+$context: https://schema.org.ai
+$type: Class
+name: JTBD
+description: A Job To Be Done in the When/I-want/So-I-can pattern — situation, motivation, outcome — optionally scored on functional, emotional, and social dimensions.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 0.7
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# JTBD
+
+A JTBD (Job To Be Done) captures a job the customer is trying to accomplish using the **When… / I want to… / So I can…** pattern:
+
+- **situation** — *When* I have too many tasks
+- **motivation** — *I want to* find the most important one
+- **outcome** — *So I can* make meaningful progress
+
+Jobs can additionally be scored on their functional, emotional, and social dimensions, prioritized (1–5), and tagged with how often they occur. A JTBD typically belongs to an [ICP](ICP.mdx) persona.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "JTBD" | - |
+| `$id` | URL | Unique identifier for the job | Thing |
+| `situation` | Text | When… | JTBD |
+| `motivation` | Text | I want to… | JTBD |
+| `outcome` | Text | So I can… | JTBD |
+| `functional` | JobDimension | Practical task-completion dimension | JTBD |
+| `emotional` | JobDimension | Feelings / peace-of-mind dimension | JTBD |
+| `social` | JobDimension | How-others-perceive-me dimension | JTBD |
+| `priority` | Number | Priority rating (1–5) | JTBD |
+| `frequency` | Text | How often this job occurs | JTBD |
+| `persona` | ICP | The persona/ICP this job belongs to | JTBD |

@@ -46,6 +46,7 @@ const PREFIXES = extensions['@context'] // { schema, schemaai, rdfs, rdf }
 const SCHEMA = config.schemaOrg // https://schema.org/
 const SCHEMAAI = config.schemaAi // https://schema.org.ai/
 const PENDING = new Set(config.pendingConfirmation.wouldBeExtension)
+const ADMITTED_EXTENSIONS = new Set(config.admittedExtensions?.terms ?? [])
 
 // ---------------------------------------------------------------------------
 // 1. Native + extension vocabulary from extensions.jsonld, cross-checked
@@ -86,6 +87,7 @@ crossCheck(jsonldClasses, mdxNativeThings)
 //                 candidates are held (see §pending below).
 // ---------------------------------------------------------------------------
 const native = [] // { term, iri, comment }
+const extension = [] // { term, iri, comment, subClassOf } — ADMITTED extensions only (R3 rulings)
 const nativeProps = [] // { term, iri, comment, coerceId }
 const referencedSchemaParents = new Set()
 
@@ -94,6 +96,16 @@ for (const node of graph) {
   const term = localName(node['@id'])
   if (node['@type'] === 'rdfs:Class') {
     if (PENDING.has(term)) continue // never silently admit a pending extension
+    if (ADMITTED_EXTENSIONS.has(term)) {
+      const sub = node['rdfs:subClassOf']
+      extension.push({
+        term,
+        iri: SCHEMAAI + term,
+        comment: node['rdfs:comment'],
+        subClassOf: expandCurie((Array.isArray(sub) ? sub[0] : sub)?.['@id'] ?? sub ?? null),
+      })
+      continue
+    }
     native.push({ term, iri: SCHEMAAI + term, comment: node['rdfs:comment'] })
   } else if (node['@type'] === 'rdf:Property') {
     nativeProps.push({
@@ -173,6 +185,7 @@ function buildContextObject() {
     schemaai: SCHEMAAI,
   }
   for (const n of native) ctx[n.term] = n.iri
+  for (const e of extension) ctx[e.term] = e.iri // admitted extensions are schema.org.ai-homed (R3)
   for (const p of nativeProps) {
     ctx[p.term] = p.coerceId ? { '@id': p.iri, '@type': '@id' } : { '@id': p.iri }
   }
@@ -203,7 +216,7 @@ const profile = {
     native: native.length,
     nativeProperties: nativeProps.length,
     borrow: borrow.length,
-    extensionAdmitted: 0,
+    extensionAdmitted: extension.length,
     extensionPending: [...PENDING].sort(),
   },
   buckets: {
@@ -212,7 +225,9 @@ const profile = {
       .map((p) => ({ term: p.term, iri: p.iri, objectProperty: p.coerceId }))
       .sort(byTerm),
     borrow: borrow.map((b) => ({ term: b.term, iri: b.iri })).sort(byTerm),
-    extension: [],
+    extension: extension
+      .map((e) => ({ term: e.term, iri: e.iri, subClassOf: e.subClassOf }))
+      .sort(byTerm),
     extensionPending: [...PENDING].sort().map((term) => ({
       term,
       status: schemaMirror.has(term) ? 'held-as-borrow' : 'omitted',
@@ -243,12 +258,12 @@ const outputs = {
 
 if (CHECK_ONLY) {
   // Expose in-memory results for check-context.mjs via stdout JSON.
-  const release = buildReleaseSnapshot(contextDoc)
+  const release = config.release ? buildReleaseSnapshot(contextDoc) : null
   process.stdout.write(
     JSON.stringify({
       outputs,
       release,
-      censusLine: `native=${native.length} nativeProps=${nativeProps.length} borrow=${borrow.length} extension=0 pending=${[...PENDING].join('/')}`,
+      censusLine: `native=${native.length} nativeProps=${nativeProps.length} borrow=${borrow.length} extension=${extension.length} pending=${[...PENDING].join('/')}`,
     }),
   )
   process.exit(0)
@@ -262,11 +277,16 @@ for (const [rel, content] of Object.entries(outputs)) {
 }
 
 // releases/NN is WRITE-ONCE (R1 immutable snapshot). Only create it if missing;
-// never overwrite an existing frozen release.
-writeReleaseSnapshot(contextDoc)
+// never overwrite an existing frozen release. With release=null (pre-admission,
+// F6) no snapshot is emitted at all — freezing waits for admission-complete.
+if (config.release) {
+  writeReleaseSnapshot(contextDoc)
+} else {
+  console.log('release=null — no releases/NN snapshot emitted (frozen only when admission-complete, ADR 0002 R1 write-once).')
+}
 
 console.log(
-  `\nprofile census: native=${native.length} nativeProps=${nativeProps.length} borrow=${borrow.length} extension=0 (admitted) pending=${[...PENDING].sort().join(', ')}`,
+  `\nprofile census: native=${native.length} nativeProps=${nativeProps.length} borrow=${borrow.length} extension=${extension.length} (admitted) pending=${[...PENDING].sort().join(', ')}`,
 )
 
 // ===========================================================================
