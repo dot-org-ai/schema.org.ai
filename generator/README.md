@@ -8,8 +8,8 @@ Implements the context-document generation pipeline mandated by **ADR 0002
  ───────────────────────          ─────────────────────────────        ─────────────────────
  things/*.mdx  (natives/ext   ->  generator/lib/mdxld-transform.mjs ->  site/public/context.jsonld
    where $context=schema.org.ai;   (front-matter parse + $↔@ rename)     site/public/profile.json
-   borrow where =schema.org)                                            site/public/releases/01/*
- extensions.jsonld (structured                                          site/public/overlays/startups.studio/context.jsonld
+   borrow where =schema.org)                                            site/public/overlays/startups.studio/context.jsonld
+ extensions.jsonld (structured                                          site/public/releases/NN/*  (publish-time only, see below)
    projection of those Things)
  generator/config.json (policy)
 ```
@@ -40,10 +40,14 @@ Zero dependencies — pure Node ESM. Runs in CI with no `pnpm install`.
   (R3): every term listed as native / borrow / extension, plus the
   pending-confirmation set. The profile is *extensional* — membership is exactly
   what these documents contain.
-- **`site/public/releases/01/context.jsonld`** + **`manifest.json`** — the R1
-  immutable snapshot, served at `https://schema.org.ai/releases/01`. **Write-once**:
-  the generator never overwrites an existing `releases/NN/`, and `check:context`
-  verifies the snapshot against the `sha256` recorded in its manifest.
+- **`site/public/releases/NN/context.jsonld`** + **`manifest.json`** — the R1
+  immutable snapshot, served at `https://schema.org.ai/releases/NN`. **Release
+  snapshots are cut at publish, not in-repo pre-publish** (Nathan-decided): no
+  `releases/` directory is committed until the one-way publish, when Nathan sets
+  `release: "01"` in `config.json` and regenerates. The write-once machinery
+  ships now regardless: the generator never overwrites an existing `releases/NN/`,
+  and `check:context` verifies any committed snapshot against the `sha256`
+  recorded in its manifest.
 - **`site/public/overlays/startups.studio/context.jsonld`** — the first venue
   overlay (R4): `startups.studio` (fast clock) layered over `schema.org.ai`
   (slow clock) over `schema.org` (fixed clock). Extends, never redefines
@@ -58,40 +62,45 @@ against `extensions.jsonld`:
   has no counterpart of that name; we are the sole authority. Mapped to
   `https://schema.org.ai/<Type>`. (A native MAY still declare `subClassOf` a
   schema.org parent for crawler-compat — that does not make it an extension; the
-  bucket is about authority over the *term*.) 25 types + 9 properties today.
+  bucket is about authority over the *term*.) 31 types + 9 properties today
+  (three of them — Role, Event, Thesis — carry an ADR 0004 Q3 `shadows` marker).
 - **borrow** — a schema.org term admitted to the profile and mapped to its
   canonical `https://schema.org/<Type>` IRI. We never re-home what schema.org
   defines. The 871-type `things/` mirror is **not** admitted wholesale (R3 demotes
   it to provenance courtesy docs); the profile admits only the blessed
   `borrowSeed` from `config.json` plus any schema.org parent structurally
-  referenced by a native. 23 terms today.
+  referenced by a native. 19 terms today.
 - **extension** — a schema.org.ai-homed refinement of a schema.org counterpart
-  (`subClassOf` the parent). **The concrete R3 candidates — Product, Offer,
-  Service, Company — are ALL pending Nathan's admission call, so this bucket is
-  emitted EMPTY.** See below.
+  (`subClassOf` the parent), admitted by ratified ruling only: **Team** (ADR 0002
+  R3 third ruling) and **Product / Offer / Service / Company** (Nathan's F5
+  approval, org.ai#11, 2026-07-18). 5 terms today. An admitted extension wins its
+  bare name: its schema.org parent never re-enters as a same-named borrow (the
+  parent stays reachable by full IRI / `schema:` prefix).
 
-### PENDING-NATHAN-CONFIRMATION (R3 admission)
+Two further authority states ride the profile:
 
-R3 says Product/Offer/Service (and Company) bucket calls are *flagged, not
-decided* — Nathan confirms at admission. The generator **never silently admits**
-them as extension:
+- **shadow** (org.ai ADR 0004 Q3) — a native whose name collides with an external
+  type of a *different referent* carries a structural `schemaai:shadows` marker in
+  `extensions.jsonld`; the bare term binds to ours, the external sense stays
+  reachable by its full IRI. Shipped shadows: **Role** (F4), **Event** (ADR 0004
+  first application), **Thesis** (org.ai#11 + Q3 mechanics).
+- **not admitted** — ruled out entirely (config `notAdmitted`): **Business**
+  (org.ai#11, 2026-07-18: "Company carries the referent; 'business' stays the
+  Register-1 thesis word"). The generator throws if a not-admitted term reappears
+  as a class and never emits it as a borrow.
 
-| Term | Held as | On confirmation |
-|---|---|---|
-| **Product** | borrow → `schema.org/Product` | promote to extension `schema.org.ai/Product subClassOf schema.org/Product` |
-| **Offer** | borrow → `schema.org/Offer` | promote to extension `schema.org.ai/Offer subClassOf schema.org/Offer` |
-| **Service** | borrow → `schema.org/Service` | promote to extension `schema.org.ai/Service subClassOf schema.org/Service` |
-| **Company** | omitted (schema.org has no `Company`) | mint extension `schema.org.ai/Company subClassOf schema.org/Organization` |
+### The R3 admission procedure (machinery kept)
 
-To admit one: move it out of `pendingConfirmation.wouldBeExtension` in
-`config.json`, add its `things/<Type>.mdx` (with `$context: https://schema.org.ai`
-and a `subClassOf`) + an `extensions.jsonld` class entry, then `pnpm run
-gen:context`.
-
-**Borderline noted:** `Business` is native today but `subClassOf
-schema:Organization` is structurally the same clean-mint-synonym pattern R3 uses
-to call `Company` an extension. Kept native pending Nathan's call; flagged so the
-Company and Business decisions can be made consistently.
+The 2026-07-18 F5 holds were confirmed by Nathan on
+[org.ai#11](https://github.com/dot-org-ai/org.ai/issues/11#issuecomment-5013244753)
+and admitted above. The hold machinery stays for future flagged calls — a term in
+`pendingConfirmation.wouldBeExtension` is **never silently admitted**: it is
+served as borrow if the schema.org mirror has it, omitted otherwise, and listed in
+every generated header. To admit a confirmed term: move it to
+`admittedExtensions.terms`, add its `things/<Type>.mdx` (with
+`$context: https://schema.org.ai` and a `subClassOf`) + an `extensions.jsonld`
+class entry, then `pnpm run gen:context`. Unruled dispositions live in
+`docs/DISPOSITION-TABLE.md` marked **PROPOSED** and change nothing until ratified.
 
 ## Blocker: `@mdxld/jsonld` is not on npm
 
@@ -116,12 +125,17 @@ the inventory; it follows, never precedes, the ADR merge).
    emissions of borrow types under our domain (`schema.org.ai/Person`,
    `schema.org.ai/BlogPosting`, …) to bare terms or schema.org IRIs. This blocks
    the public flip.
-3. Confirm (or defer) the **Product / Offer / Service / Company** admissions
-   (table above). If confirming, admit them and regenerate before flipping.
-4. **Serve the binding string.** GitHub Pages (this repo's
+3. ~~Confirm (or defer) the **Product / Offer / Service / Company** admissions~~
+   **DONE 2026-07-18** — confirmed by Nathan on
+   [org.ai#11](https://github.com/dot-org-ai/org.ai/issues/11#issuecomment-5013244753)
+   (all four = extension; Business = not admitted) and implemented on this branch.
+4. **Cut the release snapshot** (publish-time only): set `release: "01"` in
+   `config.json`, run `pnpm run gen:context`, commit `site/public/releases/01/`
+   (frozen thereafter — write-once).
+5. **Serve the binding string.** GitHub Pages (this repo's
    `deploy-github-pages.yml`) serves `site/public/` static, so after deploy:
    - `https://schema.org.ai/context.jsonld` — live automatically (file in `site/public/`).
-   - `https://schema.org.ai/releases/01/context.jsonld` — live automatically.
+   - `https://schema.org.ai/releases/01/context.jsonld` — live once step 4 is done.
    - `https://schema.org.ai/overlays/startups.studio/context.jsonld` — live automatically.
    - **The bare binding string `https://schema.org.ai` needs content negotiation**
      (R2: `Accept: application/ld+json` → the JSON-LD; default → MDXLD/HTML). GitHub
@@ -130,7 +144,7 @@ the inventory; it follows, never precedes, the ADR merge).
      `GET https://schema.org.ai` with `Accept: application/ld+json`, returns
      `site/public/context.jsonld` (and likewise `/releases/01`). Until that edge
      exists, binders should pin `https://schema.org.ai/context.jsonld` explicitly.
-5. Flip the repo public (ADR 0001 standing question) once steps 1–4 are done and
+6. Flip the repo public (ADR 0001 standing question) once steps 1–5 are done and
    third parties are invited to bind.
 
 **Done by this PR (no action needed):**
@@ -138,7 +152,11 @@ the inventory; it follows, never precedes, the ADR merge).
 - ✅ Generation pipeline (`generator/`), deterministic + idempotent.
 - ✅ `context.jsonld` with R2 aliases + extensional R3 profile.
 - ✅ `profile.json` bucket census.
-- ✅ Immutable `releases/01/` snapshot + manifest + immutability check.
-- ✅ `startups.studio` venue overlay + R4 non-contradiction guard.
+- ✅ Write-once release machinery (never-overwrite + sha256 manifest + immutability
+  check); the `releases/01/` snapshot itself is cut at publish, not pre-publish.
+- ✅ `startups.studio` venue overlay + R4 non-contradiction guard (carrying
+  Playbook, LaunchSpec, and the overlay-first Opportunity/Market leases).
 - ✅ `check:context` script + `.github/workflows/check-context.yml` CI gate.
-- ✅ Product/Offer/Service/Company held, never silently admitted.
+- ✅ Ruled admissions applied with citations (org.ai#11 F5 + cascade route; ADR
+  0004 Event/Role/Thesis shadows); everything unruled held as PROPOSED in
+  `docs/DISPOSITION-TABLE.md`, never silently admitted.

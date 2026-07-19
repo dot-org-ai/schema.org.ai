@@ -86,7 +86,7 @@ const qbr: Task = {
 
 ## Related
 
-- **[Action](https://schema.org/Action)** — parent type (Task is a typed Action category)
+- **[Action](https://schema.org/Action)** — NOT a parent: Task is native and deliberately claims no `subClassOf schema:Action` (the lineage veto — work-to-be-done is not a performed Action); an Action *instantiates* a Task
 - **[Process](Process.mdx)** — Tasks compose into Processes
 - **[JobType](JobType.mdx)** — performs Tasks
 - **[Tool](Tool.mdx)** — used to perform Tasks

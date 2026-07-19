@@ -1,135 +1,141 @@
 # The Phase-A disposition table — per-Noun admission rulings under ADR 0004
 
-**Status:** DRAFT for batch ratification (org.ai issue #11, Phase A; merge by Nathan = ratification per org.ai ADR 0000)
+**Status:** authority-split per row. Every row carries an **Authority** mark:
+
+- **RATIFIED** — the ruling was already made, by merged org.ai canon or by Nathan's explicit approval on [org.ai issue #11](https://github.com/dot-org-ai/org.ai/issues/11); the citation is on the row. **Merging this PR ratifies ONLY the rows marked RATIFIED** (and, for those implemented here, ships their implementation).
+- **PROPOSED** — the tree has been run but the admission is **not yet ruled**. PROPOSED rows await explicit admission per org.ai ADR 0004's procedure (maintainer ratification of the row, or a ruling-stub session). **Merging this PR does NOT ratify any PROPOSED row.** No PROPOSED type is admitted in the generated context: each stays exactly in its pre-ruling state — held as borrow, kept at its pre-existing repo-baseline bucket, or omitted — until ruled.
+
 **Procedure:** org.ai ADR 0004 — the admission decision tree. Every row cites a branch: `Q1-borrow` / `Q2-extension` (with the lineage veto) / `Q3-shadow` (native + bare-term shadow) / `Q4-native` / `+R17-seam` (protocol seam composes with any bucket). Cross-canon collisions tie-break on **register proximity** (business/operational canons — GS1/EPCIS, O\*NET, APQC, UNSPSC — outrank consumer-web canons for the bare term). Where genuinely ambiguous: **conservative default = native + ruling stub** — never claiming a lineage is free; un-claiming one is an identity event.
+
 **Census source:** explore.startups.studio `app/_lib/canon/grammar.data.ts` `NODE_TYPES` (~60 registered node types, read 2026-07-19).
-**Event-layer context:** stack vault `specs/drivly-rebuild/W0-EVT.md` (frozen 2026-07-19). Its lens doctrine governs every Action-adjacent row: `schema:Action` is a **legal rendering of past events** (completed event → performed Action, `CompletedActionStatus`) — a lens, never a lineage. The Task lineage veto (work-to-be-done is not a performed `schema:Action`) extends across the whole verb-conjugation manifold: only the **event** form ("created") is performed; the **action** form ("create", the capability), the **activity** form ("creating", in flight), and the **act** form are not, and none may claim `schema:Action` lineage.
 
-Flags: **CONFIDENT** = the tree resolves mechanically; ratify in batch. **NEEDS-NATHAN** = the tree is ambiguous or the referent itself is unsettled; ruling stub filed, row ships conservative.
+**Event-layer context (analysis input, not authority):** stack vault `specs/drivly-rebuild/W0-EVT.md` (frozen 2026-07-19). Its lens doctrine informs the Action-adjacent PROPOSED rows: `schema:Action` is a legal *rendering* of past events — a lens, never a lineage. The ratified Task lineage veto (work-to-be-done is not a performed `schema:Action`) is the canon anchor; extending the veto across the whole verb-conjugation manifold is part of the PROPOSED analysis below, not yet ruled.
 
 ---
 
-## 1 — Already-ruled rows (regression baseline; unchanged, listed for completeness)
+## 1 — RATIFIED rows (already ruled; citations on each row)
 
-| Noun | Verdict | Branch | External counterpart | Ruling source |
+Implemented in this PR where marked ⚙; rows without ⚙ are ratified rulings whose class emission (if any) rides a follow-up census PR.
+
+| Noun | Verdict | Branch | External counterpart | Authority (citation) |
 |---|---|---|---|---|
-| Person | BORROW | Q1 | `https://schema.org/Person` | schema.org.ai PR #1 F4; reaffirmed ADR 0004 second application |
-| Company | EXTENSION | Q2 | `https://schema.org/Organization` | F4 exemplar |
-| Team | EXTENSION | Q2 | `https://schema.org/Organization` | F4 |
-| Product | EXTENSION | Q2 | `https://schema.org/Product` | F5 approval 2026-07-18 (Lumber category-grain tolerated — grain diverges, nothing false) |
-| Service | EXTENSION | Q2 | `https://schema.org/Service` | F5 |
-| Offer | EXTENSION | Q2 | `https://schema.org/Offer` | F5 |
-| Human | EXTENSION | Q2 | `https://schema.org/Person` (subClassOf) | ADR 0004 second application — Q1 fails (attestation, id.org.ai identity, worker-loop homeless on civil-web Person); Q2 passes, no veto |
-| Task | NATIVE | Q2-veto → Q4 | — (veto vs `https://schema.org/Action`) | The Task lesson: work-to-be-done is not a performed Action; no schema Task class remains |
-| Role | NATIVE + shadow | Q3 | `https://schema.org/Role` (false friend — reified edge-qualifier) | F4 |
-| Event | NATIVE + shadow | Q3 +R17-seam | shadows `https://schema.org/Event`; seam-mapped to GS1 EPCIS 2.0 | ADR 0004 first application; W0-EVT freezes the envelope + lens table |
-| Agent | NATIVE | Q4 | — (schema.org defines no Agent) | ADR 0004 second application corollary |
-| Startup, Problem, Thesis | NATIVE | Q4 (Thesis: Q3, see note) | Thesis shadows `https://schema.org/Thesis` (dissertation sense) | Nathan approval #3, 2026-07-18 (recurrence-proven, live-emitted) |
-| ICP, JTBD, Hypothesis, Worker, Idea | NATIVE | Q4 | — | PR #1 flagship natives (F3/F4) |
-| Opportunity, Market | overlay-first | — (route call, bucket TBD at graduation) | — | Nathan approval #3: ADR 0057 in-monorepo demotion = negative fixation evidence; graduate per R5 |
-| Business | NOT ADMITTED | — | — | Nathan approval #2: Company carries the referent; 'business' stays the Register-1 thesis word |
-
-*Thesis note:* the ruling predates ADR 0004; the bare-name collision with `schema:Thesis` (a dissertation document) makes the shadow mechanics apply automatically per Q3 — bucket unchanged, the context generator shadows the bare term. No re-ruling needed.
+| Person | BORROW | Q1 | `https://schema.org/Person` | **RATIFIED** — ADR 0002 R3 borrow exemplar; ADR 0004 Q1 exemplar + second application ("Person remains a Q1 borrow") ⚙ |
+| Company | EXTENSION | Q2 | `subClassOf schema:Organization` | **RATIFIED** — [#11 approval 2](https://github.com/dot-org-ai/org.ai/issues/11#issuecomment-5013244753): "Company = extension (subClassOf schema:Organization, per the R3 exemplar)"; ADR 0004 Q2 ⚙ |
+| Team | EXTENSION | Q2 | `subClassOf schema:Organization` | **RATIFIED** — ADR 0002 R3 third ruling; ADR 0004 Q2 exemplar ⚙ |
+| Product | EXTENSION | Q2 | `subClassOf schema:Product` | **RATIFIED** — [#11 approval 2](https://github.com/dot-org-ai/org.ai/issues/11#issuecomment-5013244753): "Product, Service, Offer = extension (subClassOf schema:Product / schema:Service / schema:Offer)"; ADR 0004 Q2 cites F5. Lumber category-grain tolerated (ADR 0004: grain diverges, nothing false) ⚙ |
+| Service | EXTENSION | Q2 | `subClassOf schema:Service` | **RATIFIED** — same #11 approval 2 + ADR 0004 Q2 (F5) ⚙ |
+| Offer | EXTENSION | Q2 | `subClassOf schema:Offer` | **RATIFIED** — same #11 approval 2 + ADR 0004 Q2 (F5) ⚙ |
+| Human | EXTENSION | Q2 | `subClassOf schema:Person` | **RATIFIED** — ADR 0004 second application (Q1 fails: attestation, id.org.ai identity, worker-loop homeless on civil-web Person; Q2 passes, no veto). Class emission queued for the census follow-up — not yet in this PR's profile |
+| Task | NATIVE | Q2-veto → Q4 | — (veto vs `schema:Action`) | **RATIFIED** — ADR 0002 R3 first ruling; ADR 0004 lineage veto ("work-to-be-done is not a performed schema:Action; Task is native") ⚙ |
+| Role | NATIVE + shadow | Q3 | shadows `schema:Role` (reified edge-qualifier — false friend) | **RATIFIED** — ADR 0002 R3 second ruling; ADR 0004 Q3 exemplar ⚙ |
+| Event | NATIVE + shadow | Q3 +R17-seam | shadows `schema:Event`; seam-mapped to GS1 EPCIS 2.0 | **RATIFIED** — ADR 0004 first application (the precedent-setter: exercises every branch) ⚙ |
+| Agent | NATIVE | Q4 | — (schema.org defines no Agent) | **RATIFIED** — ADR 0002 R3 native exemplar; ADR 0004 second application corollary ⚙ |
+| Startup | NATIVE | Q4 | — | **RATIFIED** — ADR 0002 R3 native exemplar (also live atlas emission cited in its ground truth) ⚙ |
+| ICP, JTBD, Hypothesis, Idea | NATIVE | Q4 | — | **RATIFIED** — ADR 0002 R3 native exemplars ⚙ |
+| Worker | NATIVE | Q4 | — | **RATIFIED** — ADR 0002 R3 native exemplar; ADR 0004 second application ("Worker (admitted flagship native)") ⚙ |
+| Capability | NATIVE | Q4 | — | **RATIFIED** — ADR 0002 R3 native exemplar. ⚠ The atlas census marks Capability a deleted-Noun tombstone (reified as `bears`/`realizedBy`) — that conflict with merged ADR 0002 needs a Nathan ruling before any demotion here; see §4 ⚙ |
+| Problem | NATIVE | Q4 | — | **RATIFIED** — [#11 approval 3](https://github.com/dot-org-ai/org.ai/issues/11#issuecomment-5013244753): "Problem, Thesis → native now (recurrence-proven, live-emitted)" ⚙ |
+| Thesis | NATIVE (+ mechanical shadow) | Q3 | shadows `schema:Thesis` (dissertation document — false friend) | **RATIFIED** (native) — same #11 approval 3. The shadow marker is the mechanical consequence of ADR 0004 Q3 once the native admission exists (bare name collides); no bucket change ⚙ |
+| Opportunity, Market | OVERLAY-FIRST | — (bucket TBD at graduation) | — | **RATIFIED** — [#11 approval 3](https://github.com/dot-org-ai/org.ai/issues/11#issuecomment-5013244753): "Opportunity, Market → overlay-first (once demoted in-monorepo per ADR 0057 = negative fixation evidence; graduate per R5)". Demoted to the startups.studio overlay in this PR ⚙ |
+| Business | NOT ADMITTED | — | — | **RATIFIED** — [#11 approval 2](https://github.com/dot-org-ai/org.ai/issues/11#issuecomment-5013244753): "Business = not admitted (Company carries the referent; 'business' stays the Register-1 thesis word)" ⚙ |
 
 ---
 
-## 2 — New dispositions: CONFIDENT rows
+## 2 — PROPOSED rows: tree run, CONFIDENT, awaiting ratification
+
+Every row in this section is **PROPOSED**. The tree resolves mechanically in the analyst's judgment, but none of these admissions has been ruled by merged canon or an explicit #11 approval — they await batch ratification per ADR 0004's consequence ("the maintainer's role shrinks to ratifying disposition tables"). **None is emitted by this PR's generated context.** Pre-ruling states: Industry, CompanyType, JobType, Department, Process remain repo-baseline natives (pre-PR `extensions.jsonld`); Occupation, Action, Place remain blessed borrows; everything else is omitted until ruled.
 
 ### 2a — O\*NET / standards work-spine (atlas "G1")
 
-| Noun | Verdict | Branch | External counterpart | Evidence (one line) | Flag |
+| Noun | Proposed verdict | Branch | External counterpart | Evidence (one line) | Authority |
 |---|---|---|---|---|---|
-| Industry | NATIVE | Q4 +R17-seam | — (`https://schema.org/naics` is a property, not a class) | schema.org has no Industry class; NAICS codes ride as identifiers at the seam, never as lineage | CONFIDENT |
-| Occupation | EXTENSION | Q2 | `https://schema.org/Occupation` | Q1 fails (the O\*NET descriptor tail + work-spine edges would be homeless); every SOC occupation is truthfully a `schema:Occupation` — schema.org itself points `occupationalCategory` at O\*NET-SOC, so the grains agree | CONFIDENT |
-| Activity | NATIVE + shadow | Q3 (+ Q2-veto cited) | shadows `https://www.w3.org/ns/activitystreams#Activity` | Lens doctrine: Activity is the occurrent **in flight** ("creating"), not performed — `schema:Action` lineage vetoed a fortiori of Task; as:Activity (a W0-EVT lens at our seam) is a social-feed record of a past event — same name, different referent, business register wins the bare term | CONFIDENT |
-| Process | NATIVE | Q2-veto → Q4 | — (veto vs `https://schema.org/HowTo`) | An APQC PCF process category is neither an instruction document (`HowTo`) nor a performed `schema:Action` (performed-vs-to-be-done: a process is the repeatable to-be-done); no schema Process class exists | CONFIDENT |
-| Skill | NATIVE | Q4 | — (`https://schema.org/skills` is a text property; ESCO Skill is a seam candidate) | No schema.org Skill class; O\*NET descriptor taxonomy is the referent; ESCO integrates by `sameAs` at the seam if ever needed, never by re-homing | CONFIDENT |
-| Knowledge | NATIVE | Q4 | — | O\*NET knowledge-domain descriptor; schema.org offers only the `knowsAbout` property | CONFIDENT |
-| Ability | NATIVE | Q4 | — | O\*NET ability descriptor; no external class shares name or referent | CONFIDENT |
-| WorkContext | NATIVE | Q4 | — | O\*NET work-context descriptor; no counterpart | CONFIDENT |
-| WorkStyle | NATIVE | Q4 | — | O\*NET work-style descriptor; no counterpart | CONFIDENT |
-| WorkValue | NATIVE | Q4 | — | O\*NET work-value descriptor; no counterpart | CONFIDENT |
-| Interest | NATIVE | Q4 | — | O\*NET RIASEC interest descriptor; no schema.org Interest class | CONFIDENT |
-| JobZone | NATIVE | Q4 | — | O\*NET job-zone preparation tier; O\*NET-only concept | CONFIDENT |
-| Education | NATIVE | Q4 | — (distinct referent from `https://schema.org/EducationalOccupationalCredential`) | Our Education is the O\*NET required-education **level category**, not an awarded credential — no shared referent, no shared name with any schema class | CONFIDENT |
-| Metric | NATIVE | Q4 | — (`https://schema.org/StatisticalVariable` is a seam candidate, not a collision) | APQC OSB measure definition; no schema class named Metric; StatisticalVariable integrates by seam if benchmarking data ever needs web rendering | CONFIDENT |
-| MetricCategory | NATIVE | Q4 | — | APQC OSB metric-category tier (the 5 thematic categories above Metric); standard-internal, no counterpart | CONFIDENT |
+| Industry | NATIVE | Q4 +R17-seam | — (`schema:naics` is a property, not a class) | schema.org has no Industry class; NAICS codes ride as identifiers at the seam, never as lineage. (Repo-baseline native today.) | PROPOSED |
+| Occupation | EXTENSION | Q2 | `schema:Occupation` | Q1 fails (O\*NET descriptor tail + work-spine edges homeless); every SOC occupation is truthfully a `schema:Occupation` — schema.org itself points `occupationalCategory` at O\*NET-SOC. (Held as borrow until ruled.) | PROPOSED |
+| Activity | NATIVE + shadow | Q3 (+ Q2-veto cited) | shadows `as:Activity` (ActivityStreams) | Occurrent in flight ("creating"), not performed — `schema:Action` lineage vetoed a fortiori of Task; as:Activity is a social-feed record — same name, different referent. (Omitted until ruled.) | PROPOSED |
+| Process | NATIVE | Q2-veto → Q4 | — (veto vs `schema:HowTo`) | An APQC PCF process category is neither an instruction document nor a performed Action. (Repo-baseline native today.) | PROPOSED |
+| Skill | NATIVE | Q4 | — (`schema:skills` is a text property; ESCO Skill = seam candidate) | No schema.org Skill class; ESCO integrates by `sameAs` at the seam if ever needed. (Omitted until ruled.) | PROPOSED |
+| Knowledge | NATIVE | Q4 | — | O\*NET knowledge-domain descriptor; schema.org offers only `knowsAbout`. (Omitted until ruled.) | PROPOSED |
+| Ability | NATIVE | Q4 | — | O\*NET ability descriptor; no external class shares name or referent. (Omitted until ruled.) | PROPOSED |
+| WorkContext | NATIVE | Q4 | — | O\*NET work-context descriptor; no counterpart. (Omitted until ruled.) | PROPOSED |
+| WorkStyle | NATIVE | Q4 | — | O\*NET work-style descriptor; no counterpart. (Omitted until ruled.) | PROPOSED |
+| WorkValue | NATIVE | Q4 | — | O\*NET work-value descriptor; no counterpart. (Omitted until ruled.) | PROPOSED |
+| Interest | NATIVE | Q4 | — | O\*NET RIASEC interest descriptor; no schema.org Interest class. (Omitted until ruled.) | PROPOSED |
+| JobZone | NATIVE | Q4 | — | O\*NET job-zone preparation tier; O\*NET-only concept. (Omitted until ruled.) | PROPOSED |
+| Education | NATIVE | Q4 | — (distinct from `schema:EducationalOccupationalCredential`) | Our Education is the O\*NET required-education level category, not an awarded credential. (Omitted until ruled.) | PROPOSED |
+| Metric | NATIVE | Q4 | — (`schema:StatisticalVariable` = seam candidate, not collision) | APQC OSB measure definition; no schema class named Metric. (Omitted until ruled.) | PROPOSED |
+| MetricCategory | NATIVE | Q4 | — | APQC OSB metric-category tier; standard-internal. (Omitted until ruled.) | PROPOSED |
 
-*(Place — atlas G1 — is deliberately pulled out of this section into the NEEDS-NATHAN row pair, §3.)*
+*(Place — atlas G1 — is deliberately pulled into the NEEDS-NATHAN triangle, §3.)*
 
 ### 2b — Derived archetypes (atlas "G2-core")
 
-| Noun | Verdict | Branch | External counterpart | Evidence (one line) | Flag |
+| Noun | Proposed verdict | Branch | External counterpart | Evidence (one line) | Authority |
 |---|---|---|---|---|---|
-| CompanyType | NATIVE | Q4 | — | A firm archetype ("Dental Practice") is a category of organizations, not an organization; schema.org has no metaclass for it, and the wild does not use Organization category-ish (no Lumber precedent here) | CONFIDENT |
-| JobType | NATIVE | Q4 | — (`https://schema.org/JobPosting` is a different referent — the ad, not the role archetype) | The G2 role archetype; relates to already-ruled native Role, not to any schema class | CONFIDENT |
-| Department | NATIVE | Q4 | — (`https://schema.org/department` is a property → Organization) | A department **archetype** ("Marketing") across firms is a category, not an organization instance; claiming Organization lineage would be metaclass falsity, not tolerable grain divergence | CONFIDENT |
+| CompanyType | NATIVE | Q4 | — | A firm archetype ("Dental Practice") is a category of organizations, not an organization; no metaclass in schema.org. (Repo-baseline native today.) | PROPOSED |
+| JobType | NATIVE | Q4 | — (`schema:JobPosting` is the ad, not the role archetype) | The G2 role archetype; relates to ruled-native Role. (Repo-baseline native today.) | PROPOSED |
+| Department | NATIVE | Q4 | — (`schema:department` is a property) | A department archetype ("Marketing") across firms is a category; Organization lineage would be metaclass falsity. (Repo-baseline native today.) | PROPOSED |
 
 ### 2c — Digital / GS1 tail (atlas "G2-tail")
 
-| Noun | Verdict | Branch | External counterpart | Evidence (one line) | Flag |
+| Noun | Proposed verdict | Branch | External counterpart | Evidence (one line) | Authority |
 |---|---|---|---|---|---|
-| Action | NATIVE + shadow | Q3 +R17-seam | shadows `https://schema.org/Action` | The verb manifold's **action** form — the standing capability a Software exposes ("create"), neither performed nor to-be-done; `schema:Action` (a performed/potential act by an agent on an object) is a false friend, and the legal seam is on **Event**: completed events render as performed Actions (W0-EVT lens table), our Action type never claims the lineage; register proximity: the builder typing `Action` means the capability, the web sense pays the full-IRI tax | CONFIDENT |
-| DataNoun | NATIVE | Q4 | — | A metaclass (the Lead/Contact/Order/Invoice SVO Objects an Action `operatesOn`); no external canon types the data-noun dimension itself — individual data-nouns may seam to schema.org kin (`Invoice` → `schema:Invoice`) per instance, by identifier | CONFIDENT |
-| Software | EXTENSION | Q2 | `https://schema.org/SoftwareApplication` | Every ingested Software node is truthfully a software application; our shape adds permanent structure (exposes → Action, operatesOn → DataNoun); no veto instance exists | CONFIDENT |
-| Credential | EXTENSION | Q2 | `https://schema.org/EducationalOccupationalCredential` | Every License/Credential node (occupational license, certification) is truthfully an E.O.C. — `credentialCategory` even enumerates "license"; our shape adds issuedBy → Regulator and requiredFor → JobType edges | CONFIDENT |
-| Regulator | EXTENSION | Q2 | `https://schema.org/Organization` (NOT GovernmentOrganization) | The atlas `regulatedBy` authoring prompt (industry-forces.ts:238) explicitly seeds FINRA, self-regulatory bodies, and ISO technical committees — one SRO falsifies `schema:GovernmentOrganization` lineage (the veto), but every regulator is truthfully an Organization | CONFIDENT |
-| Formula | NATIVE | Q4 | — (alias `Recipe` is a false friend of `https://schema.org/Recipe` — food-scoped HowTo) | An industrial formulation is not a food recipe (veto on the alias); no schema class named Formula; if the Recipe alias survives into the vocabulary it shadows per Q3 | CONFIDENT |
-| Shipment | NATIVE | Q4 +R17-seam | — (seam: GS1 EPCIS 2.0 aggregation — `parentID`; `https://schema.org/ParcelDelivery` is a different name and a consumer register) | W0-EVT law 6 already binds the seam: subject = the aggregate noun (`shipment_…` = EPCIS parentID), children ride payload; GS1's sense aligns → seam, not bucket | CONFIDENT |
-| CapitalEquipment | NATIVE | Q4 | — (alias `Asset`; schema.org has no Asset class) | O\*NET/ingest capital-equipment referent; no external counterpart claims name or referent | CONFIDENT |
-| Country | BORROW | Q1 | `https://schema.org/Country` | ISO 3166-1 countries merge truth-preservingly into `schema:Country`; the legal-structure edges that would otherwise be homeless live on Jurisdiction (§3) — the Person/Human split repeated at the geography seam | CONFIDENT |
-| Subdivision | EXTENSION | Q2 | `https://schema.org/AdministrativeArea` (subClassOf; `schema:State` too narrow) | Q1 fails (AdministrativeArea's referent is broader — not the same referent); every ISO 3166-2 subdivision is truthfully an AdministrativeArea; `schema:State` lineage would be false for municipalities/dependencies in 3166-2 (veto on the narrower class only) | CONFIDENT |
-| Regulation | NATIVE | Q2-veto → Q4, stub | — (statutory instances seam to `https://schema.org/Legislation` by `sameAs`) | The same seed prompt that names ISO TCs as Regulators makes their rulebooks (ISO standards, SRO rules, PCI-DSS-shaped private standards) Regulation instances — one private rulebook falsifies `schema:Legislation` lineage; native now, and claiming the lineage later is free if the census proves all-statutory (the ADR 0004 asymmetry) | CONFIDENT |
+| Action | NATIVE + shadow | Q3 +R17-seam | shadows `schema:Action` | The verb manifold's **action** form — the standing capability a Software exposes; `schema:Action` (performed/potential act) is a false friend; the legal seam is on Event (completed events render as performed Actions). ⚠ Ruling this row also touches ADR 0008's deferred naming lock. (Held as borrow until ruled.) | PROPOSED |
+| DataNoun | NATIVE | Q4 | — | A metaclass (the Lead/Contact/Order/Invoice SVO Objects an Action `operatesOn`); individual data-nouns may seam to schema.org kin per instance. (Omitted until ruled.) | PROPOSED |
+| Software | EXTENSION | Q2 | `subClassOf schema:SoftwareApplication` | Every ingested Software node is truthfully a software application; shape adds exposes → Action, operatesOn → DataNoun. (Omitted until ruled.) | PROPOSED |
+| Credential | EXTENSION | Q2 | `subClassOf schema:EducationalOccupationalCredential` | Occupational licenses/certifications are truthfully E.O.C.s; adds issuedBy → Regulator, requiredFor → JobType. (Omitted until ruled.) | PROPOSED |
+| Regulator | EXTENSION | Q2 | `subClassOf schema:Organization` (NOT GovernmentOrganization) | Seed prompt names FINRA, SROs, ISO TCs — one SRO falsifies GovernmentOrganization lineage (veto); every regulator is truthfully an Organization. (Omitted until ruled.) | PROPOSED |
+| Formula | NATIVE | Q4 | — (alias `Recipe` = false friend of `schema:Recipe`) | An industrial formulation is not a food recipe; if the Recipe alias survives it shadows per Q3. (Omitted until ruled.) | PROPOSED |
+| Shipment | NATIVE | Q4 +R17-seam | — (seam: EPCIS aggregation `parentID`; `schema:ParcelDelivery` is a different name + consumer register) | GS1's sense aligns → seam, not bucket. (Omitted until ruled.) | PROPOSED |
+| CapitalEquipment | NATIVE | Q4 | — (alias `Asset`; schema.org has no Asset class) | No external counterpart claims name or referent. (Omitted until ruled.) | PROPOSED |
+| Country | BORROW | Q1 | `schema:Country` | ISO 3166-1 countries merge truth-preservingly; legal-structure edges live on Jurisdiction (§3). (Omitted until ruled — not in the blessed borrowSeed yet.) | PROPOSED |
+| Subdivision | EXTENSION | Q2 | `subClassOf schema:AdministrativeArea` (`schema:State` too narrow) | Every ISO 3166-2 subdivision is truthfully an AdministrativeArea; State lineage false for municipalities/dependencies. (Omitted until ruled.) | PROPOSED |
+| Regulation | NATIVE | Q2-veto → Q4, stub | — (statutory instances seam to `schema:Legislation` by `sameAs`) | One private rulebook (ISO standard, PCI-DSS-shaped) falsifies Legislation lineage; claiming later is free. (Omitted until ruled.) | PROPOSED |
 
-*(Event, Company, Product, Service, Offer, Document, Dataset, Model sit elsewhere: ruled (§1) or NEEDS-NATHAN (§3).)*
+*(Event, Company, Product, Service, Offer sit in §1 — ruled. Document, Dataset, Model sit in §3.)*
 
 ### 2d — ICP tuple-component axes (ADR 0047 §1)
 
-| Noun | Verdict | Branch | External counterpart | Evidence (one line) | Flag |
+| Noun | Proposed verdict | Branch | External counterpart | Evidence (one line) | Authority |
 |---|---|---|---|---|---|
-| CompanySize | overlay-first | — (Q4 if/when graduated) | — (`https://schema.org/numberOfEmployees` is a property) | The ICP axis shape is still moving: kestrel ADR 0049 adds Species (human \| agent), route, and authority axes the canon five lack — the human-B2B-shaped axes predate Agent Customers; per the fixation gate they graduate when a second binder (headless.ly candidate) exercises them | CONFIDENT |
-| OperationalModel | overlay-first | — (Q4 if/when graduated) | — | Same batch ruling as CompanySize | CONFIDENT |
-| DecisionStructure | overlay-first | — (Q4 if/when graduated) | — | Same batch ruling | CONFIDENT |
-| EconomicBuyerRole | overlay-first | — (Q4 if/when graduated) | — | Same batch ruling | CONFIDENT |
-| Stage | overlay-first | — (Q4 if/when graduated) | — | Same batch ruling; the Opportunity/Market precedent (Nathan approval #3) is the route authority | CONFIDENT |
+| CompanySize | overlay-first | — (Q4 if/when graduated) | — (`schema:numberOfEmployees` is a property) | The ICP axis shape is still moving (agent-row axes arriving via the kestrel → headless.ly binder pair; #11 2026-07-19 comment). The Opportunity/Market overlay-first precedent is the route authority, but **these five axes were not named in that ruling** — proposed, not ruled. (Omitted from base until ruled.) | PROPOSED |
+| OperationalModel | overlay-first | — | — | Same batch proposal as CompanySize. | PROPOSED |
+| DecisionStructure | overlay-first | — | — | Same batch proposal. | PROPOSED |
+| EconomicBuyerRole | overlay-first | — | — | Same batch proposal. | PROPOSED |
+| Stage | overlay-first | — | — | Same batch proposal. | PROPOSED |
 
-### 2e — Greenfield legal spine (PRD #578) — Country, Subdivision, Regulation ruled in §2c; Jurisdiction in §3
+### 2e — Greenfield legal spine (PRD #578) — Country, Subdivision, Regulation proposed in §2c; Jurisdiction in §3
 
 ---
 
-## 3 — NEEDS-NATHAN rows (ruling stubs filed; each ships the conservative branch until ruled)
+## 3 — NEEDS-NATHAN rows (ruling stubs; each ships the conservative branch until ruled) — all PROPOSED
 
-| Noun | Provisional verdict | Branch | External counterpart | Evidence / the open question | Flag |
+| Noun | Provisional verdict | Branch | External counterpart | Evidence / the open question | Authority |
 |---|---|---|---|---|---|
-| Document | NATIVE (conservative) | Q4 + stub | `https://schema.org/DigitalDocument` and `https://schema.org/CreativeWork` are the live candidates | Platform Documents are act-bearing instruments (the documents unit minted Signature per R-ad; `signature.captured@1` is in the W0-EVT registry seed) — if a Document node can represent a wet-ink paper title, `DigitalDocument` lineage asserts falsity (veto); if Documents are always the digital record **of** the instrument, Q2-extension of DigitalDocument is clean. That referent call — record vs instrument — is the maintainer's, not the tree's | NEEDS-NATHAN |
-| Model | NATIVE (conservative) | Q4 + stub | — (no bare `schema:Model`; `https://schema.org/3DModel` is a different name; CreativeWork/SoftwareApplication both loose) | The atlas alias set gives no discriminator: an ingested "Model" may be an ML model, a data model, or a product model — the referent itself is unsettled, so no lineage can be truthfully claimed for **every** instance (veto by indeterminacy); native costs nothing, claiming later is free | NEEDS-NATHAN |
-| Dataset | BORROW (provisional) | Q1 + stub | `https://schema.org/Dataset` | Merging our datasets into `schema:Dataset` (DCAT-aligned, business-register-proximate via Dataset Search) looks truth-preserving — but the `DataAsset` alias may widen the referent to commercial data **products** (licensing, offers, access tiers) whose fields pull toward Q2-extension instead; borrow-vs-extension here is a one-way door worth the maintainer's eyes | NEEDS-NATHAN |
-| Place | EXTENSION (provisional) | Q2 vs Q3 + stub | `https://schema.org/Place` | The atlas Place is the G1 place-**type** taxonomy (the `Place subtypeOf Place` classificatory ladder) — category grain over schema:Place's instance grain, tolerable per ADR 0004 (the Lumber precedent), so Q2 is arguable; but the row cannot be ruled alone — it is one corner of the Place/Location/Jurisdiction triangle below, and which noun takes the **bare term** is a register call | NEEDS-NATHAN |
-| Location | not-yet-admitted (candidate) | stub (queued from grill session 3) | collides with `https://schema.org/Place` (schema.org has no Location class; `schema:location` is a property) | The EPCIS seed evidence: **readPoint (where observed) vs bizLocation (where it is)** are different senses — the W0-EVT envelope already carries `source` (≈ readPoint) and "physical where" rides payload; if the platform needs a "where it is" noun distinct from the place-type taxonomy, Location is it — one noun or two, and who shadows whom against schema:Place, is the ruling | NEEDS-NATHAN |
-| Jurisdiction | NATIVE (conservative) | Q4 + stub | `https://schema.org/AdministrativeArea` is the extension candidate | Every geographic jurisdiction is arguably an AdministrativeArea, but jurisdictions defined by subject-matter rather than territory (a regulator's mandate scope) falsify the lineage (veto risk); the Country borrow (§2c) leans on Jurisdiction carrying the legal-structure edges, and Place-vs-Jurisdiction boundary (is a court district a Place?) must be ruled with the triangle above | NEEDS-NATHAN |
+| Document | NATIVE (conservative) | Q4 + stub | `schema:DigitalDocument` / `schema:CreativeWork` candidates | Record-vs-instrument referent call (wet-ink paper title falsifies DigitalDocument lineage) is the maintainer's, not the tree's. (Omitted until ruled.) | PROPOSED |
+| Model | NATIVE (conservative) | Q4 + stub | — (no bare `schema:Model`; `3DModel` different name) | The atlas alias set gives no discriminator (ML/data/product model) — veto by indeterminacy. ⚠ Reconciliation: the repo-baseline native `schema.org.ai/Model` is the *AI model* sense (LLM/checkpoint) and remains at baseline; the atlas census "Model" referent question is this stub. | PROPOSED |
+| Dataset | BORROW (provisional) | Q1 + stub | `schema:Dataset` | The `DataAsset` alias may widen the referent to commercial data products, pulling toward Q2 — a one-way door worth the maintainer's eyes. (Omitted until ruled.) | PROPOSED |
+| Place | EXTENSION (provisional) | Q2 vs Q3 + stub | `schema:Place` | Category grain over instance grain (Lumber precedent) makes Q2 arguable, but the row cannot be ruled alone — one corner of the Place/Location/Jurisdiction triangle. (Held as borrow until ruled.) | PROPOSED |
+| Location | not-yet-admitted (candidate) | stub | collides with `schema:Place` (schema.org has no Location class) | EPCIS readPoint (where observed) vs bizLocation (where it is) are different senses; one noun or two, and who shadows whom, is the ruling. (Omitted until ruled.) | PROPOSED |
+| Jurisdiction | NATIVE (conservative) | Q4 + stub | `schema:AdministrativeArea` is the extension candidate | Subject-matter jurisdictions (a regulator's mandate scope) falsify territorial lineage (veto risk); must be ruled with the triangle. (Omitted until ruled.) | PROPOSED |
 
 **The Place/Location/Jurisdiction triangle should be ruled as a set** (one grill session), with the EPCIS where-observed/where-it-is distinction as the forcing example: a receiving event's `source` is a readPoint; the shipment's `bizLocation` is where it now sits; the FDA's jurisdiction is neither.
 
 ---
 
-## 4 — Non-admissions (registered atlas node-types that are NOT vocabulary Nouns)
+## 4 — Non-admissions of atlas node-types (PROPOSED except Business)
 
-Listed per the census for completeness; none get classes at schema.org.ai.
+Listed per the census for completeness. **Only Business is ruled** (§1: NOT ADMITTED, #11 approval 2 — the one name a builder will reach for that must resolve to Company). The rest are the analyst's mapping of atlas-canon (explore.startups.studio ADRs) onto the vocabulary — org.ai canon has NOT ruled them, so they are PROPOSED and change nothing in this PR:
 
-**Frame-alias / reverse-rel junctions (9)** — `Customers`, `Suppliers`, `Partners`, `Competitors`, `Channels`, `Resources`, `Employers`, `Buyers`, plus the `ICPs` junction slug. These are predicate-rendering surfaces (`aliasJunction: true`), not Nouns: per the maintainer's verb-manifold model (issue #11 Phase-C comment) they are **actor/object role-noun renderings of verbs** ("customer" is the actor-form of "buy"-side relations) and derive from the lemma table when the grammar graduates — generated, never admitted. *Reconciliation note:* the atlas `ICPs` slug is this junction Dimension; the already-ruled native **ICP** class (§1) is the cascade Noun — both are real, the junction renders edges, the class types instances.
-
-**Infra axes (2)** — `Verb`, `Locale` (`infra: true`). Machinery of the grammar itself, not economy Nouns. Verb in particular is the **generator** (the conjugation manifold), pending Phase C — admitting it as a Noun would freeze what is actually a code-generation source.
-
-**Tombstones (2)** — `Tool`: not a Noun per ADR 0065 — it is the `usesTool` **edge** → Product (physical) \| Action (digital); the slug lingers in valid-noun-types.ts as a render tombstone only. `Capability`: DELETED as a Noun in canon (reified as `bears`/`realizedBy`), registered only so live MANIFEST facets don't trip `unknown-src-type` (`legacyDeletedNoun: true`).
-
-**Business** — already ruled NOT ADMITTED (§1); listed here too since it is the one name a builder will reach for that must resolve to Company.
+- **Frame-alias / reverse-rel junctions (9)** — `Customers`, `Suppliers`, `Partners`, `Competitors`, `Channels`, `Resources`, `Employers`, `Buyers`, + the `ICPs` junction slug: predicate-rendering surfaces, proposed derive-from-lemma-table at grammar graduation (Phase C), not admitted as classes. *Reconciliation note:* the atlas `ICPs` slug is the junction Dimension; the ruled-native **ICP** class (§1) types instances. — PROPOSED
+- **Infra axes (2)** — `Verb`, `Locale`: machinery of the grammar. **Verb-class admission is explicitly deferred by ratified org.ai ADR 0008** ("the naming lock happens once, at Verb-class admission… No document may fixate Verb-class field names before Nathan's explicit lock") — so Verb non-admission *today* is the ratified state, and its future admission is the ADR 0008 trigger event. Locale: PROPOSED
+- **Tombstones (2)** — `Tool` (atlas ADR 0065: the `usesTool` edge, not a Noun) and `Capability` (atlas: reified as `bears`/`realizedBy`). ⚠ **Conflict flag:** merged org.ai ADR 0002 R3 lists **Capability as a native exemplar**, and both Tool and Capability are pre-existing repo-baseline natives here (the AI-vocabulary senses: function-calling tool; agent capability). Demoting either requires a Nathan ruling reconciling atlas canon with ADR 0002; until then the baseline natives stand. — PROPOSED
 
 ---
 
-## 5 — Ratification asks
+## 5 — The PROPOSED admission queue (asks to Nathan; nothing here is enacted by this PR)
 
-1. Batch-ratify §2 (34 CONFIDENT rows: 15 work-spine, 3 archetypes, 11 digital/GS1 tail, 5 overlay-first axes).
+1. Ratify §2 (34 CONFIDENT proposed rows: 15 work-spine, 3 archetypes, 12 digital/GS1 tail, 5 overlay-first axes) — batch review per ADR 0004's consequence.
 2. Rule the six §3 stubs — Document, Model, Dataset, and the Place/Location/Jurisdiction triangle (the triangle as one session).
-3. Confirm the §1 Thesis shadow note (mechanical consequence of ADR 0004 Q3, no bucket change).
+3. Rule the §4 conflicts: Tool and Capability (atlas tombstone vs ADR 0002 R3 Capability-native exemplar / repo-baseline natives).
 
-Every extension ruled here composes with R17: external identifiers (NAICS, ISO 3166, GS1 keys, ELI URIs) ride as identifiers at seams regardless of bucket. Shadow machinery for the new Q3 rows (Activity, Action, and the Formula/Recipe alias) ships in the context generator alongside the existing Role/Event shadows (ground rule 2: their terms enter CONTEXT.md in the PR that ships them).
+Every extension proposed here composes with R17: external identifiers (NAICS, ISO 3166, GS1 keys, ELI URIs) ride as identifiers at seams regardless of bucket. Shadow machinery ships in this PR (structural `schemaai:shadows` marker; Role/Event/Thesis are the shipped shadows); the new Q3 proposals (Activity, Action, the Formula/Recipe alias) reuse it on ratification — their terms enter CONTEXT.md in the PR that ships them (ground rule 2).
