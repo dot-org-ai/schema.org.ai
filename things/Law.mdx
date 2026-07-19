@@ -1,0 +1,65 @@
+---
+$id: https://schema.org.ai/Law
+$context: https://schema.org.ai
+$type: Class
+name: Law
+description: A thin normative venue commitment that cites open-register definitions by fully-scoped $id and never redefines them. Deliberately not subclassed from schema:Legislation (wrong register).
+subClassOf:
+  - https://schema.org/CreativeWork
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [CreativeWork](https://schema.org/CreativeWork)
+
+# Law
+
+A Law is a **thin normative venue commitment**: a ratified statement, published in a venue's canon, that binds that venue to definitions it does not own.
+
+## The register architecture
+
+**Define once in the open register; legislate thin in the venue. Laws cite, never redefine.**
+
+- Foundational concepts live in the open register (this vocabulary) with their FULL definitional content — delta tables, assignment functions, floors.
+- A Law carries only the venue's normative commitment, referencing every concept by fully-scoped `$id` (`https://schema.org.ai/AutonomyLevel/L4`, never "L4").
+- A Law that restates a definition has forked it — the same disease-class as vendored duplicate primitives. Nothing exists twice.
+
+## Not schema:Legislation
+
+This type is deliberately **not** subclassed from `schema:Legislation`. Legislation carries the civil-statute register — acts of public legislatures. A canon Law is a venue commitment; claiming the Legislation lineage would be a false-register claim, so the type is minted natively under CreativeWork.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "Law" | - |
+| `$id` | URL | The law's canonical venue URL | Thing |
+| `name` | Text | The law's short name | Thing |
+| `description` | Text | The normative commitment, thin | Thing |
+| `citation` | URL[] | The open-register `$id`s the law binds itself to | CreativeWork |
+| `dateCreated` | Date | Ratification date | CreativeWork |
+
+## Examples
+
+Instances ratified 2026-07-19 at `https://startups.studio/canon/law/*`:
+
+- `https://startups.studio/canon/law/autonomous-startup` — cites [AutonomyClaim](AutonomyClaim.mdx), [AutonomyLevel](AutonomyLevel.mdx), [DeclaredScope](DeclaredScope.mdx), [MinimalRiskCondition](MinimalRiskCondition.mdx).
+- `https://startups.studio/canon/law/assurance-tier-assignment` — cites [AssuranceTier](AssuranceTier.mdx), [DoctrineWall](DoctrineWall.mdx), [SeamClass](SeamClass.mdx).
+- `https://startups.studio/canon/law/one-membrane` — cites [AutonomyClaim](AutonomyClaim.mdx), [AssuranceTier](AssuranceTier.mdx).
+
+```typescript
+const law = {
+  $type: 'Law',
+  $id: 'https://startups.studio/canon/law/assurance-tier-assignment',
+  name: 'Assurance-tier assignment',
+  description: 'Tier is assigned upstream per https://schema.org.ai/AssuranceTier; this venue commits to it.',
+  citation: [
+    'https://schema.org.ai/AssuranceTier',
+    'https://schema.org.ai/DoctrineWall',
+  ],
+  dateCreated: '2026-07-19',
+}
+```
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

@@ -1,0 +1,67 @@
+---
+$id: https://schema.org.ai/EvidenceRegister
+$context: https://schema.org.ai
+$type: Class
+name: EvidenceRegister
+description: The tier-governed register of the two-register logging law — append-only objects under retention hold, deletion structurally unavailable, retained at least as long as the longest open dispute window, counterparty-checkable.
+subClassOf:
+  - https://schema.org/Intangible
+citation:
+  - https://standards.org.ai/GS1/EPCIS
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# EvidenceRegister
+
+The EvidenceRegister is the **tier-governed** half of the two-register logging law (R13-1): *every metered event writes to two registers.* Its counterpart is the cost-governed [ObservabilityRegister](ObservabilityRegister.mdx).
+
+## Definition
+
+- **Append-only objects under retention hold** — deletion is structurally unavailable, a [DoctrineWall](DoctrineWall.mdx), not a policy. (Table-format immutability, where deletes are supported verbs you promise not to use, is mitigation — it does not satisfy this definition; object-lock does.)
+- **Retained at least as long as the longest open dispute window.** Retention derives from the [AssuranceTier](AssuranceTier.mdx), never from storage cost. An oracle whose evidence expires before the dispute right lapses is **self-annulling**.
+- **Counterparty-checkable** — shared reconciliation or signed receipts; the strongest form is confirmable by the party on the other side of the transaction, not merely self-attested.
+- **The evidence is the object, never the table.** Any catalog above the objects (a queryable table format, a metadata catalog) is a *view* with **zero evidentiary status** — a table delete hides, it cannot destroy.
+
+## Event vocabulary
+
+The register's event vocabulary is seeded by [GS1 EPCIS](https://standards.org.ai/GS1/EPCIS) — the what/when/where/why evidence-event standard. (Lexeme-binding note: EPCIS `TransformationEvent` is a supply-chain event type and is **not** the canon verb `transform`; the two bind separately.)
+
+## Role in assurance
+
+- The evidence ledger is a member of the T2 commerce pack — every mint that sells carries one from birth.
+- Demanded evidence under R12-2 (mitigating controls become evidence) lands here.
+- Duty preservation: retention runs even while the business sits in its [MinimalRiskCondition](MinimalRiskCondition.mdx).
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "EvidenceRegister" | - |
+| `$id` | URL | Unique identifier for the register | Thing |
+| `name` | Text | Short name for the register | Thing |
+| `retentionWindow` | Text | Retention duration; must be ≥ the longest open dispute window | EvidenceRegister |
+| `retentionWall` | DoctrineWall | The structural mechanism making deletion unavailable (e.g. object-lock) | EvidenceRegister |
+| `checkableBy` | Text | How a counterparty verifies the evidence (shared reconciliation, signed receipts) | EvidenceRegister |
+
+## Example
+
+```typescript
+const evidence = {
+  $type: 'EvidenceRegister',
+  name: 'settlement-evidence',
+  description: 'Append-only Parquet objects under retention hold',
+  retentionWindow: 'P7Y — exceeds the longest open dispute window',
+  retentionWall: {
+    $type: 'DoctrineWall',
+    name: 'object-lock',
+    description: 'Deletion structurally unavailable for the retention period.',
+  },
+  checkableBy: 'Signed receipts; counterparty reconciliation feed',
+}
+```
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

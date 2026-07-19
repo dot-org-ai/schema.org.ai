@@ -1,0 +1,61 @@
+---
+$id: https://schema.org.ai/DoctrineWall
+$context: https://schema.org.ai
+$type: Class
+name: DoctrineWall
+description: A constitutive constraint — structurally verifiable, reopenable only by governance — that defines a business's hazard class. Distinct from mitigating controls, which are excluded from tier assignment and become demanded evidence.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# DoctrineWall
+
+A DoctrineWall is a **constitutive constraint**: structurally verifiable, reopenable only by governance. Per the R12-2 constitutive/mitigating cut, walls **DEFINE the hazard class** a business is tiered in; **mitigating controls are excluded from tier assignment** and become the tier's demanded evidence instead.
+
+## The constitutive/mitigating cut
+
+- **Constitutive** (a wall): the constraint is part of what the business *is*. Structurally verifiable — its absence would be visible in the architecture, not just in policy. Example: deletion structurally unavailable on an [EvidenceRegister](EvidenceRegister.mdx) (object-lock); no-custody-ever on a trading product; no publish path for unfiled matter.
+- **Mitigating** (not a wall): a control layered on a capability that still exists. Example: table-format immutability where deletes are supported verbs you promise not to use; a two-step confirm dialog (friction, not authority).
+
+**Anti-gaming test:** *remove the constraint — is the residue the same business?* If yes, it was mitigation. If no, it was constitutive. Classification is performed upstream, never by the builder.
+
+## Consequences
+
+- **Wall removal is a re-tiering event** (the licensure-event-rule interlock): a business that drops a wall is a different hazard class and must be re-assigned its [AssuranceTier](AssuranceTier.mdx).
+- **The wall list and the [DeclaredScope](DeclaredScope.mdx) exclusions are one object read twice** — scope and tier are not independent coordinates.
+- A wall in seam position is a [NeverMintWall](SeamClass.mdx): a verb the estate never mints.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "DoctrineWall" | - |
+| `$id` | URL | Unique identifier for the wall | Thing |
+| `name` | Text | Short name (e.g. "no-custody-ever") | Thing |
+| `description` | Text | What the wall structurally forecloses | Thing |
+| `verifiedBy` | Text | How the wall is structurally verified (architecture, not policy) | DoctrineWall |
+
+## Examples
+
+```typescript
+const noCustody = {
+  $type: 'DoctrineWall',
+  name: 'no-custody-ever',
+  description: 'The system never takes custody of third-party funds; custody sits at the broker.',
+  verifiedBy: 'No custody rails exist in the architecture; T4 is structurally unreachable.',
+}
+
+const noPublishUnfiled = {
+  $type: 'DoctrineWall',
+  name: 'no-publish-path-for-unfiled-matter',
+  description: 'No publish path exists for unfiled matter, including ideation output — published ideation is prior art against the user.',
+  verifiedBy: 'Publishing verbs are absent from the unfiled-matter scope, not permission-gated.',
+}
+```
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

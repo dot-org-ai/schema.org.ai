@@ -1,0 +1,72 @@
+---
+$id: https://schema.org.ai/MinimalRiskCondition
+$context: https://schema.org.ai
+$type: Class
+name: MinimalRiskCondition
+description: A machine-reachable, duty-preserving business halt entered on scope-exit. Every MRC must declare a lawfulDegradedState of Frozen or Flat.
+subClassOf:
+  - https://schema.org/Intangible
+derivedFrom:
+  - https://standards.org.ai/SAE/J3016
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# MinimalRiskCondition
+
+A MinimalRiskCondition (MRC) is the **machine-reachable, duty-preserving business halt** a system enters when it exits its [DeclaredScope](DeclaredScope.mdx). Derived from [SAE J3016](https://standards.org.ai/SAE/J3016)'s minimal risk condition — the safe state an automated vehicle achieves when it cannot continue — carried to business autonomy: the halt must preserve **duties** (obligations, retention, dispute rights), not merely stop activity.
+
+An [AutonomyClaim](AutonomyClaim.mdx) at [L4](AutonomyLevel.mdx) is only honest if its MRC is reachable by the machine itself, without human cooperation, and lawful while degraded.
+
+## lawfulDegradedState — required, Frozen | Flat
+
+Every MRC **must declare** its `lawfulDegradedState`:
+
+- **`Frozen`** — the system de-arms and holds state; exposure persists but nothing new is created; all obligations (retention, dispute, covenant duties) remain live and serviced. A kill switch that de-arms but does not close positions is *Frozen*, and must be declared as such.
+- **`Flat`** — the system closes exposure to zero before halting.
+
+Declaring which of the two the MRC reaches is part of tier assignment: every MRC declares Frozen-or-Flat (Law 2), and an undeclared degraded state is an unassigned hazard.
+
+## Duty preservation
+
+- Per A2 (obligations carry tiers), a business holding T3 obligations is a T3 process **even while halted** — the MRC must keep servicing tier-bearing obligations. **The covenant registry is the living will: the T3 MRC is a query over it.**
+- Evidence duties survive the halt: retention on the [EvidenceRegister](EvidenceRegister.mdx) runs at least as long as the longest open dispute window, halted or not.
+- A degraded-but-lawful MRC is a member of the T2 commerce pack — e.g. refusing service *before* debiting (503-before-debit), or dropping to a read-only degraded state.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "MinimalRiskCondition" | - |
+| `$id` | URL | Unique identifier for the MRC | Thing |
+| `name` | Text | Short name for the MRC | Thing |
+| `description` | Text | The halt in prose | Thing |
+| `lawfulDegradedState` | Text | **Required.** `"Frozen"` or `"Flat"` | MinimalRiskCondition |
+| `reachableBy` | Text | The machine-reachable trigger path (no human cooperation required) | MinimalRiskCondition |
+
+## Examples
+
+```typescript
+const tradingMrc = {
+  $type: 'MinimalRiskCondition',
+  name: 'kill-de-arms',
+  description: 'Kill de-arms the execution envelope; positions are held, not flattened.',
+  lawfulDegradedState: 'Frozen',
+}
+
+const saasMrc = {
+  $type: 'MinimalRiskCondition',
+  name: 'read-only-degraded',
+  description: 'On scope-exit the product serves reads only; no new writes, billing, or provisioning.',
+  lawfulDegradedState: 'Frozen',
+}
+```
+
+## Citations
+
+- [SAE J3016](https://standards.org.ai/SAE/J3016) — the G1 seed for the minimal-risk-condition construct.
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
