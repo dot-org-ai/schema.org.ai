@@ -106,7 +106,16 @@ for (const node of graph) {
       })
       continue
     }
-    native.push({ term, iri: SCHEMAAI + term, comment: node['rdfs:comment'] })
+    // Q3 SHADOW machinery (org.ai ADR 0004): a native class MAY declare
+    // "schemaai:shadows" — an external same-named type with a DIFFERENT
+    // referent (a false friend). The bare context term binds to OUR IRI; the
+    // external sense stays reachable by its full IRI (never re-homed, never
+    // borrowed, never subClassOf'd). Shadow is metadata on a native, not a
+    // fourth bucket. Shipped rulings: Role (F4), Event (ADR 0004 first
+    // application), Thesis (org.ai#11 approval + ADR 0004 Q3 mechanics).
+    const shadowRef = node['schemaai:shadows']
+    const shadows = shadowRef ? expandCurie(shadowRef['@id'] ?? shadowRef) : null
+    native.push({ term, iri: SCHEMAAI + term, comment: node['rdfs:comment'], shadows })
   } else if (node['@type'] === 'rdf:Property') {
     nativeProps.push({
       term,
@@ -170,6 +179,12 @@ const GENERATED_HEADER = {
     omitted: pendingOmitted.sort(),
     borderlineNoted: config.pendingConfirmation.borderlineNoted,
   },
+  shadowedTerms: {
+    note: 'org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.',
+    shadows: Object.fromEntries(
+      native.filter((n) => n.shadows).map((n) => [n.term, n.shadows]),
+    ),
+  },
 }
 
 function buildContextObject() {
@@ -220,7 +235,9 @@ const profile = {
     extensionPending: [...PENDING].sort(),
   },
   buckets: {
-    native: native.map((n) => ({ term: n.term, iri: n.iri })).sort(byTerm),
+    native: native
+      .map((n) => ({ term: n.term, iri: n.iri, ...(n.shadows ? { shadows: n.shadows } : {}) }))
+      .sort(byTerm),
     nativeProperties: nativeProps
       .map((p) => ({ term: p.term, iri: p.iri, objectProperty: p.coerceId }))
       .sort(byTerm),

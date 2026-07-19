@@ -350,7 +350,19 @@
       "@type": "rdfs:Class",
       "@id": "schemaai:Role",
       "rdfs:label": "Role",
-      "rdfs:comment": "A job role definition: a named position/function with required skills, responsibilities, permissions, tool grants, delegation/approval/escalation edges, and a preferred worker type (agent or human). NATIVE and SHADOWS per the ADR 0002 R3 bucket ruling: schema.org/Role is a reified edge-qualifier — a different concept sharing the name. The context term Role maps here; schema.org's Role stays reachable by full IRI."
+      "rdfs:comment": "A job role definition: a named position/function with required skills, responsibilities, permissions, tool grants, delegation/approval/escalation edges, and a preferred worker type (agent or human). NATIVE and SHADOWS per the ADR 0002 R3 bucket ruling: schema.org/Role is a reified edge-qualifier — a different concept sharing the name. The context term Role maps here; schema.org's Role stays reachable by full IRI.",
+      "schemaai:shadows": {
+        "@id": "schema:Role"
+      }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Event",
+      "rdfs:label": "Event",
+      "rdfs:comment": "A business occurrence: the immutable, past-tense record that something happened, carrying What/Who/When/Where/Why/How dimensions. NATIVE, SHADOWING schema.org/Event, and SEAM-MAPPED to GS1 EPCIS 2.0 per org.ai ADR 0004 (first application): Q1 fails (merging occurrence records into concert listings is meaning-destroying), Q2 lineage veto (an EPCIS-shaped receiving event is not truthfully a schema:Event, so NO subClassOf edge), Q3 shadow (bare term binds here; schema.org/Event stays one full IRI away), and EPCIS integrates per R17 as a protocol seam.",
+      "schemaai:shadows": {
+        "@id": "schema:Event"
+      }
     },
     {
       "@type": "rdfs:Class",

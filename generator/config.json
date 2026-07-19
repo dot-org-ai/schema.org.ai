@@ -22,7 +22,7 @@
   },
 
   "borrowSeed": {
-    "_comment": "Blessed BORROW terms (ADR 0002 R3): schema.org terms admitted into the extensional profile and mapped to their canonical schema.org IRI. The 871-type things/ mirror is NOT admitted wholesale (R3 demotes it to provenance-stamped courtesy docs); only these blessed terms plus any schema.org parent structurally referenced by a native (subClassOf/domain/range) enter the profile. Seed rationale: Person/BlogPosting are live atlas emissions cited in ADR 0002; the rest are the schema.org base types our natives lean on or that authors routinely reach for.",
+    "_comment": "Blessed BORROW terms (ADR 0002 R3): schema.org terms admitted into the extensional profile and mapped to their canonical schema.org IRI. The 871-type things/ mirror is NOT admitted wholesale (R3 demotes it to provenance-stamped courtesy docs); only these blessed terms plus any schema.org parent structurally referenced by a native (subClassOf/domain/range) enter the profile. Seed rationale: Person/BlogPosting are live atlas emissions cited in ADR 0002; the rest are the schema.org base types our natives lean on or that authors routinely reach for. Event was REMOVED from this seed by org.ai ADR 0004 (first application): Event is NATIVE and SHADOWS schema.org/Event — the bare term binds to ours; schema.org's sense stays reachable by full IRI.",
     "terms": [
       "Person",
       "BlogPosting",
@@ -34,7 +34,6 @@
       "WebSite",
       "ImageObject",
       "Place",
-      "Event",
       "Occupation",
       "Action",
       "HowTo",

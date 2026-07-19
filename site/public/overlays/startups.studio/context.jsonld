@@ -24,6 +24,13 @@
         "Business"
       ]
     },
+    "shadowedTerms": {
+      "note": "org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.",
+      "shadows": {
+        "Role": "https://schema.org/Role",
+        "Event": "https://schema.org/Event"
+      }
+    },
     "overlayNote": "ADR 0002 R4 venue overlay (fast clock) for startups.studio. EXTENDS schema.org.ai; may add terms, may NEVER redefine a base term (enforced at generation). Venue-homed IRIs are LEASES — no durability promise; durable identity exists only at the frozen layer. Graduation (R5) is the only door into the frozen profile."
   },
   "$id": "https://startups.studio",

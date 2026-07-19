@@ -23,6 +23,13 @@
       "borderlineNoted": [
         "Business"
       ]
+    },
+    "shadowedTerms": {
+      "note": "org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.",
+      "shadows": {
+        "Role": "https://schema.org/Role",
+        "Event": "https://schema.org/Event"
+      }
     }
   },
   "$id": "https://schema.org.ai",
@@ -46,7 +53,7 @@
     "CreativeWork": "https://schema.org/CreativeWork",
     "Department": "https://schema.org.ai/Department",
     "DigitalProperty": "https://schema.org.ai/DigitalProperty",
-    "Event": "https://schema.org/Event",
+    "Event": "https://schema.org.ai/Event",
     "Generation": "https://schema.org.ai/Generation",
     "HowTo": "https://schema.org/HowTo",
     "Hypothesis": "https://schema.org.ai/Hypothesis",

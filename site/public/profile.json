@@ -23,15 +23,22 @@
       "borderlineNoted": [
         "Business"
       ]
+    },
+    "shadowedTerms": {
+      "note": "org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.",
+      "shadows": {
+        "Role": "https://schema.org/Role",
+        "Event": "https://schema.org/Event"
+      }
     }
   },
   "$id": "https://schema.org.ai/profile",
   "schemaVersion": "0.1.0",
   "spec": "ADR 0002 R3",
   "census": {
-    "native": 32,
+    "native": 33,
     "nativeProperties": 9,
-    "borrow": 23,
+    "borrow": 22,
     "extensionAdmitted": 1,
     "extensionPending": [
       "Company",
@@ -73,6 +80,11 @@
       {
         "term": "DigitalProperty",
         "iri": "https://schema.org.ai/DigitalProperty"
+      },
+      {
+        "term": "Event",
+        "iri": "https://schema.org.ai/Event",
+        "shadows": "https://schema.org/Event"
       },
       {
         "term": "Generation",
@@ -140,7 +152,8 @@
       },
       {
         "term": "Role",
-        "iri": "https://schema.org.ai/Role"
+        "iri": "https://schema.org.ai/Role",
+        "shadows": "https://schema.org/Role"
       },
       {
         "term": "SDK",
@@ -234,10 +247,6 @@
       {
         "term": "CreativeWork",
         "iri": "https://schema.org/CreativeWork"
-      },
-      {
-        "term": "Event",
-        "iri": "https://schema.org/Event"
       },
       {
         "term": "HowTo",

@@ -1,71 +1,43 @@
 ---
-$id: https://schema.org/Event
-$context: https://schema.org
-$provenance: schema.org
+$id: https://schema.org.ai/Event
+$context: https://schema.org.ai
 $type: Class
 name: Event
-description: An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the [[offers]] property. Repeated events may be structured as separate Event objects.
-subClassOf: ["Thing"]
+description: A business occurrence — the immutable, past-tense record that something happened, carrying What/Who/When/Where/Why/How dimensions. Native; shadows schema.org/Event (a scheduled public happening — different referent, same name); seam-mapped to GS1 EPCIS 2.0.
+digital: 0.8
 ---
+
+[Thing](Thing.mdx)
 
 # Event
 
-An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the [[offers]] property. Repeated events may be structured as separate Event objects.
+An Event is a business occurrence: the immutable, past-tense record that something happened — a receiving event, a payment captured, a document signed — carrying the What/Who/When/Where/Why/How dimensions of the occurrence. In the verb-conjugation frame, an Event is the **"created"** form: the fact, after the act.
 
-## Type Hierarchy
+## The bucket ruling (org.ai ADR 0004, first application)
 
-[Thing](Thing.mdx) > **Event**
+**Event is NATIVE, SHADOWING [`schema.org/Event`](https://schema.org/Event), and SEAM-MAPPED to GS1 EPCIS 2.0.** Running the admission decision tree:
 
-## Direct Subclasses
+- **Q1 (borrow) — no.** Merging our occurrence records into schema.org's Event (a concert, lecture, or festival listing) is meaning-destroying, not truth-preserving.
+- **Q2 (extension) — no; the lineage veto fires.** An EPCIS-shaped receiving event is not truthfully a `schema:Event` (a scheduled public happening with attendees). Event therefore declares **no** `subClassOf schema:Event` edge.
+- **Q3 (false friend) — yes: shadow.** Same name, different referent. The bare context term `Event` binds to `https://schema.org.ai/Event`; `https://schema.org/Event` remains one full IRI away for anyone marking up a concert. Register proximity breaks the cross-canon tie: the builder of an autonomous business who types `Event` means "something that happened in the business," not "a concert listing."
+- **+R17 seam.** GS1 EPCIS 2.0's sense *aligns* — an Event is a past-tense verb, a business occurrence with What/Who/When/Where/Why/How dimensions — so EPCIS integrates as a protocol seam: context composition, CBV bizSteps as verb vocabulary, identifiers by reference. Never by adopting its meta-model or keys as native.
 
-- **[BusinessEvent](BusinessEvent.mdx)**: Event type: Business event
-- **[ComedyEvent](ComedyEvent.mdx)**: Event type: Comedy event
-- **[CourseInstance](CourseInstance.mdx)**: An instance of a [[Course]] which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students
-- **[DanceEvent](DanceEvent.mdx)**: Event type: A social dance
-- **[DeliveryEvent](DeliveryEvent.mdx)**: An event involving the delivery of an item
-- **[EducationEvent](EducationEvent.mdx)**: Event type: Education event
-- **[EventSeries](EventSeries.mdx)**: A series of [[Event]]s
-- **[ExhibitionEvent](ExhibitionEvent.mdx)**: Event type: Exhibition event, e
-- **[Festival](Festival.mdx)**: Event type: Festival
-- **[FoodEvent](FoodEvent.mdx)**: Event type: Food event
-- **[Hackathon](Hackathon.mdx)**: A [hackathon](https://en
-- **[LiteraryEvent](LiteraryEvent.mdx)**: Event type: Literary event
-- **[MusicEvent](MusicEvent.mdx)**: Event type: Music event
-- **[PublicationEvent](PublicationEvent.mdx)**: A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type, e
-- **[SaleEvent](SaleEvent.mdx)**: Event type: Sales event
-- **[ScreeningEvent](ScreeningEvent.mdx)**: A screening of a movie or other video
-- **[SocialEvent](SocialEvent.mdx)**: Event type: Social event
-- **[SportsEvent](SportsEvent.mdx)**: Event type: Sports event
-- **[TheaterEvent](TheaterEvent.mdx)**: Event type: Theater performance
-- **[UserInteraction](UserInteraction.mdx)**: UserInteraction and its subtypes is an old way of talking about users interacting with pages
-- **[VisualArtsEvent](VisualArtsEvent.mdx)**: Event type: Visual arts event
+## Shadowing, concretely
 
-## Properties
+| You write | It means |
+|---|---|
+| `"$type": "Event"` | `https://schema.org.ai/Event` — the business occurrence |
+| `"$type": "https://schema.org/Event"` | schema.org's Event — the scheduled public happening |
+| `"$type": "schema:Event"` | same as the full schema.org IRI (prefix declared in the context) |
 
-See [Schema.org Event properties](https://schema.org/Event#properties)
+External senses never lose their IRIs; at most they lose the bare term.
 
-## Usage in Business-as-Code
+## Related
 
-```typescript
-import { $ } from 'sdk.do'
-import type { Event } from 'schema.org.ai'
-
-// Create a Event
-const item: Event = {
-  $type: 'Event',
-  name: 'Example Event'
-}
-
-// Use semantic patterns
-await $.Event.create(item)
-const result = await $.Event.get('item-id')
-```
-
-## Resources
-
-- [Schema.org Event](https://schema.org/Event)
-- [Event Properties](https://schema.org/Event#properties)
+- **[schema.org/Event](https://schema.org/Event)** — the shadowed consumer-web sense (concerts, lectures, festivals); reachable by full IRI, never re-homed
+- **[Task](Task.mdx)** — work-to-be-done; an Event is what remains after work happened
+- **[Process](Process.mdx)** — the repeatable to-be-done whose executions leave Events
 
 ## License
 
-This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Event.
