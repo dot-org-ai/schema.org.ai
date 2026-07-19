@@ -1,0 +1,329 @@
+{
+  "_generated": {
+    "WARNING": "GENERATED FILE — DO NOT EDIT BY HAND.",
+    "regenerate": "pnpm run gen:context",
+    "ciCheck": "pnpm run check:context  (regenerates and diffs; hand-edits fail CI)",
+    "source": [
+      "things/*.mdx  (natives/extensions where $context=https://schema.org.ai; borrow pointers where $context=https://schema.org)",
+      "extensions.jsonld  (structured projection of the native/extension MDX Things)",
+      "generator/config.json  (policy: borrowSeed, pendingConfirmation, venueOverlay)"
+    ],
+    "spec": "ADR 0002 (dot-org-ai/org.ai) R1-R4",
+    "profile": "ADR 0002 R3 three-bucket profile is EXTENSIONAL: a term mapped to a https://schema.org.ai/* IRI is native (or an admitted extension); a term mapped to a https://schema.org/* IRI is borrow. Full per-term census: ./profile.json",
+    "pendingNathanConfirmation": {
+      "note": "These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted. (The 2026-07-18 F5 holds — Product/Offer/Service/Company — were confirmed by Nathan on org.ai#11 and now sit in the extension bucket.)",
+      "heldAsBorrow": [],
+      "omitted": [],
+      "borderlineNoted": []
+    },
+    "notAdmitted": {
+      "note": "Terms ruled OUT of the profile entirely — no class, no context term, no IRI. Business: Nathan, org.ai#11 (2026-07-18): 'Business = not admitted (Company carries the referent)'.",
+      "terms": [
+        "Business"
+      ]
+    },
+    "shadowedTerms": {
+      "note": "org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.",
+      "shadows": {
+        "Thesis": "https://schema.org/Thesis",
+        "Role": "https://schema.org/Role",
+        "Event": "https://schema.org/Event"
+      }
+    }
+  },
+  "$id": "https://schema.org.ai/profile",
+  "schemaVersion": "0.1.0",
+  "spec": "ADR 0002 R3",
+  "census": {
+    "native": 31,
+    "nativeProperties": 9,
+    "borrow": 19,
+    "extensionAdmitted": 5,
+    "extensionPending": []
+  },
+  "buckets": {
+    "native": [
+      {
+        "term": "API",
+        "iri": "https://schema.org.ai/API"
+      },
+      {
+        "term": "Agent",
+        "iri": "https://schema.org.ai/Agent"
+      },
+      {
+        "term": "CLI",
+        "iri": "https://schema.org.ai/CLI"
+      },
+      {
+        "term": "Capability",
+        "iri": "https://schema.org.ai/Capability"
+      },
+      {
+        "term": "CompanyType",
+        "iri": "https://schema.org.ai/CompanyType"
+      },
+      {
+        "term": "Department",
+        "iri": "https://schema.org.ai/Department"
+      },
+      {
+        "term": "DigitalProperty",
+        "iri": "https://schema.org.ai/DigitalProperty"
+      },
+      {
+        "term": "Event",
+        "iri": "https://schema.org.ai/Event",
+        "shadows": "https://schema.org/Event"
+      },
+      {
+        "term": "Generation",
+        "iri": "https://schema.org.ai/Generation"
+      },
+      {
+        "term": "Hypothesis",
+        "iri": "https://schema.org.ai/Hypothesis"
+      },
+      {
+        "term": "ICP",
+        "iri": "https://schema.org.ai/ICP"
+      },
+      {
+        "term": "Idea",
+        "iri": "https://schema.org.ai/Idea"
+      },
+      {
+        "term": "Industry",
+        "iri": "https://schema.org.ai/Industry"
+      },
+      {
+        "term": "InvestmentThesis",
+        "iri": "https://schema.org.ai/InvestmentThesis"
+      },
+      {
+        "term": "JTBD",
+        "iri": "https://schema.org.ai/JTBD"
+      },
+      {
+        "term": "JobType",
+        "iri": "https://schema.org.ai/JobType"
+      },
+      {
+        "term": "LandingPage",
+        "iri": "https://schema.org.ai/LandingPage"
+      },
+      {
+        "term": "MCP",
+        "iri": "https://schema.org.ai/MCP"
+      },
+      {
+        "term": "Model",
+        "iri": "https://schema.org.ai/Model"
+      },
+      {
+        "term": "Problem",
+        "iri": "https://schema.org.ai/Problem"
+      },
+      {
+        "term": "Process",
+        "iri": "https://schema.org.ai/Process"
+      },
+      {
+        "term": "Prompt",
+        "iri": "https://schema.org.ai/Prompt"
+      },
+      {
+        "term": "Role",
+        "iri": "https://schema.org.ai/Role",
+        "shadows": "https://schema.org/Role"
+      },
+      {
+        "term": "SDK",
+        "iri": "https://schema.org.ai/SDK"
+      },
+      {
+        "term": "Startup",
+        "iri": "https://schema.org.ai/Startup"
+      },
+      {
+        "term": "Task",
+        "iri": "https://schema.org.ai/Task"
+      },
+      {
+        "term": "Thesis",
+        "iri": "https://schema.org.ai/Thesis",
+        "shadows": "https://schema.org/Thesis"
+      },
+      {
+        "term": "Tool",
+        "iri": "https://schema.org.ai/Tool"
+      },
+      {
+        "term": "Webhook",
+        "iri": "https://schema.org.ai/Webhook"
+      },
+      {
+        "term": "Worker",
+        "iri": "https://schema.org.ai/Worker"
+      },
+      {
+        "term": "Workflow",
+        "iri": "https://schema.org.ai/Workflow"
+      }
+    ],
+    "nativeProperties": [
+      {
+        "term": "capability",
+        "iri": "https://schema.org.ai/capability",
+        "objectProperty": true
+      },
+      {
+        "term": "digital",
+        "iri": "https://schema.org.ai/digital",
+        "objectProperty": false
+      },
+      {
+        "term": "goal",
+        "iri": "https://schema.org.ai/goal",
+        "objectProperty": false
+      },
+      {
+        "term": "model",
+        "iri": "https://schema.org.ai/model",
+        "objectProperty": true
+      },
+      {
+        "term": "prompt",
+        "iri": "https://schema.org.ai/prompt",
+        "objectProperty": true
+      },
+      {
+        "term": "temperature",
+        "iri": "https://schema.org.ai/temperature",
+        "objectProperty": false
+      },
+      {
+        "term": "tokens",
+        "iri": "https://schema.org.ai/tokens",
+        "objectProperty": false
+      },
+      {
+        "term": "tool",
+        "iri": "https://schema.org.ai/tool",
+        "objectProperty": true
+      },
+      {
+        "term": "workflow",
+        "iri": "https://schema.org.ai/workflow",
+        "objectProperty": true
+      }
+    ],
+    "borrow": [
+      {
+        "term": "Action",
+        "iri": "https://schema.org/Action"
+      },
+      {
+        "term": "Article",
+        "iri": "https://schema.org/Article"
+      },
+      {
+        "term": "BlogPosting",
+        "iri": "https://schema.org/BlogPosting"
+      },
+      {
+        "term": "CreativeWork",
+        "iri": "https://schema.org/CreativeWork"
+      },
+      {
+        "term": "HowTo",
+        "iri": "https://schema.org/HowTo"
+      },
+      {
+        "term": "ImageObject",
+        "iri": "https://schema.org/ImageObject"
+      },
+      {
+        "term": "Intangible",
+        "iri": "https://schema.org/Intangible"
+      },
+      {
+        "term": "Integer",
+        "iri": "https://schema.org/Integer"
+      },
+      {
+        "term": "Number",
+        "iri": "https://schema.org/Number"
+      },
+      {
+        "term": "Occupation",
+        "iri": "https://schema.org/Occupation"
+      },
+      {
+        "term": "Organization",
+        "iri": "https://schema.org/Organization"
+      },
+      {
+        "term": "Person",
+        "iri": "https://schema.org/Person"
+      },
+      {
+        "term": "Place",
+        "iri": "https://schema.org/Place"
+      },
+      {
+        "term": "SoftwareApplication",
+        "iri": "https://schema.org/SoftwareApplication"
+      },
+      {
+        "term": "Text",
+        "iri": "https://schema.org/Text"
+      },
+      {
+        "term": "Thing",
+        "iri": "https://schema.org/Thing"
+      },
+      {
+        "term": "WebAPI",
+        "iri": "https://schema.org/WebAPI"
+      },
+      {
+        "term": "WebPage",
+        "iri": "https://schema.org/WebPage"
+      },
+      {
+        "term": "WebSite",
+        "iri": "https://schema.org/WebSite"
+      }
+    ],
+    "extension": [
+      {
+        "term": "Company",
+        "iri": "https://schema.org.ai/Company",
+        "subClassOf": "https://schema.org/Organization"
+      },
+      {
+        "term": "Offer",
+        "iri": "https://schema.org.ai/Offer",
+        "subClassOf": "https://schema.org/Offer"
+      },
+      {
+        "term": "Product",
+        "iri": "https://schema.org.ai/Product",
+        "subClassOf": "https://schema.org/Product"
+      },
+      {
+        "term": "Service",
+        "iri": "https://schema.org.ai/Service",
+        "subClassOf": "https://schema.org/Service"
+      },
+      {
+        "term": "Team",
+        "iri": "https://schema.org.ai/Team",
+        "subClassOf": "https://schema.org/Organization"
+      }
+    ],
+    "extensionPending": [],
+    "borderlineNoted": []
+  }
+}

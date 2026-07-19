@@ -1,0 +1,58 @@
+{
+  "_generated": {
+    "WARNING": "GENERATED FILE — DO NOT EDIT BY HAND.",
+    "regenerate": "pnpm run gen:context",
+    "ciCheck": "pnpm run check:context  (regenerates and diffs; hand-edits fail CI)",
+    "source": [
+      "things/*.mdx  (natives/extensions where $context=https://schema.org.ai; borrow pointers where $context=https://schema.org)",
+      "extensions.jsonld  (structured projection of the native/extension MDX Things)",
+      "generator/config.json  (policy: borrowSeed, pendingConfirmation, venueOverlay)"
+    ],
+    "spec": "ADR 0002 (dot-org-ai/org.ai) R1-R4",
+    "profile": "ADR 0002 R3 three-bucket profile is EXTENSIONAL: a term mapped to a https://schema.org.ai/* IRI is native (or an admitted extension); a term mapped to a https://schema.org/* IRI is borrow. Full per-term census: ./profile.json",
+    "pendingNathanConfirmation": {
+      "note": "These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted. (The 2026-07-18 F5 holds — Product/Offer/Service/Company — were confirmed by Nathan on org.ai#11 and now sit in the extension bucket.)",
+      "heldAsBorrow": [],
+      "omitted": [],
+      "borderlineNoted": []
+    },
+    "notAdmitted": {
+      "note": "Terms ruled OUT of the profile entirely — no class, no context term, no IRI. Business: Nathan, org.ai#11 (2026-07-18): 'Business = not admitted (Company carries the referent)'.",
+      "terms": [
+        "Business"
+      ]
+    },
+    "shadowedTerms": {
+      "note": "org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.",
+      "shadows": {
+        "Thesis": "https://schema.org/Thesis",
+        "Role": "https://schema.org/Role",
+        "Event": "https://schema.org/Event"
+      }
+    },
+    "overlayNote": "ADR 0002 R4 venue overlay (fast clock) for startups.studio. EXTENDS schema.org.ai; may add terms, may NEVER redefine a base term (enforced at generation). Venue-homed IRIs are LEASES — no durability promise; durable identity exists only at the frozen layer. Graduation (R5) is the only door into the frozen profile."
+  },
+  "$id": "https://startups.studio",
+  "$type": "schemaai:VenueOverlay",
+  "name": "startups.studio venue overlay",
+  "description": "Fast-clock overlay: schema.org.ai (slow clock) over schema.org (fixed clock), plus the alpha types/properties the startups.studio cascade is currently iterating.",
+  "extends": "https://schema.org.ai",
+  "schemaVersion": "0.1.0-studio.alpha",
+  "@context": [
+    "https://schema.org.ai",
+    {
+      "$id": "@id",
+      "$type": "@type",
+      "@version": 1.1,
+      "LaunchSpec": "https://startups.studio/LaunchSpec",
+      "Market": "https://startups.studio/Market",
+      "Opportunity": "https://startups.studio/Opportunity",
+      "Playbook": "https://startups.studio/Playbook",
+      "launchSpec": {
+        "@id": "https://startups.studio/launchSpec",
+        "@type": "@id"
+      },
+      "studio": "https://startups.studio/"
+    }
+  ]
+}

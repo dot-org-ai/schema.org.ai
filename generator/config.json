@@ -1,0 +1,76 @@
+{
+  "_comment": "Policy input for the schema.org.ai context-document generator (ADR 0002 R1-R4). Hand-edit THIS file to change policy; never hand-edit generated outputs under site/public/. Regenerate with `pnpm run gen:context`.",
+
+  "schemaVersion": "0.1.0",
+  "bindingIri": "https://schema.org.ai",
+  "schemaOrg": "https://schema.org/",
+  "schemaAi": "https://schema.org.ai/",
+
+  "release": null,
+  "_releaseComment": "F6 (2026-07-18 consistency review): releases/NN is WRITE-ONCE (ADR 0002 R1), so no snapshot is frozen until the profile is admission-complete (the Product/Offer/Service/Company calls + any errata). Set to \"01\" at publish time; null skips release emission entirely.",
+
+  "admittedExtensions": {
+    "_comment": "ADR 0002 R3 admitted EXTENSIONS: schema.org.ai-homed types declaring subClassOf a schema.org counterpart, admitted by ratified ruling — never silently. Keys are term names; the subClassOf edge lives in extensions.jsonld as usual. Rulings: Team — ADR 0002 R3 third ruling (org.ai#6/F4). Product/Offer/Service/Company — Nathan's F5 approval on org.ai#11 (2026-07-18, verbatim): 'Product, Service, Offer = extension (subClassOf schema:Product / schema:Service / schema:Offer); Company = extension (subClassOf schema:Organization, per the R3 exemplar)'.",
+    "terms": ["Team", "Product", "Offer", "Service", "Company"]
+  },
+
+  "pendingConfirmation": {
+    "_comment": "RESOLVED 2026-07-18: the Product/Offer/Service/Company holds were confirmed by Nathan's F5 rulings on org.ai#11 (see admittedExtensions); the Business borderline was ruled NOT ADMITTED (see notAdmitted). Machinery KEPT: any future flagged bucket call lists here and is HELD — served as BORROW if it exists in the schema.org mirror, omitted if it has no schema.org counterpart — because the generator MUST NOT silently admit an extension (ADR 0002 R3; org.ai ADR 0004 admission procedure).",
+    "wouldBeExtension": [],
+    "borderlineNoted": [],
+    "borderlineReason": ""
+  },
+
+  "notAdmitted": {
+    "_comment": "Terms ruled OUT of the profile entirely — no class, no context term, no IRI. Business — Nathan's ruling on org.ai#11 (2026-07-18, verbatim): 'Business = not admitted (Company carries the referent; \"business\" stays the Register-1 thesis word)'. A builder reaching for Business types Company.",
+    "terms": ["Business"]
+  },
+
+  "borrowSeed": {
+    "_comment": "Blessed BORROW terms (ADR 0002 R3): schema.org terms admitted into the extensional profile and mapped to their canonical schema.org IRI. The 871-type things/ mirror is NOT admitted wholesale (R3 demotes it to provenance-stamped courtesy docs); only these blessed terms plus any schema.org parent structurally referenced by a native (subClassOf/domain/range) enter the profile. Seed rationale: Person/BlogPosting are live atlas emissions cited in ADR 0002; the rest are the schema.org base types our natives lean on or that authors routinely reach for. Event was REMOVED from this seed by org.ai ADR 0004 (first application): Event is NATIVE and SHADOWS schema.org/Event — the bare term binds to ours; schema.org's sense stays reachable by full IRI.",
+    "terms": [
+      "Person",
+      "BlogPosting",
+      "Thing",
+      "Organization",
+      "Article",
+      "CreativeWork",
+      "WebPage",
+      "WebSite",
+      "ImageObject",
+      "Place",
+      "Occupation",
+      "Action",
+      "HowTo",
+      "Intangible"
+    ]
+  },
+
+  "venueOverlay": {
+    "_comment": "ADR 0002 R4 — first venue overlay context (fast clock) for startups.studio. EXTENDS schema.org.ai; may add terms but may NEVER redefine a base term (non-contradiction invariant, enforced by the generator). Venue-homed IRIs are LEASES (no durability promise). Prefer property-extension over type-subclassing at the venue seam.",
+    "venueId": "https://startups.studio",
+    "venueIri": "https://startups.studio/",
+    "nativeTypes": {
+      "Playbook": {
+        "comment": "ADR 0002 R4's named example alpha type ('startups.studio/Playbook — dereferenceable from day one'). A venue-native, repeatable go-to-market/build recipe the cascade iterates; genuinely new concept the base layer lacks, so it is a venue-homed type (a lease).",
+        "subClassOf": "https://schema.org/CreativeWork"
+      },
+      "LaunchSpec": {
+        "comment": "Venue-native alpha type: the launch specification the studio cascade currently emits per Startup (bands, positioning, offer scaffold). New concept the base lacks; venue-homed lease pending graduation evidence (R5).",
+        "subClassOf": "https://schema.org/CreativeWork"
+      },
+      "Opportunity": {
+        "comment": "OVERLAY-FIRST by Nathan's ruling on org.ai#11 (2026-07-18, verbatim): 'Opportunity, Market → overlay-first (once demoted in-monorepo per ADR 0057 = negative fixation evidence; graduate per R5)'. Venue-homed lease; no lineage claimed pending graduation; the former schema.org.ai/Opportunity native was demoted here accordingly."
+      },
+      "Market": {
+        "comment": "OVERLAY-FIRST — same org.ai#11 ruling as Opportunity (2026-07-18). Venue-homed lease; graduates into the frozen profile per R5 on fixation evidence."
+      }
+    },
+    "nativeProperties": {
+      "launchSpec": {
+        "comment": "ADR 0002 R4 'property extension over type subclassing': rather than subclass a canon type, the venue keeps $type at the canon IRI (e.g. schema.org.ai/Startup) and adds this venue-homed PROPERTY. Graduating it later is a context-document diff, not an IRI move.",
+        "range": "https://startups.studio/LaunchSpec"
+      }
+    }
+  }
+}

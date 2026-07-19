@@ -4,18 +4,16 @@ $context: https://schema.org.ai
 $type: Class
 name: Task
 description: A granular unit of work — typically an O*NET task statement. The typed work unit itself, addressable as canonical reference. Distinct from schema:Action (the act of performing).
-subClassOf:
-  - https://schema.org/Action
 digital: 0.6
 ---
 
-[Thing](Thing.mdx) > [Action](https://schema.org/Action)
+[Thing](Thing.mdx)
 
 # Task
 
 A Task is a granular unit of work — typically anchored to an [O\*NET](https://www.onetonline.org/) task statement or a comparable imperative work-action description. The typed unit of work itself, addressable as canonical reference.
 
-Distinct from [schema:Action](https://schema.org/Action) (which is *the act* of performing) — a Task is the *typed work itself*. Reconciling bank statements is a Task; the specific bank reconciliation Sally did on Tuesday is an Action that instantiates that Task.
+Distinct from [schema:Action](https://schema.org/Action) (which is *the act* of performing) — a Task is the *typed work itself*. Reconciling bank statements is a Task; the specific bank reconciliation Sally did on Tuesday is an Action that instantiates that Task. Per the ADR 0002 R3 bucket ruling, Task is **native** and deliberately declares *no* `subClassOf schema:Action` edge: schema.org's Action means performed events, and claiming its lineage for work-to-be-done would be a semantic error.
 
 Tasks are where AI disruption analysis lives in the cascade. "What tasks will AI replace?" is the most-trafficked SEO surface in the constellation. Each canonical Task page on `tasks.org.ai` documents the work, the typical performer JobTypes, the tools used, the disruption potential, and the candidate AI Solutions.
 
@@ -88,7 +86,7 @@ const qbr: Task = {
 
 ## Related
 
-- **[Action](https://schema.org/Action)** — parent type (Task is a typed Action category)
+- **[Action](https://schema.org/Action)** — NOT a parent: Task is native and deliberately claims no `subClassOf schema:Action` (the lineage veto — work-to-be-done is not a performed Action); an Action *instantiates* a Task
 - **[Process](Process.mdx)** — Tasks compose into Processes
 - **[JobType](JobType.mdx)** — performs Tasks
 - **[Tool](Tool.mdx)** — used to perform Tasks

@@ -26,6 +26,8 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "gen:context": "node generator/build-context.mjs",
+    "check:context": "node generator/check-context.mjs",
     "prepublishOnly": "pnpm build && pnpm typecheck"
   },
   "devDependencies": {
