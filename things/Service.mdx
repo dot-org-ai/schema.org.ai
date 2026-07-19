@@ -1,58 +1,30 @@
 ---
-$id: https://schema.org/Service
-$context: https://schema.org
-$provenance: schema.org
+$id: https://schema.org.ai/Service
+$context: https://schema.org.ai
 $type: Class
 name: Service
-description: A service provided by an organization, e.g. delivery service, print services, etc.
-subClassOf: ["Intangible"]
+description: A service a platform business provides — an admitted extension of schema.org/Service carrying the platform's service taxonomy and delivery edges (including services-as-software).
+subClassOf:
+  - https://schema.org/Service
+digital: 0.6
 ---
+
+[Thing](Thing.mdx) > [Service](https://schema.org/Service)
 
 # Service
 
-A service provided by an organization, e.g. delivery service, print services, etc.
+A Service is work provided to a buyer as an ongoing or on-demand engagement — including the platform's services-as-software: services delivered by agents with software economics.
 
-## Type Hierarchy
+## The bucket ruling
 
-**Service**
+**Service is an ADMITTED EXTENSION**: `subClassOf` [schema:Service](https://schema.org/Service), ruled by Nathan's F5 approval (org.ai issue #11, 2026-07-18): *"Product, Service, Offer = extension (subClassOf schema:Product / schema:Service / schema:Offer)"* — org.ai ADR 0004 Q2: every service of ours is truthfully a `schema:Service`, and our shape adds permanent structure. Crawlers walking the subclass edge still understand the parent type; the term is schema.org.ai-homed.
 
-## Direct Subclasses
+## Related
 
-- **[BroadcastService](BroadcastService.mdx)**: A delivery service through which content is provided via broadcast over the air or online
-- **[CableOrSatelliteService](CableOrSatelliteService.mdx)**: A service which provides access to media programming like TV or radio
-- **[FinancialProduct](FinancialProduct.mdx)**: A product provided to consumers and businesses by financial institutions such as banks, insurance companies, brokerage firms, consumer finance companies, and investment companies which comprise the financial services industry
-- **[FoodService](FoodService.mdx)**: A food service, like breakfast, lunch, or dinner
-- **[GovernmentService](GovernmentService.mdx)**: A service provided by a government organization, e
-- **[Taxi](Taxi.mdx)**: A taxi
-- **[TaxiService](TaxiService.mdx)**: A service for a vehicle for hire with a driver for local travel
-- **[WebAPI](WebAPI.mdx)**: An application programming interface accessible over Web/Internet technologies
-
-## Properties
-
-See [Schema.org Service properties](https://schema.org/Service#properties)
-
-## Usage in Business-as-Code
-
-```typescript
-import { $ } from 'sdk.do'
-import type { Service } from 'schema.org.ai'
-
-// Create a Service
-const item: Service = {
-  $type: 'Service',
-  name: 'Example Service'
-}
-
-// Use semantic patterns
-await $.Service.create(item)
-const result = await $.Service.get('item-id')
-```
-
-## Resources
-
-- [Schema.org Service](https://schema.org/Service)
-- [Service Properties](https://schema.org/Service#properties)
+- **[schema.org/Service](https://schema.org/Service)** — the parent type
+- **[Product](Product.mdx)** — the product-shaped sibling extension
+- **[Offer](Offer.mdx)** — an Offer packages a Service for a buyer
 
 ## License
 
-This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Service.

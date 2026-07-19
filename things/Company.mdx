@@ -1,0 +1,31 @@
+---
+$id: https://schema.org.ai/Company
+$context: https://schema.org.ai
+$type: Class
+name: Company
+description: A company — an admitted extension of schema.org/Organization; schema.org has no Company, so the clean term is ours to mint. The concrete-firm noun of the vocabulary (the archetype is CompanyType).
+subClassOf:
+  - https://schema.org/Organization
+digital: 0.6
+---
+
+[Thing](Thing.mdx) > [Organization](https://schema.org/Organization)
+
+# Company
+
+A Company is a concrete firm — an actual organization that operates in an [Industry](Industry.mdx), instantiates a [CompanyType](CompanyType.mdx) archetype, employs workers, and buys and sells. It is the platform's firm-grain noun; "business" as a word stays in the Register-1 thesis vocabulary and resolves here (Business is **not admitted** as a type — Company carries the referent).
+
+## The bucket ruling
+
+**Company is an ADMITTED EXTENSION**: `subClassOf` [schema:Organization](https://schema.org/Organization), ruled by Nathan's F5 approval (org.ai issue #11, 2026-07-18): *"Company = extension (subClassOf schema:Organization, per the R3 exemplar)"*. This is the ADR 0002 R3 exemplar move — *"schema.org has no Company; the clean term is ours to mint"* — restated by org.ai ADR 0004 Q2 (every company is truthfully an organization; our shape adds permanent structure). Crawlers walking the subclass edge still understand the parent type.
+
+## Related
+
+- **[schema.org/Organization](https://schema.org/Organization)** — the parent type
+- **[CompanyType](CompanyType.mdx)** — the firm archetype a Company instantiates
+- **[Team](Team.mdx)** — the sibling Organization extension at group grain
+- **[Startup](Startup.mdx)** — the venue-minted company with an explicit lifecycle stage
+
+## License
+
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Company.

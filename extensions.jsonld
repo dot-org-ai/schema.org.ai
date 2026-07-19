@@ -125,9 +125,9 @@
     },
     {
       "@type": "rdfs:Class",
-      "@id": "schemaai:Business",
-      "rdfs:label": "Business",
-      "rdfs:comment": "A business entity that can be represented as Business-as-Code, with autonomous operations.",
+      "@id": "schemaai:Company",
+      "rdfs:label": "Company",
+      "rdfs:comment": "A concrete firm: an organization that operates in an Industry, instantiates a CompanyType archetype, employs workers, and buys and sells. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): 'Company = extension (subClassOf schema:Organization, per the R3 exemplar)' — schema.org has no Company; the clean term is ours to mint. Business is NOT ADMITTED (same ruling): Company carries the referent.",
       "rdfs:subClassOf": {
         "@id": "schema:Organization"
       }
@@ -203,20 +203,11 @@
     },
     {
       "@type": "rdfs:Class",
-      "@id": "schemaai:Opportunity",
-      "rdfs:label": "Opportunity",
-      "rdfs:comment": "A market opportunity — a Problem coupled with a Thesis approach and target ICP, scoped to a buildable solution space. The 'where to build' artifact in startup discovery.",
-      "rdfs:subClassOf": {
-        "@id": "schema:Thing"
-      }
-    },
-    {
-      "@type": "rdfs:Class",
-      "@id": "schemaai:Market",
-      "rdfs:label": "Market",
-      "rdfs:comment": "A market — the competitive field of incumbents, substitutes, and status-quo solutions addressing a Problem. Distinct from schema:Place (geographic) — a Market is a competitive landscape.",
-      "rdfs:subClassOf": {
-        "@id": "schema:Intangible"
+      "@id": "schemaai:Thesis",
+      "rdfs:label": "Thesis",
+      "rdfs:comment": "The strategic bet a startup is founded on — the cascade's thesis noun (Service-as-Software, Agent, Headless SaaS are canonical theses). NATIVE per Nathan's ruling (org.ai#11, 2026-07-18): 'Problem, Thesis → native now (recurrence-proven, live-emitted)'. SHADOWS schema.org/Thesis (a dissertation document — different referent sharing the name) per org.ai ADR 0004 Q3 mechanics: the bare term binds here; the dissertation sense stays reachable by full IRI. Distinct from InvestmentThesis (fund-side).",
+      "schemaai:shadows": {
+        "@id": "schema:Thesis"
       }
     },
     {
@@ -371,6 +362,33 @@
       "rdfs:comment": "A team: a named group of workers (agents and humans) with members, an optional lead, goals, and communication channels. ADMITTED EXTENSION per the ADR 0002 R3 bucket ruling: subClassOf schema:Organization — schema.org has no generic Team; crawlers walking the subclass edge still understand the parent type.",
       "rdfs:subClassOf": {
         "@id": "schema:Organization"
+      }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Product",
+      "rdfs:label": "Product",
+      "rdfs:comment": "A product the platform's businesses make, sell, or use — spanning instance-grain products and the UNSPSC-seeded product-category taxonomy. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): 'Product, Service, Offer = extension (subClassOf schema:Product / schema:Service / schema:Offer)' — org.ai ADR 0004 Q2; category grain tolerated (grain diverges, nothing false).",
+      "rdfs:subClassOf": {
+        "@id": "schema:Product"
+      }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Offer",
+      "rdfs:label": "Offer",
+      "rdfs:comment": "An offer a platform business makes: the packaged promise — what is delivered, to whom (ICP coordinates), how, and on what pricing structure. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): subClassOf schema:Offer — org.ai ADR 0004 Q2.",
+      "rdfs:subClassOf": {
+        "@id": "schema:Offer"
+      }
+    },
+    {
+      "@type": "rdfs:Class",
+      "@id": "schemaai:Service",
+      "rdfs:label": "Service",
+      "rdfs:comment": "A service a platform business provides — including services-as-software (services delivered by agents with software economics). ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): subClassOf schema:Service — org.ai ADR 0004 Q2.",
+      "rdfs:subClassOf": {
+        "@id": "schema:Service"
       }
     },
     {

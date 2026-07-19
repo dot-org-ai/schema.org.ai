@@ -11,22 +11,21 @@
     "spec": "ADR 0002 (dot-org-ai/org.ai) R1-R4",
     "profile": "ADR 0002 R3 three-bucket profile is EXTENSIONAL: a term mapped to a https://schema.org.ai/* IRI is native (or an admitted extension); a term mapped to a https://schema.org/* IRI is borrow. Full per-term census: ./profile.json",
     "pendingNathanConfirmation": {
-      "note": "These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted.",
-      "heldAsBorrow": [
-        "Offer",
-        "Product",
-        "Service"
-      ],
-      "omitted": [
-        "Company"
-      ],
-      "borderlineNoted": [
+      "note": "These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted. (The 2026-07-18 F5 holds — Product/Offer/Service/Company — were confirmed by Nathan on org.ai#11 and now sit in the extension bucket.)",
+      "heldAsBorrow": [],
+      "omitted": [],
+      "borderlineNoted": []
+    },
+    "notAdmitted": {
+      "note": "Terms ruled OUT of the profile entirely — no class, no context term, no IRI. Business: Nathan, org.ai#11 (2026-07-18): 'Business = not admitted (Company carries the referent)'.",
+      "terms": [
         "Business"
       ]
     },
     "shadowedTerms": {
       "note": "org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.",
       "shadows": {
+        "Thesis": "https://schema.org/Thesis",
         "Role": "https://schema.org/Role",
         "Event": "https://schema.org/Event"
       }
@@ -46,6 +45,8 @@
       "$type": "@type",
       "@version": 1.1,
       "LaunchSpec": "https://startups.studio/LaunchSpec",
+      "Market": "https://startups.studio/Market",
+      "Opportunity": "https://startups.studio/Opportunity",
       "Playbook": "https://startups.studio/Playbook",
       "launchSpec": {
         "@id": "https://startups.studio/launchSpec",

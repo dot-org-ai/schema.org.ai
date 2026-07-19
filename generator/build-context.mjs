@@ -47,6 +47,10 @@ const SCHEMA = config.schemaOrg // https://schema.org/
 const SCHEMAAI = config.schemaAi // https://schema.org.ai/
 const PENDING = new Set(config.pendingConfirmation.wouldBeExtension)
 const ADMITTED_EXTENSIONS = new Set(config.admittedExtensions?.terms ?? [])
+// Terms ruled OUT of the profile entirely (no class, no context term, no IRI).
+// Business — Nathan, org.ai#11 (2026-07-18): "Business = not admitted (Company
+// carries the referent; 'business' stays the Register-1 thesis word)".
+const NOT_ADMITTED = new Set(config.notAdmitted?.terms ?? [])
 
 // ---------------------------------------------------------------------------
 // 1. Native + extension vocabulary from extensions.jsonld, cross-checked
@@ -81,10 +85,14 @@ crossCheck(jsonldClasses, mdxNativeThings)
 //                 authority over the *term*.)
 //    - borrow:    a schema.org term, mapped to its canonical schema.org IRI.
 //    - extension: schema.org.ai-homed refinement of a schema.org counterpart
-//                 term/concept. Per R3, the concrete extension candidates
-//                 (Product/Offer/Service/Company) are ALL pending Nathan's
-//                 admission call, so this bucket is emitted EMPTY and the
-//                 candidates are held (see §pending below).
+//                 term/concept, admitted by ratified ruling only (config
+//                 admittedExtensions): Team (ADR 0002 R3 third ruling) and
+//                 Product/Offer/Service/Company (Nathan's F5 approval,
+//                 org.ai#11, 2026-07-18). Unruled candidates are HELD via
+//                 config pendingConfirmation, never silently admitted.
+//
+//    Terms in config notAdmitted are excluded from the profile entirely
+//    (Business — org.ai#11: Company carries the referent).
 // ---------------------------------------------------------------------------
 const native = [] // { term, iri, comment }
 const extension = [] // { term, iri, comment, subClassOf } — ADMITTED extensions only (R3 rulings)
@@ -96,6 +104,12 @@ for (const node of graph) {
   const term = localName(node['@id'])
   if (node['@type'] === 'rdfs:Class') {
     if (PENDING.has(term)) continue // never silently admit a pending extension
+    if (NOT_ADMITTED.has(term)) {
+      throw new Error(
+        `NOT-ADMITTED VIOLATION: "${term}" is ruled out of the profile (config notAdmitted) ` +
+          `but still has a class entry in extensions.jsonld. Remove the class (and its things/*.mdx $context claim).`,
+      )
+    }
     if (ADMITTED_EXTENSIONS.has(term)) {
       const sub = node['rdfs:subClassOf']
       extension.push({
@@ -154,7 +168,12 @@ for (const term of PENDING) {
 }
 
 const borrow = [...borrowTerms]
-  .filter((t) => !native.some((n) => n.term === t)) // native wins a name it owns
+  // A native or admitted extension wins the bare name it owns: the schema.org
+  // parent of an admitted extension (schema:Product under schemaai:Product) is
+  // structurally referenced but must NOT re-enter as a same-named borrow — the
+  // parent stays reachable by full IRI / schema: prefix only.
+  .filter((t) => !native.some((n) => n.term === t) && !extension.some((e) => e.term === t))
+  .filter((t) => !NOT_ADMITTED.has(t)) // a not-admitted term gets no borrow either
   .sort()
   .map((term) => ({ term, iri: SCHEMA + term }))
 
@@ -174,10 +193,14 @@ const GENERATED_HEADER = {
   profile:
     'ADR 0002 R3 three-bucket profile is EXTENSIONAL: a term mapped to a https://schema.org.ai/* IRI is native (or an admitted extension); a term mapped to a https://schema.org/* IRI is borrow. Full per-term census: ./profile.json',
   pendingNathanConfirmation: {
-    note: 'These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted.',
+    note: 'These terms are NOT admitted as extension until Nathan confirms at profile admission (R3). Held meanwhile, never silently admitted. (The 2026-07-18 F5 holds — Product/Offer/Service/Company — were confirmed by Nathan on org.ai#11 and now sit in the extension bucket.)',
     heldAsBorrow: pendingHeldAsBorrow.sort(),
     omitted: pendingOmitted.sort(),
     borderlineNoted: config.pendingConfirmation.borderlineNoted,
+  },
+  notAdmitted: {
+    note: "Terms ruled OUT of the profile entirely — no class, no context term, no IRI. Business: Nathan, org.ai#11 (2026-07-18): 'Business = not admitted (Company carries the referent)'.",
+    terms: [...NOT_ADMITTED].sort(),
   },
   shadowedTerms: {
     note: 'org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native; the external same-named sense (a false friend — different referent) stays reachable by its full IRI. Never re-homed, never borrowed.',

@@ -1,49 +1,33 @@
 ---
-$id: https://schema.org/Thesis
-$context: https://schema.org
-$provenance: schema.org
+$id: https://schema.org.ai/Thesis
+$context: https://schema.org.ai
 $type: Class
 name: Thesis
-description: A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification.
-subClassOf: ["CreativeWork"]
+description: The strategic bet a startup is founded on — the cascade's thesis noun (e.g. Service-as-Software, Agent, Headless SaaS). Native; shadows schema.org/Thesis (a dissertation document — different referent, same name).
+digital: 0.9
 ---
+
+[Thing](Thing.mdx)
 
 # Thesis
 
-A thesis or dissertation document submitted in support of candidature for an academic degree or professional qualification.
+A Thesis is the strategic bet a startup is founded on — the approach coupled with a [Problem](Problem.mdx) to scope an opportunity (Service-as-Software, Agent, Headless SaaS are canonical theses). It is a cascade noun: recurrence-proven and live-emitted by the atlas.
 
-## Type Hierarchy
+## The bucket ruling
 
-[Thing](Thing.mdx) > [CreativeWork](CreativeWork.mdx) > **Thesis**
+**Thesis is NATIVE**, ruled by Nathan on org.ai issue #11 (2026-07-18): *"Problem, Thesis → native now (recurrence-proven, live-emitted)"*.
 
+Because the name collides with [`schema.org/Thesis`](https://schema.org/Thesis) — *"a thesis or dissertation document submitted in support of candidature for an academic degree"*, a different referent sharing the name — the shadow mechanics of org.ai ADR 0004 Q3 apply mechanically: the bare context term `Thesis` binds to `https://schema.org.ai/Thesis`; schema.org's dissertation sense stays reachable by its full IRI (or `schema:Thesis`), never re-homed.
 
+Distinct from [InvestmentThesis](InvestmentThesis.mdx) (the fund-side investment-selection document).
 
-## Properties
+## Related
 
-See [Schema.org Thesis properties](https://schema.org/Thesis#properties)
-
-## Usage in Business-as-Code
-
-```typescript
-import { $ } from 'sdk.do'
-import type { Thesis } from 'schema.org.ai'
-
-// Create a Thesis
-const item: Thesis = {
-  $type: 'Thesis',
-  name: 'Example Thesis'
-}
-
-// Use semantic patterns
-await $.Thesis.create(item)
-const result = await $.Thesis.get('item-id')
-```
-
-## Resources
-
-- [Schema.org Thesis](https://schema.org/Thesis)
-- [Thesis Properties](https://schema.org/Thesis#properties)
+- **[schema.org/Thesis](https://schema.org/Thesis)** — the shadowed dissertation sense; reachable by full IRI
+- **[Problem](Problem.mdx)** — a Thesis approaches a Problem
+- **[Startup](Startup.mdx)** — founded on a Thesis
+- **[InvestmentThesis](InvestmentThesis.mdx)** — the fund-side sibling concept
 
 ## License
 
-This documentation is based on Schema.org vocabulary, which is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse requires attribution: link back to https://schema.org.ai/Thesis.
