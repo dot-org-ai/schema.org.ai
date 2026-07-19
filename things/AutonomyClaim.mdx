@@ -1,0 +1,73 @@
+---
+$id: https://schema.org.ai/AutonomyClaim
+$context: https://schema.org.ai
+$type: Class
+name: AutonomyClaim
+description: The complete, honest autonomy claim — {level, scope, assuranceTier, mrc}. The bare word "autonomous" is never claimable alone.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# AutonomyClaim
+
+An AutonomyClaim is the complete, honest form of the claim "this business is autonomous":
+
+```
+AutonomyClaim = { level, scope, assuranceTier, mrc }
+```
+
+- **`level`** — an [AutonomyLevel](AutonomyLevel.mdx), always by fully-scoped `$id`. [L5](AutonomyLevel.mdx) is not claimable.
+- **`scope`** — a [DeclaredScope](DeclaredScope.mdx): the per-verb domain the level is claimed in. The claim attaches to declared scopes, not the brand.
+- **`assuranceTier`** — an [AssuranceTier](AssuranceTier.mdx), assigned upstream from unmitigated worst-case consequence, never self-selected. Machine-legible in offer metadata.
+- **`mrc`** — a [MinimalRiskCondition](MinimalRiskCondition.mdx): the machine-reachable, duty-preserving halt on scope-exit, declaring Frozen-or-Flat.
+
+**The bare word "autonomous" is never claimable alone.** A level without a scope is unfalsifiable; a scope without a tier is unpriced; a claim without an MRC has no lawful exit. Only the quadruple is honest.
+
+## The one-membrane reading
+
+The AutonomyClaim is one of three readings of a single membrane (Law 3, `https://startups.studio/canon/law/one-membrane`): the claim certifies **who owns the outcome**; the meter charges for it; the org chart ends at it. The AssuranceTier prices all three at once. An autonomous startup (Law 1, `https://startups.studio/canon/law/autonomous-startup`) is a business whose claim is `{level: AutonomyLevel/L4, scope, assuranceTier, mrc}` with zero employees inside the membrane — every human seat is procured through it and counts as a tier-lowering controllability credit, never an operator.
+
+## Ratified claims
+
+The first three AutonomyClaims committed to canon (2026-07-19):
+
+| # | Business | Triple |
+|---|----------|--------|
+| 1 | kestrel | (L4, ODD = {data, sim, grade, paper} — live/broker excluded behind human-signed covenant-verbs, T1-demonstrated, declared gated path to T3) |
+| 2 | patent.click | (L4, machine-side prosecution scope with conduit practitioners at L2, T2-demonstrated at launch / T3-required on the docket chain) |
+| 3 | headless.ly | (L4, {records, billing-via-Stripe, provisioning}, T3-assigned / T2-achievable at full-fidelity takeout, MRC = read-only Frozen) |
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "AutonomyClaim" | - |
+| `$id` | URL | Unique identifier for the claim | Thing |
+| `level` | AutonomyLevel | The claimed level, by fully-scoped `$id` | AutonomyClaim |
+| `scope` | DeclaredScope | The declared per-verb scope | AutonomyClaim |
+| `assuranceTier` | AssuranceTier | The upstream-assigned tier | AutonomyClaim |
+| `mrc` | MinimalRiskCondition | The duty-preserving halt on scope-exit | AutonomyClaim |
+
+## Example
+
+```typescript
+const claim = {
+  $type: 'AutonomyClaim',
+  $id: 'https://kestrel.markets/canon/autonomy-claim',
+  level: 'https://schema.org.ai/AutonomyLevel/L4',
+  scope: {
+    $type: 'DeclaredScope',
+    includes: ['data', 'sim', 'grade', 'paper'],
+    excludes: [{ $type: 'DoctrineWall', name: 'no-live-execution-without-covenant' }],
+  },
+  assuranceTier: 'https://schema.org.ai/AssuranceTier/T1',
+  mrc: { $type: 'MinimalRiskCondition', lawfulDegradedState: 'Frozen' },
+}
+```
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

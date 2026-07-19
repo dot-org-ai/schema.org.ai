@@ -1,0 +1,82 @@
+---
+$id: https://schema.org.ai/AutonomyLevel
+$context: https://schema.org.ai
+$type: Class
+name: AutonomyLevel
+description: The level axis of an AutonomyClaim — how much of the business's consequential-verb portfolio the system owns. Six levels L0–L5, derived from SAE J3016 by a recorded delta table; L5 is not claimable.
+subClassOf:
+  - https://schema.org/Enumeration
+derivedFrom:
+  - https://standards.org.ai/SAE/J3016
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible) > [Enumeration](https://schema.org/Enumeration)
+
+# AutonomyLevel
+
+AutonomyLevel is the **level axis** of an [AutonomyClaim](AutonomyClaim.mdx): how much of the business's consequential-verb portfolio the system owns. It is derived from [SAE J3016](https://standards.org.ai/SAE/J3016)'s driving-automation levels by the delta table below — the deltas are part of this definition, not commentary.
+
+The level never travels alone. The honest claim is always a complete AutonomyClaim `{level, scope, assuranceTier, mrc}`; the bare word "autonomous" is never claimable.
+
+## Levels
+
+| Level | $id | Definition | Claimable |
+|-------|-----|------------|-----------|
+| L0 | `https://schema.org.ai/AutonomyLevel/L0` | No autonomy. Humans perform and own every consequential verb; the system at most records and reports. | yes |
+| L1 | `https://schema.org.ai/AutonomyLevel/L1` | Assistance. The system assists inside a human-owned verb; the human performs the verb and owns the outcome. | yes |
+| L2 | `https://schema.org.ai/AutonomyLevel/L2` | Per-verb approval. The system executes, but a human approval edge gates each consequential verb; the human owns each approved outcome. | yes |
+| L3 | `https://schema.org.ai/AutonomyLevel/L3` | Conditional autonomy. The system owns verbs within the [DeclaredScope](DeclaredScope.mdx), with a fallback-ready human who must take over on escalation. | yes |
+| L4 | `https://schema.org.ai/AutonomyLevel/L4` | High autonomy. The system owns outcomes within the DeclaredScope, with a machine-reachable, duty-preserving [MinimalRiskCondition](MinimalRiskCondition.mdx) on scope-exit. Human seats sit outside the org boundary, procured through the same membrane that meters customers, and count as tier-lowering controllability credits — never operators. | yes |
+| L5 | `https://schema.org.ai/AutonomyLevel/L5` | Full autonomy — unbounded scope. | **no** (`claimable: false`) |
+
+**L5 is not claimable.** This is an estate amendment contra the J3016 seed: an unbounded DeclaredScope is unfalsifiable, so the honest ceiling of any claim is L4-with-scope.
+
+## The J3016 delta table
+
+Part of the definition. Each row records how a J3016 construct maps into this vocabulary and what changed in transit.
+
+| J3016 construct | schema.org.ai construct | Delta |
+|---|---|---|
+| DDT (dynamic driving task) | Consequential-verb portfolio | The task the system owns is the business's portfolio of consequential verbs, not a driving task. |
+| ODD (operational design domain) | [DeclaredScope](DeclaredScope.mdx) | Direct derivation; exclusions are typed as [DoctrineWalls](DoctrineWall.mdx). |
+| MRC (minimal risk condition) | [MinimalRiskCondition](MinimalRiskCondition.mdx) — duty-preserving business halt | The halt must preserve duties (obligations, retention, dispute rights), not merely stop motion. |
+| Remote assistance | Escalation-outside-the-walls | Direct inheritance — J3016's remote assistant does not become the driver; likewise a procured escalation seat does not become an operator. This makes the employment boundary J3016-compatible. |
+| L5 | Unclaimable (`claimable: false`) | Estate amendment contra seed. |
+| — (no counterpart) | [AssuranceTier](AssuranceTier.mdx) axis | Addition. The (level, tier) split is deliberately isomorphic to the industry's own (J3016, ASIL) factoring — J3016 contributes the level axis; ISO 26262 / DO-178C / IEC 61508 seed the tier axis. |
+
+## Identifier discipline
+
+"L4" is always `https://schema.org.ai/AutonomyLevel/L4`, **never a bare glyph**. Products routinely carry internal L-glyph ladders that have nothing to do with autonomy (latency ladders, auth ladders); fully-scoped `$id`s resolve those collisions by construction.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "AutonomyLevel" | - |
+| `$id` | URL | Fully-scoped level identifier | Thing |
+| `name` | Text | The level glyph (e.g. "L4") | Thing |
+| `description` | Text | The level definition | Thing |
+| `claimable` | Boolean | Whether this level may appear in an AutonomyClaim (`false` on L5 only) | AutonomyLevel |
+
+## Example
+
+```typescript
+const claim = {
+  $type: 'AutonomyClaim',
+  level: 'https://schema.org.ai/AutonomyLevel/L4',
+  scope: { $type: 'DeclaredScope', includes: ['data', 'sim', 'grade', 'paper'] },
+  assuranceTier: 'https://schema.org.ai/AssuranceTier/T1',
+  mrc: { $type: 'MinimalRiskCondition', lawfulDegradedState: 'Frozen' }
+}
+```
+
+A single business can hold different levels on different scopes — a company whose product serves L4 customers may itself run L2/L3 owner-gated loops. The claim attaches to declared scopes, not to the brand.
+
+## Citations
+
+- [SAE J3016](https://standards.org.ai/SAE/J3016) — the G1 seed for the level axis, the ODD, and the MRC.
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

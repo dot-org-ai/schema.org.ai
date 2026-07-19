@@ -1,0 +1,63 @@
+---
+$id: https://schema.org.ai/DeclaredScope
+$context: https://schema.org.ai
+$type: Class
+name: DeclaredScope
+description: The scope axis of an AutonomyClaim — the declared, per-verb operational domain within which the system owns outcomes. Derived from SAE J3016's Operational Design Domain (ODD).
+subClassOf:
+  - https://schema.org/Intangible
+derivedFrom:
+  - https://standards.org.ai/SAE/J3016#ODD
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# DeclaredScope
+
+DeclaredScope is the **scope axis** of an [AutonomyClaim](AutonomyClaim.mdx): the declared operational domain within which the claimed [AutonomyLevel](AutonomyLevel.mdx) holds. It is derived directly from [SAE J3016](https://standards.org.ai/SAE/J3016#ODD)'s **Operational Design Domain (ODD)** — the conditions under which the automation is designed to function — carried from driving conditions to business verbs.
+
+## Definition
+
+- The scope is declared **per verb**, not per brand. A scope names the verbs (or verb families) the system owns and the regime it owns them in — e.g. `{data, sim, grade, paper}` with live execution excluded.
+- **Exclusions are typed as walls.** A scope exclusion is a [DoctrineWall](DoctrineWall.mdx), and per R12-2 **the wall list and the DeclaredScope exclusions are one object read twice** — scope and tier are not independent coordinates. Removing an exclusion is a wall-removal, and therefore a re-tiering event.
+- **Scope-exit triggers the MRC.** Leaving the declared scope is not an error state; it is the defined transition into the [MinimalRiskCondition](MinimalRiskCondition.mdx), which must be machine-reachable and duty-preserving.
+- The claim attaches to declared scopes, not the brand: a company whose product serves L4 customers may itself operate L2/L3 owner-gated loops on other scopes.
+
+A per-verb authority ladder (each verb individually granted, bounded, and revocable) is a DeclaredScope in operational form — per-verb ODD declaration on a live object.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "DeclaredScope" | - |
+| `$id` | URL | Unique identifier for the scope | Thing |
+| `name` | Text | Short name for the scope | Thing |
+| `description` | Text | The scope in prose | Thing |
+| `includes` | Text[] | Verbs / verb families the system owns within this scope | DeclaredScope |
+| `excludes` | DoctrineWall[] | Typed exclusions — one object read twice with the tier's wall list | DeclaredScope |
+
+## Example
+
+```typescript
+const scope = {
+  $type: 'DeclaredScope',
+  name: 'kestrel market-data scope',
+  includes: ['data', 'sim', 'grade', 'paper'],
+  excludes: [
+    {
+      $type: 'DoctrineWall',
+      name: 'no-live-execution-without-covenant',
+      description: 'Live/broker verbs excluded behind human-signed covenant-verbs',
+    },
+  ],
+}
+```
+
+## Citations
+
+- [SAE J3016 § ODD](https://standards.org.ai/SAE/J3016#ODD) — the G1 seed this type derives from.
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

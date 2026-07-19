@@ -1,0 +1,114 @@
+---
+$id: https://schema.org.ai/AssuranceTier
+$context: https://schema.org.ai
+$type: Class
+name: AssuranceTier
+description: The tier axis of an AutonomyClaim — the assurance a business's unmitigated worst-case consequence demands. Five tiers T0–T4, assigned upstream, never self-selected.
+subClassOf:
+  - https://schema.org/Enumeration
+citation:
+  - https://standards.org.ai/ISO/26262
+  - https://standards.org.ai/RTCA/DO-178C
+  - https://standards.org.ai/IEC/61508
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible) > [Enumeration](https://schema.org/Enumeration)
+
+# AssuranceTier
+
+AssuranceTier is the **tier axis** of an [AutonomyClaim](AutonomyClaim.mdx): the assurance that a business's unmitigated worst-case consequence demands. The (level, tier) factoring is deliberately isomorphic to the industry's own split between capability levels and integrity levels — [SAE J3016](https://standards.org.ai/SAE/J3016) contributes the level axis; [ISO 26262](https://standards.org.ai/ISO/26262) (ASIL), [RTCA DO-178C](https://standards.org.ai/RTCA/DO-178C) (DAL), and [IEC 61508](https://standards.org.ai/IEC/61508) (SIL) seed the tier axis.
+
+## Tiers
+
+| Tier | $id | Definition |
+|------|-----|------------|
+| T0 | `https://schema.org.ai/AssuranceTier/T0` | Advisory. No assurance claimed; outputs are revocable and relied on at the consumer's own risk. |
+| T1 | `https://schema.org.ai/AssuranceTier/T1` | Demonstrated. Self-attested evidence of correct operation; transactions reversible in regime. |
+| T2 | `https://schema.org.ai/AssuranceTier/T2` | Commerce floor. Selling under a signed Offer, holding a credential/regulated predicate, or custodial third-party system-of-record data (A5) all bind ≥T2. Demands the T2 commerce pack. |
+| T3 | `https://schema.org.ai/AssuranceTier/T3` | Covenant floor. Discretionary capital deployment binds T3 at the envelope-mint covenant (R12-1); rights-encumbering verbs and obligation-lapses without independent adjudication bind ≥T3 regardless of amount (A1). |
+| T4 | `https://schema.org.ai/AssuranceTier/T4` | Custodial floor. Custody of third-party funds ⇒ T4. |
+
+## Assignment semantics
+
+**The tier is assigned upstream from the unmitigated worst-case consequence — severity × exposure × reversibility × credential predicate — and is never self-selected.** Classification is performed upstream, never by the builder.
+
+### Floors
+
+- Credential or regulated predicate ⇒ **≥T2**.
+- Selling under a signed Offer ⇒ **≥T2**. Corollary: **every mint is ≥T2 by virtue of selling** — the T2 commerce pack (signed offer, idempotent settlement, refund path, reasons log, degraded-but-lawful MRC, evidence ledger) is a cascade birth deliverable.
+- Discretionary capital deployment ⇒ **≥T3**, binding at the envelope-mint covenant (see R12-1).
+- Custodial / third-party funds ⇒ **T4**.
+- The A1 rights floor and A5 data floors below.
+
+### Aggregation
+
+- **Business tier = MAX over live processes.**
+- **Achievable tier = MIN over assured components** (the least-assured component caps the claim — e.g. an undesigned broker credential is the capping component of a live-execution path).
+- Every [MinimalRiskCondition](MinimalRiskCondition.mdx) declares **Frozen-or-Flat**.
+
+## R12-1 — the settlement carve-out
+
+Bounded consideration exchanged against a signed Offer with an external financial adjudicator is a [TransactionInRegime](SeamClass.mdx) at **T2**. The T3 floor binds **deployment of capital, not settlement of consideration**. The T3 moment MOVES to the **envelope-mint covenant**: a human signs the ceiling once; the machine mints narrowing children within it. Purchasing inputs at bounded prices = T2; treasury deployment = T3.
+
+Corollaries:
+
+- The adjudication substrate (settlement rails) carries the **systemic** tier.
+- The tier claim is **machine-legible in offer metadata**, so indexes can filter by it.
+- Coherence condition (Law 3): tier the settlements at T3 and the billing boundary drags humans inside the loop, tearing the autonomy, billing, and employment boundaries at once. The human signs at the covenant; the machine transacts within it.
+
+## R12-2 — the constitutive/mitigating cut
+
+**Constitutive constraints** ([DoctrineWalls](DoctrineWall.mdx) — structurally verifiable, reopenable only by governance) **DEFINE the hazard class**. **Mitigating controls are excluded from assignment** and become the tier's demanded evidence.
+
+- Anti-gaming test: *remove the constraint — is the residue the same business?* If yes, it was mitigation; if no, it was constitutive.
+- Wall removal is a **re-tiering event** (licensure-event-rule interlock).
+- **The wall list and the [DeclaredScope](DeclaredScope.mdx) exclusions are one object read twice** — scope and tier are not independent coordinates.
+
+Example of the cut: object-lock on an [EvidenceRegister](EvidenceRegister.mdx) is constitutive (deletion structurally unavailable); table-format immutability is mitigation (deletes are supported verbs you promise not to use).
+
+## A1 — the rights floor
+
+A verb — or a covenant obligation whose lapse — that **irreversibly extinguishes or encumbers a third party's legal rights without independent adjudication** ⇒ **≥T3, regardless of transaction amount**. Adjudicated adversarial verbs (challenge/dispute/petition) price at the transaction tier; the self-encumbrance they create (estoppel) is a tier-bearing obligation. Pure case: foreign absolute-novelty destruction — instant, free, zero-revival.
+
+## A2 — obligations carry tiers
+
+The **undischarged obligation is a tier-bearing object**: a business holding T3 obligations is a T3 process even while idle. Cadence assurance — independent recomputation of deterministic clocks, with a lapse-proof MRC — is the demanded evidence. **The covenant registry IS the living will**: the T3 MRC is a query over it. Harm-by-inaction is tiered via the obligation, not the (unfired) verb.
+
+## A4 — partial-reversibility credit
+
+Petition-revivable lapses (37 CFR 1.137/1.378-class) earn **partial credit only** — intervening rights make every revival lossy.
+
+## A5 — data-custody exit-ability
+
+Custodial third-party system-of-record data ⇒ **≥T2**; ⇒ **T3** where the counterparty lacks a **machine-exercisable exit** — full-fidelity export of state + event history, on demand, without operator cooperation. A constitutive exit path (escrowed/BYO storage, object-locked history, standing takeout) is the data analog of exported fund custody. The T4 funds floor is unchanged. *Reversibility is read as exit-ability.*
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "AssuranceTier" | - |
+| `$id` | URL | Fully-scoped tier identifier (e.g. `https://schema.org.ai/AssuranceTier/T2`) | Thing |
+| `name` | Text | The tier glyph (e.g. "T2") | Thing |
+| `description` | Text | The tier definition | Thing |
+
+## Example
+
+```typescript
+// A tier claim is machine-legible in offer metadata (assigned upstream, never self-selected)
+const offer = {
+  $type: 'Offer',
+  name: 'Certified grades API',
+  assuranceTier: 'https://schema.org.ai/AssuranceTier/T2',
+}
+```
+
+## Citations
+
+- [ISO 26262](https://standards.org.ai/ISO/26262) — ASIL, the automotive integrity-level seed.
+- [RTCA DO-178C](https://standards.org.ai/RTCA/DO-178C) — DAL, the airborne-software assurance-level seed.
+- [IEC 61508](https://standards.org.ai/IEC/61508) — SIL, the functional-safety integrity-level seed.
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

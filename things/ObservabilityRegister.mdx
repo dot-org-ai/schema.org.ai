@@ -1,0 +1,54 @@
+---
+$id: https://schema.org.ai/ObservabilityRegister
+$context: https://schema.org.ai
+$type: Class
+name: ObservabilityRegister
+description: The cost-governed register of the two-register logging law — expirable, sampled, mutable. Every metered event writes to both registers; expiry is a property of the observability register only.
+subClassOf:
+  - https://schema.org/Intangible
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible)
+
+# ObservabilityRegister
+
+The ObservabilityRegister is the **cost-governed** half of the two-register logging law (R13-1): *every metered event writes to two registers.* Its counterpart is the tier-governed [EvidenceRegister](EvidenceRegister.mdx).
+
+## Definition
+
+- **Expirable** — data ages out on a hot window sized by cost, not by duty.
+- **Sampled** — completeness is a budget decision.
+- **Mutable** — rows can be rewritten, compacted, or dropped; nothing here carries evidentiary status.
+
+The register exists for operations: debugging, dashboards, latency analysis, capacity planning. It is governed by cost because none of its guarantees are load-bearing for disputes.
+
+## The split is the point
+
+Statements like "we keep full request bodies to help with disputes" and "bodies expire after N days" are contradictory **unless** expiry ≥ the dispute window — which no cost-governed store should promise. The two-register law resolves the contradiction structurally: **expiry is a property of the observability register only**; anything a dispute can turn on is written to the [EvidenceRegister](EvidenceRegister.mdx), whose retention derives from tier. Neither register can be argued into doing the other's job.
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "ObservabilityRegister" | - |
+| `$id` | URL | Unique identifier for the register | Thing |
+| `name` | Text | Short name for the register | Thing |
+| `hotWindow` | Text | The expiry window (cost-sized) | ObservabilityRegister |
+| `samplingPolicy` | Text | What is sampled and at what rate | ObservabilityRegister |
+
+## Example
+
+```typescript
+const observability = {
+  $type: 'ObservabilityRegister',
+  name: 'request-hot-window',
+  description: 'Full request/response bodies for live debugging',
+  hotWindow: 'P30D',
+  samplingPolicy: '100% errors, 10% success',
+}
+```
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).

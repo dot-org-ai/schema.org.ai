@@ -1,0 +1,54 @@
+---
+$id: https://schema.org.ai/SeamClass
+$context: https://schema.org.ai
+$type: Class
+name: SeamClass
+description: The classification of a seam where a business verb crosses the membrane — Attestation, TransactionInRegime, CovenantVerb, or NeverMintWall. Seam class determines how the verb prices on the AssuranceTier axis.
+subClassOf:
+  - https://schema.org/Enumeration
+digital: 1.0
+---
+
+[Thing](Thing.mdx) > [Intangible](https://schema.org/Intangible) > [Enumeration](https://schema.org/Enumeration)
+
+# SeamClass
+
+SeamClass classifies a seam where a business verb crosses the membrane. The seam class determines how the verb prices on the [AssuranceTier](AssuranceTier.mdx) axis and where the human signature (if any) sits.
+
+## Classes
+
+| Class | $id | Definition |
+|-------|-----|------------|
+| Attestation | `https://schema.org.ai/SeamClass/Attestation` | The business states something others rely on — data, grades, benchmarks. Assurance rides on the statement's evidence; where others allocate on the attestation, the tier rises with the reliance (an attestation others allocate on prices at T2). |
+| TransactionInRegime | `https://schema.org.ai/SeamClass/TransactionInRegime` | Bounded consideration exchanged against a signed Offer with an external financial adjudicator. Prices at T2 per the R12-1 settlement carve-out: the T3 floor binds deployment of capital, not settlement of consideration. |
+| CovenantVerb | `https://schema.org.ai/SeamClass/CovenantVerb` | A human signs a ceiling once; the machine mints narrowing children within it. The T3 moment lives here — at the envelope-mint covenant — not at each settlement. |
+| NeverMintWall | `https://schema.org.ai/SeamClass/NeverMintWall` | A verb the estate never mints — a [DoctrineWall](DoctrineWall.mdx) in seam position (e.g. no-custody-ever). Removal is a re-tiering event. |
+
+## Notes
+
+- These four classes have been **independently re-derived** by builders who had never seen this vocabulary (recorded as pre-binding recurrence, 2026-07-19) — evidence they carve the seam space at its joints.
+- Seam class and tier compose: a reversible TransactionInRegime can sit at T1; the same verb selling under a signed Offer is ≥T2; the covenant that arms it is the T3 object.
+- A conduit-performer seam (per-verb L2 whose approval edge is exogenous — both ends outside the membrane, e.g. client→practitioner power-of-attorney and practitioner→regulator duties) is metered but not authorized by the membrane: **the membrane meters; it does not authorize.**
+
+## Properties
+
+| Property | Type | Description | Inherited From |
+|----------|------|-------------|----------------|
+| `$type` | Text | Always "SeamClass" | - |
+| `$id` | URL | Fully-scoped seam-class identifier | Thing |
+| `name` | Text | The class name | Thing |
+| `description` | Text | The class definition | Thing |
+
+## Example
+
+```typescript
+const seam = {
+  $type: 'SeamClass',
+  $id: 'https://schema.org.ai/SeamClass/CovenantVerb',
+  name: 'CovenantVerb',
+}
+```
+
+## License
+
+This is an extension to Schema.org vocabulary created by the .do Platform Team. The base Schema.org vocabulary is licensed under Creative Commons Attribution-ShareAlike License (version 3.0).
