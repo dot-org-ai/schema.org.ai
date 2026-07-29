@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/API",
+      "@type": "rdfs:Class",
+      "rdfs:label": "API",
+      "rdfs:comment": "An API endpoint (REST, RPC, GraphQL) that provides programmatic access to services.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/WebAPI"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

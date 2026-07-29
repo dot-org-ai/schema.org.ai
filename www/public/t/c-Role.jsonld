@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Role",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Role",
+      "rdfs:comment": "A job role definition: a named position/function with required skills, responsibilities, permissions, tool grants, delegation/approval/escalation edges, and a preferred worker type (agent or human). NATIVE and SHADOWS per the ADR 0002 R3 bucket ruling: schema.org/Role is a reified edge-qualifier — a different concept sharing the name. The context term Role maps here; schema.org's Role stays reachable by full IRI.",
+      "schemaai:shadows": {
+        "@id": "https://schema.org/Role"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

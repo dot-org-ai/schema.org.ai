@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Thesis",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Thesis",
+      "rdfs:comment": "The strategic bet a startup is founded on — the cascade's thesis noun (Service-as-Software, Agent, Headless SaaS are canonical theses). NATIVE per Nathan's ruling (org.ai#11, 2026-07-18): 'Problem, Thesis → native now (recurrence-proven, live-emitted)'. SHADOWS schema.org/Thesis (a dissertation document — different referent sharing the name) per org.ai ADR 0004 Q3 mechanics: the bare term binds here; the dissertation sense stays reachable by full IRI. Distinct from InvestmentThesis (fund-side).",
+      "schemaai:shadows": {
+        "@id": "https://schema.org/Thesis"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

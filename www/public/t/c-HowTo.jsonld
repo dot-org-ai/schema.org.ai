@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org/HowTo",
+      "@type": "rdfs:Class",
+      "rdfs:label": "HowTo",
+      "rdfs:comment": "Instructions that explain how to achieve a result by performing a sequence of steps.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org"
+      }
+    }
+  ]
+}

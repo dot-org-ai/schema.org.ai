@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Task",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Task",
+      "rdfs:comment": "A granular unit of work — typically an O*NET task statement or comparable imperative work action. The typed unit of work itself, addressable as canonical reference. NATIVE per the ADR 0002 R3 bucket ruling: deliberately no subClassOf schema:Action — schema.org's Action means performed events; claiming its lineage for work-to-be-done would be a semantic error.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

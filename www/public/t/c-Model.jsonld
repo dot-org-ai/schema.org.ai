@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Model",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Model",
+      "rdfs:comment": "An AI/ML model that powers an Agent or provides inference capabilities.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Thing"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

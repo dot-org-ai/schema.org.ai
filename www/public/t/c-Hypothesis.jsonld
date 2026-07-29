@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Hypothesis",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Hypothesis",
+      "rdfs:comment": "A testable assumption with evidence collection: a statement, the metric it moves, a target value, testing status, and collected evidence — the validation unit behind an Idea.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Intangible"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

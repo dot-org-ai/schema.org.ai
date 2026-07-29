@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  // ⚠ NOT THE INCUMBENT'S NAME. `schema-org-ai` is taken by the worker deployed
+  // from the private org-ai repo on 2025-12-09, which holds schema.org.ai/* today.
+  // Deploying under that name OVERWRITES a live surface; deploying under this
+  // name and claiming the same route CONFLICTS with it. Which of the two happens
+  // is the owner's call, not the builder's (soa-machine §7). Nothing here is
+  // deployed until that call is made.
+  "name": "schema-org-ai-www",
+
+  "main": "worker.js",
+  "compatibility_date": "2026-07-01",
+  "account_id": "b6641681fe423910342b9ffa1364c76d",
+  "workers_dev": true,
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Every response goes through withHeaders(), which is where content
+    // negotiation, Vary, CORS, the charset and the security block are decided.
+    // Without this the negated paths route around the worker and come back
+    // with none of them.
+    "run_worker_first": true
+  },
+
+  "routes": [
+    // schema.org.ai is served as a custom hostname on the workers.do zone.
+    { "pattern": "schema.org.ai/*", "zone_name": "workers.do" }
+  ]
+}

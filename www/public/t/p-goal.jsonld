@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/goal",
+      "@type": "rdf:Property",
+      "rdfs:label": "goal",
+      "rdfs:comment": "The goal or objective that this Agent is trying to achieve.",
+      "schema:domainIncludes": [
+        {
+          "@id": "https://schema.org.ai/Agent"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/Thing"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

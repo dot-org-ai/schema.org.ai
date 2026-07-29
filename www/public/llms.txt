@@ -1,0 +1,194 @@
+# The Org.AI Foundation · Schema
+
+> Everything schema.org defines keeps schema.org's meaning. Our additions sit above it,
+> at one address that will never carry a version number.
+
+## The address
+  https://schema.org.ai — stable, unversioned, permanent.
+  Accept: application/ld+json  -> the context document
+  Accept: text/html            -> the human page
+  Accept: text/markdown        -> its source
+  Also: Link: <https://schema.org.ai/context.jsonld>; rel="alternate"; type="application/ld+json"
+
+## What it declares
+  $id -> @id.  $type -> @type.  @context has no alias and cannot have one.
+  Prefixes: schema: https://schema.org/   schemaai: https://schema.org.ai/
+
+## The limit, stated plainly
+  This profile defines 64 terms, 9 of them properties. It defines no general property
+  vocabulary: bare name, description, url, identifier, image, title and author are NOT
+  defined and a conforming processor drops them. Write schema:name.
+
+## Ours — 31 types
+  API                 https://schema.org.ai/API
+    An API endpoint (REST, RPC, GraphQL) that provides programmatic access to services.
+  Agent               https://schema.org.ai/Agent
+    An autonomous AI agent that can perform actions, use tools, and make decisions to accomplish goals.
+  CLI                 https://schema.org.ai/CLI
+    A Command-Line Interface tool for interacting with services from the terminal.
+  Capability          https://schema.org.ai/Capability
+    A capability or skill that an Agent possesses, defining what actions it can perform.
+  CompanyType         https://schema.org.ai/CompanyType
+    A company archetype derived from Industry × business model × regulatory regime. More specific than Industry (which is a NAICS-coded sector) and more general than a specific Business. Examples: Accounting Firm, Plumbing Contractor, Boutique Hotel.
+  Department          https://schema.org.ai/Department
+    A functional department within a CompanyType (e.g. Tax, Audit, Engineering). Groups related JobTypes and Tasks. Subtype of Organization because departments are sub-organizations.
+  DigitalProperty     https://schema.org.ai/DigitalProperty
+    A digital property — a website, app, API, deployed agent, or any addressable entity with a stable digital presence. The unifying type for things that have URLs and are accessible in the digital realm.
+  Event               https://schema.org.ai/Event
+    A business occurrence: the immutable, past-tense record that something happened, carrying What/Who/When/Where/Why/How dimensions. NATIVE, SHADOWING schema.org/Event, and SEAM-MAPPED to GS1 EPCIS 2.0 per org.ai ADR 0004 (first application): Q1 fails (merging occurrence records into concert listings is meaning-destroying), Q2 lineage veto (an EPCIS-shaped receiving event is not truthfully a schema:Event, so NO subClassOf edge), Q3 shadow (bare term binds here; schema.org/Event stays one full IRI away), and EPCIS integrates per R17 as a protocol seam.
+  Generation          https://schema.org.ai/Generation
+    An AI generation instance, representing output produced by a Model or Agent.
+  Hypothesis          https://schema.org.ai/Hypothesis
+    A testable assumption with evidence collection: a statement, the metric it moves, a target value, testing status, and collected evidence — the validation unit behind an Idea.
+  ICP                 https://schema.org.ai/ICP
+    An Ideal Customer Profile in the as/at/are/using/to framework: who they are (as), where they work (at), their current situation (are), what they use today (using), and the outcome they want (to).
+  Idea                https://schema.org.ai/Idea
+    A business concept with a name, an elevator pitch, and a lifecycle status, validated through Hypotheses on its way to becoming a Startup.
+  Industry            https://schema.org.ai/Industry
+    An industry classification (e.g. NAICS-coded sector of economic activity). The taxonomic category that groups businesses by what they produce. Distinct from schema:Organization (which is an instance of a Business operating within an Industry).
+  InvestmentThesis    https://schema.org.ai/InvestmentThesis
+    An investment or strategic thesis — a structured argument for a particular approach to building (e.g. Service-as-Software, Agent, Headless SaaS). Stackable: one Thesis composes a Solution from primitives at lower-layer Theses. Named `InvestmentThesis` (not `Thesis`) to avoid collision with schema:Thesis (academic dissertation).
+  JTBD                https://schema.org.ai/JTBD
+    A Job To Be Done in the When/I-want/So-I-can pattern: situation, motivation, outcome — optionally scored on functional, emotional, and social dimensions with priority and frequency.
+  JobType             https://schema.org.ai/JobType
+    A job-type archetype — a specific role within a CompanyType. Derived from Occupation × CompanyType. Examples: Staff Bookkeeper at an Accounting Firm, Service Plumber at a Plumbing Contractor. More specific than schema:Occupation.
+  LandingPage         https://schema.org.ai/LandingPage
+    A conversion-optimized marketing landing page with hero, features, testimonials, and CTA sections.
+  MCP                 https://schema.org.ai/MCP
+    A Model Context Protocol server that exposes tools and resources to AI models.
+  Model               https://schema.org.ai/Model
+    An AI/ML model that powers an Agent or provides inference capabilities.
+  Problem             https://schema.org.ai/Problem
+    A canonical Problem — pain exposed by a sufficiently-pinned Ideal Customer Profile. Addressable so multiple candidate Solutions can be enumerated. Distinct from schema:Issue (which is a content issue) — a Problem is a market problem.
+  Process             https://schema.org.ai/Process
+    A cross-functional business process — typically an APQC-coded multi-step operation (e.g. Manage Accounts Payable, Onboard New Customer). Distinct from schema:HowTo (which is consumer-facing instructions) — a Process is the typed enterprise operation.
+  Prompt              https://schema.org.ai/Prompt
+    A prompt or prompt template used to instruct an AI model or Agent.
+  Role                https://schema.org.ai/Role
+    A job role definition: a named position/function with required skills, responsibilities, permissions, tool grants, delegation/approval/escalation edges, and a preferred worker type (agent or human). NATIVE and SHADOWS per the ADR 0002 R3 bucket ruling: schema.org/Role is a reified edge-qualifier — a different concept sharing the name. The context term Role maps here; schema.org's Role stays reachable by full IRI.
+  SDK                 https://schema.org.ai/SDK
+    A Software Development Kit package that provides programmatic access to a platform or service.
+  Startup             https://schema.org.ai/Startup
+    A startup company threading the lifecycle stages idea → validating → building → scaling → established, with pitch, industry, and its ICPs. The unit the venue mints (G4) and tenants operate (G5).
+  Task                https://schema.org.ai/Task
+    A granular unit of work — typically an O*NET task statement or comparable imperative work action. The typed unit of work itself, addressable as canonical reference. NATIVE per the ADR 0002 R3 bucket ruling: deliberately no subClassOf schema:Action — schema.org's Action means performed events; claiming its lineage for work-to-be-done would be a semantic error.
+  Thesis              https://schema.org.ai/Thesis
+    The strategic bet a startup is founded on — the cascade's thesis noun (Service-as-Software, Agent, Headless SaaS are canonical theses). NATIVE per Nathan's ruling (org.ai#11, 2026-07-18): 'Problem, Thesis → native now (recurrence-proven, live-emitted)'. SHADOWS schema.org/Thesis (a dissertation document — different referent sharing the name) per org.ai ADR 0004 Q3 mechanics: the bare term binds here; the dissertation sense stays reachable by full IRI. Distinct from InvestmentThesis (fund-side).
+  Tool                https://schema.org.ai/Tool
+    A tool that can be used by an Agent to perform actions. Tools expose capabilities through defined interfaces.
+  Webhook             https://schema.org.ai/Webhook
+    A webhook endpoint that receives event-driven notifications.
+  Worker              https://schema.org.ai/Worker
+    The base work-executor type over the agent/human duality: Worker { type: 'agent' | 'human' } with status, capabilities, and current task. Agents and humans are Workers; the interface is uniform (notify/ask/approve/decide/do).
+  Workflow            https://schema.org.ai/Workflow
+    An autonomous workflow definition that specifies a sequence of actions to be performed by Agents.
+
+## Ours — 9 properties
+  capability          https://schema.org.ai/capability
+    domain: https://schema.org.ai/Agent
+    range:  https://schema.org.ai/Capability
+    A capability or skill that this Agent possesses.
+  digital             https://schema.org.ai/digital
+    domain: https://schema.org/Thing
+    range:  https://schema.org/Number
+    Digital maturity score from 0.0 (fully analog/manual) to 1.0 (fully digital/autonomous). Indicates the degree to which an entity operates digitally.
+  goal                https://schema.org.ai/goal
+    domain: https://schema.org.ai/Agent
+    range:  https://schema.org/Text, https://schema.org/Thing
+    The goal or objective that this Agent is trying to achieve.
+  model               https://schema.org.ai/model
+    domain: https://schema.org.ai/Agent, https://schema.org.ai/Generation
+    range:  https://schema.org.ai/Model
+    The AI model(s) that power this Agent or Generation.
+  prompt              https://schema.org.ai/prompt
+    domain: https://schema.org.ai/Generation
+    range:  https://schema.org.ai/Prompt
+    The prompt used to generate this output.
+  temperature         https://schema.org.ai/temperature
+    domain: https://schema.org.ai/Generation
+    range:  https://schema.org/Number
+    The temperature parameter used for AI generation (0.0-2.0).
+  tokens              https://schema.org.ai/tokens
+    domain: https://schema.org.ai/Generation
+    range:  https://schema.org/Integer
+    The number of tokens used or generated.
+  tool                https://schema.org.ai/tool
+    domain: https://schema.org.ai/Agent
+    range:  https://schema.org.ai/Tool
+    A tool available to this Agent for performing actions.
+  workflow            https://schema.org.ai/workflow
+    domain: https://schema.org.ai/Agent
+    range:  https://schema.org.ai/Workflow
+    A workflow that this Agent can execute.
+
+## Ours over theirs — 5
+  Company             https://schema.org.ai/Company
+    subClassOf https://schema.org/Organization
+    A concrete firm: an organization that operates in an Industry, instantiates a CompanyType archetype, employs workers, and buys and sells. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): 'Company = extension (subClassOf schema:Organization, per the R3 exemplar)' — schema.org has no Company; the clean term is ours to mint. Business is NOT ADMITTED (same ruling): Company carries the referent.
+  Offer               https://schema.org.ai/Offer
+    subClassOf https://schema.org/Offer
+    An offer a platform business makes: the packaged promise — what is delivered, to whom (ICP coordinates), how, and on what pricing structure. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): subClassOf schema:Offer — org.ai ADR 0004 Q2.
+  Product             https://schema.org.ai/Product
+    subClassOf https://schema.org/Product
+    A product the platform's businesses make, sell, or use — spanning instance-grain products and the UNSPSC-seeded product-category taxonomy. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): 'Product, Service, Offer = extension (subClassOf schema:Product / schema:Service / schema:Offer)' — org.ai ADR 0004 Q2; category grain tolerated (grain diverges, nothing false).
+  Service             https://schema.org.ai/Service
+    subClassOf https://schema.org/Service
+    A service a platform business provides — including services-as-software (services delivered by agents with software economics). ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): subClassOf schema:Service — org.ai ADR 0004 Q2.
+  Team                https://schema.org.ai/Team
+    subClassOf https://schema.org/Organization
+    A team: a named group of workers (agents and humans) with members, an optional lead, goals, and communication channels. ADMITTED EXTENSION per the ADR 0002 R3 bucket ruling: subClassOf schema:Organization — schema.org has no generic Team; crawlers walking the subclass edge still understand the parent type.
+
+## schema.org's — 19
+  Action              https://schema.org/Action
+  Article             https://schema.org/Article
+  BlogPosting         https://schema.org/BlogPosting
+  CreativeWork        https://schema.org/CreativeWork
+  HowTo               https://schema.org/HowTo
+  ImageObject         https://schema.org/ImageObject
+  Intangible          https://schema.org/Intangible
+  Integer             https://schema.org/Integer
+  Number              https://schema.org/Number
+  Occupation          https://schema.org/Occupation
+  Organization        https://schema.org/Organization
+  Person              https://schema.org/Person
+  Place               https://schema.org/Place
+  SoftwareApplication https://schema.org/SoftwareApplication
+  Text                https://schema.org/Text
+  Thing               https://schema.org/Thing
+  WebAPI              https://schema.org/WebAPI
+  WebPage             https://schema.org/WebPage
+  WebSite             https://schema.org/WebSite
+  Definitions for these are schema.org's own words, CC BY-SA 3.0, and are on each
+  term's page at https://schema.org.ai/<Term>.
+
+## Same name, our meaning — 3
+  org.ai ADR 0004 Q3 SHADOW: each bare term below binds to its schema.org.ai native;
+  the external same-named sense (a false friend, a different referent) stays reachable
+  by its full IRI. Never re-homed, never borrowed.
+  Event               https://schema.org.ai/Event   shadows https://schema.org/Event
+  Role                https://schema.org.ai/Role   shadows https://schema.org/Role
+  Thesis              https://schema.org.ai/Thesis   shadows https://schema.org/Thesis
+
+## Not admitted — 1
+  Business. Nathan, org.ai#11, 2026-07-18, verbatim:
+  "Business = not admitted (Company carries the referent; 'business' stays the
+  Register-1 thesis word)". A builder reaching for Business types Company.
+
+## The layer above
+  ADR 0002 R4: schema.org (fixed clock) < schema.org.ai (slow) < a venue overlay (fast).
+  One overlay exists and this host serves it, at
+  https://schema.org.ai/overlays/startups.studio/context.jsonld
+  It adds: LaunchSpec, Market, Opportunity, Playbook, launchSpec.
+  Its own $id, https://startups.studio, is not ours to serve and we do not claim it
+  resolves. Venue-homed IRIs are leases and carry no durability promise.
+
+## Documents this host serves
+  /context.jsonld  /profile.json  /overlays/startups.studio/context.jsonld  /llms.txt
+  /sitemap.xml  /robots.txt  and 64 term pages at /<Term> (case-sensitive)
+  Every one of those also answers Accept: application/ld+json and Accept: text/markdown.
+
+## Licence and use
+  This vocabulary: CC BY-SA 4.0. The 19 borrowed definitions: schema.org, CC BY-SA 3.0.
+
+## Honest state
+  Sixty-four terms, counted from the document this address serves on 29 July 2026. Some rulings have been made that this document does not yet carry. The document is the profile, and what it carries is what this page shows. No release snapshot has been cut, so there is nothing to pin to by choice yet.

@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/CompanyType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CompanyType",
+      "rdfs:comment": "A company archetype derived from Industry × business model × regulatory regime. More specific than Industry (which is a NAICS-coded sector) and more general than a specific Business. Examples: Accounting Firm, Plumbing Contractor, Boutique Hotel.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Organization"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

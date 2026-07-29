@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Offer",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Offer",
+      "rdfs:comment": "An offer a platform business makes: the packaged promise — what is delivered, to whom (ICP coordinates), how, and on what pricing structure. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): subClassOf schema:Offer — org.ai ADR 0004 Q2.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Offer"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

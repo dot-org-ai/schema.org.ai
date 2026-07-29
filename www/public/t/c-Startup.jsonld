@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Startup",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Startup",
+      "rdfs:comment": "A startup company threading the lifecycle stages idea → validating → building → scaling → established, with pitch, industry, and its ICPs. The unit the venue mints (G4) and tenants operate (G5).",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Organization"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

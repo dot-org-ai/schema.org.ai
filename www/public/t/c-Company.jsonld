@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Company",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Company",
+      "rdfs:comment": "A concrete firm: an organization that operates in an Industry, instantiates a CompanyType archetype, employs workers, and buys and sells. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): 'Company = extension (subClassOf schema:Organization, per the R3 exemplar)' — schema.org has no Company; the clean term is ours to mint. Business is NOT ADMITTED (same ruling): Company carries the referent.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Organization"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

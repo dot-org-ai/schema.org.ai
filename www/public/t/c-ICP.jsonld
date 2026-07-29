@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/ICP",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ICP",
+      "rdfs:comment": "An Ideal Customer Profile in the as/at/are/using/to framework: who they are (as), where they work (at), their current situation (are), what they use today (using), and the outcome they want (to).",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Intangible"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

@@ -1,0 +1,873 @@
+@charset "utf-8";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE WRITING EDGE — schema.org.ai
+   The same institution, in the same clothes, serving the one address it has
+   been asking the world to write down. Tokens, scale, palettes, spacing curve
+   and motion grammar are inherited from foundation.org.ai through
+   standards.org.ai/site/DESIGN-ADAPT.md §2, and are not re-derived.
+   Colour authored in OKLCH, hue 78-86. Nothing is #000 or #fff.
+   Seven deltas, and only seven: soa-design-content §10.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: "Public Sans Var";
+  src: url("/fonts/publicsans-subset.woff2") format("woff2-variations");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ── Tokens ───────────────────────────────────────────────────────────────── */
+
+:root {
+  /* dark — the identity, the default */
+  --ground:    oklch(0.178 0.006 78);
+  --well:      oklch(0.113 0.006 78);
+  --well-hi:   oklch(0.142 0.006 78);
+  --rule:      oklch(0.330 0.007 78);
+  --rule-faint:oklch(0.258 0.007 78);
+  --ink:       oklch(0.960 0.005 86);
+  /* WRITTEN is authored once per scheme as --ink-2-src so that
+     prefers-contrast: more can promote the ranks palette-relatively. */
+  --ink-2-src: oklch(0.792 0.005 82);
+  --ink-2:     var(--ink-2-src);
+  --ink-3:     oklch(0.638 0.006 82);
+  --now:       oklch(0.800 0.118 68);
+  --now-dim:   oklch(0.655 0.098 68);
+  --now-deep:  oklch(0.520 0.078 68);
+  --recess-top: rgb(0 0 0 / 0.60);
+  --recess-bot: rgb(255 255 255 / 0.055);
+
+  --font: "Public Sans Var", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-rec: ui-monospace, SFMono-Regular, Menlo, "Cascadia Mono", "Segoe UI Mono",
+              "Roboto Mono", "Liberation Mono", monospace;
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:72px; --s9:108px; --s10:160px;
+
+  --pad-x: clamp(18px, 5vw, 96px);
+  --frame: min(1240px, 100% - 2 * var(--pad-x));
+  --radius: 2px;
+
+  /* The mono tab stop. The longest term name in the profile,
+     SoftwareApplication, is 19 characters at --t-mono, plus air. A fixed tab
+     stop is what makes sixty-five rows read as one ledger rather than
+     sixty-five paragraphs. (soa-design-content §4.5, measurement M3) */
+  --rname: 196px;
+
+  --ease-write: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-state: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --d-micro: 120ms;
+  --d-state: 260ms;
+  --d-cut:   700ms;
+  --d-step:   90ms;
+  --d-pass: 1150ms;
+  --d-tick:  700ms;
+  /* the close is tweened in JS and has no transition of its own, but every
+     duration is named here and read from here: site.js takes them off :root at
+     boot, so the coarse-pointer and reduced-motion overrides reach the tween
+     engine too. */
+  --d-close: 900ms;
+
+  --t-mission: clamp(1.4375rem, 1.05rem + 2.15vw, 2.875rem);
+  --t-door:    clamp(1.4375rem, 1.02rem + 1.42vw, 2.25rem);
+  --t-section: clamp(1.4375rem, 1.16rem + 0.9vw, 1.75rem);
+  --t-lede:    clamp(1.1875rem, 1.06rem + 0.42vw, 1.375rem);
+  --t-body:    1.0625rem;
+  --t-mono:    0.9375rem;
+  --t-nav:     0.9375rem;
+  --t-fine:    0.84375rem;
+  --t-strip:   clamp(0.71rem, 2.42vw, 0.9375rem);
+
+  --gap-hero-lg: clamp(1.125rem, 3svh, 3.25rem);
+  --gap-hero-sm: clamp(0.5rem, 1.4svh, 1rem);
+  --pad-hero: clamp(18px, 2.8svh, 52px);
+
+  color-scheme: dark light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ground:    oklch(0.972 0.005 86);
+    --well:      oklch(0.936 0.006 84);
+    --well-hi:   oklch(0.906 0.007 84);
+    --rule:      oklch(0.790 0.008 82);
+    --rule-faint:oklch(0.878 0.007 82);
+    --ink:       oklch(0.205 0.009 80);
+    --ink-2-src: oklch(0.442 0.009 80);
+    --ink-3:     oklch(0.520 0.010 80);
+    --now:       oklch(0.530 0.118 62);
+    --now-dim:   oklch(0.440 0.102 62);
+    --now-deep:  oklch(0.615 0.100 62);
+    --recess-top: rgb(0 0 0 / 0.18);
+    --recess-bot: rgb(255 255 255 / 0.55);
+  }
+}
+
+/* The hierarchy compresses one rank; it never leaves its own palette. */
+@media (prefers-contrast: more) {
+  :root { --ink-2: var(--ink); --ink-3: var(--ink-2-src); --rule-faint: var(--rule); }
+}
+
+/* coarse pointers: the fling guard's timings */
+@media (pointer: coarse) {
+  :root { --d-cut: 380ms; --d-step: 40ms; }
+}
+
+/* ── Reset and ground ─────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body, h1, h2, p, ul, ol, li, dl, dt, dd, figure, blockquote, hr {
+  margin: 0; padding: 0;
+}
+ul, ol { list-style: none; }
+
+html {
+  background: var(--ground);
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  position: relative;
+  background: var(--ground);
+  color: var(--ink-2);
+  font-family: var(--font);
+  font-size: var(--t-body);
+  font-variation-settings: "wght" 400;
+  line-height: 1.68;
+  /* no overflow-x: hidden. It would clamp document.scrollWidth and make build
+     gate 11 unfalsifiable. */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.frame { width: var(--frame); margin-left: var(--pad-x); margin-right: 0; }
+
+a { color: inherit; }
+
+::selection { background: var(--now-deep); color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--now);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.vh {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; margin: -1px; padding: 0; border: 0;
+}
+
+.skip {
+  position: absolute; left: var(--pad-x); top: 0; z-index: 60;
+  transform: translateY(-140%);
+  background: var(--well); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 10px 16px; font-size: var(--t-fine); text-decoration: none;
+}
+.skip:focus { transform: translateY(12px); }
+
+/* ── Text roles: the two axes ─────────────────────────────────────────────── */
+
+.checked { color: var(--ink); }
+.dom     { color: var(--ink-2); }
+.sep, .q { color: var(--ink-3); }
+.num     { font-variant-numeric: tabular-nums lining; }
+
+/* the only coloured links */
+a.live {
+  color: var(--now);
+  text-decoration: underline;
+  text-decoration-color: var(--now-deep);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+@media (hover: hover) {
+  a.live:hover { color: var(--now-dim); text-decoration-color: var(--now-dim); }
+}
+a.live:active { color: var(--now-dim); }
+
+/* DELTA D7. Sixty-four term names are links and all sixty-four resolve.
+   Painting them amber would make the page a wall of amber and the accent would
+   stop meaning "is it now". --ink already means "you can verify this by looking
+   at this page", and every one of the sixty-four is printed on this page. The
+   accent arrives only while she is touching it. */
+a.term {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  /* The mono line box is 18 px tall. WCAG 2.5.8 AA is already met here through
+     the spacing exception — hairline-ruled rows sit 40 px+ apart and each row
+     carries exactly one link — but 18 px was the thinnest affordance on the
+     property while the footer's own nav words carry 45 px, and the page should
+     not be internally inconsistent about a thing a thumb has to hit.
+     Padding on an INLINE box extends the hit area WITHOUT entering layout: the
+     line box does not grow, so the ledger's vertical rhythm, the hairline
+     spacing and the 196 px tab stop stay exactly where they were and no
+     compensating negative margin is needed (vertical margins do not apply to
+     inline non-replaced boxes in any case). 18 + 3 + 3 = 24 px. Nothing is
+     painted in the padding — a.term has no background in any state — so the
+     page looks identical at rest and under :hover. */
+  padding-block: 3px;
+}
+@media (hover: hover) {
+  a.term:hover { color: var(--now); text-decoration-color: var(--now-deep); }
+}
+a.term:active { color: var(--now); }
+
+/* Every other name is text-only: no hover, no underline, no pointer. On this
+   property the gate is inverted — every term name IS a link, with exactly one
+   exception, and that exception is the point of its section. */
+span.dom { cursor: text; }
+
+/* ── Units that never strand a separator ──────────────────────────────────── */
+
+.u { white-space: nowrap; display: inline; }
+
+/* ═══ THE SPINE ═══ */
+
+.spine {
+  position: absolute; top: 0; left: max(0px, calc(var(--pad-x) - 21px));
+  width: 1px; z-index: 1; pointer-events: none;
+}
+.spine-line {
+  display: block; position: absolute; inset: 0;
+  background: var(--rule);
+  transform: scaleY(0); transform-origin: top;
+  transition: transform var(--d-cut) var(--ease-write);
+}
+html:not(.motion) .spine-line { transform: scaleY(1); }
+
+.tick {
+  position: absolute; left: 0; width: 7px; height: 1px;
+  background: var(--ink-3);
+  opacity: 0;
+  transition: opacity 220ms var(--ease-state);
+}
+.tick.marked { opacity: 1; }
+html:not(.motion) .tick { opacity: 1; }
+.tick::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--now); opacity: 0;
+  transition: opacity var(--d-state) var(--ease-state);
+}
+.tick.now::after { opacity: 1; transition-duration: var(--d-micro); }
+
+/* ═══ STICKY NAV ═══ */
+
+.sticky {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+  height: 48px; background: var(--ground);
+  border-bottom: 1px solid var(--rule);
+  opacity: 0; visibility: hidden;
+  transition: opacity 220ms var(--ease-state), visibility 0s linear 220ms;
+}
+.sticky.on { opacity: 1; visibility: visible; transition-delay: 0s, 0s; }
+html:not(.js) .sticky { display: none; }
+
+.sticky-in {
+  width: var(--frame); margin-left: var(--pad-x);
+  height: 100%; display: flex; align-items: center;
+}
+.sticky .words { font-size: var(--t-nav); line-height: 1; }
+.sticky .words a {
+  color: var(--ink-3); text-decoration: none;
+  display: inline-block; padding-block: 16px;
+}
+.sticky .words a.here {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--now);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+@media (hover: hover) { .sticky .words a:hover { color: var(--ink-2); } }
+.sticky .words a:active { color: var(--now); }
+
+/* ═══ 1 · HERO ═══ */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding-block: var(--pad-hero) 0;
+}
+.hero-in {
+  min-height: calc(100svh - var(--pad-hero));
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+
+.wordmark {
+  font-size: var(--t-nav); font-variation-settings: "wght" 520;
+  color: var(--ink-3); line-height: 1;
+  margin-bottom: var(--gap-hero-lg);
+}
+
+.mission {
+  font-size: var(--t-mission);
+  font-variation-settings: "wght" 340;
+  letter-spacing: -0.026em;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: var(--gap-hero-sm);
+  text-wrap: pretty;
+}
+@media (max-width: 1099px) { .wide-only { display: none; } }
+
+.honesty {
+  font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+  max-width: 62ch; margin-bottom: var(--gap-hero-lg);
+}
+.honesty .v { font-family: var(--font-rec); font-size: 0.92em; }
+
+/* counters */
+.counters { margin-bottom: var(--gap-hero-lg); }
+.crow {
+  display: grid; grid-template-columns: 192px minmax(0, 1fr);
+  column-gap: var(--s5);
+  /* the hairline runs full width on all three rows including row three: a
+     partial rule would read as a progress bar and imply a number is coming */
+  border-top: 1px solid var(--rule-faint);
+  padding-block: 10px;
+}
+.crow dt {
+  font-size: var(--t-fine); font-variation-settings: "wght" 470;
+  line-height: 1.56; color: var(--ink-3);
+  padding-top: 3px;
+}
+.crow dd { display: flex; flex-direction: column; }
+.cval { font-size: var(--t-body); line-height: 1.4; color: var(--ink-2); }
+.cval.checked { color: var(--ink); }
+.check {
+  font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+  max-width: 56ch; margin-top: 4px;
+}
+
+/* the seven words, in the hero */
+.words { font-size: var(--t-nav); line-height: 1; color: var(--ink-3); }
+.words a { text-decoration: none; display: inline-block; }
+.herowords {
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 13px;
+}
+.herowords a {
+  color: var(--ink-2); padding-block: 13px 0;
+  transition: color var(--d-micro) var(--ease-state);
+}
+@media (hover: hover) { .herowords a:hover { color: var(--ink); } }
+.herowords a:active { color: var(--now); }
+
+/* ═══ 2-8 · THE SEVEN SECTIONS ═══ */
+
+.door {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(var(--s8), 13vh, var(--s9));
+  scroll-margin-top: 84px;
+}
+.door.seam { border-top: 0; }
+
+.reg {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  column-gap: clamp(2rem, 5vw, 6rem);
+}
+
+.dh {
+  font-size: var(--t-door); font-variation-settings: "wght" 340;
+  letter-spacing: -0.022em; line-height: 1.10; color: var(--ink);
+  max-width: 12ch;
+}
+.test {
+  font-size: var(--t-lede); font-variation-settings: "wght" 340;
+  letter-spacing: -0.008em; line-height: 1.46; color: var(--ink-2);
+  max-width: 46ch;
+}
+.aside { font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3); margin-top: var(--s5); }
+/* Standards delta 4.4, carried: foundation sets .aside in the record face
+   because its one aside is a bare address, a quotation. Every aside here is our
+   own sentence, and setting our prose in the record face would break the mono
+   law in the one place a reader looks for the tell. */
+.aside { font-family: inherit; max-width: 62ch; }
+.aside .v, .def .v, .note .v, .val .v { font-family: var(--font-rec); font-size: 0.92em; }
+
+/* Our prose at body weight inside a register-B column, where a fine line would
+   under-set it: the overlay paragraph is a statement, not a footnote. */
+.body { font-size: var(--t-body); line-height: 1.68; color: var(--ink-2);
+        max-width: 62ch; margin-top: var(--s5); }
+
+/* ═══ THE LEDGER ROWS — .crow's geometry, second job ═══ */
+
+.rows { margin-top: var(--s6); }
+.rows + .sublab { margin-top: var(--s6); }
+.sublab {
+  font-size: var(--t-fine); font-variation-settings: "wght" 470;
+  color: var(--ink-3); border-top: 1px solid var(--rule);
+  padding-top: var(--s4);
+}
+.sublab + .rows { margin-top: var(--s4); }
+
+.rrow {
+  display: grid;
+  grid-template-columns: var(--rname) minmax(0, 1fr);
+  column-gap: var(--s5);
+  border-top: 1px solid var(--rule-faint);
+  padding-block: 10px;
+}
+.rrow dt {                          /* a term name used as an identifier: mono */
+  font-family: var(--font-rec);
+  font-size: var(--t-mono);
+  line-height: 1.56;
+  padding-top: 1px;
+  overflow-wrap: anywhere;          /* the floor at 320 px */
+}
+.rrow dt.plain { color: var(--ink-2); }
+.rrow dd { display: flex; flex-direction: column; }
+
+/* DELTA D3: the ledger's value slot is a record — an address — and the mono
+   law decides it. A string you would type into a file is mono; a sentence
+   about it is sans. */
+.iri {
+  font-family: var(--font-rec); font-size: var(--t-mono); line-height: 1.4;
+  color: var(--ink-2); overflow-wrap: anywhere;
+}
+.def {
+  font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+  max-width: 62ch; margin-top: 4px;
+}
+.note {
+  font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+  max-width: 62ch; margin-top: 2px;
+}
+/* a sans value, for the three ledgers whose right column is our prose */
+.val { font-size: var(--t-body); line-height: 1.4; color: var(--ink-2); }
+
+/* THE FOUR BLANKS. $context's value, Business's address, Task's `Kind of`, and
+   the record rule's fifth row are all deliberately empty, and an empty inline
+   span collapses to nothing — which would hide the refusal instead of showing
+   it. The slot keeps its line, and draws nothing in it. No dash, no
+   underscore, no dotted rule, no greyed box, no placeholder. A blank is
+   information, and it has to be visible to be read as one. */
+.val:empty, .iri:empty { display: block; min-height: 1.5em; }
+
+/* the visible travelling edge of a section cut */
+.cut-edge {
+  position: absolute; width: 1px; background: var(--now);
+  pointer-events: none; z-index: 2;
+}
+
+/* ═══ 2 · THE ONE ADDRESS ═══ */
+
+.addr {
+  font-family: var(--font-rec); font-size: var(--t-lede); line-height: 1.4;
+  color: var(--ink); margin-top: var(--s5); overflow-wrap: anywhere;
+}
+.rows.tight { margin-top: var(--s6); }
+.aliasnote { font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+             max-width: 62ch; margin-top: var(--s5); }
+.aliasnote .v { font-family: var(--font-rec); font-size: 0.92em; }
+.cmd {
+  font-family: var(--font-rec); font-size: var(--t-mono); line-height: 1.5;
+  color: var(--ink-2); margin-top: var(--s2); overflow-wrap: anywhere;
+}
+.closer { font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+          margin-top: var(--s6); }
+
+/* ═══ 8 · THREE WAYS TO WRITE IT ═══ */
+
+.strip-sec {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(var(--s9), 17vh, 14rem);
+  scroll-margin-top: 84px;
+}
+.sh {
+  font-size: var(--t-section); font-variation-settings: "wght" 340;
+  letter-spacing: -0.016em; line-height: 1.18; color: var(--ink);
+}
+.lede {
+  font-size: var(--t-lede); font-variation-settings: "wght" 340;
+  letter-spacing: -0.008em; line-height: 1.46; color: var(--ink-2);
+  max-width: 62ch; margin-top: var(--s4);
+}
+
+/* the one recess on this page */
+.strip {
+  margin-top: var(--s8);
+  background: var(--well);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: inset 0 1px 0 var(--recess-top), inset 0 -1px 0 var(--recess-bot);
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  overflow: hidden;
+}
+.rec + .rec { margin-top: 1.75em; }
+.rec.ruled { border-top: 1px solid var(--rule-faint); padding-top: 1.75em; }
+.rec-l {
+  font-size: var(--t-fine); font-variation-settings: "wght" 470;
+  color: var(--ink-3); line-height: 1.56; margin-bottom: 0.5em;
+}
+/* DELTA: no syntax highlighting. A colour per token type encodes a fact from a
+   grammar the reader cannot check on this page. Code blocks are one colour,
+   whole. */
+/* A record is whitespace-significant, so it is NEVER reflowed — not at 1440 px
+   and not at 320 px. `white-space: pre` holds at every width and the block
+   carries its own horizontal scroll instead.
+   The claim this section makes is "the same document, spelled three ways", and
+   a YAML block whose first line sits at column 0 while its siblings sit at 4ch
+   is a different document with an indentation error. Wrapping cannot be made
+   safe here: `text-indent` addresses the FIRST FORMATTED LINE of a block, not
+   wrap continuations, so a hanging indent over hard newlines outdents the
+   opening line of every record — MDXLD's opening `---` away from its own
+   closing `---`, JSON's `{` away from its `}`.
+   Scrolling wide content inside its own container is the family-permitted
+   treatment, and it is the only one that keeps these three blocks truthful.
+   `overflow-wrap: anywhere` is inert under `pre` and ships as the floor: if a
+   future rule ever relaxes the whitespace, a long IRI still cannot push the
+   page sideways. */
+.rec-t {
+  font-family: var(--font-rec); font-size: var(--t-strip); line-height: 1.75;
+  white-space: pre;
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+  max-width: 100%;
+  /* The one scrollbar in the system, and it is drawn in the system's own rule
+     colour in both themes, at the system's own weight. It appears only on the
+     blocks that actually exceed the measure, which makes it the honest signal
+     that the record continues — the same job the hairlines already do. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+.strip-rule {
+  display: block; height: 1px; background: var(--now-deep);
+  margin-top: 0.9em;
+  transform: scaleX(0); transform-origin: left;
+}
+html:not(.motion) .strip-rule { transform: scaleX(1); }
+
+/* the key ledger: four keys this address resolves, and one it does not */
+.klist { font-size: var(--t-strip); line-height: 1.9; }
+.krow { display: grid; grid-template-columns: 22ch minmax(0, 1fr); column-gap: var(--s4); }
+.krow > .kk { font-family: var(--font-rec); color: var(--ink-2); overflow-wrap: anywhere; }
+.krow > .kp { color: var(--ink-3); }
+/* .k-name has no rule anywhere in this stylesheet and no entry in site.js's
+   list. It renders UNLIT, always. The refusal is implemented as the ABSENCE of
+   a rule, exactly as WITHHELD is the absence of a token: a builder cannot light
+   it by accident, because there is nothing here that can light it. */
+
+/* Motion off shows the same four-of-five picture. */
+html:not(.motion) .k-context,
+html:not(.motion) .k-id,
+html:not(.motion) .k-type,
+html:not(.motion) .k-schema { color: var(--ink); }
+
+/* No narrow-width override for `.rec-t`. The one it used to carry is above, in
+   the comment explaining why no such rule can exist. */
+@media (max-width: 879px) {
+  .krow { grid-template-columns: minmax(0, 1fr); }
+}
+
+.notes { margin-top: var(--s8); max-width: 62ch; }
+.notes p {
+  font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+  padding-block: var(--s4);
+  border-top: 1px solid var(--rule-faint);
+}
+.notes p:first-child { border-top: 0; padding-top: 0; }
+
+/* ═══ 9 · WHAT THIS IS ═══ */
+
+.what {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(var(--s7), 10vh, var(--s9));
+  scroll-margin-top: 84px;
+}
+.whatbody {
+  font-size: var(--t-lede); font-variation-settings: "wght" 330;
+  letter-spacing: -0.008em; line-height: 1.46;
+  color: var(--ink-2); max-width: 54ch; margin-top: var(--s5);
+}
+.whatbody p + p { margin-top: 1.1em; }
+
+.fade { transition: opacity 300ms var(--ease-state); }
+html.motion .fade { opacity: 0; }
+html.motion .fade.on { opacity: 1; }
+
+/* ═══ 10 · FOOTER ═══ */
+
+.foot {
+  position: relative;
+  background: var(--well);
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(var(--s6), 6vh, var(--s7));
+}
+.footwords a {
+  color: var(--ink-3); padding-block: 13px;
+  transition: color var(--d-micro) var(--ease-state);
+}
+@media (hover: hover) { .footwords a:hover { color: var(--ink); } }
+.footwords a:active { color: var(--now); }
+
+.estate {
+  font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3);
+  max-width: 72ch; margin-top: var(--s5);
+}
+.opentoday { margin-top: var(--s5); font-size: var(--t-fine); color: var(--ink-3); }
+/* The overlay path has no space in it and is wider than a 320px viewport, so
+   without this it is the one string that makes the document scroll sideways.
+   The two short paths sit inside `.u` and its `white-space: nowrap` wins, so
+   only the long one ever breaks. */
+.opentoday .dom { font-family: var(--font-rec); font-size: var(--t-mono); overflow-wrap: anywhere; }
+
+.frule { border: 0; border-top: 1px solid var(--rule); margin-top: var(--s6); }
+.closing { font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3); margin-top: var(--s5); }
+/* scoped to the anchors: schema.org.ai is bare text in the closing line,
+   because a page does not link to itself. */
+.closing a.dom { color: var(--now); font-family: var(--font-rec); }
+
+/* ═══ DELTA D2 · THE TERM PAGE AND THE CENSUS PAGE ═══ */
+
+/* A term page is one door: the same frame, the same cut, once. No sticky nav,
+   no spine, no ticks, no pass. Two screens do not need a bar over them. */
+.tp { padding-block: var(--pad-hero) 0; }
+.tp .wordmark { margin-bottom: var(--s8); }
+.tp .wordmark a { text-decoration: none; }
+@media (hover: hover) { .tp .wordmark a:hover { color: var(--ink-2); } }
+
+.tname {
+  font-size: var(--t-door); font-variation-settings: "wght" 340;
+  letter-spacing: -0.022em; line-height: 1.10; color: var(--ink);
+}
+.bline { font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3); margin-top: var(--s2); }
+.taddr {
+  font-family: var(--font-rec); font-size: var(--t-lede); line-height: 1.4;
+  color: var(--ink-2); margin-top: var(--s5); overflow-wrap: anywhere;
+}
+.tdef {
+  font-size: var(--t-lede); font-variation-settings: "wght" 340;
+  letter-spacing: -0.008em; line-height: 1.46; color: var(--ink-2);
+  max-width: 62ch; margin-top: var(--s6);
+}
+.tsrc { font-size: var(--t-fine); line-height: 1.56; color: var(--ink-3); margin-top: var(--s3); }
+.tsec { margin-top: var(--s8); }
+.tlab {
+  font-size: var(--t-fine); font-variation-settings: "wght" 470;
+  color: var(--ink-3); line-height: 1.56;
+}
+.tp .strip { margin-top: var(--s4); }
+.tp .rows { margin-top: var(--s4); }
+.tp .frule { margin-top: var(--s8); }
+.tp .foot { margin-top: var(--s9); }
+
+.census .rrow dt { font-family: inherit; font-size: var(--t-fine);
+                   font-variation-settings: "wght" 470; color: var(--ink-3); }
+.census .cnum { font-size: var(--t-body); line-height: 1.4; color: var(--ink);
+                font-variant-numeric: tabular-nums lining; }
+.method { font-size: var(--t-body); line-height: 1.68; color: var(--ink-2);
+          max-width: 62ch; margin-top: var(--s6); }
+
+/* ═══ 404 — the same refusal, in the same voice ═══ */
+
+.dhead {
+  font-size: var(--t-door); font-variation-settings: "wght" 340;
+  letter-spacing: -0.022em; line-height: 1.10; color: var(--ink);
+  max-width: 26ch; text-wrap: balance; margin-bottom: var(--s5);
+}
+.anote { font-size: var(--t-fine); color: var(--ink-3); margin-top: var(--s5); max-width: 62ch; }
+.anote .v { font-family: var(--font-rec); font-size: 0.92em; }
+.dsug { font-size: var(--t-lede); line-height: 1.46; color: var(--ink-2); margin-top: var(--s5); }
+.dpick { font-size: var(--t-fine); color: var(--ink-3); margin-top: var(--s5); }
+.ddoors { margin-top: var(--s2); }
+.ddoors li { border-top: 1px solid var(--rule-faint); }
+.ddoors a {
+  display: block; padding: 11px 0; font-size: var(--t-lede); line-height: 22px;
+  color: var(--ink-2); text-decoration: none;
+  transition: color var(--d-micro) var(--ease-state);
+}
+@media (hover: hover) { .ddoors a:hover { color: var(--ink); } }
+.ddoors a:active { color: var(--now); }
+
+.nf { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-block: var(--s8); }
+.nf .wordmark { margin-bottom: var(--s8); }
+.nf .wordmark a { text-decoration: none; }
+@media (hover: hover) { .nf .wordmark a:hover { color: var(--ink-2); } }
+.nf .dhead { margin-bottom: var(--s4); }
+.nf .anote { margin-top: 0; }
+/* this page's section labels run to 22 characters (measurement M7) */
+.nf .ddoors { max-width: 52ch; }
+.nf .frule { margin-top: var(--s8); }
+
+/* ═══ MOTION: initial states ═══ */
+
+html.motion .cut { clip-path: inset(0 100% 0 -0.14em); }
+html.motion .cut.on {
+  clip-path: inset(0 0 0 -0.14em);
+  transition: clip-path var(--d-cut) var(--ease-write);
+}
+html.motion .cut.d1 { transition-delay: var(--d-step); }
+html.motion .cut.d2 { transition-delay: calc(var(--d-step) * 2); }
+html.motion .cut.d3 { transition-delay: calc(var(--d-step) * 3); }
+html.motion .cut.d4 { transition-delay: calc(var(--d-step) * 4); }
+html.motion.snap .cut { transition: none !important; transition-delay: 0s !important; }
+
+html.motion:not(.wrote) .pass { clip-path: inset(0 100% 0 -0.14em); }
+
+/* THE TERM-PAGE CUT — the seventh job of the edge, and the one this property
+   adds. A term page is one door, cut once, on arrival: slot 0 is the name, the
+   bucket line and the address as one group; d1 the definition; d2 the lineage
+   rows; d3 the recess. Then the page is still.
+
+   It is pure CSS, with `both` fill, so a term page ships no site.js and cannot
+   be left clipped by a script that failed to load. Sixty-four documents do not
+   each pay for a tween engine to draw four lines. */
+html.motion .tcut { animation: cutin var(--d-cut) var(--ease-write) both; }
+html.motion .tcut.d1 { animation-delay: var(--d-step); }
+html.motion .tcut.d2 { animation-delay: calc(var(--d-step) * 2); }
+html.motion .tcut.d3 { animation-delay: calc(var(--d-step) * 3); }
+@keyframes cutin {
+  from { clip-path: inset(0 100% 0 -0.14em); }
+  to   { clip-path: inset(0 0 0 -0.14em); }
+}
+
+/* the section's opening hairline draws */
+html.motion .door, html.motion .strip-sec, html.motion .what, html.motion .foot {
+  border-top-color: transparent;
+}
+html.motion .door::before,
+html.motion .strip-sec::before,
+html.motion .what::before,
+html.motion .foot::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px;
+  background: var(--rule);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 500ms var(--ease-write);
+}
+html.motion .door.seam::before { display: none; }
+html.motion .door.seam { border-top: 0; }
+html.motion .drawn::before { transform: scaleX(1); }
+html.motion.snap .drawn::before { transition: none; }
+
+/* THE PASS: the one hairline that writes the fold */
+.pass-edge {
+  position: fixed; top: 0; bottom: 0; left: 0; width: 1px;
+  background: var(--now); z-index: 50; pointer-events: none;
+}
+
+/* ═══ THE RECORD RULE — the one scrubbed scene ═══ */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* The timeline is scoped to the KEY LEDGER, not to the whole recess. The
+       recess is three code blocks tall — taller than most viewports — and a
+       view-timeline on a subject that tall never leaves its entry phase while
+       the ledger is being read, which lights the rows out of order. The
+       subject of this scene is the five rows, so the subject of the timeline
+       is the five rows. */
+    html.motion #record { view-timeline-name: --record; view-timeline-axis: block; }
+    html.motion #record .strip-rule {
+      animation: draw linear both;
+      animation-timeline: --record;
+      animation-range: entry 55% cover 62%;
+    }
+    html.motion #record .k-context { animation: light steps(1, end) both; animation-timeline: --record; animation-range: entry 62% entry 64%; }
+    html.motion #record .k-id      { animation: light steps(1, end) both; animation-timeline: --record; animation-range: entry 68% entry 70%; }
+    html.motion #record .k-type    { animation: light steps(1, end) both; animation-timeline: --record; animation-range: entry 74% entry 76%; }
+    html.motion #record .k-schema  { animation: light steps(1, end) both; animation-timeline: --record; animation-range: cover 10% cover 12%; }
+    /* .k-name has NO animation, anywhere. It renders UNLIT, always.
+       There is nothing here that can light it. */
+  }
+}
+@keyframes draw  { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes light { to { color: var(--ink); } }
+
+/* the JS fallback writes the same thresholds onto the same four elements */
+html.motion #record .lit { color: var(--ink); }
+
+/* ═══ RESPONSIVE ═══ */
+
+/* Seven labels totalling 108 characters plus six separators. The row stops
+   fitting inside var(--frame) at about 1,080 px; the breakpoint sits above
+   that (measurement M2). This row is the only horizontally scrolling element
+   on the site. */
+@media (max-width: 1120px) {
+  .sticky-in { width: 100%; margin-left: 0; padding-left: var(--pad-x); overflow-x: auto; scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, rgb(0 0 0 / 0) 0, rgb(0 0 0 / 1) 14px, rgb(0 0 0 / 1) calc(100% - 22px), rgb(0 0 0 / 0) 100%);
+    mask-image: linear-gradient(to right, rgb(0 0 0 / 0) 0, rgb(0 0 0 / 1) 14px, rgb(0 0 0 / 1) calc(100% - 22px), rgb(0 0 0 / 0) 100%); }
+  .sticky-in::-webkit-scrollbar { display: none; }
+  .sticky .words { white-space: nowrap; }
+}
+
+@media (max-width: 900px) {
+  .reg { grid-template-columns: minmax(0, 1fr); row-gap: var(--s5); }
+  .dh { max-width: none; }
+}
+
+@media (max-width: 760px) {
+  /* the counters stack into three registers on a phone, so the fold guarantee
+     buys its room out of the hero rhythm, never out of the content. Levers 1
+     and 2 of soa-design-content §4.2, both pulled. */
+  :root {
+    --gap-hero-lg: clamp(0.5rem, 1.2svh, 1.5rem);
+    --gap-hero-sm: clamp(0.375rem, 0.9svh, 0.75rem);
+    --pad-hero: clamp(14px, 1.9svh, 28px);
+  }
+  .hero { padding-block: var(--pad-hero) var(--gap-hero-sm); }
+  .counters { margin-bottom: var(--gap-hero-sm); }
+  .crow { grid-template-columns: minmax(0, 1fr); row-gap: 1px; padding-block: 6px; }
+  .crow dt { padding-top: 0; }
+  .cval { line-height: 1.32; }
+  .check { font-size: 12px; line-height: 1.38; margin-top: 2px; }
+  .honesty { line-height: 1.46; }
+  .mission { line-height: 1.05; }
+}
+
+@media (max-width: 720px) {
+  .spine { left: 0; }
+  .tick { width: 9px; }
+}
+
+/* the same breakpoint at which foundation's specimen collapses, and the same
+   gesture for the same reason: below it the name takes its own line. */
+@media (max-width: 700px) {
+  .rrow { grid-template-columns: minmax(0, 1fr); row-gap: 2px; padding-block: 9px; }
+  .rrow dt { padding-top: 0; }
+  .iri, .val { line-height: 1.32; }
+  .def, .note { font-size: 12px; line-height: 1.38; margin-top: 2px; }
+}
+
+@media (max-width: 560px) {
+  .ddoors a { padding-block: 13px; }
+}
+
+/* ═══ REDUCED MOTION — a designed still ═══ */
+
+/* Every element renders in its final state at load: the fold written, all seven
+   sections revealed, the spine drawn with ten settled ticks, the record rule
+   drawn with `name` UNLIT, the footer's amber row present.
+   Arrival is still composed: one 200 ms opacity fade of the document. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --d-micro: 1ms; --d-state: 1ms; --d-cut: 1ms;
+    --d-step: 0ms; --d-pass: 1ms; --d-tick: 1ms; --d-close: 1ms;
+  }
+  html.js body { opacity: 0; }
+  html.js.arrived body { opacity: 1; transition: opacity 200ms linear; }
+}
+
+/* ═══ FORCED COLORS ═══ */
+
+@media (forced-colors: active) {
+  .strip { background: Canvas; border: 1px solid CanvasText; box-shadow: none; }
+  a.live, .closing a.dom { color: LinkText; }
+  a.term { color: LinkText; }
+  .tick, .spine-line, .strip-rule, .pass-edge, .cut-edge { background: CanvasText; }
+  .cval.checked, .dh, .mission, .sh, .tname, .addr { color: CanvasText; }
+}

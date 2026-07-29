@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Worker",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Worker",
+      "rdfs:comment": "The base work-executor type over the agent/human duality: Worker { type: 'agent' | 'human' } with status, capabilities, and current task. Agents and humans are Workers; the interface is uniform (notify/ask/approve/decide/do).",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Thing"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

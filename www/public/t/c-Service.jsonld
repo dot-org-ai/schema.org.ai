@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Service",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Service",
+      "rdfs:comment": "A service a platform business provides — including services-as-software (services delivered by agents with software economics). ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): subClassOf schema:Service — org.ai ADR 0004 Q2.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Service"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

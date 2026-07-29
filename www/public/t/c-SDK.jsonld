@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/SDK",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SDK",
+      "rdfs:comment": "A Software Development Kit package that provides programmatic access to a platform or service.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/SoftwareApplication"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

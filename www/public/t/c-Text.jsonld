@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org/Text",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Text",
+      "rdfs:comment": "Data type: Text.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org"
+      }
+    }
+  ]
+}

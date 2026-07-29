@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Product",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Product",
+      "rdfs:comment": "A product the platform's businesses make, sell, or use — spanning instance-grain products and the UNSPSC-seeded product-category taxonomy. ADMITTED EXTENSION per Nathan's F5 ruling (org.ai#11, 2026-07-18): 'Product, Service, Offer = extension (subClassOf schema:Product / schema:Service / schema:Offer)' — org.ai ADR 0004 Q2; category grain tolerated (grain diverges, nothing false).",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Product"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/tokens",
+      "@type": "rdf:Property",
+      "rdfs:label": "tokens",
+      "rdfs:comment": "The number of tokens used or generated.",
+      "schema:domainIncludes": [
+        {
+          "@id": "https://schema.org.ai/Generation"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "https://schema.org/Integer"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

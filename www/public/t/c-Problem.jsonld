@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Problem",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Problem",
+      "rdfs:comment": "A canonical Problem — pain exposed by a sufficiently-pinned Ideal Customer Profile. Addressable so multiple candidate Solutions can be enumerated. Distinct from schema:Issue (which is a content issue) — a Problem is a market problem.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Thing"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

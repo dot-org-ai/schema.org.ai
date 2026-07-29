@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Prompt",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Prompt",
+      "rdfs:comment": "A prompt or prompt template used to instruct an AI model or Agent.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/CreativeWork"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

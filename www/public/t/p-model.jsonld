@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/model",
+      "@type": "rdf:Property",
+      "rdfs:label": "model",
+      "rdfs:comment": "The AI model(s) that power this Agent or Generation.",
+      "schema:domainIncludes": [
+        {
+          "@id": "https://schema.org.ai/Agent"
+        },
+        {
+          "@id": "https://schema.org.ai/Generation"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "https://schema.org.ai/Model"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

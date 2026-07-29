@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org/Article",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Article",
+      "rdfs:comment": "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org"
+      }
+    }
+  ]
+}

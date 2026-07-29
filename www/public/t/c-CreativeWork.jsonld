@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org/CreativeWork",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CreativeWork",
+      "rdfs:comment": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org"
+      }
+    }
+  ]
+}

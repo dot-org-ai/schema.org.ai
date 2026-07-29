@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The internal bucket-prefixed asset namespace. Every document in it is
+# reachable at its real address instead: /<Term>, case-sensitive.
+Disallow: /t/
+
+Sitemap: https://schema.org.ai/sitemap.xml

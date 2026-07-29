@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/tool",
+      "@type": "rdf:Property",
+      "rdfs:label": "tool",
+      "rdfs:comment": "A tool available to this Agent for performing actions.",
+      "schema:domainIncludes": [
+        {
+          "@id": "https://schema.org.ai/Agent"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "https://schema.org.ai/Tool"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Idea",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Idea",
+      "rdfs:comment": "A business concept with a name, an elevator pitch, and a lifecycle status, validated through Hypotheses on its way to becoming a Startup.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Intangible"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

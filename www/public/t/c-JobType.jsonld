@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/JobType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "JobType",
+      "rdfs:comment": "A job-type archetype — a specific role within a CompanyType. Derived from Occupation × CompanyType. Examples: Staff Bookkeeper at an Accounting Firm, Service Plumber at a Plumbing Contractor. More specific than schema:Occupation.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Occupation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

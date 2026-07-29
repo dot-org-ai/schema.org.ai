@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/digital",
+      "@type": "rdf:Property",
+      "rdfs:label": "digital",
+      "rdfs:comment": "Digital maturity score from 0.0 (fully analog/manual) to 1.0 (fully digital/autonomous). Indicates the degree to which an entity operates digitally.",
+      "schema:domainIncludes": [
+        {
+          "@id": "https://schema.org/Thing"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "https://schema.org/Number"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

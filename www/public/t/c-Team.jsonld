@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Team",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Team",
+      "rdfs:comment": "A team: a named group of workers (agents and humans) with members, an optional lead, goals, and communication channels. ADMITTED EXTENSION per the ADR 0002 R3 bucket ruling: subClassOf schema:Organization — schema.org has no generic Team; crawlers walking the subclass edge still understand the parent type.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Organization"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

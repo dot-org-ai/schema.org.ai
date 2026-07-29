@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Process",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Process",
+      "rdfs:comment": "A cross-functional business process — typically an APQC-coded multi-step operation (e.g. Manage Accounts Payable, Onboard New Customer). Distinct from schema:HowTo (which is consumer-facing instructions) — a Process is the typed enterprise operation.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/HowTo"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

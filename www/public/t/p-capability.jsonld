@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/capability",
+      "@type": "rdf:Property",
+      "rdfs:label": "capability",
+      "rdfs:comment": "A capability or skill that this Agent possesses.",
+      "schema:domainIncludes": [
+        {
+          "@id": "https://schema.org.ai/Agent"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "https://schema.org.ai/Capability"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

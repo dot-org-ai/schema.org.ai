@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Department",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Department",
+      "rdfs:comment": "A functional department within a CompanyType (e.g. Tax, Audit, Engineering). Groups related JobTypes and Tasks. Subtype of Organization because departments are sub-organizations.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Organization"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

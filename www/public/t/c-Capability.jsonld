@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Capability",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Capability",
+      "rdfs:comment": "A capability or skill that an Agent possesses, defining what actions it can perform.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Intangible"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

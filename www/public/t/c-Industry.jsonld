@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Industry",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Industry",
+      "rdfs:comment": "An industry classification (e.g. NAICS-coded sector of economic activity). The taxonomic category that groups businesses by what they produce. Distinct from schema:Organization (which is an instance of a Business operating within an Industry).",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Intangible"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

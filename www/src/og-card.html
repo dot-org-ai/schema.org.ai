@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- Source for /og.png (1200×630). Rendered ONCE by headless Chrome and
+     committed as src/og.png, so ordinary builds never need a browser; the
+     build only copies it. Fetched by link unfurlers, never by the page, so
+     the one-request law is untouched.
+
+     Tokens are hard-coded literals mirroring the DARK palette in styles.css.
+     A share card has no prefers-color-scheme, so it commits to dark. Keep them
+     in step by hand if the palette moves.
+
+     The object is A STEP, not foundation's single vertical edge and not
+     standards' two equal bars: ours sits above theirs, flush left, and ours is
+     half the length. That is the ratified sentence drawn once — everything
+     schema.org defines keeps schema.org's meaning, and our additions sit above
+     it. Discriminable from standards' mark at 16 px because the bars are
+     unequal and flush left: standards reads as `=`, this reads as a stair.
+
+     The font path is RELATIVE on purpose. Render with the working directory at
+     src/. An absolute path falls back silently to the system face and the card
+     ships in the wrong typeface — the single most breakable thing in this
+     pipeline. The card sets 550 and 600, so the subset's axis range must cover
+     them. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: "Public Sans";
+    src: url("fonts/publicsans-subset.woff2") format("woff2");
+    font-weight: 200 700;
+    font-display: block;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background: #13110e;                     /* --ground, dark */
+    font-family: "Public Sans", system-ui, sans-serif;
+    color: #f3f2ee;                          /* --ink, dark */
+    overflow: hidden;
+  }
+  .in {
+    height: 100%; padding: 84px 96px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .top { display: flex; flex-direction: column; }
+  .bars { margin-bottom: 32px; }
+  .bar { height: 7px; border-radius: 0; }
+  .bar-ours   { width: 64px;  background: #f0af66; }        /* --now, dark */
+  .bar-theirs { width: 128px; background: #8d8b87; margin-top: 4px; }  /* --ink-3, dark */
+  .wordmark {
+    font-size: 30px; font-weight: 600; letter-spacing: 0;
+    color: #bdbbb8;                          /* --ink-2, dark */
+  }
+  .substance {
+    font-size: 58px; font-weight: 550; line-height: 1.22; letter-spacing: -0.015em;
+    max-width: 940px;
+  }
+  .substance em { font-style: normal; color: #f0af66; }
+  .host { font-size: 26px; font-weight: 400; color: #8d8b87; }
+</style>
+</head>
+<body>
+  <div class="in">
+    <div class="top">
+      <div class="bars">
+        <div class="bar bar-ours"></div>
+        <div class="bar bar-theirs"></div>
+      </div>
+      <div class="wordmark">The Org.AI Foundation · Schema</div>
+    </div>
+    <div class="substance">Everything schema.org defines <em>keeps&nbsp;schema.org's&nbsp;meaning</em>.<br>Our additions sit above it, at one unversioned&nbsp;address.</div>
+    <div class="host">schema.org.ai</div>
+  </div>
+</body>
+</html>

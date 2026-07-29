@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/Workflow",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Workflow",
+      "rdfs:comment": "An autonomous workflow definition that specifies a sequence of actions to be performed by Agents.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/CreativeWork"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

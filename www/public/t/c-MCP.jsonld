@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/MCP",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MCP",
+      "rdfs:comment": "A Model Context Protocol server that exposes tools and resources to AI models.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/WebAPI"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

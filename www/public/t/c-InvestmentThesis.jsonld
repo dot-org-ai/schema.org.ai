@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/InvestmentThesis",
+      "@type": "rdfs:Class",
+      "rdfs:label": "InvestmentThesis",
+      "rdfs:comment": "An investment or strategic thesis — a structured argument for a particular approach to building (e.g. Service-as-Software, Agent, Headless SaaS). Stackable: one Thesis composes a Solution from primitives at lower-layer Theses. Named `InvestmentThesis` (not `Thesis`) to avoid collision with schema:Thesis (academic dissertation).",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/CreativeWork"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}

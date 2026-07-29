@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org/WebSite",
+      "@type": "rdfs:Class",
+      "rdfs:label": "WebSite",
+      "rdfs:comment": "A WebSite is a set of related web pages and other items typically served from a single web domain and accessible via URLs.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org"
+      }
+    }
+  ]
+}

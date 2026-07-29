@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "schemaai": "https://schema.org.ai/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.org.ai/JTBD",
+      "@type": "rdfs:Class",
+      "rdfs:label": "JTBD",
+      "rdfs:comment": "A Job To Be Done in the When/I-want/So-I-can pattern: situation, motivation, outcome — optionally scored on functional, emotional, and social dimensions with priority and frequency.",
+      "rdfs:subClassOf": {
+        "@id": "https://schema.org/Intangible"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://schema.org.ai"
+      }
+    }
+  ]
+}
