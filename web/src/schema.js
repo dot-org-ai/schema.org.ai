@@ -185,6 +185,50 @@
     });
   });
 
+  /* ---------------- a property, drawn: a curve from each type to it, and from it to each value ---------------- */
+  // measured from where the names land, so a name that wraps still meets its curve; redrawn whenever the figure changes size
+  $$("[data-flow]").forEach((fig) => {
+    const svg = $("svg.links", fig), pm = $(".pm", fig), mid = $(".mid", fig);
+    const from = $$(".from li a", fig), to = $$(".to li a", fig), links = from.concat(to);
+    if (!svg || !pm || !links.length) return;
+    const NS = "http://www.w3.org/2000/svg";
+    const paths = links.map((a, i) => {
+      const p = document.createElementNS(NS, "path");
+      p.style.setProperty("--d", 160 + i * 70 + "ms");
+      svg.appendChild(p);
+      return p;
+    });
+    const r1 = (v) => Math.round(v * 10) / 10;
+    // the property's ring is an oval 54 by 41 turned 24 degrees: across its middle it reaches 25.5px either side
+    const REACH = 27.5;
+    function draw() {
+      const fr = fig.getBoundingClientRect();
+      if (!fr.width) return;
+      const m = pm.getBoundingClientRect(), cx = m.left + m.width / 2 - fr.left, cy = m.top + m.height / 2 - fr.top;
+      svg.setAttribute("viewBox", "0 0 " + r1(fr.width) + " " + r1(fr.height));
+      links.forEach((a, i) => {
+        const mk = $(".fm", a).getBoundingClientRect(), y = mk.top + mk.height / 2 - fr.top, left = i < from.length;
+        const x1 = left ? mk.right - fr.left + 6 : cx + REACH, y1 = left ? y : cy;
+        const x2 = left ? cx - REACH : mk.left - fr.left - 6, y2 = left ? cy : y;
+        const k = (x2 - x1) * 0.55;
+        paths[i].setAttribute("d", "M" + r1(x1) + " " + r1(y1) + "C" + r1(x1 + k) + " " + r1(y1) + " " + r1(x2 - k) + " " + r1(y2) + " " + r1(x2) + " " + r1(y2));
+        paths[i].style.setProperty("--len", Math.ceil(paths[i].getTotalLength()) + 1);
+      });
+    }
+    const light = (i, on) => {
+      if (i < 0) { fig.classList.toggle("all", on); paths.forEach((p) => p.classList.toggle("on", on)); links.forEach((a) => a.classList.toggle("on", on)); return; }
+      paths[i].classList.toggle("on", on); links[i].classList.toggle("on", on);
+    };
+    links.forEach((a, i) => {
+      a.addEventListener("mouseenter", () => light(i, true)); a.addEventListener("mouseleave", () => light(i, false));
+      a.addEventListener("focus", () => light(i, true)); a.addEventListener("blur", () => light(i, false));
+    });
+    mid.addEventListener("mouseenter", () => light(-1, true)); mid.addEventListener("mouseleave", () => light(-1, false));
+    draw();
+    if (window.ResizeObserver) new ResizeObserver(draw).observe(fig); else addEventListener("resize", draw);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  });
+
   /* ---------------- long lists show their first rows; the button shows the rest ---------------- */
   $$("[data-more]").forEach((list) => {
     const btn = list.nextElementSibling;

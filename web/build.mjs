@@ -44,6 +44,10 @@ const and = (a, w = "and") => (a.length < 2 ? a.join("") : a.slice(0, -1).join("
 // a long CamelCase name may break between its words
 const camel = (s) => esc(s).replace(/([a-z0-9])([A-Z])/g, "$1<wbr>$2");
 const href = (t) => "/" + t.name + (t.senseOf ? "#org-ai" : "");
+// the article a name takes, by its sound: an Event, an actor, a URL, a UnitPriceSpecification, a Usage
+const an = (w) => (/^(?:[aeioAEIO]|[uU](?![A-Z]|ni|s[aeu]|ti|ri|r[lL]))/.test(w) && !/^(?:eu|one)/i.test(w) ? "an" : "a");
+const An = (w) => (an(w) === "an" ? "An" : "A");
+const withA = (t) => an(t.name) + " " + camel(t.name);
 const link = (t) => '<a href="' + href(t) + '">' + camel(t.name) + "</a>";
 const f2 = (x) => +x.toFixed(2);
 
@@ -322,7 +326,7 @@ function typePage(t) {
       `<div>${termList(t.children, { id: "subtype-list", more: 24, k: (x) => (x.descendants ? plural(x.descendants, "subtype", "subtypes") : "") })}</div></section>`;
   }
   if (t.valueOf.length) {
-    h += `<section class="band reg" id="used-as" aria-labelledby="used-h"><div class="side"><h2 id="used-h">Where it is a value</h2><p class="lead">${t.valueOf.length === 1 ? `One property takes a ${camel(t.name)} as its value.` : `${fmt(t.valueOf.length)} properties take a ${camel(t.name)} as their value.`}</p></div>` +
+    h += `<section class="band reg" id="used-as" aria-labelledby="used-h"><div class="side"><h2 id="used-h">Where it is a value</h2><p class="lead">${t.valueOf.length === 1 ? `One property takes ${withA(t)} as its value.` : `${fmt(t.valueOf.length)} properties take ${withA(t)} as their value.`}</p></div>` +
       `<div>${nameList(t.valueOf, { id: "used-list", more: 36, k: (p) => (p.domain.length ? "on " + (p.domain.length <= 2 ? and(p.domain.map((x) => x.name)) : p.domain.length + " types") : "") })}</div></section>`;
   }
   h += provenance(t) + closing(t);
@@ -338,17 +342,19 @@ function typePage(t) {
 /* ── one property ──────────────────────────────────────────────────────────── */
 
 function flowFigure(p) {
-  const MAX = 6;
-  const col = (list, cls, label, more) => `<div class="col ${cls}"><span class="lbl">${label}</span><ul>` +
-    list.slice(0, MAX).map((x) => `<li>${link(x)}</li>`).join("") +
-    (list.length > MAX ? `<li><a class="more" href="${more}">and ${fmt(list.length - MAX)} more</a></li>` : "") + "</ul></div>";
+  // the property in the middle; the types that have it on the left, the types its value can be on the right, each joined to it
+  // by a curve that site.js draws from where the names land
   if (!p.domain.length && !p.range.length) return "";
-  return `<figure class="flow">` +
-    (p.domain.length ? col(p.domain, "from", "Used on", "#used-on") : "<div></div>") +
-    `<div class="mid" aria-hidden="true"><svg class="h" viewBox="0 0 132 40"><path class="ar" d="M2 20H40"/><path class="ar" d="M92 20H128M123 15l5 5-5 5"/><circle class="ring" cx="66" cy="20" r="17"/><ellipse class="pm" cx="66" cy="20" rx="12.2" ry="7" transform="rotate(-36 66 20)"/></svg>` +
-    `<svg class="v" viewBox="0 0 40 120"><path class="ar" d="M20 2V36"/><path class="ar" d="M20 84V118M15 113l5 5 5-5"/><circle class="ring" cx="20" cy="60" r="17"/><ellipse class="pm" cx="20" cy="60" rx="12.2" ry="7" transform="rotate(-36 20 60)"/></svg></div>` +
-    (p.range.length ? col(p.range, "to", "Its value", "#values-of") : "<div></div>") +
-    `<figcaption>${p.domain.length ? `A ${and(p.domain.slice(0, 3).map((x) => camel(x.name)), "or")}${p.domain.length > 3 ? ", or another type it is used on," : ""} can have ` : "It gives "}a <b>${camel(p.name)}</b>${p.range.length ? `, and its value is ${p.range.length === 1 ? "a " + camel(p.range[0].name) : and(p.range.slice(0, 3).map((x) => camel(x.name)), "or")}${p.range.length > 3 ? " or another of the types listed" : ""}` : ""}.</figcaption></figure>`;
+  const item = (x, side) => `<li><a href="${href(x)}">` + (side === "from" ? `<span class="nm">${camel(x.name)}</span><i class="fm" aria-hidden="true"></i>` : `<i class="fm" aria-hidden="true"></i><span class="nm">${camel(x.name)}</span>`) + "</a></li>";
+  const col = (list, side, label) => (list.length ? `<div class="col ${side}"><span class="lbl">${label}</span><ul>${list.map((x) => item(x, side)).join("")}</ul></div>` : `<div class="col ${side}"></div>`);
+  // "A Clip, a Movie or one of 10 other types can have an actor, and its value is a PerformingGroup or a Person."
+  const some = (list, more) => (list.length <= 3 ? and(list.map(withA), "or") : list.slice(0, 2).map(withA).join(", ") + ", or one of " + fmt(list.length - 2) + " " + more);
+  const subj = some(p.domain, "other types");
+  const cap = (p.domain.length ? subj.charAt(0).toUpperCase() + subj.slice(1) + " can have " : "It gives ") + `${an(p.name)} <b>${camel(p.name)}</b>` +
+    (p.range.length ? `, and its value is ${some(p.range, "other types")}` : "") + ".";
+  return `<figure class="flow" data-flow>${col(p.domain, "from", "Used on")}` +
+    `<div class="mid"><span class="pm" aria-hidden="true"></span><span class="pn">${camel(p.name)}</span></div>` +
+    `${col(p.range, "to", "Its value")}<svg class="links" aria-hidden="true"></svg><figcaption>${cap}</figcaption></figure>`;
 }
 
 function propertyPage(p) {
@@ -368,8 +374,8 @@ function propertyPage(p) {
     `<dl class="facts">${facts.map(([k, val]) => `<div><dt>${k}</dt><dd>${val}</dd></div>`).join("")}</dl>` +
     `<p class="actions"><a class="textlink" href="/${esc(p.name)}.json">JSON-LD</a><a class="textlink" href="/${esc(p.name)}.md">Markdown</a></p></div>` + figure + "</header>";
   h += senseBand(p);
-  if (p.domain.length) h += `<section class="band reg" id="used-on" aria-labelledby="on-h"><div class="side"><h2 id="on-h">Used on</h2><p class="lead">${p.domain.length === 1 ? `One type has a ${camel(p.name)}, and so does every type that descends from it.` : `${fmt(p.domain.length)} types have a ${camel(p.name)}, and so does every type that descends from them.`}</p></div><div>${termList(p.domain, { id: "on-list", more: 24 })}</div></section>`;
-  if (p.range.length) h += `<section class="band reg" id="values-of" aria-labelledby="val-h"><div class="side"><h2 id="val-h">Its value</h2><p class="lead">${p.range.length === 1 ? `Its value is a ${camel(p.range[0].name)}.` : `Its value is one of these ${fmt(p.range.length)} types.`}</p></div><div>${termList(p.range, { id: "range-list", more: 24 })}</div></section>`;
+  if (p.domain.length) h += `<section class="band reg" id="used-on" aria-labelledby="on-h"><div class="side"><h2 id="on-h">Used on</h2><p class="lead">${p.domain.length === 1 ? `One type has ${withA(p)}, and so does every type that descends from it.` : `${fmt(p.domain.length)} types have ${withA(p)}, and so does every type that descends from them.`}</p></div><div>${termList(p.domain, { id: "on-list", more: 24 })}</div></section>`;
+  if (p.range.length) h += `<section class="band reg" id="values-of" aria-labelledby="val-h"><div class="side"><h2 id="val-h">Its value</h2><p class="lead">${p.range.length === 1 ? `Its value is ${withA(p.range[0])}.` : `Its value is one of these ${fmt(p.range.length)} types.`}</p></div><div>${termList(p.range, { id: "range-list", more: 24 })}</div></section>`;
   if (p.subProps.length) h += `<section class="band reg" id="narrower" aria-labelledby="nar-h"><div class="side"><h2 id="nar-h">Narrower properties</h2><p class="lead">${p.subProps.length === 1 ? "One property is a more specific kind of this one." : `${fmt(p.subProps.length)} properties are more specific kinds of this one.`}</p></div><div>${termList(p.subProps, { id: "narrower-list", more: 24 })}</div></section>`;
   h += provenance(p) + closing(p);
   return page({
