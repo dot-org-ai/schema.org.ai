@@ -57,48 +57,74 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0
 .groups-nav a .num { color: var(--ink-3); font-size: 0.8125rem; }
 @media (hover: hover) { .groups-nav a:hover { color: var(--ink); } .groups-nav a:hover .num { color: var(--now); } }
 .props-wrap { min-width: 0; }
-.props { width: 100%; border-collapse: collapse; scroll-margin-top: calc(var(--head) + 20px); }
+/* The rows read like foundation.org.ai's task lists: a highlighted row is a rounded panel inset 16px from the text, and the
+   rules either side of it give way. The table reaches 16px past its column so the text lines up with the column itself. */
+.props { width: calc(100% + 32px); margin-inline: -16px; border-collapse: separate; border-spacing: 0; scroll-margin-top: calc(var(--head) + 20px); }
 .props + .props { margin-top: clamp(40px, 5vw, 64px); }
-.props caption { caption-side: top; text-align: left; padding-bottom: 14px; font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); font-weight: 360; letter-spacing: -0.015em; line-height: 1.25; color: var(--ink); }
-.props caption a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.props caption { caption-side: top; text-align: left; padding: 0 16px 14px; font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); font-weight: 360; letter-spacing: -0.015em; line-height: 1.25; color: var(--ink); }
+.props caption a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 5px; text-decoration-thickness: 1px; transition: text-decoration-color 160ms var(--ease-state); }
+@media (hover: hover) { .props caption a:hover { text-decoration-color: var(--now); } }
 .props caption .num { margin-left: 10px; font-size: 0.9375rem; font-weight: 400; letter-spacing: 0; color: var(--ink-3); }
-.props thead th { text-align: left; padding: 0 20px 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.8125rem; font-weight: 500; color: var(--ink-3); }
-.props tbody th, .props tbody td { text-align: left; vertical-align: top; padding: 15px 20px 16px 0; border-bottom: 1px solid var(--rule-faint); font-weight: 400; }
-.props tbody tr > :last-child { padding-right: 0; }
+/* each rule is drawn under its cell, inset at the two ends so it spans the column exactly */
+.props thead th, .props tbody th, .props tbody td { background-repeat: no-repeat; background-size: 100% 1px; background-position: 0 100%; }
+.props thead th { text-align: left; padding: 0 20px 10px 0; font-size: 0.8125rem; font-weight: 500; color: var(--ink-3); background-image: linear-gradient(var(--rule), var(--rule)); }
+.props tbody th, .props tbody td { text-align: left; vertical-align: baseline; padding: 16px 20px 17px 0; font-weight: 400; background-image: linear-gradient(var(--rule-faint), var(--rule-faint)); transition: background-color 200ms var(--ease-state); }
+.props tr > :first-child { padding-left: 16px; background-size: calc(100% - 16px) 1px; background-position: 100% 100%; }
+.props tr > :last-child { padding-right: 16px; background-size: calc(100% - 16px) 1px; background-position: 0 100%; }
 .props tbody th { width: 27%; }
 .props td.v { width: 24%; color: var(--ink-2); font-size: 0.9375rem; line-height: 1.5; }
 .props td.d { color: var(--ink-2); font-size: 0.9375rem; line-height: 1.6; }
-.props tbody th .nm { font-weight: 500; color: var(--ink); text-decoration: none; }
-.props tbody th .nm:hover { text-decoration: underline; text-decoration-color: var(--now); text-underline-offset: 4px; }
+.props tbody th .nm { font-weight: 500; color: var(--ink); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; text-decoration-thickness: 1px; transition: color 160ms var(--ease-state), text-decoration-color 160ms var(--ease-state); }
+@media (hover: hover) { .props tbody th .nm:hover { text-decoration-color: currentColor; } }
 .props tbody th .tag { margin: 6px 0 0; display: flex; width: fit-content; }
-.props td.v a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; text-decoration-thickness: 1px; overflow-wrap: anywhere; }
+.props td.v a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; text-decoration-thickness: 1px; overflow-wrap: anywhere; transition: text-decoration-color 160ms var(--ease-state); }
 @media (hover: hover) { .props td.v a:hover { text-decoration-color: var(--now); } }
 .props .mlbl { display: none; }
-.props tbody tr { scroll-margin-top: calc(var(--head) + 24px); transition: background-color 200ms var(--ease-state); }
-.props tbody tr.hl, .props tbody tr:target { background: oklch(0.80 0.118 68 / 0.07); }
+.props tbody tr { scroll-margin-top: calc(var(--head) + 24px); }
+.props tbody tr:focus { outline: none; }
+.props tbody tr:focus-visible > * { box-shadow: inset 0 2px 0 var(--now), inset 0 -2px 0 var(--now); }
+.props tbody tr.hl > *, .props tbody tr:target > * { background-color: oklch(0.80 0.118 68 / 0.07); background-image: none; }
+.props tbody tr:has(+ tr.hl) > *, .props tbody tr:has(+ tr:target) > * { background-image: none; }
+.props tbody tr.hl > :first-child, .props tbody tr:target > :first-child { border-radius: 6px 0 0 6px; }
+.props tbody tr.hl > :last-child, .props tbody tr:target > :last-child { border-radius: 0 6px 6px 0; }
 .props tbody tr.hl .nm, .props tbody tr:target .nm { color: var(--now); }
 @media (max-width: 760px) {
-  .props, .props tbody, .props tr, .props tbody th, .props tbody td { display: block; width: auto; }
+  /* one block per property; the panel is inset 12px, as foundation.org.ai's task rows are on a phone */
+  .props { width: auto; margin-inline: 0; }
+  .props, .props tbody, .props tr, .props tbody th, .props tbody td { display: block; }
+  .props caption { display: block; padding-inline: 0; }
   .props thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .props tbody tr { padding: 16px 0 17px; border-bottom: 1px solid var(--rule-faint); }
-  .props tbody th, .props tbody td, .props td.v { padding: 0; border: 0; width: auto; }
-  .props caption { display: block; }
+  .props tbody tr { margin-inline: -12px; padding: 16px 12px 17px; border-radius: 6px; background-image: linear-gradient(var(--rule-faint), var(--rule-faint)); background-repeat: no-repeat; background-size: calc(100% - 24px) 1px; background-position: 12px 100%; transition: background-color 200ms var(--ease-state); }
+  .props tbody tr > *, .props tbody tr > :first-child, .props tbody tr > :last-child { padding: 0; width: auto; background: none; border-radius: 0; }
+  .props tbody th, .props td.v { width: auto; }
   .props td.v { margin-top: 6px; }
   .props td.d { margin-top: 8px; }
   .props .mlbl { display: inline; color: var(--ink-3); }
-  .props tbody th .tag { display: inline-flex; margin: 0 0 0 8px; }
+  .props tbody th .tag { display: inline-flex; margin: 0 0 0 8px; vertical-align: 2px; }
+  .props tbody tr.hl, .props tbody tr:target { background-color: oklch(0.80 0.118 68 / 0.07); background-image: none; }
+  .props tbody tr.hl > *, .props tbody tr:target > * { background: none; }
+  .props tbody tr:has(+ tr.hl), .props tbody tr:has(+ tr:target) { background-image: none; }
+  .props tbody tr:focus-visible > * { box-shadow: none; }
+  .props tbody tr:focus-visible { outline: 2px solid var(--now); outline-offset: -2px; }
 }
 
-/* lists of terms with a line of what each means */
+/* lists of terms with a line of what each means: on hover, the row becomes the same inset panel as a property row */
 .terms { border-top: 1px solid var(--rule); }
 .terms li { display: flex; }
-.terms li > a { flex: 1; display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); column-gap: 24px; row-gap: 2px; align-items: baseline; padding: 14px 0 15px; border-bottom: 1px solid var(--rule-faint); text-decoration: none; transition: color 140ms var(--ease-state); }
+.terms li > a { position: relative; flex: 1; display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); column-gap: 24px; row-gap: 2px; align-items: baseline; margin-inline: -16px; padding: 15px 16px 16px; border-radius: 6px; text-decoration: none; transition: background-color 200ms var(--ease-state); }
+.terms li > a::after { content: ""; position: absolute; left: 16px; right: 16px; bottom: 0; height: 1px; background: var(--rule-faint); transition: opacity 200ms var(--ease-state); }
 .terms .n { color: var(--ink); font-weight: 500; overflow-wrap: anywhere; }
 .terms .n .tag { font-weight: 400; }
 .terms .d { color: var(--ink-3); font-size: 0.9375rem; line-height: 1.5; }
-.terms .k { display: block; margin-top: 2px; font-size: 0.8125rem; font-weight: 400; color: var(--ink-3); }
-@media (hover: hover) { .terms li > a:hover .n { color: var(--now); } .terms li > a:hover .d { color: var(--ink-2); } }
+.terms .k { display: block; margin-top: 2px; font-size: 0.8125rem; font-weight: 400; color: var(--ink-3); transition: color 140ms var(--ease-state); }
+@media (hover: hover) {
+  .terms li > a:hover { background: oklch(0.80 0.118 68 / 0.07); }
+  .terms li > a:hover::after, .terms li:has(+ li > a:hover) > a::after { opacity: 0; }
+  .terms li > a:hover .k { color: var(--now); }
+}
 .terms li > a:focus-visible { outline-offset: -2px; }
+.terms li > a:focus-visible::after, .terms li:has(+ li > a:focus-visible) > a::after { opacity: 0; }
+@media (max-width: 899px) { .terms li > a { margin-inline: -12px; padding-inline: 12px; } .terms li > a::after { left: 12px; right: 12px; } }
 @media (max-width: 640px) { .terms li > a { grid-template-columns: minmax(0, 1fr); } }
 .sib-list .nm { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
 .sib-list a .k { flex: 0 1 auto; max-width: 60%; text-align: right; }
@@ -154,14 +180,23 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0
 /* where every type starts: one row per branch, a bar for its size */
 .branches { border-top: 1px solid var(--rule); }
 .branches li { display: flex; }
-.branches li > a { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 18px; row-gap: 4px; align-items: baseline; padding: 16px 0 18px; border-bottom: 1px solid var(--rule-faint); text-decoration: none; }
+/* the same inset panel on hover as every other list of terms; the count and its bar turn amber */
+.branches li > a { position: relative; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 18px; row-gap: 4px; align-items: baseline; margin-inline: -16px; padding: 16px 16px 18px; border-radius: 6px; text-decoration: none; transition: background-color 200ms var(--ease-state); }
+.branches li > a::after { content: ""; position: absolute; left: 16px; right: 16px; bottom: 0; height: 1px; background: var(--rule-faint); transition: opacity 200ms var(--ease-state); }
 .branches .n { color: var(--ink); font-size: 1.125rem; letter-spacing: -0.01em; }
-.branches .c { color: var(--ink-3); font-size: 0.8125rem; }
+.branches .c { color: var(--ink-3); font-size: 0.8125rem; transition: color 140ms var(--ease-state); }
 .branches .d { grid-column: 1 / -1; color: var(--ink-3); font-size: 0.9375rem; line-height: 1.5; max-width: 40rem; }
 .branches .bar { grid-column: 1 / -1; display: block; height: 2px; margin-top: 8px; background: var(--rule-faint); border-radius: 1px; overflow: hidden; }
 .branches .bar b { display: block; height: 100%; background: var(--ink-3); transform-origin: left; transition: background-color 260ms var(--ease-state); }
-@media (hover: hover) { .branches li > a:hover .n { color: var(--now); } .branches li > a:hover .bar b { background: var(--now); } }
+@media (hover: hover) {
+  .branches li > a:hover { background: oklch(0.80 0.118 68 / 0.07); }
+  .branches li > a:hover::after, .branches li:has(+ li > a:hover) > a::after { opacity: 0; }
+  .branches li > a:hover .c { color: var(--now); }
+  .branches li > a:hover .bar b { background: var(--now); }
+}
 .branches li > a:focus-visible { outline-offset: -2px; }
+.branches li > a:focus-visible::after, .branches li:has(+ li > a:focus-visible) > a::after { opacity: 0; }
+@media (max-width: 899px) { .branches li > a { margin-inline: -12px; padding-inline: 12px; } .branches li > a::after { left: 12px; right: 12px; } }
 
 .uses { border-top: 1px solid var(--rule); }
 .uses > div { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); column-gap: 24px; padding: 16px 0 17px; border-bottom: 1px solid var(--rule-faint); }
