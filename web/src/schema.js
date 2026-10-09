@@ -186,11 +186,21 @@
   });
 
   /* ---------------- a property, drawn: a curve from each type to it, and from it to each value ---------------- */
-  // measured from where the names land, so a name that wraps still meets its curve; redrawn whenever the figure changes size
+  // Measured from where the names land, so a name that wraps still meets its line; redrawn whenever the figure changes size.
+  // Two layouts, chosen by the figure's own width in schema.css: a fan (names either side) or one column (names on a spine).
+  // The property's ring is an oval 54 by 41 turned -24 degrees; every line stops 3px short of its edge, found exactly.
+  const RING = { a: 27, b: 20.5, t: (-24 * Math.PI) / 180, gap: 3 };
+  const rc = Math.cos(RING.t), rs = Math.sin(RING.t);
+  const qA = (rc * rc) / (RING.a * RING.a) + (rs * rs) / (RING.b * RING.b);
+  const qB = 2 * rc * rs * (1 / (RING.a * RING.a) - 1 / (RING.b * RING.b));
+  const qC = (rs * rs) / (RING.a * RING.a) + (rc * rc) / (RING.b * RING.b);
+  // where a level line dy below the centre crosses the ring, to the left (-1) or right (+1); and how far the ring reaches up or down
+  const ringX = (dy, side) => { const B = qB * dy, C = qC * dy * dy - 1, d = Math.sqrt(Math.max(0, B * B - 4 * qA * C)); return (side < 0 ? -B - d : -B + d) / (2 * qA); };
+  const ringY = 1 / Math.sqrt(qC);
   $$("[data-flow]").forEach((fig) => {
-    const svg = $("svg.links", fig), pm = $(".pm", fig), mid = $(".mid", fig);
+    const svg = $("svg.links", fig), inner = $(".flow-in", fig), pm = $(".pm", fig), mid = $(".mid", fig);
     const from = $$(".from li a", fig), to = $$(".to li a", fig), links = from.concat(to);
-    if (!svg || !pm || !links.length) return;
+    if (!svg || !inner || !pm || !links.length) return;
     const NS = "http://www.w3.org/2000/svg";
     const paths = links.map((a, i) => {
       const p = document.createElementNS(NS, "path");
@@ -199,25 +209,36 @@
       return p;
     });
     const r1 = (v) => Math.round(v * 10) / 10;
-    // the property's ring is an oval 54 by 41 turned 24 degrees: across its middle it reaches 25.5px either side
-    const REACH = 27.5;
     function draw() {
       const fr = fig.getBoundingClientRect();
       if (!fr.width) return;
       const m = pm.getBoundingClientRect(), cx = m.left + m.width / 2 - fr.left, cy = m.top + m.height / 2 - fr.top;
+      const column = getComputedStyle(inner).display === "block";
       svg.setAttribute("viewBox", "0 0 " + r1(fr.width) + " " + r1(fr.height));
       links.forEach((a, i) => {
         const mk = $(".fm", a).getBoundingClientRect(), y = mk.top + mk.height / 2 - fr.top, left = i < from.length;
-        const x1 = left ? mk.right - fr.left + 6 : cx + REACH, y1 = left ? y : cy;
-        const x2 = left ? cx - REACH : mk.left - fr.left - 6, y2 = left ? cy : y;
-        const k = (x2 - x1) * 0.55;
-        paths[i].setAttribute("d", "M" + r1(x1) + " " + r1(y1) + "C" + r1(x1 + k) + " " + r1(y1) + " " + r1(x2 - k) + " " + r1(y2) + " " + r1(x2) + " " + r1(y2));
+        let d;
+        if (column) {
+          // straight along the spine, from the name's mark to the ring, above it or below
+          const y2 = left ? cy - ringY - RING.gap : cy + ringY + RING.gap;
+          d = "M" + r1(cx) + " " + r1(y) + "V" + r1(y2);
+        } else {
+          // where many lines meet the ring they spread a little along its edge, as if entering it
+          const dy = Math.max(-12, Math.min(12, (y - cy) * 0.05));
+          const ex = cx + ringX(dy, left ? -1 : 1) + (left ? -RING.gap : RING.gap), ey = cy + dy;
+          const x1 = left ? mk.right - fr.left + 6 : ex, y1 = left ? y : ey;
+          const x2 = left ? ex : mk.left - fr.left - 6, y2 = left ? ey : y;
+          const k = (x2 - x1) * 0.55;
+          d = "M" + r1(x1) + " " + r1(y1) + "C" + r1(x1 + k) + " " + r1(y1) + " " + r1(x2 - k) + " " + r1(y2) + " " + r1(x2) + " " + r1(y2);
+        }
+        paths[i].setAttribute("d", d);
         paths[i].style.setProperty("--len", Math.ceil(paths[i].getTotalLength()) + 1);
       });
     }
     const light = (i, on) => {
       if (i < 0) { fig.classList.toggle("all", on); paths.forEach((p) => p.classList.toggle("on", on)); links.forEach((a) => a.classList.toggle("on", on)); return; }
       paths[i].classList.toggle("on", on); links[i].classList.toggle("on", on);
+      if (on) svg.appendChild(paths[i]); // a lit line is drawn over the lines it shares a path with
     };
     links.forEach((a, i) => {
       a.addEventListener("mouseenter", () => light(i, true)); a.addEventListener("mouseleave", () => light(i, false));

@@ -348,13 +348,15 @@ function flowFigure(p) {
   const item = (x, side) => `<li><a href="${href(x)}">` + (side === "from" ? `<span class="nm">${camel(x.name)}</span><i class="fm" aria-hidden="true"></i>` : `<i class="fm" aria-hidden="true"></i><span class="nm">${camel(x.name)}</span>`) + "</a></li>";
   const col = (list, side, label) => (list.length ? `<div class="col ${side}"><span class="lbl">${label}</span><ul>${list.map((x) => item(x, side)).join("")}</ul></div>` : `<div class="col ${side}"></div>`);
   // "A Clip, a Movie or one of 10 other types can have an actor, and its value is a PerformingGroup or a Person."
-  const some = (list, more) => (list.length <= 3 ? and(list.map(withA), "or") : list.slice(0, 2).map(withA).join(", ") + ", or one of " + fmt(list.length - 2) + " " + more);
+  const whole = (t) => an(t.name) + " " + esc(t.name);
+  const some = (list, more) => (list.length <= 3 ? and(list.map(whole), "or") : list.slice(0, 2).map(whole).join(", ") + ", or one of " + fmt(list.length - 2) + " " + more);
   const subj = some(p.domain, "other types");
-  const cap = (p.domain.length ? subj.charAt(0).toUpperCase() + subj.slice(1) + " can have " : "It gives ") + `${an(p.name)} <b>${camel(p.name)}</b>` +
+  const cap = (p.domain.length ? subj.charAt(0).toUpperCase() + subj.slice(1) + " can have " : "It gives ") + `${an(p.name)} <b>${esc(p.name)}</b>` +
     (p.range.length ? `, and its value is ${some(p.range, "other types")}` : "") + ".";
-  return `<figure class="flow" data-flow>${col(p.domain, "from", "Used on")}` +
+  // the figure is a size container: its own width, not the screen's, decides its layout (see schema.css)
+  return `<figure class="flow" data-flow><div class="flow-in">${col(p.domain, "from", "Used on")}` +
     `<div class="mid"><span class="pm" aria-hidden="true"></span><span class="pn">${camel(p.name)}</span></div>` +
-    `${col(p.range, "to", "Its value")}<svg class="links" aria-hidden="true"></svg><figcaption>${cap}</figcaption></figure>`;
+    `${col(p.range, "to", "Its value")}</div><svg class="links" aria-hidden="true"></svg><figcaption>${cap}</figcaption></figure>`;
 }
 
 function propertyPage(p) {
