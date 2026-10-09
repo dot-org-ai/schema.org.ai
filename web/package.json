@@ -1,0 +1,14 @@
+{
+  "name": "schema-org-ai-site",
+  "private": true,
+  "description": "schema.org.ai: Schema.org, copied word for word, and the .org.ai superset, in the Org.AI Foundation's design.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/og.mjs && node build.mjs",
+    "dev": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
