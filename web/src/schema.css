@@ -285,3 +285,17 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0
 /* Schema.org's descriptions hold some words no line can fit: a 64-character hash, "manipulating/administering/supervising",
    addresses as link text. Such a word breaks; every other word wraps as usual. */
 .prose, .terms .d, .branches .d, .listbox .m { overflow-wrap: anywhere; }
+
+/* ---------- search: the magnifier in the header, and on a keyboard its shortcut. find.js (with find.css in it) opens the
+   Foundation's search, the same on every one of its sites. ---------- */
+.find-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex: none; height: 40px; min-width: 40px; padding: 0 8px; border: 0; border-radius: 6px; background: none; color: var(--ink-2); font: inherit; line-height: 1; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: color 160ms var(--ease-state), background-color 160ms var(--ease-state); }
+.find-btn .ic { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.find-btn kbd { font: inherit; font-size: 0.8125rem; letter-spacing: 0.02em; color: var(--ink-3); transition: color 160ms var(--ease-state); }
+@media (hover: hover) { .find-btn:hover { color: var(--ink); background: var(--raise); } .find-btn:hover kbd { color: var(--ink-2); } }
+/* without a keyboard, or where the header is narrow: the magnifier alone, a full 44px target */
+@media not ((hover: hover) and (pointer: fine)) { .find-btn kbd { display: none; } }
+@media (max-width: 899px), (pointer: coarse) {
+  .find-btn { width: 44px; height: 44px; padding: 0; color: var(--ink); }
+  .find-btn kbd { display: none; }
+  .find-btn .ic { width: 19px; height: 19px; }
+}

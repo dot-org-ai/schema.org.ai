@@ -26,8 +26,9 @@ const SEC = {
   "x-content-type-options": "nosniff",
   "referrer-policy": "strict-origin-when-cross-origin",
   "x-frame-options": "SAMEORIGIN",
-  /* The pages load nothing from anywhere else: page, style, script, font and images all come from this
-     origin, so the policy admits this origin (and inline style and script) and no other host. */
+  /* The pages load their style, script, font and images from this origin, and nothing else from anywhere
+     else, with one exception: the search (find.js) reads the occupations from foundation.org.ai, so that one
+     search covers every Foundation site. */
   "content-security-policy":
     "default-src 'none'; " +
     "script-src 'self' 'unsafe-inline'; " +
@@ -35,7 +36,7 @@ const SEC = {
     "font-src 'self'; " +
     "img-src 'self' data:; " +
     // the search reads /search.json; the estate's edge analytics snippet posts to this origin's /e
-    "connect-src 'self'; " +
+    "connect-src 'self' https://foundation.org.ai; " +
     "form-action 'self'; " +
     "frame-ancestors 'self'; " +
     "base-uri 'none'",

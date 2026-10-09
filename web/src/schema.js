@@ -112,7 +112,9 @@
     list.addEventListener("click", (e) => { const o = e.target.closest('[role="option"]'); if (o) go(+o.dataset.i); });
     document.addEventListener("pointerdown", (e) => { if (!box.contains(e.target)) open(false); });
     input.addEventListener("blur", () => setTimeout(() => { if (!box.contains(document.activeElement)) open(false); }, 0));
-    // a value typed before the script ran, or kept by the browser on Back
+    // a value typed before the script ran, or kept by the browser on Back; or a search handed over in the address (?q=)
+    const given = new URLSearchParams(location.search).get("q");
+    if (given && !input.value && box === $("[data-lookup]")) { input.value = given; input.focus({ preventScroll: true }); }
     if (input.value.trim()) update();
   });
 

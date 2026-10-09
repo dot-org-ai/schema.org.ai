@@ -99,6 +99,7 @@ function header(current) {
   return '<header class="site-head"><span class="lockup-h"><a class="wordmark" href="https://foundation.org.ai/" aria-label="Org.AI Foundation, home">' + LOGO +
     '<span>Org<span class="dot">.</span>AI Foundation</span></a><span class="lsep" aria-hidden="true">/</span><a class="sub" href="/"' + (current === "home" ? ' aria-current="page"' : "") + ">Schema</a></span>" +
     '<nav class="site-nav" aria-label="Main">' + NAV.map(a).join("") + "</nav>" +
+    '<button class="find-btn" type="button" data-find aria-haspopup="dialog" aria-label="Search"><svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6l4 4"/></svg><kbd aria-hidden="true">⌘K</kbd></button>' +
     '<a class="btn btn-primary" href="https://foundation.org.ai/#partner">Partner</a>' +
     '<button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button></header>' +
     '<nav class="mnav" id="mnav" aria-label="Main" hidden><div class="mnav-panel">' + NAV.map(a).join("") + "</div></nav>";
@@ -129,6 +130,7 @@ ${url ? `<meta property="og:url" content="${url}">\n` : ""}<meta property="og:ti
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/publicsans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/${ASSET.css}">
+<script src="/find.js" data-site="schema" defer></script>
 ${alternates ? `<link rel="alternate" type="application/ld+json" href="${alternates}.json">\n<link rel="alternate" type="text/markdown" href="${alternates}.md">\n` : ""}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, "\\u003c")}</script>\n` : ""}<script>if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");</script>
 </head>
 <body>
@@ -633,6 +635,8 @@ cpSync(join(ROOT, "data", RELEASE.file), join(OUT, RELEASE.file));
 cpSync(join(ROOT, "..", "extensions.jsonld"), join(OUT, "extensions.jsonld"));
 cpSync(join(ROOT, "src", "fonts"), join(OUT, "fonts"), { recursive: true });
 for (const f of ["favicon.ico", "favicon.svg", "apple-touch-icon.png"]) cpSync(join(ROOT, "src", f), join(OUT, f));
+// the Foundation's search, the same file on every Foundation site (built in dot-org-ai/foundation.org.ai; copy it from there)
+cpSync(join(ROOT, "src", "find.js"), join(OUT, "find.js"));
 cpSync(join(ROOT, "src", "favicon.svg"), join(OUT, "org-ai.svg")); // the address the previous site served its mark at
 // share cards: only the ones a page uses
 for (const c of [...SITE_CARDS.map((x) => x.name), ...pages.map((t) => termCard(t).name)]) {

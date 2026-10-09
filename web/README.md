@@ -38,6 +38,7 @@ Rollback to the site this replaced: `npx wrangler rollback a7a789ae-320d-4995-a0
 - `lib/describe.mjs` turns a description, as Schema.org writes it (Markdown links, `[[Term]]` references, some HTML), into HTML, Markdown and plain text, changing no words.
 - `build.mjs` writes the pages. Terms are filed under `public/t/`, `p/` and `v/` (types, properties, values): Schema.org has names that differ only in case, such as Brand and brand, and a case-insensitive disk would keep one of each pair.
 - `worker.js` maps each address to its file, redirects a name in the wrong case when it matches one term, and sets the headers.
+- `src/find.js` is the Foundation's search (⌘K), the same file on every Foundation site. It is built in dot-org-ai/foundation.org.ai: change it there and copy the built file here. It reads the occupations from foundation.org.ai, the one other address these pages connect to.
 - `src/base.css` is the Foundation's design, copied from foundation.org.ai's built occupation pages and standards.org.ai's lockup; `src/schema.css` and `src/schema.js` are this site's own.
 
 ## Decisions for the owners
