@@ -1,0 +1,70 @@
+/* the home page's figure: every type, as layers scrolled sideways under fades at the page margins, or as branches
+   out from Thing. Drawn by hero.js on one canvas; its height comes from the number of layers (--rows), so the page
+   does not move when it draws. */
+.intro.has-hero { display: flex; flex-direction: column; min-height: calc(100svh - var(--head)); padding-top: clamp(28px, 3vw, 44px); padding-bottom: clamp(24px, 2.6vw, 36px); }
+.intro.has-hero h1 { max-width: 14ch; }
+.intro.has-hero .intro-grid { align-items: end; }
+/* the hero fills the window under the header: the figure keeps its own height at the foot, and whatever height is
+   left goes around the words, evenly above and below them */
+.intro.has-hero > .intro-grid { margin-block: auto; }
+.intro.has-hero .lede + .links { margin-top: 14px; }
+.hero { flex: none; margin-top: clamp(36px, 4vw, 56px); }
+.hero-fig { margin: 0; }
+html:not(.js) .hero, .hero.failed .hero-views, .hero.failed .hero-legend, .hero.failed .hero-fig { display: none; }
+
+.hero-head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; margin-bottom: 10px; }
+.hero-head .hero-legend { margin-left: auto; }
+/* the search, beside the view it lights: as tall as the switch, a magnifier in place of its label */
+.hero-head .lookup { flex: 1 1 300px; max-width: 420px; margin-top: 0; }
+.lookup.quiet .ic { position: absolute; left: 14px; top: 50%; width: 18px; height: 18px; margin-top: -9px; fill: none; stroke: var(--ink-3); stroke-width: 1.6; stroke-linecap: round; pointer-events: none; }
+.lookup.quiet input { height: 40px; padding-left: 42px; padding-right: 44px; border-radius: 8px; font-size: 0.9375rem; }
+.lookup.quiet .clear { right: 4px; width: 32px; height: 32px; margin-top: -16px; }
+@media (max-width: 899px), (pointer: coarse) { .lookup.quiet input { height: 50px; font-size: 1rem; padding-right: 52px; } .lookup.quiet .clear { right: 3px; width: 44px; height: 44px; margin-top: -22px; } }
+/* each view is drawn as well as named: a strata, a ring of marks; on a phone the drawing alone */
+.hero-views button { display: inline-flex; align-items: center; gap: 8px; }
+.hero-views .vi { flex: none; width: 16px; height: 16px; fill: currentColor; opacity: 0.85; }
+.hero-views button[aria-pressed="true"] .vi { opacity: 1; }
+/* a phone: the search and the two views on one line, the views as icons; the key below */
+@media (max-width: 699px) {
+  .hero-head { gap: 10px 8px; }
+  .hero-head .lookup { order: 0; flex: 1 1 0; min-width: 0; max-width: none; }
+  .hero-views { order: 1; flex: none; }
+  .hero-views button { justify-content: center; width: 44px; padding: 0; }
+  .hero-views button span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .hero-views .vi { width: 18px; height: 18px; }
+  .hero-head .hero-legend { order: 2; flex-basis: 100%; margin-left: 0; }
+}
+.hero-views { display: inline-flex; padding: 3px; border-radius: 8px; background: var(--well); box-shadow: inset 0 0 0 1px var(--rule-faint); }
+.hero-views button { min-height: 34px; padding: 0 14px; border: 0; border-radius: 6px; background: none; color: var(--ink-3); font: inherit; font-size: 0.875rem; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color 160ms var(--ease-state), color 160ms var(--ease-state); }
+.hero-views button[aria-pressed="true"] { background: var(--raise-hi); color: var(--ink); }
+@media (hover: hover) { .hero-views button:hover { color: var(--ink); } }
+.hero-views button:focus-visible { outline: 2px solid var(--now); outline-offset: 1px; }
+/* touch: full 44px targets, as on the rest of the site */
+@media (max-width: 899px), (pointer: coarse) { .hero-views button { min-height: 44px; padding: 0 16px; } }
+
+.hero-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 0.8125rem; color: var(--ink-3); }
+.hero-legend li { display: flex; align-items: center; gap: 8px; }
+.hero-legend .bar { width: 18px; height: 7px; border-radius: 4px; background: oklch(0.96 0.005 86 / 0.8); }
+.hero-legend .bar.am, .hero-legend .ov.am { background: var(--now); }
+.hero-legend .bar.line { width: 2px; height: 13px; border-radius: 0; background: var(--now); }
+.hero-legend .ov { width: 12px; height: 6px; border-radius: 50%; background: var(--ink); transform: rotate(-24deg); }
+.hero-legend .ov.ring { width: 10px; height: 10px; background: none; box-shadow: inset 0 0 0 1.5px var(--now); transform: none; }
+
+/* the frame runs to the window's edges; the strip inside it starts on the page margin */
+.hero-frame { position: relative; margin-inline: calc(-1 * var(--pad)); height: calc(34px + var(--rows) * 40px + (var(--rows) - 1) * 5px); }
+.hero-scroll { position: absolute; inset: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; outline: none; cursor: grab; }
+.hero-scroll.still { cursor: default; }
+.hero-scroll::-webkit-scrollbar { display: none; }
+.hero-scroll:focus-visible { box-shadow: inset 0 1px 0 var(--now), inset 0 -1px 0 var(--now); }
+.hero-spacer { height: 100%; }
+.hero-frame > canvas { position: absolute; left: 0; top: 0; pointer-events: none; }
+.hero-tip { position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; max-width: 300px; background: var(--raise); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; font-size: 0.875rem; line-height: 1.45; opacity: 0; transition: opacity 120ms var(--ease-state); }
+.hero-tip.on { opacity: 1; }
+.hero-tip b { display: block; font-weight: 600; color: var(--ink); }
+.hero-tip span { display: block; margin-top: 3px; color: var(--ink-3); font-size: 0.8125rem; }
+.hero-tip .tr { color: var(--ink-2); overflow-wrap: anywhere; }
+.hero-mini-wrap { height: 14px; margin-top: 22px; }
+.hero-mini { display: block; cursor: pointer; touch-action: none; }
+.hero-cap { margin-top: 18px; max-width: 40rem; min-height: 1.55em; font-size: 0.875rem; line-height: 1.55; color: var(--ink-3); }
+.hero-cap b { color: var(--ink); font-weight: 600; }
+@media (max-width: 699px) { .hero-frame { height: calc(34px + var(--rows) * 34px + (var(--rows) - 1) * 4px); } }

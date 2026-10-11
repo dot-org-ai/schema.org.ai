@@ -80,9 +80,30 @@ const propCount = (t) => (t.groups || []).reduce((n, g) => n + g.props.length, 0
 
 const LOGO = read("src/logo.svg.html").trim();
 const FOOTER = read("src/footer.html").trim();
-const CSS = read("src/base.css") + "\n" + read("src/schema.css");
+const CSS = read("src/base.css") + "\n" + read("src/schema.css") + "\n" + read("src/hero.css");
 const JS = '(() => {\n  "use strict";\n' + read("src/chrome.js") + "\n" + read("src/schema.js") + "})();\n";
 const ASSET = { css: "s/site." + sha(CSS).slice(0, 10) + ".css", js: "s/site." + sha(JS).slice(0, 10) + ".js" };
+
+/* the home page's figure (src/hero.js draws it): every type with its first parent, its count and first sentence, and
+   which types each property and value belongs to, which is what a search result lights. Only the home page loads it. */
+function heroData() {
+  const types = v.all.filter((t) => t.kind === "type");
+  const ti = new Map(types.map((t, i) => [t, i]));
+  // a superset type with no parent of its own is drawn beside the Schema.org type it shares a name with
+  const lp = (t) => t.parents[0] || (t.senseOf && !t.parents.length ? t.senseOf : null);
+  const depth = (t) => { let d = 0; for (let x = lp(t); x; x = lp(x)) d++; return d; };
+  return {
+    rows: 1 + Math.max(...types.map(depth)),
+    json: JSON.stringify({
+      t: types.map((t) => [t.name, t.parents.length ? ti.get(t.parents[0]) : -1, !t.parents.length && t.senseOf ? ti.get(t.senseOf) : -1, t.ns === "orgai" ? 1 : 0, t.descendants, desc(t).first, t.senseOf ? 1 : 0]),
+      p: v.all.filter((t) => t.kind === "property").map((x) => [x.name, x.ns === "orgai" ? 1 : 0, x.domain.map((d) => ti.get(d))]),
+      v: v.all.filter((t) => t.kind === "value").map((x) => [x.name, x.memberOf.map((m) => ti.get(m))]),
+    }),
+  };
+}
+const HERO_DATA = heroData();
+const HERO_JS = '(() => {\n  "use strict";\n' + read("src/hero.js") + "})();\n";
+const HERO = { data: "s/hero." + sha(HERO_DATA.json).slice(0, 10) + ".json", js: "s/hero." + sha(HERO_JS).slice(0, 10) + ".js" };
 
 const CARDS_DIR = join(ROOT, ".og-cache", "cards");
 if (!existsSync(join(CARDS_DIR, "index.json"))) throw new Error("build: no share cards; run node scripts/og.mjs first");
@@ -105,7 +126,7 @@ function header(current) {
     '<nav class="mnav" id="mnav" aria-label="Main" hidden><div class="mnav-panel">' + NAV.map(a).join("") + "</div></nav>";
 }
 
-function page({ path, title, description, image, current = "", body, alternates = null, jsonld = null }) {
+function page({ path, title, description, image, current = "", body, alternates = null, jsonld = null, scripts = "" }) {
   const c = card(image);
   const url = path == null ? null : SITE + path;
   return `<!doctype html>
@@ -131,7 +152,7 @@ ${url ? `<meta property="og:url" content="${url}">\n` : ""}<meta property="og:ti
 <link rel="preload" href="/fonts/publicsans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/${ASSET.css}">
 <script src="/find.js" data-site="schema" defer></script>
-${alternates ? `<link rel="alternate" type="application/ld+json" href="${alternates}.json">\n<link rel="alternate" type="text/markdown" href="${alternates}.md">\n` : ""}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, "\\u003c")}</script>\n` : ""}<script>if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");</script>
+${alternates ? `<link rel="alternate" type="application/ld+json" href="${alternates}.json">\n<link rel="alternate" type="text/markdown" href="${alternates}.md">\n` : ""}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, "\\u003c")}</script>\n` : ""}<script>document.documentElement.classList.add("js"); if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the page</a>
@@ -141,17 +162,20 @@ ${body}
 </main>
 ${FOOTER}
 <script src="/${ASSET.js}" defer></script>
-</body>
+${scripts}</body>
 </html>
 `;
 }
 
 /* the search box: a combobox over every term, filled from /search.json */
-function lookup(id, label, placeholder) {
-  return `<div class="lookup" data-lookup>
-  <label for="${id}" id="${id}-label">${label}</label>
-  <div class="field-wrap">
-    <input id="${id}" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${id}-list" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="${esc(placeholder)}">
+// quiet: the label is for screen readers only, and a magnifier stands in for it (the home page's toolbar)
+// short: a placeholder for where the full one would be cut off (schema.js measures)
+function lookup(id, label, placeholder, { quiet = false, short = "" } = {}) {
+  return `<div class="lookup${quiet ? " quiet" : ""}" data-lookup>
+  <label for="${id}" id="${id}-label"${quiet ? ' class="sr"' : ""}>${label}</label>
+  <div class="field-wrap">${quiet ? '\n    <svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6l4 4"/></svg>' : ""}
+    <input id="${id}" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${id}-list" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="${esc(placeholder)}"${short ? ` data-short="${esc(short)}"` : ""}>
+    <button class="clear" type="button" aria-label="Clear the search" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg></button>
     <div class="listbox" id="${id}-list" role="listbox" aria-labelledby="${id}-label"></div>
   </div>
   <p class="sr" aria-live="polite" data-status></p>
@@ -489,13 +513,31 @@ const thing = v.pages.get("Thing"), dataType = v.pages.get("DataType");
 const branches = [...thing.children.filter((c) => c.ns === "schema"), dataType];
 const superset = v.all.filter((t) => t.ns === "orgai").sort((a, b) => (a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind === "type" ? -1 : 1));
 
+/* every type, drawn by src/hero.js: in layers wider than the page, or as branches out from Thing, under a toolbar with
+   the view, the search that lights it, and the key. Its height is set here, from the number of layers, so nothing moves
+   when it draws; without scripts none of it is shown, and if its data does not arrive only the drawing goes. */
+function hero() {
+  const layers = `${fmt(N.types)} Schema.org types and ${fmt(N.xTypes)} from the .org.ai superset, each under the type it is a more specific kind of.`;
+  const branches = `${fmt(N.types)} Schema.org types and ${fmt(N.xTypes)} from the .org.ai superset, each growing out of the type it is a more specific kind of.`;
+  return `<div class="hero" data-hero="/${HERO.data}" data-cap-layers="${esc(layers)}" data-cap-branches="${esc(branches)}" style="--rows:${HERO_DATA.rows}">` +
+    `<div class="hero-head"><div class="hero-views" role="group" aria-label="Show the types as">` +
+    // on a phone the two views are drawn, not named: a strata and a ring of marks (the names stay, for screen readers)
+    `<button type="button" data-view="layers" aria-pressed="true"><svg class="vi" viewBox="0 0 18 18" aria-hidden="true"><rect x="1.5" y="3" width="15" height="3" rx="1.5"/><rect x="1.5" y="7.5" width="7" height="3" rx="1.5"/><rect x="9.5" y="7.5" width="7" height="3" rx="1.5"/><rect x="1.5" y="12" width="4" height="3" rx="1.5"/><rect x="6.5" y="12" width="2" height="3" rx="1"/><rect x="9.5" y="12" width="3" height="3" rx="1.5"/><rect x="13.5" y="12" width="3" height="3" rx="1.5"/></svg><span>Layers</span></button>` +
+    `<button type="button" data-view="branches" aria-pressed="false"><svg class="vi" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="1.8"/>${[0, 60, 120, 180, 240, 300].map((d) => { const r = (d * Math.PI) / 180, x = f2(9 + Math.cos(r) * 6), y = f2(9 + Math.sin(r) * 6); return `<ellipse cx="${x}" cy="${y}" rx="2.2" ry="1.25" transform="rotate(${d} ${x} ${y})"/>`; }).join("")}</svg><span>Branches</span></button></div>` +
+    lookup("q", "Find a term", "Find a term, like Person or startDate", { quiet: true, short: "Find a term" }) +
+    `<ul class="hero-legend" data-for="layers" aria-hidden="true"><li><i class="bar"></i>A type, as wide as the types under it</li><li><i class="bar am"></i>The .org.ai superset</li><li><i class="bar line"></i>Your search</li></ul>` +
+    `<ul class="hero-legend" data-for="branches" aria-hidden="true" hidden><li><i class="ov"></i>One mark per type, out from Thing</li><li><i class="ov am"></i>The .org.ai superset</li><li><i class="ov ring"></i>Your search</li></ul></div>` +
+    `<figure class="hero-fig"><div class="hero-frame"><div class="hero-scroll" tabindex="0" aria-label="Every type, in layers. Scroll sideways to see them all."><div class="hero-spacer"></div></div><canvas aria-hidden="true"></canvas><div class="hero-tip" aria-hidden="true"></div></div>` +
+    `<div class="hero-mini-wrap"><canvas class="hero-mini" aria-hidden="true"></canvas></div>` +
+    `<figcaption class="hero-cap">${esc(layers)}</figcaption></figure></div>`;
+}
+
 function homePage() {
   const max = Math.max(...branches.map((b) => b.descendants + 1));
-  let h = `<section class="intro" aria-labelledby="home-h"><div class="intro-grid"><h1 id="home-h">Every Schema.org term, and the ones we added<span class="dot">.</span></h1><div>` +
+  let h = `<section class="intro has-hero" aria-labelledby="home-h"><div class="intro-grid"><h1 id="home-h">Every Schema.org term, and the ones we added<span class="dot">.</span></h1><div>` +
     `<p class="lede"><strong>${fmt(N.types)} types</strong>, <strong>${fmt(N.props)} properties</strong> and <strong>${fmt(N.values)} values</strong>, copied word for word from Schema.org ${RELEASE.version}. ` +
     `Beside them, the <a class="textlink" href="#superset">.org.ai superset</a>: ${plural(N.xTypes, "type", "types")} and ${plural(N.xProps, "property", "properties")} for agents, the tools they use, and the businesses they work in.</p>` +
-    lookup("q", "Find a term", "Try Person, Offer or startDate") +
-    `<p class="links"><a class="textlink" href="/types">Every type, as a tree</a><a class="textlink" href="/properties">Every property, A to Z</a></p></div></div></section>`;
+    `<p class="links"><a class="textlink" href="/types">Every type, as a tree</a><a class="textlink" href="/properties">Every property, A to Z</a></p></div></div>` + hero() + `</section>`;
   h += `<section class="band reg" id="branches" aria-labelledby="br-h"><div class="side"><h2 id="br-h">Where every type starts</h2><p class="lead">Every type is a more specific kind of another, back to ${link(thing)}, or to ${link(dataType)} for plain values like text and numbers. These are the first branches.</p></div>` +
     `<div><ul class="branches">${branches.map((b) => `<li><a href="${href(b)}"><span class="n nm">${camel(b.name)}</span><span class="c num">${plural(b.descendants, "type", "types")} below it</span><span class="d">${esc(desc(b).first)}</span><span class="bar" aria-hidden="true"><b style="transform:scaleX(${f2((b.descendants + 1) / max)})"></b></span></a></li>`).join("")}</ul></div></section>`;
   const senses = superset.filter((t) => t.senseOf).length;
@@ -520,26 +562,33 @@ function homePage() {
   h += `<div class="closing reg"><section aria-labelledby="gh-h"><h2 id="gh-h">Build with it</h2><p>The site, the superset and the TypeScript types are open source.</p><p class="links"><a class="live" href="https://github.com/dot-org-ai/schema.org.ai">GitHub</a><a class="live" href="/llms.txt">/llms.txt</a></p></section>` +
     `<section aria-labelledby="pt-h"><h2 id="pt-h">Partner with us</h2><p>Fund the next pass, contribute data, or build on the record. Tell us what you have in mind.</p><a class="btn btn-primary" href="https://foundation.org.ai/#partner">Partner with us <span class="arr" aria-hidden="true">&rarr;</span></a></section></div>`;
   return page({
-    path: "/", title: "Schema · Org.AI Foundation", image: "og", current: "home", body: h,
+    path: "/", title: "Schema · Org.AI Foundation", image: "og", current: "home", body: h, scripts: `<script src="/${HERO.js}" defer></script>\n`,
     description: `Every Schema.org ${RELEASE.version} term, copied word for word: ${fmt(N.types)} types, ${fmt(N.props)} properties and ${fmt(N.values)} values. With the .org.ai superset the Org.AI Foundation adds.`,
   });
 }
 
-function treeItem(t, depth) {
+// a type in the tree; one with types below it has a chevron before it that folds them away (schema.js)
+function treeItem(t, anchors) {
   const kids = t.children.filter((c) => !c.senseOf);
-  return `<li><a href="${href(t)}"><span class="nm">${camel(t.name)}</span>${t.ns === "orgai" ? '<span class="tag ai">.org.ai</span>' : ""}${t.descendants ? `<span class="k">${fmt(t.descendants)}</span>` : ""}</a>` +
-    (kids.length ? "<ul>" + kids.map((c) => treeItem(c, depth + 1)).join("") + "</ul>" : "") + "</li>";
+  const id = anchors.has(t) ? ` id="tree-${esc(t.name)}"` : "";
+  const a = `<a href="${href(t)}"><span class="nm">${camel(t.name)}</span>${t.ns === "orgai" ? '<span class="tag ai">.org.ai</span>' : ""}${t.descendants ? `<span class="k">${fmt(t.descendants)}</span>` : ""}</a>`;
+  if (!kids.length) return `<li${id}>${a}</li>`;
+  return `<li${id} class="br"><div class="row"><button class="tw" type="button" aria-expanded="true" aria-label="Types under ${esc(t.name)}"></button>${a}</div>` +
+    "<ul>" + kids.map((c) => treeItem(c, anchors)).join("") + "</ul></li>";
 }
 function typesPage() {
   const roots = [thing, dataType, ...v.roots.map((c) => v.byId.get(c)).filter((t) => t !== thing && t !== dataType)];
   const all = v.all.filter((t) => t.kind === "type" && !t.senseOf).length;
   let h = `<section class="intro" aria-labelledby="types-h"><div class="intro-grid"><h1 id="types-h">Every type, by what it descends from<span class="dot">.</span></h1><div>` +
     `<p class="lede"><strong>${fmt(all)} types</strong>, ${fmt(N.types)} from Schema.org and ${fmt(all - N.types)} from the .org.ai superset. Each is a more specific kind of the one above it; the number beside a type counts every type below it.</p>` +
-    lookup("q", "Find a term", "Try Event, Recipe or MedicalCondition") + `</div></div></section>`;
-  h += `<div class="directory reg"><nav class="index-nav side" aria-label="Branches">${roots.concat(thing.children.filter((c) => !c.senseOf)).filter((x, i, a) => a.indexOf(x) === i).map((r) => `<a href="#tree-${esc(r.name)}"><span>${camel(r.name)}</span><span class="c num">${fmt(r.descendants)}</span></a>`).join("")}</nav>` +
-    `<div class="tree-wrap"><ul class="tree">${roots.map((r) => treeItem(r, 0).replace("<li>", `<li id="tree-${esc(r.name)}">`)).join("")}</ul></div></div>`;
-  // the branches under Thing get anchors too
-  for (const c of thing.children) h = h.replace(`<li><a href="${href(c)}">`, `<li id="tree-${esc(c.name)}"><a href="${href(c)}">`);
+    lookup("q", "Find a term", "Try Event, Recipe or Hotel") + `</div></div></section>`;
+  // the branch list: Thing, its branches beneath it as in the tree, then the other roots; a count only where a type has types below it
+  const navItem = (t) => `<a href="#tree-${esc(t.name)}" data-spy="tree-${esc(t.name)}"><span class="n">${camel(t.name)}${t.ns === "orgai" ? '<span class="tag ai">.org.ai</span>' : ""}</span>${t.descendants ? `<span class="c num">${fmt(t.descendants)}</span>` : ""}</a>`;
+  h += `<div class="directory reg"><nav class="index-nav side" aria-label="Branches">${navItem(thing)}<div class="kids">${thing.children.filter((c) => !c.senseOf).map(navItem).join("")}</div>` +
+    roots.filter((r) => r !== thing).map(navItem).join("") + `</nav>` +
+    `<div class="tree-wrap"><div class="tree-tools"><button class="tree-all" type="button" data-tree="open">Expand all</button><button class="tree-all" type="button" data-tree="fold">Collapse all</button></div>` +
+    // the roots and the branches under Thing are the ones the branch list points at
+    `<ul class="tree">${roots.map((r) => treeItem(r, new Set([...roots, ...thing.children]))).join("")}</ul></div></div>`;
   return page({ path: "/types", title: "Types · Schema · Org.AI Foundation", image: "og-types", current: "types", body: h,
     description: `Every type in Schema.org ${RELEASE.version} and the .org.ai superset, ${fmt(all)} in all, as a tree: each one a more specific kind of the one above it.` });
 }
@@ -549,11 +598,19 @@ function propertiesPage() {
   const groups = new Map();
   for (const p of props) { const L = p.name[0].toUpperCase(); if (!groups.has(L)) groups.set(L, []); groups.get(L).push(p); }
   let h = `<section class="intro" aria-labelledby="props-h"><div class="intro-grid"><h1 id="props-h">Every property, from A to Z<span class="dot">.</span></h1><div>` +
-    `<p class="lede"><strong>${fmt(props.length)} properties</strong>, ${fmt(N.props)} from Schema.org and ${fmt(props.length - N.props)} from the .org.ai superset. Beside each, the kind of value it takes.</p>` +
-    lookup("q", "Find a term", "Try startDate, author or price") +
-    `<nav class="letters" aria-label="Letters" style="margin-top:22px">${[...groups.keys()].map((L) => `<a href="#letter-${L}">${L}</a>`).join("")}</nav></div></div></section>`;
-  h += `<div class="band">` + [...groups].map(([L, list]) => `<section class="az-group" id="letter-${L}" aria-labelledby="letter-h-${L}"><h2 id="letter-h-${L}">${L}<span class="num">${fmt(list.length)}</span></h2>` +
-    nameList(list, { k: (p) => (p.range.length ? and(p.range.slice(0, 2).map((x) => x.name), "or") + (p.range.length > 2 ? ` and ${p.range.length - 2} more` : "") : "") }) + "</section>").join("") + "</div>";
+    `<p class="lede"><strong>${fmt(props.length)} properties</strong>, ${fmt(N.props)} from Schema.org and ${fmt(props.length - N.props)} from the .org.ai superset. Beside each, the kind of value it takes.</p></div></div></section>`;
+  // the bar that stays under the header: a filter over the list below, and the letters, the one in view marked as you scroll
+  const letters = [...new Set([..."ABCDEFGHIJKLMNOPQRSTUVWXYZ", ...groups.keys()])];
+  h += `<div class="az-bar" data-az><div class="az-bar-in"><div class="az-filter"><label class="sr" for="az-q">Filter the properties by name</label>` +
+    `<svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6l4 4"/></svg>` +
+    `<input id="az-q" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Filter ${fmt(props.length)} properties" aria-describedby="az-count">` +
+    `<span class="az-count num" id="az-count" aria-live="polite"></span></div>` +
+    `<nav class="letters" aria-label="Letters">${letters.map((L) => groups.has(L) ? `<a href="#letter-${L}" data-letter="${L}">${L}</a>` : `<span aria-disabled="true">${L}</span>`).join("")}</nav></div></div>`;
+  // each property, its name and the kind of value it takes; data-n is the name the filter reads
+  const takes = (p) => (p.range.length ? and(p.range.slice(0, 2).map((x) => x.name), "or") + (p.range.length > 2 ? ` and ${p.range.length - 2} more` : "") : "");
+  h += `<div class="az-list">` + [...groups].map(([L, list]) => `<section class="az-group" id="letter-${L}" data-letter="${L}" aria-labelledby="letter-h-${L}"><h2 id="letter-h-${L}">${L}<span class="num">${fmt(list.length)}</span></h2>` +
+    `<ul class="az-names">${list.map((p) => `<li data-n="${esc(p.name)}"><a href="${href(p)}"><span class="t"><span class="nm">${camel(p.name)}</span>${p.ns === "orgai" ? '<span class="tag ai">.org.ai</span>' : ""}</span><span class="k">${camel(takes(p))}</span></a></li>`).join("")}</ul></section>`).join("") +
+    `<p class="az-none" hidden></p></div>`;
   return page({ path: "/properties", title: "Properties · Schema · Org.AI Foundation", image: "og-properties", current: "properties", body: h,
     description: `Every property in Schema.org ${RELEASE.version} and the .org.ai superset, ${fmt(props.length)} in all, from A to Z, with the kind of value each takes.` });
 }
@@ -577,6 +634,8 @@ for (const d of ["t", "p", "v", "s", "og"]) mkdirSync(join(OUT, d), { recursive:
 const w = (p, s) => writeFileSync(join(OUT, p), s);
 w(ASSET.css, CSS);
 w(ASSET.js, JS);
+w(HERO.js, HERO_JS);
+w(HERO.data, HERO_DATA.json);
 w("index.html", homePage());
 w("types.html", typesPage());
 w("properties.html", propertiesPage());

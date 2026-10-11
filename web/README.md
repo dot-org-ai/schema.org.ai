@@ -40,6 +40,7 @@ Rollback to the site this replaced: `npx wrangler rollback a7a789ae-320d-4995-a0
 - `worker.js` maps each address to its file, redirects a name in the wrong case when it matches one term, and sets the headers.
 - `src/find.js` is the Foundation's search (⌘K), the same file on every Foundation site. It is built in dot-org-ai/foundation.org.ai: change it there and copy the built file here. It reads the occupations from foundation.org.ai, the one other address these pages connect to.
 - `src/base.css` is the Foundation's design, copied from foundation.org.ai's built occupation pages and standards.org.ai's lockup; `src/schema.css` and `src/schema.js` are this site's own.
+- `src/hero.js` and `src/hero.css` draw the home page's figure: every type, as layers wider than the page (scrolled sideways) or as branches out from Thing, lit by the search beside it. The build writes its data (each type's first parent, count and first sentence, and the types each property and value belongs to) to a hashed file under `s/`, and only the home page loads either.
 
 ## Decisions for the owners
 

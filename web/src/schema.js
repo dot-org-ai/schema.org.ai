@@ -47,6 +47,7 @@
 
   $$("[data-lookup]").forEach((box) => {
     const input = $("input", box), list = $(".listbox", box), status = $("[data-status]", box);
+    const clear = $(".clear", box);
     let results = [], active = -1, err = null, seq = 0;
     const open = (on) => { list.classList.toggle("open", on); input.setAttribute("aria-expanded", String(on)); };
     const setActive = (i, scroll) => {
@@ -58,14 +59,26 @@
         input.setAttribute("aria-activedescendant", opts[i].id);
         if (scroll) opts[i].scrollIntoView({ block: "nearest" });
       } else input.removeAttribute("aria-activedescendant");
+      tell();
+    };
+    // the result Enter would open (the one chosen, or else the first), for whatever on the page follows the search:
+    // the home page's figure lights it
+    let told;
+    const tell = () => {
+      const e = results[active >= 0 ? active : 0] || null;
+      if (e === told) return;
+      told = e;
+      box.dispatchEvent(new CustomEvent("lookup-result", { bubbles: true, detail: e && { n: e.n, k: e.k, f: e.f } }));
     };
     const showError = (on) => {
       if (on && !err) { err = document.createElement("p"); err.className = "err"; err.textContent = "The list of terms did not load. Check your connection, then type again."; box.appendChild(err); }
       if (!on && err) { err.remove(); err = null; }
     };
     function render(q) {
+      if (clear) clear.hidden = !input.value;
       results = search(q);
       active = -1; input.removeAttribute("aria-activedescendant");
+      tell();
       if (!q.trim()) { list.innerHTML = ""; open(false); status.textContent = ""; return; }
       if (!results.length) {
         list.innerHTML = '<p class="none">No term is called anything like “' + esc(q.trim()) + "”.</p>";
@@ -81,6 +94,7 @@
     }
     function update() {
       const q = input.value, mine = ++seq;
+      if (clear) clear.hidden = !q;
       if (!q.trim()) { render(""); return; }
       loadIndex().then(() => { if (mine === seq) { showError(false); render(input.value); } }, () => { if (mine === seq) { showError(true); open(false); } });
     }
@@ -90,6 +104,20 @@
       // on a phone, the list needs the room above the keyboard
       if (isMobile() && box.getBoundingClientRect().top > innerHeight * 0.35) box.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
     });
+    // a long placeholder gives way to its short form wherever it would be cut off
+    if (input.dataset.short) {
+      const long = input.placeholder, mctx = document.createElement("canvas").getContext("2d");
+      const fit = () => {
+        const cs = getComputedStyle(input), room = input.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        mctx.font = cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+        input.placeholder = mctx.measureText(long).width <= room ? long : input.dataset.short;
+      };
+      fit();
+      addEventListener("resize", fit);
+      if (document.fonts) document.fonts.ready.then(fit);
+    }
+    // the cross clears the box, the list and whatever follows the search, and leaves the cursor in the box
+    if (clear) clear.addEventListener("click", () => { input.value = ""; seq++; clear.hidden = true; showError(false); render(""); input.focus(); });
     input.addEventListener("focus", () => { loadIndex().catch(() => {}); if (input.value.trim() && results.length) open(true); });
     input.addEventListener("keydown", (e) => {
       const n = Math.min(results.length, SHOW);
@@ -272,6 +300,177 @@
     });
     set();
   });
+
+  /* ---------------- the two indexes: which part of the page is in view ---------------- */
+  // A one-pixel line just under the sticky chrome; of the sections it crosses, the last in page order is the one in view
+  // (so a branch wins over Thing, which holds it). Nothing is in view above the first section.
+  function spy(sections, line, onChange) {
+    let io = null, cur;
+    const on = new Set();
+    const pick = () => { const c = sections.filter((s) => on.has(s)).pop() || null; if (c !== cur) { cur = c; onChange(c); } };
+    const arm = () => {
+      if (io) io.disconnect();
+      on.clear();
+      const y = Math.round(line());
+      io = new IntersectionObserver((es) => { es.forEach((e) => (e.isIntersecting ? on.add(e.target) : on.delete(e.target))); pick(); },
+        { rootMargin: -y + "px 0px " + -Math.max(0, innerHeight - y - 1) + "px 0px" });
+      sections.forEach((s) => io.observe(s));
+    };
+    arm();
+    let t = 0;
+    addEventListener("resize", () => { clearTimeout(t); t = setTimeout(arm, 120); });
+  }
+  // keep a marked link in sight inside a list that scrolls on its own, without moving the page
+  function reveal(box, el, axis) {
+    const x = axis === "x", start = x ? el.offsetLeft : el.offsetTop, size = x ? el.offsetWidth : el.offsetHeight;
+    const pos = x ? box.scrollLeft : box.scrollTop, view = x ? box.clientWidth : box.clientHeight, pad = x ? 48 : 24;
+    let to = pos;
+    if (start - pad < pos) to = start - pad;
+    else if (start + size + pad > pos + view) to = start + size + pad - view;
+    if (to !== pos) box.scrollTo({ [x ? "left" : "top"]: Math.max(0, to), behavior: reduce ? "auto" : "smooth" });
+  }
+  const headH = () => $(".site-head").getBoundingClientRect().height;
+
+  // every type: the branch list marks the branch the tree is showing
+  const branchNav = $(".index-nav");
+  if (branchNav) {
+    const edges = () => {
+      const over = branchNav.scrollHeight > branchNav.clientHeight + 1;
+      branchNav.classList.toggle("more-t", over && branchNav.scrollTop > 1);
+      branchNav.classList.toggle("more-b", over && branchNav.scrollTop + branchNav.clientHeight < branchNav.scrollHeight - 1);
+    };
+    branchNav.addEventListener("scroll", edges, { passive: true });
+    addEventListener("resize", edges);
+    edges();
+    const links = $$("a[data-spy]", branchNav);
+    const sections = links.map((a) => document.getElementById(a.dataset.spy)).filter(Boolean);
+    if (sections.length === links.length) {
+      // the tree's own order: Thing first, its branches inside it, then the other roots
+      sections.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+      spy(sections, () => headH() + 40, (s) => {
+        links.forEach((a) => a.removeAttribute("aria-current"));
+        const a = s && links.find((l) => l.dataset.spy === s.id);
+        if (a) { a.setAttribute("aria-current", "true"); if (branchNav.scrollHeight > branchNav.clientHeight) reveal(branchNav, a, "y"); }
+      });
+    }
+  }
+
+  // every type: a type with types below it folds them away under its chevron, and Option-click folds or opens every
+  // branch below it as well. A folded branch is plainly hidden: hidden="until-found" would keep it findable, but
+  // Safari 26 keeps the old height of a branch folded inside another one, and opening the outer one leaves gaps
+  const tree = $(".tree");
+  if (tree) {
+    const chevrons = $$(".tw", tree), openAll = $('[data-tree="open"]'), foldAll = $('[data-tree="fold"]');
+    const isOpen = (b) => b.getAttribute("aria-expanded") === "true";
+    const set = (btn, open) => {
+      btn.setAttribute("aria-expanded", String(open));
+      const ul = btn.closest("li").querySelector(":scope > ul");
+      ul.hidden = !open;
+    };
+    // each switch is off when there is nothing for it to do; focus never falls off one that has just switched off
+    const sync = () => {
+      const was = document.activeElement;
+      if (openAll) openAll.disabled = chevrons.every(isOpen);
+      if (foldAll) foldAll.disabled = !chevrons.some(isOpen);
+      if (was && was.disabled) (was === openAll ? foldAll : openAll).focus();
+    };
+    // every folded branch that holds el opens, so el can be seen
+    const unfold = (el) => {
+      for (let ul = el.closest("ul"); ul && ul !== tree && tree.contains(ul); ul = ul.parentElement.closest("ul")) {
+        const b = ul.parentElement.querySelector(":scope > .row > .tw");
+        if (b && !isOpen(b)) set(b, true);
+      }
+      sync();
+    };
+    tree.addEventListener("click", (e) => {
+      const btn = e.target.closest(".tw");
+      if (!btn) return;
+      const open = !isOpen(btn);
+      set(btn, open);
+      if (e.altKey) $$(".tw", btn.closest("li")).forEach((b) => set(b, open));
+      sync();
+    });
+    if (openAll) openAll.addEventListener("click", () => { chevrons.forEach((b) => set(b, true)); sync(); });
+    if (foldAll) foldAll.addEventListener("click", () => { chevrons.forEach((b) => set(b, false)); sync(); });
+    // the branch list, or the address, can point into a folded branch
+    const target = (hash) => { try { const el = hash && document.getElementById(decodeURIComponent(hash.slice(1))); return el && tree.contains(el) ? el : null; } catch { return null; } };
+    document.addEventListener("click", (e) => { const a = e.target.closest('a[href^="#"]'); const el = a && target(a.getAttribute("href")); if (el) unfold(el); }, true);
+    addEventListener("hashchange", () => { const el = target(location.hash); if (el) { unfold(el); el.scrollIntoView(); } });
+    sync();
+  }
+
+  // every property: the filter, and the letters under the header
+  const az = $("[data-az]");
+  if (az) {
+    const input = $("#az-q", az), count = $(".az-count", az), row = $(".letters", az), none = $(".az-none");
+    const groups = $$(".az-group").map((g) => ({
+      g, num: $("h2 .num", g), link: $('a[data-letter="' + g.dataset.letter + '"]', row),
+      items: $$(".az-names > li", g).map((li) => ({ li, nm: $(".nm", li), name: li.dataset.n, l: li.dataset.n.toLowerCase(), a: $("a", li) })),
+    }));
+    const total = groups.reduce((n, x) => n + x.items.length, 0);
+    // the bar's height, for where a chosen letter lands (schema.css reads it)
+    const setBar = () => document.documentElement.style.setProperty("--az-bar", Math.ceil(az.getBoundingClientRect().height) + "px");
+    setBar();
+    if (window.ResizeObserver) new ResizeObserver(setBar).observe(az);
+    // the name again, its words breakable as camel() writes them, with the part that matches marked
+    const nameHtml = (s, i, n) => {
+      let out = "";
+      for (let k = 0; k < s.length; k++) {
+        if (k && /[a-z0-9]/.test(s[k - 1]) && /[A-Z]/.test(s[k])) out += "<wbr>";
+        if (k === i) out += "<mark>";
+        out += esc(s[k]);
+        if (k === i + n - 1) out += "</mark>";
+      }
+      return out;
+    };
+    let shown = [], last = "";
+    function apply(raw) {
+      const q = raw.toLowerCase().replace(/[^a-z0-9]+/g, "");
+      if (q === last && shown.length) return;
+      last = q; shown = [];
+      for (const x of groups) {
+        let n = 0;
+        for (const it of x.items) {
+          const i = q ? it.l.indexOf(q) : 0, hit = i >= 0;
+          it.li.hidden = !hit;
+          if (hit) { n++; shown.push(it); }
+          if (q || it.marked) { it.nm.innerHTML = nameHtml(it.name, hit && q ? i : -1, q.length); it.marked = !!q; }
+        }
+        x.g.hidden = !n;
+        x.num.textContent = fmt(n);
+        if (x.link) {
+          if (n) { x.link.removeAttribute("aria-disabled"); x.link.removeAttribute("tabindex"); }
+          else { x.link.setAttribute("aria-disabled", "true"); x.link.setAttribute("tabindex", "-1"); }
+        }
+      }
+      count.textContent = q ? fmt(shown.length) + " of " + fmt(total) : "";
+      none.hidden = !!shown.length;
+      none.textContent = shown.length ? "" : "No property is called anything like “" + raw.trim() + "”.";
+      // the address keeps the filter, so a reload or Back shows the same list
+      const u = new URL(location.href);
+      if (q) u.searchParams.set("q", raw.trim()); else u.searchParams.delete("q");
+      history.replaceState(history.state, "", u.pathname + u.search + u.hash);
+      // scrolled past the start of the list, the shorter list starts again just under the bar
+      const list = $(".az-list"), top = list.getBoundingClientRect().top, under = az.getBoundingClientRect().bottom;
+      if (top < under) scrollTo({ top: scrollY + top - under, behavior: "instant" });
+    }
+    input.addEventListener("input", () => apply(input.value));
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && input.value) { e.preventDefault(); input.value = ""; apply(""); }
+      else if (e.key === "Enter") { e.preventDefault(); if (shown.length === 1) location.href = shown[0].a.href; }
+    });
+    row.addEventListener("click", (e) => { const a = e.target.closest("a"); if (a && a.getAttribute("aria-disabled") === "true") e.preventDefault(); });
+    // a letter is in view once its heading reaches the bar: the line sits a group's top padding below it
+    const lead = () => (groups[1] ? parseFloat(getComputedStyle(groups[1].g).paddingTop) || 0 : 0);
+    spy(groups.map((x) => x.g), () => az.getBoundingClientRect().height + headH() + lead() + 8, (g) => {
+      groups.forEach((x) => x.link && x.link.removeAttribute("aria-current"));
+      const x = g && groups.find((y) => y.g === g);
+      if (x && x.link) { x.link.setAttribute("aria-current", "true"); if (row.scrollWidth > row.clientWidth) reveal(row, x.link, "x"); }
+    });
+    const given = new URLSearchParams(location.search).get("q");
+    if (given) input.value = given;
+    if (input.value) apply(input.value);
+  }
 
   /* ---------------- the 404 page says which address it was ---------------- */
   const where = $("#where");
