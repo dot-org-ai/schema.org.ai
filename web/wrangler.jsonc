@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "schema-org-ai",
+  "main": "worker.js",
+  "compatibility_date": "2026-07-01",
+  "account_id": "b6641681fe423910342b9ffa1364c76d",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Every response goes through the Worker, which maps a term's address to its file and sets the headers.
+    "run_worker_first": true
+  },
+  "routes": [
+    // schema.org.ai is served as a custom hostname on the workers.do zone, as the Foundation's other sites are.
+    { "pattern": "schema.org.ai/*", "zone_name": "workers.do" }
+  ]
+}
