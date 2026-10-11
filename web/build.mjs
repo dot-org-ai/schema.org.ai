@@ -26,6 +26,7 @@ const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUT = join(ROOT, "public");
 const GEN = join(ROOT, "gen");
 const SITE = "https://schema.org.ai";
+const FOUNDATION = "https://foundation.org.ai";
 const RELEASE = { version: "30.1", date: "16 September 2026", file: "schemaorg-30.1.jsonld" };
 const read = (p) => readFileSync(join(ROOT, p), "utf8");
 const sha = (s) => createHash("sha1").update(s).digest("hex");
@@ -38,6 +39,23 @@ const pages = [...v.pages.values()];
 // the site's own single-part addresses; a term with one of these names would be hidden by them (/search.json is the search index)
 const RESERVED = new Set(["types", "properties", "search", "index", "404"]);
 for (const t of pages) if (RESERVED.has(t.name)) throw new Error("build: a term is named like one of the site's own addresses: " + t.name);
+
+/* ── who publishes it, and where it sits among the Foundation's sites ────────── */
+
+// the Foundation, publisher of every page, and this site: the first two nodes of every page's JSON-LD
+const ORG = { "@type": "NGO", "@id": FOUNDATION + "/#org", name: "Org.AI Foundation", url: FOUNDATION + "/", logo: FOUNDATION + "/apple-touch-icon.png", sameAs: ["https://github.com/dot-org-ai"] };
+const WEBSITE = { "@type": "WebSite", "@id": SITE + "/#website", name: "schema.org.ai", alternateName: "Schema · Org.AI Foundation", url: SITE + "/", inLanguage: "en", publisher: { "@id": ORG["@id"] } };
+// the Foundation's sites, each in a line from its own page (for llms.txt and index.json)
+const SITES = [
+  { host: "foundation.org.ai", what: "The Org.AI Foundation's open record of human work: every occupation, and the tasks it is made of, each traced to its source." },
+  { host: "schema.org.ai", what: "Every Schema.org term, as published, and the .org.ai superset the Foundation adds. This site." },
+  { host: "standards.org.ai", what: "The Foundation's register of standards: the ones it keeps, as their publishers wrote them, and the ones it writes itself." },
+  { host: "insurance.org.ai", what: "Which acts in insurance are reserved to licensed humans, and the regulators that license them." },
+  { host: "law.org.ai", what: "Which acts of legal help stay with a licensed human, and what an AI may do under a lawyer's supervision." },
+  { host: "mdx.org.ai", what: "MDX: structured data, unstructured content, executable code and UI components in one format." },
+  { host: "primitives.org.ai", what: "The fundamental abstractions for building AI-native software." },
+].map((x) => ({ ...x, url: "https://" + x.host + "/" }));
+const MCP = { url: FOUNDATION + "/mcp", transport: "streamable-http", about: "the Foundation's record of work" };
 
 /* ── words ─────────────────────────────────────────────────────────────────── */
 
@@ -78,6 +96,10 @@ function desc(t) {
 const tags = (t) => (t.ns === "orgai" ? '<span class="tag ai">.org.ai</span>' : "") + (t.pending ? '<span class="tag">Pending</span>' : "") + (t.supersededBy.length ? '<span class="tag">Superseded</span>' : "");
 const kindWord = (t) => (t.kind === "type" ? (t.dataType || t.trail?.[0]?.name === "DataType" ? "data type" : "type") : t.kind === "property" ? "property" : "value");
 const propCount = (t) => (t.groups || []).reduce((n, g) => n + g.props.length, 0);
+// a page's title as search results show it: within 60 characters, the site's name dropped first when a term's is long
+const termTitle = (name) => (name + " · Schema · Org.AI Foundation").length <= 60 ? name + " · Schema · Org.AI Foundation" : name + " · Schema";
+// a description as search results show it: within 160 characters, the ellipsis included
+const DESC = 159;
 
 /* ── what every page shares ────────────────────────────────────────────────── */
 
@@ -129,9 +151,24 @@ function header(current) {
     '<nav class="mnav" id="mnav" aria-label="Main" hidden><div class="mnav-panel">' + NAV.map(a).join("") + "</div></nav>";
 }
 
-function page({ path, title, description, image, current = "", body, alternates = null, jsonld = null, scripts = "" }) {
+// crumbs: the page's place, as [address, name] pairs from the top, the page itself not included (as the visible crumbs)
+// markdown: the page's markdown twin, for a page that is not a term's (a term's twin comes with its alternates)
+// extra: further JSON-LD nodes, beside the page; main: the one among them the page is about
+function page({ path, title, description, image, current = "", body, alternates = null, jsonld = null, scripts = "", crumbs: trail = null, markdown = null, extra = [], main = null, head = "" }) {
   const c = card(image);
   const url = path == null ? null : SITE + path;
+  let graph = null;
+  if (url) {
+    const node = { "@type": path === "/" ? "WebPage" : jsonld ? "WebPage" : "CollectionPage", "@id": url, url, name: title, description, inLanguage: "en", isPartOf: { "@id": WEBSITE["@id"] }, publisher: { "@id": ORG["@id"] } };
+    if (trail) {
+      const items = [...trail, [path, jsonld ? jsonld.name : title.split(" · ")[0]]];
+      node.breadcrumb = { "@type": "BreadcrumbList", itemListElement: items.map(([h, name], i) => ({ "@type": "ListItem", position: i + 1, name, item: SITE + (h === "/" ? "/" : h) })) };
+    }
+    const nodes = [...(jsonld ? [{ ...jsonld, "@id": url + "#term" }] : []), ...extra];
+    if (jsonld) node.mainEntity = { "@id": url + "#term" };
+    else if (main) node.mainEntity = { "@id": main };
+    graph = { "@context": "https://schema.org", "@graph": [ORG, WEBSITE, node, ...nodes.map((n) => { const { "@context": _, ...rest } = n; return rest; })] };
+  }
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -155,7 +192,7 @@ ${url ? `<meta property="og:url" content="${url}">\n` : ""}<meta property="og:ti
 <link rel="preload" href="/fonts/publicsans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/${ASSET.css}">
 <script src="/find.js" data-site="schema" defer></script>
-${alternates ? `<link rel="alternate" type="application/ld+json" href="${alternates}.json">\n<link rel="alternate" type="text/markdown" href="${alternates}.md">\n` : ""}${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, "\\u003c")}</script>\n` : ""}<script>document.documentElement.classList.add("js"); if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");</script>
+${alternates ? `<link rel="alternate" type="application/ld+json" href="${alternates}.json">\n<link rel="alternate" type="text/markdown" href="${alternates}.md">\n` : ""}${markdown ? `<link rel="alternate" type="text/markdown" href="${markdown}">\n` : ""}${head}${graph ? `<script type="application/ld+json">${JSON.stringify(graph).replace(/</g, "\\u003c")}</script>\n` : ""}<script>document.documentElement.classList.add("js"); if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the page</a>
@@ -203,7 +240,7 @@ function provenance(t) {
     L("Written by", "<b>Us.</b>", " end cur");
   }
   return `<section class="band reg" aria-labelledby="prov-h"><div class="side"><h2 id="prov-h">Where this comes from</h2>` +
-    (t.ns === "schema" ? `<p class="lead">Copied word for word from Schema.org, and credited. Nothing in this definition is written by us.</p>`
+    (t.ns === "schema" ? `<p class="lead">Quoted from Schema.org, and credited. Nothing in this definition is written by us.</p>`
       : `<p class="lead">Written by the Org.AI Foundation, for the .org.ai superset of Schema.org.</p>`) +
     `</div><div class="trace compact"><ol class="layers">${layers.join("")}</ol></div></section>`;
 }
@@ -329,7 +366,8 @@ function typePage(t) {
     : "";
 
   const trail = t.trail.slice(0, -1);
-  let h = crumbs([["/", "Schema"], ["/types", "Types"], ...trail.map((x) => [href(x), x.name])]);
+  const path = [["/", "Schema"], ["/types", "Types"], ...trail.map((x) => [href(x), x.name])];
+  let h = crumbs(path);
   h += `<header class="job-head reg${figure ? "" : " solo"}"><div><h1${t.name.length > 26 ? ' class="long"' : ""}>${camel(t.name)}</h1>` +
     (d.html ? `<div class="desc prose">${d.html}</div>` : "") +
     `<dl class="facts">${facts.map(([k, val]) => `<div><dt>${k}</dt><dd>${val}</dd></div>`).join("")}</dl>` +
@@ -360,10 +398,9 @@ function typePage(t) {
   }
   h += provenance(t) + closing(t);
 
-  const title = t.name + " · Schema · Org.AI Foundation";
   return page({
-    path: "/" + t.name, title, image: dirOf(t) + "/" + t.name, current: t.ns === "orgai" ? "superset" : "types", body: h, alternates: "/" + t.name,
-    description: d.first ? firstSentence(d.plain, 200) : `${t.name}, a ${kindWord(t)} in ${t.ns === "schema" ? "Schema.org" : "the .org.ai superset"}.`,
+    path: "/" + t.name, title: termTitle(t.name), image: dirOf(t) + "/" + t.name, current: t.ns === "orgai" ? "superset" : "types", body: h, alternates: "/" + t.name, crumbs: path,
+    description: d.first ? firstSentence(d.plain, DESC) : `${t.name}, a ${kindWord(t)} in ${t.ns === "schema" ? "Schema.org" : "the .org.ai superset"}.`,
     jsonld: { "@context": "https://schema.org", "@type": "DefinedTerm", name: t.name, description: d.first || undefined, url: SITE + "/" + t.name, sameAs: t.ns === "schema" ? t.iri : undefined, inDefinedTermSet: t.ns === "schema" ? "https://schema.org" : SITE },
   });
 }
@@ -399,7 +436,8 @@ function propertyPage(p) {
   if (p.supersedes.length) facts.push(["Replaces", and(p.supersedes.map(link))]);
   facts.push(["Source", p.ns === "schema" ? `Schema.org ${RELEASE.version}${p.pending ? '<span class="tag">Pending</span>' : ""}` : "The .org.ai superset"]);
   const figure = flowFigure(p);
-  let h = crumbs([["/", "Schema"], ["/properties", "Properties"]]);
+  const path = [["/", "Schema"], ["/properties", "Properties"]];
+  let h = crumbs(path);
   h += `<header class="job-head reg${figure ? "" : " solo"}"><div><h1${p.name.length > 26 ? ' class="long"' : ""}>${camel(p.name)}</h1>` +
     (d.html ? `<div class="desc prose">${d.html}</div>` : "") +
     `<dl class="facts">${facts.map(([k, val]) => `<div><dt>${k}</dt><dd>${val}</dd></div>`).join("")}</dl>` +
@@ -410,8 +448,8 @@ function propertyPage(p) {
   if (p.subProps.length) h += `<section class="band reg" id="narrower" aria-labelledby="nar-h"><div class="side"><h2 id="nar-h">Narrower properties</h2><p class="lead">${p.subProps.length === 1 ? "One property is a more specific kind of this one." : `${fmt(p.subProps.length)} properties are more specific kinds of this one.`}</p></div><div>${termList(p.subProps, { id: "narrower-list", more: 24 })}</div></section>`;
   h += provenance(p) + closing(p);
   return page({
-    path: "/" + p.name, title: p.name + " · Schema · Org.AI Foundation", image: "p/" + p.name, current: p.ns === "orgai" ? "superset" : "properties", body: h, alternates: "/" + p.name,
-    description: d.first ? firstSentence(d.plain, 200) : `${p.name}, a property in ${p.ns === "schema" ? "Schema.org" : "the .org.ai superset"}.`,
+    path: "/" + p.name, title: termTitle(p.name), image: "p/" + p.name, current: p.ns === "orgai" ? "superset" : "properties", body: h, alternates: "/" + p.name, crumbs: path,
+    description: d.first ? firstSentence(d.plain, DESC) : `${p.name}, a property in ${p.ns === "schema" ? "Schema.org" : "the .org.ai superset"}.`,
     jsonld: { "@context": "https://schema.org", "@type": "DefinedTerm", name: p.name, description: d.first || undefined, url: SITE + "/" + p.name, sameAs: p.ns === "schema" ? p.iri : undefined, inDefinedTermSet: p.ns === "schema" ? "https://schema.org" : SITE },
   });
 }
@@ -431,7 +469,8 @@ function valuePage(x) {
       `<figcaption aria-hidden="true">${camel(x.name)}, lit, among the ${fmt(sibs.length)} values of ${camel(en.name)}. <span data-point="Point at one to see which; choose it to open its page." data-tap="Tap one to see which; tap it again to open its page.">Point at one to see which; choose it to open its page.</span></figcaption>` +
       `<ol class="sr" data-ring-names>${sibs.map((s) => `<li data-href="${href(s)}">${esc(s.name)}</li>`).join("")}</ol></figure>`
     : "";
-  let h = crumbs([["/", "Schema"], ["/types", "Types"], ...en.trail.map((t) => [href(t), t.name])]);
+  const path = [["/", "Schema"], ["/types", "Types"], ...en.trail.map((t) => [href(t), t.name])];
+  let h = crumbs(path);
   h += `<header class="job-head reg${figure ? "" : " solo"}"><div><h1${x.name.length > 26 ? ' class="long"' : ""}>${camel(x.name)}</h1>` +
     (d.html ? `<div class="desc prose">${d.html}</div>` : "") +
     `<dl class="facts">${facts.map(([k, val]) => `<div><dt>${k}</dt><dd>${val}</dd></div>`).join("")}</dl>` +
@@ -442,8 +481,8 @@ function valuePage(x) {
   }
   h += provenance(x) + closing(x);
   return page({
-    path: "/" + x.name, title: x.name + " · Schema · Org.AI Foundation", image: "v/" + x.name, current: "types", body: h, alternates: "/" + x.name,
-    description: d.first ? firstSentence(d.plain, 200) : `${x.name}, a value of ${en.name} in Schema.org.`,
+    path: "/" + x.name, title: termTitle(x.name), image: "v/" + x.name, current: "types", body: h, alternates: "/" + x.name, crumbs: path,
+    description: d.first ? firstSentence(d.plain, DESC) : `${x.name}, a value of ${en.name} in Schema.org.`,
     jsonld: { "@context": "https://schema.org", "@type": "DefinedTerm", name: x.name, description: d.first || undefined, url: SITE + "/" + x.name, sameAs: x.iri, inDefinedTermSet: "https://schema.org" },
   });
 }
@@ -478,7 +517,7 @@ function termJson(t) {
 
 const mdLink = (t) => `[${t.name}](${SITE}/${t.name})`;
 const credit = (t) => (t.ns === "schema"
-  ? `---\n\nCopied word for word from Schema.org ${RELEASE.version}, ${t.iri}, under CC BY-SA 3.0. Served by the Org.AI Foundation at ${SITE}/${t.name}.\n`
+  ? `---\n\nQuoted from Schema.org ${RELEASE.version}, ${t.iri}, under CC BY-SA 3.0. Served by the Org.AI Foundation at ${SITE}/${t.name}.\n`
   : `---\n\nFrom the .org.ai superset of Schema.org, written by the Org.AI Foundation, under CC BY-SA 4.0. ${SITE}/${t.name}\n`);
 const mdTable = (head, rows) => `| ${head.join(" | ")} |\n|${head.map((h) => "-".repeat(Math.max(3, h.length + 2))).join("|")}|\n` + rows.map((r) => `| ${r.join(" | ")} |`).join("\n") + "\n";
 function termMd(t) {
@@ -515,6 +554,12 @@ const N = { types: count("schema", "type"), props: count("schema", "property"), 
 const thing = v.pages.get("Thing"), dataType = v.pages.get("DataType");
 const branches = [...thing.children.filter((c) => c.ns === "schema"), dataType];
 const superset = v.all.filter((t) => t.ns === "orgai").sort((a, b) => (a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind === "type" ? -1 : 1));
+const VOCAB = {
+  "@type": "DefinedTermSet", "@id": SITE + "/#vocabulary", name: `Schema.org ${RELEASE.version}, with the .org.ai superset`, url: SITE + "/", inLanguage: "en",
+  description: `${fmt(N.types)} types, ${fmt(N.props)} properties and ${fmt(N.values)} values from Schema.org ${RELEASE.version}, as published, and the ${fmt(N.xTypes)} types and ${fmt(N.xProps)} properties the Org.AI Foundation adds.`,
+  isBasedOn: "https://schema.org/", publisher: { "@id": ORG["@id"] },
+  license: ["https://creativecommons.org/licenses/by-sa/3.0/", "https://creativecommons.org/licenses/by-sa/4.0/"],
+};
 
 /* every type, drawn by src/hero.js: in layers wider than the page, or as branches out from Thing, under a toolbar with
    the view, the search that lights it, and the key. Its height is set here, from the number of layers, so nothing moves
@@ -538,7 +583,7 @@ function hero() {
 function homePage() {
   const max = Math.max(...branches.map((b) => b.descendants + 1));
   let h = `<section class="intro has-hero" aria-labelledby="home-h"><div class="intro-grid"><h1 id="home-h">Every Schema.org term, and the ones we added<span class="dot">.</span></h1><div>` +
-    `<p class="lede"><strong>${fmt(N.types)} types</strong>, <strong>${fmt(N.props)} properties</strong> and <strong>${fmt(N.values)} values</strong>, copied word for word from Schema.org ${RELEASE.version}. ` +
+    `<p class="lede"><strong>${fmt(N.types)} types</strong>, <strong>${fmt(N.props)} properties</strong> and <strong>${fmt(N.values)} values</strong> from Schema.org ${RELEASE.version}, as published. ` +
     `Beside them, the <a class="textlink" href="#superset">.org.ai superset</a>: ${plural(N.xTypes, "type", "types")} and ${plural(N.xProps, "property", "properties")} for agents, the tools they use, and the businesses they work in.</p>` +
     `<p class="links"><a class="textlink" href="/types">Every type, as a tree</a><a class="textlink" href="/properties">Every property, A to Z</a></p></div></div>` + hero() + `</section>`;
   h += `<section class="band reg" id="branches" aria-labelledby="br-h"><div class="side"><h2 id="br-h">Where every type starts</h2><p class="lead">Every type is a more specific kind of another, back to ${link(thing)}, or to ${link(dataType)} for plain values like text and numbers. These are the first branches.</p></div>` +
@@ -557,7 +602,7 @@ function homePage() {
     `<div><dt><code>npm i schema.org.ai</code></dt><dd>TypeScript types for Schema.org and the superset. <a class="textlink" href="https://www.npmjs.com/package/schema.org.ai">npm</a></dd></div>` +
     `<div><dt><code>/llms.txt</code></dt><dd>What this site is, for language models.</dd></div>` +
     `</dl></div></section>`;
-  h += `<section class="band reg" aria-labelledby="prov-h"><div class="side"><h2 id="prov-h">Where this comes from</h2><p class="lead">Schema.org's terms are copied word for word and credited. The superset is ours, and says so on every page.</p></div>` +
+  h += `<section class="band reg" aria-labelledby="prov-h"><div class="side"><h2 id="prov-h">Where this comes from</h2><p class="lead">Schema.org's terms are quoted as published, and credited. The superset is ours, and says so on every page.</p></div>` +
     `<div class="trace compact"><ol class="layers"><li class="layer lit"><span class="k">Published by</span><div class="v"><b>Schema.org</b><span class="sub">A vocabulary for structured data, founded by Google, Microsoft, Yahoo and Yandex, and run by its community</span></div></li>` +
     `<li class="layer lit"><span class="k">Release</span><div class="v"><b>Version ${RELEASE.version}</b><span class="sub">${RELEASE.date}</span></div></li>` +
     `<li class="layer lit"><span class="k">License</span><div class="v"><b>CC BY-SA 3.0</b><span class="sub">Free to copy and adapt, with credit, under the same licence</span></div></li>` +
@@ -566,7 +611,9 @@ function homePage() {
     `<section aria-labelledby="pt-h"><h2 id="pt-h">Partner with us</h2><p>Fund the next pass, contribute data, or build on the record. Tell us what you have in mind.</p><a class="btn btn-primary" href="https://foundation.org.ai/#partner">Partner with us <span class="arr" aria-hidden="true">&rarr;</span></a></section></div>`;
   return page({
     path: "/", title: "Schema · Org.AI Foundation", image: "og", current: "home", body: h, scripts: `<script src="/${HERO.js}" defer></script>\n`,
-    description: `Every Schema.org ${RELEASE.version} term, copied word for word: ${fmt(N.types)} types, ${fmt(N.props)} properties and ${fmt(N.values)} values. With the .org.ai superset the Org.AI Foundation adds.`,
+    description: `Every Schema.org ${RELEASE.version} term, as published: ${fmt(N.types)} types, ${fmt(N.props)} properties and ${fmt(N.values)} values. With the .org.ai superset the Org.AI Foundation adds.`,
+    markdown: "/index.md", head: `<link rel="alternate" type="application/json" href="/index.json" title="This site as JSON">\n`,
+    extra: [VOCAB], main: VOCAB["@id"],
   });
 }
 
@@ -592,7 +639,7 @@ function typesPage() {
     `<div class="tree-wrap"><div class="tree-tools"><button class="tree-all" type="button" data-tree="open">Expand all</button><button class="tree-all" type="button" data-tree="fold">Collapse all</button></div>` +
     // the roots and the branches under Thing are the ones the branch list points at
     `<ul class="tree">${roots.map((r) => treeItem(r, new Set([...roots, ...thing.children]))).join("")}</ul></div></div>`;
-  return page({ path: "/types", title: "Types · Schema · Org.AI Foundation", image: "og-types", current: "types", body: h,
+  return page({ path: "/types", title: "Types · Schema · Org.AI Foundation", image: "og-types", current: "types", body: h, markdown: "/types.md", crumbs: [["/", "Schema"]],
     description: `Every type in Schema.org ${RELEASE.version} and the .org.ai superset, ${fmt(all)} in all, as a tree: each one a more specific kind of the one above it.` });
 }
 
@@ -614,7 +661,7 @@ function propertiesPage() {
   h += `<div class="az-list">` + [...groups].map(([L, list]) => `<section class="az-group" id="letter-${L}" data-letter="${L}" aria-labelledby="letter-h-${L}"><h2 id="letter-h-${L}">${L}<span class="num">${fmt(list.length)}</span></h2>` +
     `<ul class="az-names">${list.map((p) => `<li data-n="${esc(p.name)}"><a href="${href(p)}"><span class="t"><span class="nm">${camel(p.name)}</span>${p.ns === "orgai" ? '<span class="tag ai">.org.ai</span>' : ""}</span><span class="k">${camel(takes(p))}</span></a></li>`).join("")}</ul></section>`).join("") +
     `<p class="az-none" hidden></p></div>`;
-  return page({ path: "/properties", title: "Properties · Schema · Org.AI Foundation", image: "og-properties", current: "properties", body: h,
+  return page({ path: "/properties", title: "Properties · Schema · Org.AI Foundation", image: "og-properties", current: "properties", body: h, markdown: "/properties.md", crumbs: [["/", "Schema"]],
     description: `Every property in Schema.org ${RELEASE.version} and the .org.ai superset, ${fmt(props.length)} in all, from A to Z, with the kind of value each takes.` });
 }
 
@@ -665,33 +712,184 @@ w("search.json", JSON.stringify(pages.flatMap((t) => {
 
 const urls = ["/", "/types", "/properties", ...pages.map((t) => "/" + t.name)];
 w("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE}${esc(u)}</loc></url>`).join("\n")}\n</urlset>\n`);
-w("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+/* ── the machine faces: robots, llms.txt and llms-full.txt, the pages as markdown, index.json ── */
+
+const A = (h) => SITE + h;
+const ml = (t) => `[${t.name}](${A(href(t))})`;
+const senses = superset.filter((t) => t.senseOf).length;
+const SUMMARY = `Every Schema.org ${RELEASE.version} term, as published, and the .org.ai superset the Org.AI Foundation adds, each with its own page, JSON-LD and Markdown.`;
+const ABOUT = `schema.org.ai serves Schema.org ${RELEASE.version} (released ${RELEASE.date}): ${fmt(N.types)} types, ${fmt(N.props)} properties and ` +
+  `${fmt(N.values)} enumeration values, each with its own page. Beside them is the .org.ai superset: ${plural(N.xTypes, "type", "types")} ` +
+  `and ${plural(N.xProps, "property", "properties")} for agents, the tools they use, and the businesses they work in. ${fmt(senses)} superset ${senses === 1 ? "term shares" : "terms share"} a name ` +
+  `with a Schema.org term; that name's page shows the Schema.org term, and the superset's at #org-ai. Every term is at ${SITE}/<Name>, ` +
+  `with capitals exactly as in Schema.org (Person is a type; person is not a term).`;
+const BOTS = ["*", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "CCBot"];
+w("robots.txt", `# schema.org.ai: every Schema.org term, as published, and the .org.ai superset the Org.AI Foundation adds. Every page and machine face is open to search engines, AI crawlers and agents.
+# Agents: start at ${SITE}/llms.txt (${SITE}/llms-full.txt carries everything in one file)
+# and ${SITE}/index.json. The Foundation's record of work answers over MCP at ${MCP.url}
+
+${BOTS.map((b) => `User-agent: ${b}\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\n`).join("\n")}
+Sitemap: ${SITE}/sitemap.xml
+`);
+
+// the home page, in markdown: the same words, in the same order
+const takes = (p) => (p.range.length ? and(p.range.slice(0, 2).map((x) => x.name), "or") + (p.range.length > 2 ? ` and ${p.range.length - 2} more` : "") : "");
+const supKind = (x) => (x.kind === "property" ? "Property" : x.senseOf ? "Type, beside Schema.org's " + x.name : "Type");
+const homeMd = `# Every Schema.org term, and the ones we added
+
+**${fmt(N.types)} types**, **${fmt(N.props)} properties** and **${fmt(N.values)} values** from Schema.org ${RELEASE.version}, as published. Beside them, the [.org.ai superset](${A("/#superset")}): ${plural(N.xTypes, "type", "types")} and ${plural(N.xProps, "property", "properties")} for agents, the tools they use, and the businesses they work in.
+
+- [Every type, as a tree](${A("/types")})
+- [Every property, A to Z](${A("/properties")})
+
+## Where every type starts
+
+Every type is a more specific kind of another, back to ${ml(thing)}, or to ${ml(dataType)} for plain values like text and numbers. These are the first branches.
+
+${branches.map((b) => `- ${ml(b)}: ${plural(b.descendants, "type", "types")} below it. ${desc(b).first}`).join("\n")}
+
+## The .org.ai superset
+
+${plural(N.xTypes, "type", "types")} and ${plural(N.xProps, "property", "properties")} the Org.AI Foundation adds to Schema.org, for the work agents and businesses do.${senses ? ` ${fmt(senses)} share a name with a Schema.org term; each is shown on that term's page.` : ""} The whole superset is [extensions.jsonld](https://github.com/dot-org-ai/schema.org.ai/blob/main/extensions.jsonld).
+
+${superset.map((x) => `- ${ml(x)} (${supKind(x)}): ${desc(x).first}`).join("\n")}
+
+## Use the data
+
+Every term is here as data, at an address you can guess from its name.
+
+- [${SITE}/Person.json](${A("/Person.json")}): a term as JSON-LD
+- [${SITE}/Person.md](${A("/Person.md")}): a term as Markdown, for language models
+- [${SITE}/${RELEASE.file}](${A("/" + RELEASE.file)}): the whole of Schema.org ${RELEASE.version}, the file every page here is built from
+- [${SITE}/extensions.jsonld](${A("/extensions.jsonld")}): the whole .org.ai superset
+- [npm i schema.org.ai](https://www.npmjs.com/package/schema.org.ai): TypeScript types for Schema.org and the superset
+- [${SITE}/llms.txt](${A("/llms.txt")}): what this site is, for language models
+
+## Where this comes from
+
+Schema.org's terms are quoted as published, and credited. The superset is ours, and says so on every page.
+
+- Published by: Schema.org, a vocabulary for structured data, founded by Google, Microsoft, Yahoo and Yandex, and run by its community
+- Release: version ${RELEASE.version}, ${RELEASE.date}
+- License: CC BY-SA 3.0, free to copy and adapt, with credit, under the same licence
+- Changed by us: nothing
+
+---
+
+The Org.AI Foundation is a non-profit. ${SITE}/ is its copy of Schema.org, and the types it adds.
+`;
+w("index.md", homeMd);
+
+// every type, as the tree on /types
+const typeCount = v.all.filter((t) => t.kind === "type" && !t.senseOf).length;
+const roots = [thing, dataType, ...v.roots.map((c) => v.byId.get(c)).filter((t) => t !== thing && t !== dataType)];
+const treeMd = (t, depth) => "  ".repeat(depth) + `- ${ml(t)}${t.ns === "orgai" ? " (.org.ai)" : ""}${t.descendants ? `: ${fmt(t.descendants)} below it` : ""}\n` +
+  t.children.filter((c) => !c.senseOf).map((c) => treeMd(c, depth + 1)).join("");
+w("types.md", `# Every type, by what it descends from
+
+**${fmt(typeCount)} types**, ${fmt(N.types)} from Schema.org and ${fmt(typeCount - N.types)} from the .org.ai superset. Each is a more specific kind of the one above it; the number beside a type counts every type below it.
+
+${roots.map((r) => treeMd(r, 0)).join("")}`);
+
+// every property, A to Z, as on /properties
+const allProps = v.all.filter((t) => t.kind === "property" && !t.senseOf).sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
+const letterOf = new Map();
+for (const p of allProps) { const L = p.name[0].toUpperCase(); if (!letterOf.has(L)) letterOf.set(L, []); letterOf.get(L).push(p); }
+w("properties.md", `# Every property, from A to Z
+
+**${fmt(allProps.length)} properties**, ${fmt(N.props)} from Schema.org and ${fmt(allProps.length - N.props)} from the .org.ai superset. Beside each, the kind of value it takes.
+
+${[...letterOf].map(([L, list]) => `## ${L}\n\n` + list.map((p) => `- ${ml(p)}${p.ns === "orgai" ? " (.org.ai)" : ""}${takes(p) ? `: ${takes(p)}` : ""}`).join("\n")).join("\n\n")}
+`);
+
 w("llms.txt", `# Schema · Org.AI Foundation
 
-> Every Schema.org ${RELEASE.version} term, copied word for word, and the .org.ai superset the Org.AI Foundation adds.
+> ${SUMMARY}
 
-schema.org.ai serves Schema.org ${RELEASE.version} (released ${RELEASE.date}): ${fmt(N.types)} types, ${fmt(N.props)} properties and
-${fmt(N.values)} enumeration values, each with its own page. Beside them is the .org.ai superset: ${fmt(N.xTypes)} types
-and ${fmt(N.xProps)} properties for agents, tools and the businesses they work in. ${fmt(superset.filter((t) => t.senseOf).length)} superset terms share a name
-with a Schema.org term; the name's page shows the Schema.org term, and the superset's at #org-ai.
+${ABOUT}
 
-## Addresses
+## Pages
 
-Every term is at ${SITE}/<Name>, with capitals exactly as in Schema.org (Person is a type, person is not a term).
+- [Schema](${A("/")}): the vocabulary, where every type starts, and the .org.ai superset
+- [Types](${A("/types")}): every type, ${fmt(typeCount)} in all, as a tree
+- [Properties](${A("/properties")}): every property, ${fmt(allProps.length)} in all, from A to Z, with the kind of value each takes
+- [Person](${A("/Person")}): one term's page; every term has one at ${SITE}/<Name>
 
-- ${SITE}/<Name>.json       the term as JSON-LD (also at /api/<Name>/json)
-- ${SITE}/<Name>.md         the term as Markdown (also at /api/<Name>/md)
-- ${SITE}/${RELEASE.file}   all of Schema.org ${RELEASE.version}, as published
-- ${SITE}/extensions.jsonld   all of the .org.ai superset
-- ${SITE}/search.json       every term: [name, t|p|v for type, property or value, its first sentence, 0 Schema.org, 1 superset, 2 superset term sharing a Schema.org name]
-- ${SITE}/sitemap.xml
+## Machine faces
+
+- [index.json](${A("/index.json")}): this site's pages and machine faces, as JSON
+- [llms-full.txt](${A("/llms-full.txt")}): every term and its definition, in one Markdown file
+- [Sitemap](${A("/sitemap.xml")}): every page, ${fmt(urls.length)} addresses
+- [Person as Markdown](${A("/Person.md")}): every term at ${SITE}/<Name>.md; every page also answers \`Accept: text/markdown\`, and the home page, Types and Properties are at /index.md, /types.md and /properties.md
+- [Person as JSON-LD](${A("/Person.json")}): every term at ${SITE}/<Name>.json
+- [search.json](${A("/search.json")}): every term as [name, t, p or v for type, property or value, its first sentence, 0 Schema.org, 1 superset, 2 superset term sharing a Schema.org name]
+- [${RELEASE.file}](${A("/" + RELEASE.file)}): all of Schema.org ${RELEASE.version}, as published
+- [extensions.jsonld](${A("/extensions.jsonld")}): all of the .org.ai superset
+- [The Foundation's record of work, over MCP](${MCP.url}): Streamable HTTP, keyless and read-only, served by foundation.org.ai
+
+## The Foundation's sites
+
+${SITES.map((x) => `- [${x.host}](${x.url}): ${x.what}`).join("\n")}
 
 ## Licence
 
-Schema.org's terms are CC BY-SA 3.0, from https://schema.org. The superset is CC BY-SA 4.0, from the
-Org.AI Foundation. Nothing here is generated at request time: every page and file is built ahead of time
-from those two files.
+- [Schema.org's terms](https://creativecommons.org/licenses/by-sa/3.0/): CC BY-SA 3.0, from https://schema.org
+- [The .org.ai superset](https://creativecommons.org/licenses/by-sa/4.0/): CC BY-SA 4.0, from the Org.AI Foundation
+
+Nothing here is generated at request time: every page and file is built ahead of time from those two files.
 `);
+
+// everything in one file: the home page's words, then every term, its definition as published, and its address
+const kindLine = (t) => t.kind === "type"
+  ? `A ${kindWord(t)}${t.parents.length ? ", a more specific kind of " + and(t.parents.map((x) => x.name)) : ""}.`
+  : t.kind === "property"
+    ? `A property${t.range.length ? ", taking " + and(t.range.map((x) => x.name), "or") : ""}${t.domain.length ? "; used on " + and(t.domain.slice(0, 6).map((x) => x.name)) + (t.domain.length > 6 ? ` and ${t.domain.length - 6} more` : "") : ""}.`
+    : `A value of ${and(t.memberOf.map((x) => x.name))}.`;
+const termBlock = (t) => `### ${t.name}\n\n${kindLine(t)}${t.pending ? " Pending in Schema.org." : ""}${t.supersededBy.length ? ` Superseded by ${and(t.supersededBy.map((x) => x.name))}.` : ""} ${A(href(t))}\n\n${desc(t).md || ""}\n`;
+const group = (title, list) => `## ${title} (${fmt(list.length)})\n\n` + list.map(termBlock).join("\n");
+const byName = (a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" });
+const schemaTerms = (kind) => pages.filter((t) => t.ns === "schema" && t.kind === kind).sort(byName);
+const full = `# Schema · Org.AI Foundation, in full
+
+> ${SUMMARY}
+
+${ABOUT}
+
+This file holds every term: the Schema.org types, properties and values, then the .org.ai superset, each with what it is, its address, and its definition as published. The pages are at ${SITE}/, and the same terms one at a time at ${SITE}/<Name>.md and ${SITE}/<Name>.json.
+
+${homeMd.replace(/^# .*\n/, "## The home page\n").replace(/^## (?!The home page)/gm, "### ")}
+${group("Schema.org types", schemaTerms("type"))}
+${group("Schema.org properties", schemaTerms("property"))}
+${group("Schema.org values", schemaTerms("value"))}
+${group("The .org.ai superset", v.all.filter((t) => t.ns === "orgai").sort(byName))}`;
+w("llms-full.txt", full);
+
+// this site, as JSON: its pages, its machine faces, the Foundation's MCP server, and the Foundation's sites
+w("index.json", JSON.stringify({
+  name: "schema.org.ai",
+  url: SITE + "/",
+  description: SUMMARY,
+  publisher: { name: "Org.AI Foundation", url: FOUNDATION + "/" },
+  license: [
+    { applies: "Schema.org's terms", name: "CC BY-SA 3.0", url: "https://creativecommons.org/licenses/by-sa/3.0/" },
+    { applies: "the .org.ai superset", name: "CC BY-SA 4.0", url: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  ],
+  release: { name: "Schema.org", version: RELEASE.version, date: RELEASE.date },
+  counts: { types: N.types, properties: N.props, values: N.values, supersetTypes: N.xTypes, supersetProperties: N.xProps },
+  pages: [
+    { url: A("/"), title: "Schema · Org.AI Foundation", markdown: A("/index.md") },
+    { url: A("/types"), title: "Types · Schema · Org.AI Foundation", markdown: A("/types.md") },
+    { url: A("/properties"), title: "Properties · Schema · Org.AI Foundation", markdown: A("/properties.md") },
+  ],
+  terms: { count: pages.length, html: SITE + "/{Name}", markdown: SITE + "/{Name}.md", jsonld: SITE + "/{Name}.json", example: A("/Person") },
+  machine: {
+    llms: A("/llms.txt"), llmsFull: A("/llms-full.txt"), sitemap: A("/sitemap.xml"), robots: A("/robots.txt"), search: A("/search.json"),
+    vocabularies: { schemaorg: A("/" + RELEASE.file), superset: A("/extensions.jsonld") },
+    negotiation: "Every page answers Accept: text/markdown with its markdown twin.",
+  },
+  mcp: MCP,
+  sites: SITES,
+}, null, 2) + "\n");
 
 cpSync(join(ROOT, "data", RELEASE.file), join(OUT, RELEASE.file));
 cpSync(join(ROOT, "..", "extensions.jsonld"), join(OUT, "extensions.jsonld"));

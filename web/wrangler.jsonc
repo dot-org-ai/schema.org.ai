@@ -5,6 +5,8 @@
   "compatibility_date": "2026-07-01",
   "account_id": "b6641681fe423910342b9ffa1364c76d",
   "workers_dev": false,
+  // each uploaded version gets its own preview address, for review before it is deployed; the Worker marks those hosts noindex
+  "preview_urls": true,
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",

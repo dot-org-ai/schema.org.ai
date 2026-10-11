@@ -1,8 +1,10 @@
 # schema.org.ai, the website
 
-Every Schema.org term, copied word for word, and the .org.ai superset the Org.AI Foundation adds, in the Foundation's design (the one foundation.org.ai, standards.org.ai, law.org.ai and insurance.org.ai use).
+Every Schema.org term, as published, and the .org.ai superset the Org.AI Foundation adds, in the Foundation's design (the one foundation.org.ai, standards.org.ai, law.org.ai and insurance.org.ai use).
 
 Each term has a page at `https://schema.org.ai/<Name>`, with its JSON-LD at `/<Name>.json` and Markdown at `/<Name>.md` (also `/api/<Name>/json` and `/api/<Name>/md`). Every address the previous site served still answers, with JSON in the same shape.
+
+For search engines, AI crawlers and agents, the build also writes the Foundation's discovery set, the same on every Foundation site: `robots.txt` (every crawler allowed, `Content-Signal: search=yes, ai-input=yes, ai-train=yes`), `sitemap.xml`, `llms.txt` and `llms-full.txt` (every term in one file), `index.json` (the site's pages and machine faces, and the Foundation's MCP server at `https://foundation.org.ai/mcp`), a markdown twin of every page (`/index.md`, `/types.md`, `/properties.md`, `/<Name>.md`, also served for `Accept: text/markdown`), and JSON-LD on every page (the Foundation, the site, the page and its breadcrumbs, and the vocabulary or the term it shows). The Worker sends plain http on schema.org.ai to https, and marks every other host noindex.
 
 ## Where the words come from
 
@@ -27,8 +29,10 @@ To preview locally, leave the share cards out: `wrangler dev` cannot hold all 12
 
 ```sh
 rsync -a --delete --exclude og public/ /tmp/schema-preview/
-npx wrangler dev --assets /tmp/schema-preview
+npx wrangler dev --assets /tmp/schema-preview --port 8787 --local-upstream 127.0.0.1:8787
 ```
+
+`--local-upstream` keeps the local address as the page's host. Without it, `wrangler dev` presents requests as `http://schema.org.ai/...`, and the Worker sends each one to https.
 
 Rollback to the site this replaced: `npx wrangler rollback a7a789ae-320d-4995-a018-5c93b023a935`.
 

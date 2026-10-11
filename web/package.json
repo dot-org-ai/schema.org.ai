@@ -1,7 +1,7 @@
 {
   "name": "schema-org-ai-site",
   "private": true,
-  "description": "schema.org.ai: Schema.org, copied word for word, and the .org.ai superset, in the Org.AI Foundation's design.",
+  "description": "schema.org.ai: Schema.org as published, and the .org.ai superset, in the Org.AI Foundation's design.",
   "type": "module",
   "scripts": {
     "build": "node scripts/og.mjs && node build.mjs",
