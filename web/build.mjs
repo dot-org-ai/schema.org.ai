@@ -29,6 +29,9 @@ const SITE = "https://schema.org.ai";
 const RELEASE = { version: "30.1", date: "16 September 2026", file: "schemaorg-30.1.jsonld" };
 const read = (p) => readFileSync(join(ROOT, p), "utf8");
 const sha = (s) => createHash("sha1").update(s).digest("hex");
+// the icons are addressed by their content: browsers keep a site's icon in a store of their own, and this site's
+// previous icons were served at these same paths, so a new mark needs a new address to be seen
+const ICON_V = Object.fromEntries(["favicon.ico", "favicon.svg", "apple-touch-icon.png"].map((f) => [f, sha(readFileSync(join(ROOT, "src", f))).slice(0, 8)]));
 
 const v = loadVocab(join(ROOT, "data", RELEASE.file), join(ROOT, "..", "extensions.jsonld"));
 const pages = [...v.pages.values()];
@@ -146,9 +149,9 @@ ${url ? `<meta property="og:url" content="${url}">\n` : ""}<meta property="og:ti
 <meta property="og:image:alt" content="${esc(c.alt)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image:alt" content="${esc(c.alt)}">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico?v=${ICON_V["favicon.ico"]}" sizes="32x32">
+<link rel="icon" href="/favicon.svg?v=${ICON_V["favicon.svg"]}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=${ICON_V["apple-touch-icon.png"]}">
 <link rel="preload" href="/fonts/publicsans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/${ASSET.css}">
 <script src="/find.js" data-site="schema" defer></script>
