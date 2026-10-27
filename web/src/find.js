@@ -1,4 +1,5 @@
-/* The Org.AI Foundation's search, the same on every one of its sites (foundation, schema, standards, law, insurance).
+/* The Org.AI Foundation's search, the same on every one of its sites (foundation, schema, standards, law, insurance, and
+   the .md register's three hosts: md, todo and agents).
    The magnifier in the header, ⌘K (Ctrl K) or "/" opens it: a palette on a wide screen, a tray from the bottom on a phone.
    From any site it finds the occupations in the record, Schema.org's terms, every site's own pages, and the sites.
 
@@ -9,7 +10,7 @@
   "use strict";
   const me = document.currentScript;
   const SITE = (me && me.dataset.site) || "foundation";
-  const HOME = { foundation: "https://foundation.org.ai", schema: "https://schema.org.ai", standards: "https://standards.org.ai", law: "https://law.org.ai", insurance: "https://insurance.org.ai" };
+  const HOME = { foundation: "https://foundation.org.ai", schema: "https://schema.org.ai", standards: "https://standards.org.ai", law: "https://law.org.ai", insurance: "https://insurance.org.ai", md: "https://md.org.ai", todo: "https://todo.md.org.ai", agents: "https://agents.md.org.ai" };
   // a page of this site keeps its own address (so a local copy stays local); another site's is absolute
   const at = (site, path) => (site === SITE ? path : HOME[site] + path);
   const host = (site) => HOME[site].replace("https://", "");
@@ -130,6 +131,12 @@
     { s: "insurance", t: "The licensed act", d: "Who may sell, solicit or negotiate insurance", p: "/#the-licensed-act", k: "insurance license producer licensed act" },
     { s: "insurance", t: "The method", d: "Inherited, unchanged, from law.org.ai", p: "/#the-method", k: "insurance method" },
     { s: "insurance", t: "Where it comes from", d: "Every claim names a primary source", p: "/#where-it-comes-from", k: "insurance sources" },
+    { s: "md", t: "The .md register", d: "Every .md standard, served or planned", p: "/#register", k: "md markdown register standards frontmatter placeholder auth context skill design" },
+    { s: "md", t: "The three keys", d: "$id, $type and $context, the whole addition", p: "/#what", k: "frontmatter id type context mdxld keys" },
+    { s: "todo", t: "TODO.md", d: "A task list a machine can also read", p: "/", k: "todo task list itemlist gfm checkbox" },
+    { s: "todo", t: "The canonical TODO.md", d: "The file itself, as Markdown", p: "/TODO.md", k: "todo file template example" },
+    { s: "agents", t: "AGENTS.md", d: "A frontmatter profile of the Agentic AI Foundation's format", p: "/", k: "agents agent instructions coding techarticle aaif" },
+    { s: "agents", t: "The canonical AGENTS.md", d: "A real example, as Markdown", p: "/AGENTS.md", k: "agents file example" },
   ];
   // the sites, each in the words it uses for itself (the home page's "Open today", the programs' own cards)
   const SITES = [
@@ -138,6 +145,7 @@
     { s: "standards", t: "standards.org.ai", d: "The standards we keep, and the ones we write", h: HOME.standards },
     { s: "law", t: "law.org.ai", d: "Access to justice, with the lawyer kept in", h: HOME.law },
     { s: "insurance", t: "insurance.org.ai", d: "Three acts need a license, and 56 regulators issue it", h: HOME.insurance },
+    { s: "md", t: "md.org.ai", d: "The .md standards register", h: HOME.md, k: "md markdown todo agents frontmatter" },
     { t: "id.org.ai", d: "Sign-in for people and AI agents", h: "https://id.org.ai" },
     { t: "mdx.org.ai", d: "Documents that people and machines can both read", h: "https://mdx.org.ai" },
     { t: "primitives.org.ai", d: "The building blocks", h: "https://primitives.org.ai" },
